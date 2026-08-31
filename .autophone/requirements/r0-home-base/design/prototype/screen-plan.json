@@ -1,0 +1,18 @@
+{
+  "schema_version": "ui-prototype-plan/v1",
+  "product_type": "food-ordering",
+  "platform": "mobile",
+  "screens": [
+    {
+      "id": "home",
+      "purpose": "以固定离线推荐数据呈现 Food AI 基础首页，并提供推荐确认、切换和底部导航入口",
+      "sections": [
+        "header",
+        "intent-entry",
+        "recommendation",
+        "bottom-navigation"
+      ]
+    }
+  ],
+  "flows": []
+}
