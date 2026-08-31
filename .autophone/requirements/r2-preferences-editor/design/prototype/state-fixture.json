@@ -1,0 +1,68 @@
+{
+  "schema_version": "ui-prototype-fixture/v1",
+  "state_id": "preferences.default.fixture-v1",
+  "data_sources": {
+    "spice_options": [
+      {
+        "value": "none",
+        "label": "不辣"
+      },
+      {
+        "value": "mild",
+        "label": "微辣"
+      },
+      {
+        "value": "medium",
+        "label": "中辣"
+      },
+      {
+        "value": "hot",
+        "label": "重辣"
+      }
+    ],
+    "budget_options": [
+      {
+        "value": "under_20",
+        "label": "¥20 以下"
+      },
+      {
+        "value": "20_35",
+        "label": "¥20–35"
+      },
+      {
+        "value": "35_50",
+        "label": "¥35–50"
+      },
+      {
+        "value": "unlimited",
+        "label": "不限"
+      }
+    ],
+    "avoid_options": [
+      {
+        "value": "cilantro",
+        "label": "香菜"
+      },
+      {
+        "value": "peanut",
+        "label": "花生"
+      },
+      {
+        "value": "dairy",
+        "label": "乳制品"
+      },
+      {
+        "value": "seafood",
+        "label": "海鲜"
+      }
+    ]
+  },
+  "values": {
+    "spice": "mild",
+    "budget": "20_35",
+    "avoid": []
+  },
+  "view": {
+    "summary": "微辣 · ¥20–35 · 无忌口"
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "schema_version": "prototype-render-spec/v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "entry": "index.html",
+  "node_scope": [
+    "preferences.header.back",
+    "preferences.header.title",
+    "preferences.spice.none",
+    "preferences.spice.mild",
+    "preferences.spice.medium",
+    "preferences.spice.hot",
+    "preferences.budget.under_20",
+    "preferences.budget.20_35",
+    "preferences.budget.35_50",
+    "preferences.budget.unlimited",
+    "preferences.avoid.cilantro",
+    "preferences.avoid.peanut",
+    "preferences.avoid.dairy",
+    "preferences.avoid.seafood",
+    "preferences.summary.label",
+    "preferences.summary",
+    "preferences.actions.reset",
+    "preferences.actions.save"
+  ],
+  "locale": "zh-CN",
+  "color_scheme": "light",
+  "packer_version": "autophone-prototype-packager/v2",
+  "property_scope": {
+    "preferences.header.back": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.header.title": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.spice.none": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.spice.mild": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.spice.medium": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.spice.hot": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.budget.under_20": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.budget.20_35": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.budget.35_50": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.budget.unlimited": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.avoid.cilantro": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.avoid.peanut": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.avoid.dairy": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.avoid.seafood": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.summary.label": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.summary": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.actions.reset": [
+      "text",
+      "resolved_style.backgroundColor",
+      "resolved_style.color",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.actions.save": [
+      "text",
+      "resolved_style.backgroundColor",
+      "resolved_style.color",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ]
+  }
+}
