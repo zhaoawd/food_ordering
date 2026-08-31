@@ -1,0 +1,36 @@
+{
+  "schema_version": "ui-prototype-fixture/v1",
+  "state_id": "home.preferences-applied.fixture-v1",
+  "data_sources": {},
+  "values": {
+    "cart_count": 2,
+    "recommendation_id": "beef-bowl-001",
+    "preferences_saved": true,
+    "preferences_save_revision": 1
+  },
+  "view": {
+    "location_label": "送至 · 望京",
+    "cart_icon": "袋",
+    "cart_count_label": "2",
+    "brand": "Food AI",
+    "headline": "今晚，好好吃一顿",
+    "intent_value": "想吃热乎的、微辣、别太油",
+    "submit_label": "→",
+    "match_label": "匹配度 96%",
+    "recommendation_title": "炙烤牛肉拌饭",
+    "recommendation_attributes": "热乎、微辣，预计 30 分钟送达",
+    "pagination": "1 / 4",
+    "price": "¥32",
+    "eta": "25–35 分钟 · 预计送达",
+    "primary_action": "立即下单",
+    "next_action": "换个口味",
+    "nav_home": "首页",
+    "nav_discover": "发现",
+    "nav_orders": "订单",
+    "nav_profile": "我的",
+    "savings": "限时立减 ¥6",
+    "saved_notice": "偏好已应用",
+    "preferences_summary": "中辣 · ¥20–35 · 不吃香菜",
+    "preferences_entry": "调偏好"
+  }
+}

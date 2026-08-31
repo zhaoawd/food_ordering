@@ -1,0 +1,956 @@
+{
+  "schema_version": "structured-design-package/v1",
+  "adapter": "ai-prototype-dsl/v2",
+  "toolchain": {
+    "packer": "autophone-prototype-packager/v2",
+    "renderer": "playwright/1.61.1",
+    "browser": "chromium/149.0.7827.55"
+  },
+  "screen_id": "home",
+  "state_id": "home.preferences-applied.fixture-v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "node_scope": [
+    "home.header.location",
+    "home.header.cart",
+    "home.preferences.saved_notice",
+    "home.preferences.summary",
+    "home.brand.wordmark",
+    "home.hero.headline",
+    "home.ai_prompt.input",
+    "home.ai_prompt.preferences",
+    "home.ai_prompt.submit",
+    "home.recommendation.match_score",
+    "home.recommendation.title",
+    "home.recommendation.attributes",
+    "home.recommendation.pagination",
+    "home.recommendation.price",
+    "home.recommendation.savings",
+    "home.recommendation.eta",
+    "home.recommendation.primary_action",
+    "home.recommendation.next_action",
+    "home.navigation.home",
+    "home.navigation.discover",
+    "home.navigation.orders",
+    "home.navigation.profile"
+  ],
+  "artifacts": [
+    {
+      "role": "reference",
+      "path": "reference.png",
+      "sha256": "188ef38626f4edb13fb8a828c7e9b9dabb051911042c755418db3826022da4eb"
+    },
+    {
+      "role": "review_reference",
+      "path": "review-reference.png",
+      "sha256": "33a1d3aa1b94e268818d033c97e7a8f77b1d071f379a4c0e9319bdf39d468d57"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/compiled-scene.json",
+      "sha256": "448c98f0e96130f5efd2b773158414f15e055cf62fb774d56cc14460d49c8223"
+    },
+    {
+      "role": "prototype",
+      "path": "prototype/compiled/index.html",
+      "sha256": "3d3a8dbaf9ca7fb176cc04833a6560a9960347776f5dcfba902f0883c930226a"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/renderer-spec.json",
+      "sha256": "daa7a52612bc923857366c3e22d328fb3b006e29de38ceb3adae9c0be92f5ea4"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/prototype-spec.json",
+      "sha256": "4b1c4419c21779fc0242c624e9a171c30cefdd9a4f1f1be61aa682e488336f86"
+    },
+    {
+      "role": "render_contract",
+      "path": "prototype/render-contract.json",
+      "sha256": "c8fc22a41836f99740180b3e2e3d432ecd215c1ca3d7b19cadf2d3c6f4ed4655"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/screen-plan.json",
+      "sha256": "bb0aec4e645f1c9f69be9d583bb96c2adf44e7ed899f7dba407313aef9d7e143"
+    },
+    {
+      "role": "fixture",
+      "path": "prototype/state-fixture.json",
+      "sha256": "7cf6fd9d9ba6d1446c3d770b8216f1d56df6ae52f51e9ae141e73f653e0458a9"
+    },
+    {
+      "role": "typography_contract",
+      "path": "prototype/typography-contract.json",
+      "sha256": "b69b5dbe03d030dc15b8d106fb15c03647b90a48771211b71f2c94815af44c00"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/ui-document.json",
+      "sha256": "9191f851373043b90e49d40bff990d24e79f534d06c157e6d86ea3d0952c28d4"
+    }
+  ],
+  "elements": [
+    {
+      "node_id": "home.header.location",
+      "stable_id": "home.header.location",
+      "properties": [
+        {
+          "property": "text",
+          "value": "送至 · 望京"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "18"
+        },
+        {
+          "property": "frame.y",
+          "value": "70.5"
+        },
+        {
+          "property": "frame.width",
+          "value": "120"
+        },
+        {
+          "property": "frame.height",
+          "value": "21"
+        }
+      ]
+    },
+    {
+      "node_id": "home.header.cart",
+      "stable_id": "home.header.cart",
+      "properties": [
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "19"
+        },
+        {
+          "property": "frame.x",
+          "value": "374"
+        },
+        {
+          "property": "frame.y",
+          "value": "62"
+        },
+        {
+          "property": "frame.width",
+          "value": "38"
+        },
+        {
+          "property": "frame.height",
+          "value": "38"
+        }
+      ]
+    },
+    {
+      "node_id": "home.preferences.saved_notice",
+      "stable_id": "home.preferences.saved_notice",
+      "properties": [
+        {
+          "property": "text",
+          "value": "偏好已应用"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "13"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "29"
+        },
+        {
+          "property": "frame.y",
+          "value": "115"
+        },
+        {
+          "property": "frame.width",
+          "value": "80"
+        },
+        {
+          "property": "frame.height",
+          "value": "26"
+        }
+      ]
+    },
+    {
+      "node_id": "home.preferences.summary",
+      "stable_id": "home.preferences.summary",
+      "properties": [
+        {
+          "property": "text",
+          "value": "中辣 · ¥20–35 · 不吃香菜"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "14"
+        },
+        {
+          "property": "frame.x",
+          "value": "119"
+        },
+        {
+          "property": "frame.y",
+          "value": "118"
+        },
+        {
+          "property": "frame.width",
+          "value": "282"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "home.brand.wordmark",
+      "stable_id": "home.brand.wordmark",
+      "properties": [
+        {
+          "property": "text",
+          "value": "Food AI"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "26"
+        },
+        {
+          "property": "frame.x",
+          "value": "21"
+        },
+        {
+          "property": "frame.y",
+          "value": "161"
+        },
+        {
+          "property": "frame.width",
+          "value": "120"
+        },
+        {
+          "property": "frame.height",
+          "value": "34"
+        }
+      ]
+    },
+    {
+      "node_id": "home.hero.headline",
+      "stable_id": "home.hero.headline",
+      "properties": [
+        {
+          "property": "text",
+          "value": "今晚，好好吃一顿"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "32"
+        },
+        {
+          "property": "frame.x",
+          "value": "21"
+        },
+        {
+          "property": "frame.y",
+          "value": "198"
+        },
+        {
+          "property": "frame.width",
+          "value": "360"
+        },
+        {
+          "property": "frame.height",
+          "value": "46"
+        }
+      ]
+    },
+    {
+      "node_id": "home.ai_prompt.input",
+      "stable_id": "home.ai_prompt.input",
+      "properties": [
+        {
+          "property": "text",
+          "value": "想吃热乎的、微辣、别太油"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "14"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "264"
+        },
+        {
+          "property": "frame.width",
+          "value": "240"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "home.ai_prompt.preferences",
+      "stable_id": "home.ai_prompt.preferences",
+      "properties": [
+        {
+          "property": "text",
+          "value": "调偏好"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "14"
+        },
+        {
+          "property": "frame.x",
+          "value": "302"
+        },
+        {
+          "property": "frame.y",
+          "value": "256"
+        },
+        {
+          "property": "frame.width",
+          "value": "60"
+        },
+        {
+          "property": "frame.height",
+          "value": "36"
+        }
+      ]
+    },
+    {
+      "node_id": "home.ai_prompt.submit",
+      "stable_id": "home.ai_prompt.submit",
+      "properties": [
+        {
+          "property": "text",
+          "value": "→"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "18"
+        },
+        {
+          "property": "frame.x",
+          "value": "368.2031"
+        },
+        {
+          "property": "frame.y",
+          "value": "256"
+        },
+        {
+          "property": "frame.width",
+          "value": "35.7969"
+        },
+        {
+          "property": "frame.height",
+          "value": "36"
+        }
+      ]
+    },
+    {
+      "node_id": "home.recommendation.match_score",
+      "stable_id": "home.recommendation.match_score",
+      "properties": [
+        {
+          "property": "text",
+          "value": "匹配度 96%"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "10"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "611"
+        },
+        {
+          "property": "frame.width",
+          "value": "100"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "home.recommendation.title",
+      "stable_id": "home.recommendation.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "炙烤牛肉拌饭"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "24"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "637"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "31"
+        }
+      ]
+    },
+    {
+      "node_id": "home.recommendation.attributes",
+      "stable_id": "home.recommendation.attributes",
+      "properties": [
+        {
+          "property": "text",
+          "value": "热乎、微辣，预计 30 分钟送达"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "14"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "674"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "home.recommendation.pagination",
+      "stable_id": "home.recommendation.pagination",
+      "properties": [
+        {
+          "property": "text",
+          "value": "1 / 4"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "700"
+        },
+        {
+          "property": "frame.width",
+          "value": "50"
+        },
+        {
+          "property": "frame.height",
+          "value": "14"
+        }
+      ]
+    },
+    {
+      "node_id": "home.recommendation.price",
+      "stable_id": "home.recommendation.price",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥32"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "23"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "737.5"
+        },
+        {
+          "property": "frame.width",
+          "value": "56"
+        },
+        {
+          "property": "frame.height",
+          "value": "29"
+        }
+      ]
+    },
+    {
+      "node_id": "home.recommendation.savings",
+      "stable_id": "home.recommendation.savings",
+      "properties": [
+        {
+          "property": "text",
+          "value": "限时立减 ¥6"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "13"
+        },
+        {
+          "property": "frame.x",
+          "value": "92"
+        },
+        {
+          "property": "frame.y",
+          "value": "739"
+        },
+        {
+          "property": "frame.width",
+          "value": "120"
+        },
+        {
+          "property": "frame.height",
+          "value": "26"
+        }
+      ]
+    },
+    {
+      "node_id": "home.recommendation.eta",
+      "stable_id": "home.recommendation.eta",
+      "properties": [
+        {
+          "property": "text",
+          "value": "25–35 分钟 · 预计送达"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "13"
+        },
+        {
+          "property": "frame.x",
+          "value": "245"
+        },
+        {
+          "property": "frame.y",
+          "value": "743"
+        },
+        {
+          "property": "frame.width",
+          "value": "163"
+        },
+        {
+          "property": "frame.height",
+          "value": "18"
+        }
+      ]
+    },
+    {
+      "node_id": "home.recommendation.primary_action",
+      "stable_id": "home.recommendation.primary_action",
+      "properties": [
+        {
+          "property": "text",
+          "value": "立即下单"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "774"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "46"
+        }
+      ]
+    },
+    {
+      "node_id": "home.recommendation.next_action",
+      "stable_id": "home.recommendation.next_action",
+      "properties": [
+        {
+          "property": "text",
+          "value": "换个口味"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "826"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "28"
+        }
+      ]
+    },
+    {
+      "node_id": "home.navigation.home",
+      "stable_id": "home.navigation.home",
+      "properties": [
+        {
+          "property": "text",
+          "value": "首页"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "9"
+        },
+        {
+          "property": "frame.y",
+          "value": "868"
+        },
+        {
+          "property": "frame.width",
+          "value": "103"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "node_id": "home.navigation.discover",
+      "stable_id": "home.navigation.discover",
+      "properties": [
+        {
+          "property": "text",
+          "value": "发现"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "frame.x",
+          "value": "112"
+        },
+        {
+          "property": "frame.y",
+          "value": "868"
+        },
+        {
+          "property": "frame.width",
+          "value": "103"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "node_id": "home.navigation.orders",
+      "stable_id": "home.navigation.orders",
+      "properties": [
+        {
+          "property": "text",
+          "value": "订单"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "frame.x",
+          "value": "215"
+        },
+        {
+          "property": "frame.y",
+          "value": "868"
+        },
+        {
+          "property": "frame.width",
+          "value": "103"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "node_id": "home.navigation.profile",
+      "stable_id": "home.navigation.profile",
+      "properties": [
+        {
+          "property": "text",
+          "value": "我的"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "frame.x",
+          "value": "318"
+        },
+        {
+          "property": "frame.y",
+          "value": "868"
+        },
+        {
+          "property": "frame.width",
+          "value": "103"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    }
+  ],
+  "mapping_gaps": [],
+  "typography_contract": {
+    "path": "prototype/typography-contract.json",
+    "sha256": "b69b5dbe03d030dc15b8d106fb15c03647b90a48771211b71f2c94815af44c00"
+  },
+  "render_contract": {
+    "path": "prototype/render-contract.json",
+    "sha256": "c8fc22a41836f99740180b3e2e3d432ecd215c1ca3d7b19cadf2d3c6f4ed4655"
+  },
+  "comparison_policy": {
+    "pixel_scope": "expected_alpha",
+    "text_ink_verification": "ink_geometry",
+    "text_ink_stable_ids": [
+      "home.header.location",
+      "home.preferences.saved_notice",
+      "home.preferences.summary",
+      "home.brand.wordmark",
+      "home.hero.headline",
+      "home.ai_prompt.input",
+      "home.ai_prompt.preferences",
+      "home.ai_prompt.submit",
+      "home.recommendation.match_score",
+      "home.recommendation.title",
+      "home.recommendation.attributes",
+      "home.recommendation.pagination",
+      "home.recommendation.price",
+      "home.recommendation.savings",
+      "home.recommendation.eta",
+      "home.recommendation.primary_action",
+      "home.recommendation.next_action",
+      "home.navigation.home",
+      "home.navigation.discover",
+      "home.navigation.orders",
+      "home.navigation.profile"
+    ],
+    "max_text_ink_width_delta_ratio": 0.02,
+    "max_text_ink_height_delta_ratio": 0.06,
+    "max_text_ink_area_delta_ratio": 0.09,
+    "flat_color_geometry_verification": "component_bounds",
+    "flat_color_geometry_targets": [
+      {
+        "stable_id": "home.preferences.saved_notice",
+        "color": "#F7D7B5"
+      },
+      {
+        "stable_id": "home.ai_prompt.preferences",
+        "color": "#F7D7B5"
+      },
+      {
+        "stable_id": "home.recommendation.savings",
+        "color": "#E6472F"
+      },
+      {
+        "stable_id": "home.recommendation.primary_action",
+        "color": "#E6472F"
+      }
+    ],
+    "max_flat_color_bounds_delta_px": 1
+  },
+  "comparison_mask": {
+    "mode": "flat_color_interiors",
+    "strategy": "design_owned_stable_regions",
+    "input_domain": "design_reference_only",
+    "include_colors": [
+      "#FFF8EF",
+      "#FFFFFF",
+      "#F7D7B5",
+      "#E6472F",
+      "#7E3825"
+    ],
+    "included_classes": [
+      "solid_backgrounds",
+      "component_interiors",
+      "stable_fill_regions"
+    ],
+    "excluded_classes": [
+      "undeclared_colors",
+      "text_glyph_edges",
+      "thin_stroke_edges",
+      "platform_symbol_edges",
+      "declared_color_edges"
+    ],
+    "edge_inset_px": 12,
+    "minimum_content_coverage_ratio": 0.12,
+    "selected_pixels": 1954662,
+    "content_pixels": 3235320,
+    "content_coverage_ratio": 0.60416342,
+    "review_reference": "review-reference.png"
+  }
+}

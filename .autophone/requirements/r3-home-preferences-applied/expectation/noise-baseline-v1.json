@@ -1,0 +1,154 @@
+{
+  "schema_version": "delivery-visual-noise-baseline/v1",
+  "req_id": "REQ-20260831-006",
+  "iteration_id": "PRE-ITERATION-HOMEPREF",
+  "screen_id": "home",
+  "state_id": "home.preferences-applied.fixture-v1",
+  "build": {
+    "app": "food_ordering_v2",
+    "slot": "001",
+    "build_id": "bld-a89b478f3473e78f997a45d1ad6f5865e8d391fee5504931138b54a1454f7e3e",
+    "sha256": "a8019b561a3262465629c13b710bdc804de52b37b0c4794acecb3df583f6756d",
+    "source_revision": "source-tree-sha256:f23ebe10be6dfe8de3fbd575c7d58cdc70524b34e5fd09b333827a6ab1460c9e"
+  },
+  "environment": {
+    "device_profile": "vphone-ios26-default",
+    "theme": "light",
+    "locale": "en-US",
+    "frame_size": {
+      "width": 430,
+      "height": 932
+    },
+    "scale": 3,
+    "env_fingerprint": "vm-2607/430x932/en-US/light"
+  },
+  "pixel_scope": "expected_alpha",
+  "scope_reference": {
+    "path": "demo-verification/food-ordering/expected/runtime-golden-r0r3-home-prefs-20260831/expected-full.png",
+    "sha256": "354b0fb9d65ed776e331a451185a76db6a161d74d0fba05dcc504bc1b681aec3",
+    "selected_pixels": 3606840
+  },
+  "captures": [
+    {
+      "run_id": "R0R3-GOLDEN-HOMEPREF-20260831-01",
+      "artifact_manifest": {
+        "path": "runs/delivery/20260831/R0R3-GOLDEN-HOMEPREF-20260831-01/capture/actual/artifact-manifest.json",
+        "sha256": "39876ab9536326304a51b1ae63b0b416eee230dbc3e5513812a0634ab641d93b"
+      },
+      "image": {
+        "path": "runs/delivery/20260831/R0R3-GOLDEN-HOMEPREF-20260831-01/capture/actual/actual-full.png",
+        "sha256": "354b0fb9d65ed776e331a451185a76db6a161d74d0fba05dcc504bc1b681aec3"
+      }
+    },
+    {
+      "run_id": "R0R3-GOLDEN-HOMEPREF-20260831-02",
+      "artifact_manifest": {
+        "path": "runs/delivery/20260831/R0R3-GOLDEN-HOMEPREF-20260831-02/capture/actual/artifact-manifest.json",
+        "sha256": "c55b01e2aee5d66386c23015f3c22f1b57f018c1fd6f5b2031fc74119b656333"
+      },
+      "image": {
+        "path": "runs/delivery/20260831/R0R3-GOLDEN-HOMEPREF-20260831-02/capture/actual/actual-full.png",
+        "sha256": "1b205b0787a045f0a34aff932caddc880d3c5852c685b8e177031e87ea9c34c1"
+      }
+    },
+    {
+      "run_id": "R0R3-GOLDEN-HOMEPREF-20260831-03",
+      "artifact_manifest": {
+        "path": "runs/delivery/20260831/R0R3-GOLDEN-HOMEPREF-20260831-03/capture/actual/artifact-manifest.json",
+        "sha256": "f784b79a97bd5b2194dfa478dd3dee87b3a0cd921bc5715c213487f72c63694f"
+      },
+      "image": {
+        "path": "runs/delivery/20260831/R0R3-GOLDEN-HOMEPREF-20260831-03/capture/actual/actual-full.png",
+        "sha256": "4d171c79f6a1afb9fb6249c9539cb786f88608d3f15f8cf92e596b3cef6820f5"
+      }
+    }
+  ],
+  "pairwise_results": [
+    {
+      "left_run_id": "R0R3-GOLDEN-HOMEPREF-20260831-01",
+      "right_run_id": "R0R3-GOLDEN-HOMEPREF-20260831-02",
+      "changed_pixels": 2421,
+      "changed_pixel_ratio": 0.00067122467312107,
+      "max_channel_delta": 255
+    },
+    {
+      "left_run_id": "R0R3-GOLDEN-HOMEPREF-20260831-01",
+      "right_run_id": "R0R3-GOLDEN-HOMEPREF-20260831-03",
+      "changed_pixels": 2716,
+      "changed_pixel_ratio": 0.0007530137183795234,
+      "max_channel_delta": 255
+    },
+    {
+      "left_run_id": "R0R3-GOLDEN-HOMEPREF-20260831-02",
+      "right_run_id": "R0R3-GOLDEN-HOMEPREF-20260831-03",
+      "changed_pixels": 1633,
+      "changed_pixel_ratio": 0.00045275088443069277,
+      "max_channel_delta": 255
+    }
+  ],
+  "noise_envelope": {
+    "pixel_channel_tolerance": 255,
+    "max_changed_pixel_ratio": 0.0007530137183795234
+  },
+  "policy_headroom": {
+    "purpose": "把实测包络乘上系数供人选 design lock 的 --max-changed-pixel-ratio；脚本不替人决定",
+    "observed_max_changed_pixel_ratio": 0.0007530137183795234,
+    "candidates": {
+      "2": 0.0015060274367590467,
+      "4": 0.0030120548735180935,
+      "8": 0.006024109747036187
+    },
+    "reference_point": "R1（home.default）实测 0.0005789，策略取 0.0025，约 4.3×"
+  },
+  "excluded_scope_diagnostics": {
+    "purpose": "记录 pixel_scope 选中范围以外的整屏变化（系统状态栏等）",
+    "union_changed_bbox_native_px": [
+      170,
+      68,
+      316,
+      108
+    ],
+    "pairwise_results": [
+      {
+        "left_run_id": "R0R3-GOLDEN-HOMEPREF-20260831-01",
+        "right_run_id": "R0R3-GOLDEN-HOMEPREF-20260831-02",
+        "changed_pixels": 2421,
+        "changed_pixel_ratio": 0.00067122467312107,
+        "changed_bbox_native_px": [
+          171,
+          68,
+          314,
+          108
+        ],
+        "within_selected_scope": 2421
+      },
+      {
+        "left_run_id": "R0R3-GOLDEN-HOMEPREF-20260831-01",
+        "right_run_id": "R0R3-GOLDEN-HOMEPREF-20260831-03",
+        "changed_pixels": 2716,
+        "changed_pixel_ratio": 0.0007530137183795234,
+        "changed_bbox_native_px": [
+          170,
+          68,
+          316,
+          108
+        ],
+        "within_selected_scope": 2716
+      },
+      {
+        "left_run_id": "R0R3-GOLDEN-HOMEPREF-20260831-02",
+        "right_run_id": "R0R3-GOLDEN-HOMEPREF-20260831-03",
+        "changed_pixels": 1633,
+        "changed_pixel_ratio": 0.00045275088443069277,
+        "changed_bbox_native_px": [
+          170,
+          68,
+          316,
+          108
+        ],
+        "within_selected_scope": 1633
+      }
+    ]
+  },
+  "method": "对同一 golden Build（food_ordering_v2 slot 001）的 3 次独立采集做全分辨率 RGB 两两比较，通道容差 0，范围限定在pixel_scope=expected_alpha 选中的像素；范围外的整屏变化单独留作诊断。"
+}

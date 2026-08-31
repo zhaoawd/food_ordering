@@ -1,0 +1,25 @@
+{
+  "schema_version": "ui-prototype-plan/v1",
+  "product_type": "food-ordering",
+  "platform": "mobile",
+  "screens": [
+    {
+      "id": "home",
+      "purpose": "在已验收 R2 产品基线上显示一次性偏好应用提示和持续偏好摘要，同时保持推荐详情、操作区和底部导航位置",
+      "sections": [
+        "header",
+        "preferences-feedback",
+        "intent-entry",
+        "recommendation",
+        "bottom-navigation"
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "from": "home",
+      "event": "preferences_notice_timeout",
+      "to": "home"
+    }
+  ]
+}

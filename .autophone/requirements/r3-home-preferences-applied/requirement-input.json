@@ -1,0 +1,234 @@
+{
+  "app": "food_ordering_v2",
+  "baseline": {
+    "branch": "autophone/req-r2-preferences-editor",
+    "requirement_key": "r2-preferences-editor"
+  },
+  "branch": "autophone/req-r3-home-preferences-applied",
+  "design_package": {
+    "adapter": "ai-prototype-dsl/v2",
+    "element_count": 22,
+    "frame_size": {
+      "height": 932,
+      "width": 430
+    },
+    "manifest_sha256": "0ee41c0546e5e245b88c766a25944df3e4d47058720be10617cece9261cb0702",
+    "origin": {
+      "path": "demo-verification/food-ordering/greenfield-replay-20260826/design/r3-home-preferences-applied/package-v6",
+      "repo": "autophone"
+    },
+    "role": "design_source",
+    "root": "design",
+    "scale": 3,
+    "schema_version": "structured-design-package/v1",
+    "stable_ids": [
+      "home.ai_prompt.input",
+      "home.ai_prompt.preferences",
+      "home.ai_prompt.submit",
+      "home.brand.wordmark",
+      "home.header.cart",
+      "home.header.location",
+      "home.hero.headline",
+      "home.navigation.discover",
+      "home.navigation.home",
+      "home.navigation.orders",
+      "home.navigation.profile",
+      "home.preferences.saved_notice",
+      "home.preferences.summary",
+      "home.recommendation.attributes",
+      "home.recommendation.eta",
+      "home.recommendation.match_score",
+      "home.recommendation.next_action",
+      "home.recommendation.pagination",
+      "home.recommendation.price",
+      "home.recommendation.primary_action",
+      "home.recommendation.savings",
+      "home.recommendation.title"
+    ]
+  },
+  "expectation": {
+    "clauses": [
+      {
+        "clause_id": "C1",
+        "expect": "#347C45",
+        "property": "resolved_style.color",
+        "stable_id": "home.preferences.saved_notice",
+        "text": "偏好生效提示使用成功绿 #347C45"
+      },
+      {
+        "clause_id": "C2",
+        "expect": "#B94A00",
+        "property": "resolved_style.color",
+        "stable_id": "home.preferences.summary",
+        "text": "偏好摘要文字使用品牌橙 #B94A00"
+      },
+      {
+        "clause_id": "C3",
+        "expect": "#FFF9F1",
+        "property": "resolved_style.backgroundColor",
+        "stable_id": "home.preferences.summary",
+        "text": "偏好摘要底色为浅橙 #FFF9F1"
+      }
+    ],
+    "comparison_policy": {
+      "frame_tolerance_pt": 0.5,
+      "max_changed_pixel_ratio": 0.006,
+      "pixel_channel_tolerance": 0,
+      "pixel_scope": "expected_alpha"
+    },
+    "kind": "prd",
+    "noise_baseline": {
+      "path": "expectation/noise-baseline-v1.json",
+      "sha256": "83dd03781e49b5af54f466521da7a8ccdb51b2da7a7f95a7fe83c220e81e5f5a"
+    },
+    "property_channels": "sha256:21e0fac5cd4a0093d41a780c9ece36efae8b4b3b5cbc7d85bea3af586e350b80",
+    "reference": {
+      "path": "expectation/expected-full.png",
+      "sha256": "354b0fb9d65ed776e331a451185a76db6a161d74d0fba05dcc504bc1b681aec3"
+    },
+    "required_property_policy": "production-v1",
+    "role": "executable_expectation",
+    "unverifiable_clauses": []
+  },
+  "files": [
+    {
+      "bytes": 3405,
+      "kind": "requirement_document",
+      "origin": "authored",
+      "path": "requirement.md",
+      "purpose": "需求原文。页面上传的就是这个文件，建单时冻结成需求单的原始输入快照。",
+      "sha256": "b63ca49afd927a507de75814920d748f2343df3d5cd46e3a2318eb5137bf4f18"
+    },
+    {
+      "bytes": 22560,
+      "kind": "design_package_manifest",
+      "origin": "compiled",
+      "path": "design/design-package.json",
+      "purpose": "设计源包身份与清单：屏/状态、frame、scale、逐元素属性和比较策略。它用于设计追溯，不作为本轮机器可执行期望。",
+      "sha256": "0ee41c0546e5e245b88c766a25944df3e4d47058720be10617cece9261cb0702"
+    },
+    {
+      "bytes": 12429,
+      "kind": "design_compiled_scene",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/compiled-scene.json",
+      "purpose": "编译后的场景节点与测量值。stable_id → 属性期望的映射来源。",
+      "sha256": "448c98f0e96130f5efd2b773158414f15e055cf62fb774d56cc14460d49c8223"
+    },
+    {
+      "bytes": 9415,
+      "kind": "design_compiled_prototype",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/index.html",
+      "purpose": "编译器生成的可执行原型 HTML。参考图由它渲染，不手工编辑。",
+      "sha256": "3d3a8dbaf9ca7fb176cc04833a6560a9960347776f5dcfba902f0883c930226a"
+    },
+    {
+      "bytes": 5598,
+      "kind": "design_renderer_spec",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/renderer-spec.json",
+      "purpose": "渲染器输入参数。参考图能否复现取决于它。",
+      "sha256": "daa7a52612bc923857366c3e22d328fb3b006e29de38ceb3adae9c0be92f5ea4"
+    },
+    {
+      "bytes": 2379,
+      "kind": "design_prototype_spec",
+      "origin": "authored",
+      "path": "design/prototype/prototype-spec.json",
+      "purpose": "设计原始内容：草稿装配说明——viewport profile、safe area、系统 UI 策略与逐元素验收范围。",
+      "sha256": "4b1c4419c21779fc0242c624e9a171c30cefdd9a4f1f1be61aa682e488336f86"
+    },
+    {
+      "bytes": 501,
+      "kind": "design_render_contract",
+      "origin": "authored",
+      "path": "design/prototype/render-contract.json",
+      "purpose": "设计原始内容：渲染契约——渲染器、浏览器、缩放与有效像素范围。",
+      "sha256": "c8fc22a41836f99740180b3e2e3d432ecd215c1ca3d7b19cadf2d3c6f4ed4655"
+    },
+    {
+      "bytes": 596,
+      "kind": "design_screen_plan",
+      "origin": "authored",
+      "path": "design/prototype/screen-plan.json",
+      "purpose": "设计原始内容：页面目的、区块划分与页面流。不含设计节点。",
+      "sha256": "bb0aec4e645f1c9f69be9d583bb96c2adf44e7ed899f7dba407313aef9d7e143"
+    },
+    {
+      "bytes": 1159,
+      "kind": "design_state_fixture",
+      "origin": "authored",
+      "path": "design/prototype/state-fixture.json",
+      "purpose": "设计原始内容：Fixture Spec，业务状态的独立真源（选项、列表、文案样例）。",
+      "sha256": "7cf6fd9d9ba6d1446c3d770b8216f1d56df6ae52f51e9ae141e73f653e0458a9"
+    },
+    {
+      "bytes": 5604,
+      "kind": "design_typography_contract",
+      "origin": "authored",
+      "path": "design/prototype/typography-contract.json",
+      "purpose": "设计原始内容：字体栈与字号契约。字体栈声明不等就不能复用墨迹基线。",
+      "sha256": "b69b5dbe03d030dc15b8d106fb15c03647b90a48771211b71f2c94815af44c00"
+    },
+    {
+      "bytes": 35753,
+      "kind": "design_ui_document",
+      "origin": "authored",
+      "path": "design/prototype/ui-document.json",
+      "purpose": "设计原始内容：UI DSL 节点树，设计的唯一真源。布局、Token 引用和 stable_id 都在这里。",
+      "sha256": "9191f851373043b90e49d40bff990d24e79f534d06c157e6d86ea3d0952c28d4"
+    },
+    {
+      "bytes": 210772,
+      "kind": "design_reference_image",
+      "origin": "rendered",
+      "path": "design/reference.png",
+      "purpose": "设计参考图（1290×2796 PNG）。它由编译原型渲染，用于设计叙事；本轮全视觉比较使用 expectation 下的 runtime golden。",
+      "sha256": "188ef38626f4edb13fb8a828c7e9b9dabb051911042c755418db3826022da4eb"
+    },
+    {
+      "bytes": 199354,
+      "kind": "design_review_reference_image",
+      "origin": "rendered",
+      "path": "design/review-reference.png",
+      "purpose": "评审参考图：viewport scope 之后、遮罩之前的那一帧。遮罩覆盖率的分母只能从它复算。",
+      "sha256": "33a1d3aa1b94e268818d033c97e7a8f77b1d071f379a4c0e9319bdf39d468d57"
+    },
+    {
+      "bytes": 3031197,
+      "kind": "expectation_reference_image",
+      "origin": "rendered",
+      "path": "expectation/expected-full.png",
+      "purpose": "机器可执行期望的运行时参考图。D0 全视觉比较使用这份位图，不使用设计叙事包的参考图。",
+      "sha256": "354b0fb9d65ed776e331a451185a76db6a161d74d0fba05dcc504bc1b681aec3"
+    },
+    {
+      "bytes": 5562,
+      "kind": "expectation_noise_baseline",
+      "origin": "compiled",
+      "path": "expectation/noise-baseline-v1.json",
+      "purpose": "机器可执行期望的噪声基线。由同一干净构建的重复采样计算，限定允许的视觉残差。",
+      "sha256": "83dd03781e49b5af54f466521da7a8ccdb51b2da7a7f95a7fe83c220e81e5f5a"
+    }
+  ],
+  "packed_at": "2026-08-31T23:27:28Z",
+  "packed_by": "pack_r0_r3_requirement_inputs.py",
+  "requirement_document": {
+    "media_type": "text/markdown",
+    "path": "requirement.md",
+    "sha256": "b63ca49afd927a507de75814920d748f2343df3d5cd46e3a2318eb5137bf4f18"
+  },
+  "requirement_key": "r3-home-preferences-applied",
+  "round_role": "delivery",
+  "schema_version": "requirement-input-package/v1",
+  "screen_id": "home",
+  "sequence": 3,
+  "state_id": "home.preferences-applied.fixture-v1",
+  "summary": "保存偏好返回首页后，显示一次性「偏好已应用」提示与持续偏好摘要。",
+  "title": "偏好保存后首页回填",
+  "upstream": {
+    "commit_sha": "881b8832f9fa7d4f8b60ea73f63a5d202db5bed5",
+    "source_url": "https://github.com/adrianhajdin/food_ordering"
+  }
+}
