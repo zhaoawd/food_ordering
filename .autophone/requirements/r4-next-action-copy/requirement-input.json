@@ -1,0 +1,228 @@
+{
+  "app": "food_ordering_v2",
+  "baseline": {
+    "branch": "autophone/req-r3-home-preferences-applied",
+    "requirement_key": "r3-home-preferences-applied"
+  },
+  "branch": "autophone/req-r4-next-action-copy",
+  "design_package": {
+    "adapter": "ai-prototype-dsl/v2",
+    "element_count": 19,
+    "frame_size": {
+      "height": 932,
+      "width": 430
+    },
+    "manifest_sha256": "e888dc6b9fb15f3c04461e889f7c1adf87486dcabdbaabb50023bbc3a92d16ac",
+    "origin": {
+      "path": "demo-verification/food-ordering/r4-next-action-20260903/design/package-v1",
+      "repo": "autophone"
+    },
+    "role": "design_source",
+    "root": "design",
+    "scale": 3,
+    "schema_version": "structured-design-package/v1",
+    "stable_ids": [
+      "home.ai_prompt.input",
+      "home.ai_prompt.submit",
+      "home.brand.wordmark",
+      "home.header.cart",
+      "home.header.location",
+      "home.hero.headline",
+      "home.navigation.discover",
+      "home.navigation.home",
+      "home.navigation.orders",
+      "home.navigation.profile",
+      "home.recommendation.attributes",
+      "home.recommendation.eta",
+      "home.recommendation.match_score",
+      "home.recommendation.next_action",
+      "home.recommendation.pagination",
+      "home.recommendation.price",
+      "home.recommendation.primary_action",
+      "home.recommendation.savings",
+      "home.recommendation.title"
+    ]
+  },
+  "expectation": {
+    "clauses": [
+      {
+        "clause_id": "C1",
+        "expect": "再来一道",
+        "stable_id": "home.recommendation.next_action",
+        "text": "次操作文案显示「再来一道」"
+      },
+      {
+        "clause_id": "C2",
+        "expect": "立即下单",
+        "stable_id": "home.recommendation.primary_action",
+        "text": "主操作文案保持「立即下单」"
+      }
+    ],
+    "comparison_policy": {
+      "frame_tolerance_pt": 0.5,
+      "max_changed_pixel_ratio": 0.004,
+      "pixel_channel_tolerance": 0,
+      "pixel_scope": "expected_alpha"
+    },
+    "kind": "prd",
+    "noise_baseline": {
+      "path": "expectation/noise-baseline-v1.json",
+      "sha256": "d12ad726770d5c5a7768764c095b096de0906b9dfd6696ae9d2529e8ccc936dd"
+    },
+    "property_channels": "sha256:21e0fac5cd4a0093d41a780c9ece36efae8b4b3b5cbc7d85bea3af586e350b80",
+    "reference": {
+      "path": "expectation/expected-full.png",
+      "sha256": "9a98503bcd00cff85bdd31fcf9bcf63c711d583bec28ea3a48631edc8c054554"
+    },
+    "required_property_policy": "production-v1",
+    "role": "executable_expectation",
+    "unverifiable_clauses": [
+      {
+        "clause_id": "B1",
+        "reason": "需要设备行为断言，本轮属性比较不直接判定",
+        "text": "点击次操作后切换到下一道推荐"
+      }
+    ]
+  },
+  "files": [
+    {
+      "bytes": 2334,
+      "kind": "requirement_document",
+      "origin": "authored",
+      "path": "requirement.md",
+      "purpose": "需求原文。页面上传的就是这个文件，建单时冻结成需求单的原始输入快照。",
+      "sha256": "368997f690e59b4133b10dbbb8d38b5bdfc777977ddfcebd288cd2758c89e1b0"
+    },
+    {
+      "bytes": 19584,
+      "kind": "design_package_manifest",
+      "origin": "compiled",
+      "path": "design/design-package.json",
+      "purpose": "设计源包身份与清单：屏/状态、frame、scale、逐元素属性和比较策略。它用于设计追溯，不作为本轮机器可执行期望。",
+      "sha256": "e888dc6b9fb15f3c04461e889f7c1adf87486dcabdbaabb50023bbc3a92d16ac"
+    },
+    {
+      "bytes": 10798,
+      "kind": "design_compiled_scene",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/compiled-scene.json",
+      "purpose": "编译后的场景节点与测量值。stable_id → 属性期望的映射来源。",
+      "sha256": "314dc87e964afed8bf098eea1db591f52fef1ace4b28ff5ffd9aff04b4486001"
+    },
+    {
+      "bytes": 8032,
+      "kind": "design_compiled_prototype",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/index.html",
+      "purpose": "编译器生成的可执行原型 HTML。参考图由它渲染，不手工编辑。",
+      "sha256": "20c5b525f99f34d033e4377f31731b65a62d5d6395872a2381388d3e4eb9cd02"
+    },
+    {
+      "bytes": 4785,
+      "kind": "design_renderer_spec",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/renderer-spec.json",
+      "purpose": "渲染器输入参数。参考图能否复现取决于它。",
+      "sha256": "50959a06b78af19fb18137d288cfd259aadf7f6d339f96307ee4f42965c2f5a0"
+    },
+    {
+      "bytes": 2048,
+      "kind": "design_prototype_spec",
+      "origin": "authored",
+      "path": "design/prototype/prototype-spec.json",
+      "purpose": "设计原始内容：草稿装配说明——viewport profile、safe area、系统 UI 策略与逐元素验收范围。",
+      "sha256": "acdf74570d985c5395b5830b1cd67d67b1c4b1a65ac704081360015c451c4926"
+    },
+    {
+      "bytes": 501,
+      "kind": "design_render_contract",
+      "origin": "authored",
+      "path": "design/prototype/render-contract.json",
+      "purpose": "设计原始内容：渲染契约——渲染器、浏览器、缩放与有效像素范围。",
+      "sha256": "c8fc22a41836f99740180b3e2e3d432ecd215c1ca3d7b19cadf2d3c6f4ed4655"
+    },
+    {
+      "bytes": 447,
+      "kind": "design_screen_plan",
+      "origin": "authored",
+      "path": "design/prototype/screen-plan.json",
+      "purpose": "设计原始内容：页面目的、区块划分与页面流。不含设计节点。",
+      "sha256": "0e875d3d549800d63352a0089fd29d2461f6c88e24cde6b9e06352e28c94eaec"
+    },
+    {
+      "bytes": 937,
+      "kind": "design_state_fixture",
+      "origin": "authored",
+      "path": "design/prototype/state-fixture.json",
+      "purpose": "设计原始内容：Fixture Spec，业务状态的独立真源（选项、列表、文案样例）。",
+      "sha256": "34ea445db2dfaec47aa502d25b84646e9910c82a8b7f520c22e657c62ef2e00f"
+    },
+    {
+      "bytes": 4874,
+      "kind": "design_typography_contract",
+      "origin": "authored",
+      "path": "design/prototype/typography-contract.json",
+      "purpose": "设计原始内容：字体栈与字号契约。字体栈声明不等就不能复用墨迹基线。",
+      "sha256": "f8e182ef567fbede852ef63e284b33389fc763eec9edc27b706ac683c121176f"
+    },
+    {
+      "bytes": 29658,
+      "kind": "design_ui_document",
+      "origin": "authored",
+      "path": "design/prototype/ui-document.json",
+      "purpose": "设计原始内容：UI DSL 节点树，设计的唯一真源。布局、Token 引用和 stable_id 都在这里。",
+      "sha256": "9cd433186a9904d86c28f4a1d789d167dd517bd46dd3d2492f870b07a18d6690"
+    },
+    {
+      "bytes": 174406,
+      "kind": "design_reference_image",
+      "origin": "rendered",
+      "path": "design/reference.png",
+      "purpose": "设计参考图（1290×2796 PNG）。它由编译原型渲染，用于设计叙事；本轮全视觉比较使用 expectation 下的 runtime golden。",
+      "sha256": "fdee59cbdf56ed3389653ebe26683151efb45f4f36608b6b1a8e8dae0c116fd2"
+    },
+    {
+      "bytes": 168975,
+      "kind": "design_review_reference_image",
+      "origin": "rendered",
+      "path": "design/review-reference.png",
+      "purpose": "评审参考图：viewport scope 之后、遮罩之前的那一帧。遮罩覆盖率的分母只能从它复算。",
+      "sha256": "d3766ee2728574dbfab8d807e0a2938e2f00fb01dce4f5b679019e542ec21ecd"
+    },
+    {
+      "bytes": 3174465,
+      "kind": "expectation_reference_image",
+      "origin": "rendered",
+      "path": "expectation/expected-full.png",
+      "purpose": "机器可执行期望的运行时参考图。D0 全视觉比较使用这份位图，不使用设计叙事包的参考图。",
+      "sha256": "9a98503bcd00cff85bdd31fcf9bcf63c711d583bec28ea3a48631edc8c054554"
+    },
+    {
+      "bytes": 5395,
+      "kind": "expectation_noise_baseline",
+      "origin": "compiled",
+      "path": "expectation/noise-baseline-v1.json",
+      "purpose": "机器可执行期望的噪声基线。由同一干净构建的重复采样计算，限定允许的视觉残差。",
+      "sha256": "d12ad726770d5c5a7768764c095b096de0906b9dfd6696ae9d2529e8ccc936dd"
+    }
+  ],
+  "packed_at": "2026-09-02T16:29:46Z",
+  "packed_by": "r4-next-action-20260903/pack_requirement_input.py",
+  "requirement_document": {
+    "media_type": "text/markdown",
+    "path": "requirement.md",
+    "sha256": "368997f690e59b4133b10dbbb8d38b5bdfc777977ddfcebd288cd2758c89e1b0"
+  },
+  "requirement_key": "r4-next-action-copy",
+  "round_role": "delivery",
+  "schema_version": "requirement-input-package/v1",
+  "screen_id": "home",
+  "sequence": 4,
+  "state_id": "home.default.fixture-v1",
+  "summary": "首页推荐卡次操作按钮文案由「换个口味」改为中性的「再来一道」，其余保持 R1 以来的首页默认态基线。",
+  "title": "推荐卡次操作文案改为「再来一道」",
+  "upstream": {
+    "commit_sha": "881b8832f9fa7d4f8b60ea73f63a5d202db5bed5",
+    "source_url": "https://github.com/adrianhajdin/food_ordering"
+  }
+}

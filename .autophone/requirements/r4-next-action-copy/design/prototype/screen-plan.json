@@ -1,0 +1,18 @@
+{
+  "schema_version": "ui-prototype-plan/v1",
+  "product_type": "food-ordering",
+  "platform": "mobile",
+  "screens": [
+    {
+      "id": "home",
+      "purpose": "在已验收 Food AI 首页中，把推荐卡的次操作文案从「换个口味」改为「再来一道」，其余保持基线",
+      "sections": [
+        "header",
+        "intent-entry",
+        "recommendation",
+        "bottom-navigation"
+      ]
+    }
+  ],
+  "flows": []
+}
