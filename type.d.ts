@@ -49,20 +49,20 @@ export interface CartStore {
     getTotalPrice: () => number;
 }
 
-interface TabBarIconProps {
+export interface TabBarIconProps {
     focused: boolean;
     icon: ImageSourcePropType;
     title: string;
 }
 
-interface PaymentInfoStripeProps {
+export interface PaymentInfoStripeProps {
     label: string;
     value: string;
     labelStyle?: string;
     valueStyle?: string;
 }
 
-interface CustomButtonProps {
+export interface CustomButtonProps {
     onPress?: () => void;
     title?: string;
     style?: string;
@@ -71,11 +71,11 @@ interface CustomButtonProps {
     isLoading?: boolean;
 }
 
-interface CustomHeaderProps {
+export interface CustomHeaderProps {
     title?: string;
 }
 
-interface CustomInputProps {
+export interface CustomInputProps {
     placeholder?: string;
     value?: string;
     onChangeText?: (text: string) => void;
@@ -84,24 +84,24 @@ interface CustomInputProps {
     keyboardType?: "default" | "email-address" | "numeric" | "phone-pad";
 }
 
-interface ProfileFieldProps {
+export interface ProfileFieldProps {
     label: string;
     value: string;
     icon: ImageSourcePropType;
 }
 
-interface CreateUserPrams {
+export interface CreateUserParams {
     email: string;
     password: string;
     name: string;
 }
 
-interface SignInParams {
+export interface SignInParams {
     email: string;
     password: string;
 }
 
-interface GetMenuParams {
+export interface GetMenuParams {
     category: string;
     query: string;
 }

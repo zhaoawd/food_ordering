@@ -1,15 +1,16 @@
 {
   "expo": {
-    "name": "fast_food",
+    "name": "Food AI Verification",
     "slug": "fast_food",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "fastfood",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.autophone.foodorderingdemo.v2"
     },
     "android": {
       "adaptiveIcon": {
@@ -34,17 +35,18 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      [
-        "@sentry/react-native/expo",
-        {
-          "url": "https://sentry.io/",
-          "project": "jsm_reactnative_food-ordering",
-          "organization": "jsmpro"
-        }
-      ]
+      "./verification/withAutophoneFmtCompatibility"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "jsEngine": "jsc",
+    "extra": {
+      "autophoneVerification": {
+        "profileId": "food-ordering-v2-ios-vm-fixture-v5-full-visual",
+        "stateId": "home.default.fixture-v1",
+        "locale": "en-US"
+      }
     }
   }
 }

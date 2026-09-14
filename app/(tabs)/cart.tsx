@@ -1,72 +1,132 @@
-import {View, Text, FlatList} from 'react-native'
-import {SafeAreaView} from "react-native-safe-area-context";
-import {useCartStore} from "@/store/cart.store";
-import CustomHeader from "@/components/CustomHeader";
-import cn from "clsx";
-import CustomButton from "@/components/CustomButton";
-import CartItem from "@/components/CartItem";
+import { router } from "expo-router";
+import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-const PaymentInfoStripe = ({ label,  value,  labelStyle,  valueStyle, }: PaymentInfoStripeProps) => (
-    <View className="flex-between flex-row my-1">
-        <Text className={cn("paragraph-medium text-gray-200", labelStyle)}>
-            {label}
-        </Text>
-        <Text className={cn("paragraph-bold text-dark-100", valueStyle)}>
-            {value}
-        </Text>
-    </View>
-);
+import {
+  ObservedPressable,
+  ObservedText,
+  ObservedView,
+} from "@/verification/observation";
 
-const Cart = () => {
-    const { items, getTotalItems, getTotalPrice } = useCartStore();
+// 评测靶的第二个状态：空购物车。
+//
+// 刻意不从 fixture 播种购物车内容——空态不需要播种就是确定的，而播种会把"购物车里有
+// 什么"变成又一个必须冻结的输入。第二个状态要证明的是 Driver 能复现并采集**另一个屏**，
+// 不是购物车业务本身。
+//
+// 三个观测元素的取值全部写成 `StyleSheet.create` 里的字面量而不是工具类名：M5c 的写回
+// 策略靠 `key: value` 唯一定位，NativeWind 的 `text-[#6B6B6B]` 这类写法定位不到（§9 M5c
+// 的已知边界）。上游的购物车屏正是工具类名写法，所以这屏由评测模板整份接管之后，样式缺陷
+// 才和文案缺陷一样可修。
+const sourceRef = {
+  file: "app/(tabs)/cart.tsx",
+  symbol: "Cart",
+} as const;
 
-    const totalItems = getTotalItems();
-    const totalPrice = getTotalPrice();
+export default function Cart() {
+  return (
+    <SafeAreaView style={styles.screen}>
+      <View style={styles.header} testID="cart.header">
+        <ObservedText
+          observationRole="text"
+          sourceRef={sourceRef}
+          stableId="cart.header.title"
+          style={styles.headerTitle}
+        >
+          购物车
+        </ObservedText>
+      </View>
 
-    return (
-        <SafeAreaView className="bg-white h-full">
-            <FlatList
-                data={items}
-                renderItem={({ item }) => <CartItem item={item} />}
-                keyExtractor={(item) => item.id}
-                contentContainerClassName="pb-28 px-5 pt-5"
-                ListHeaderComponent={() => <CustomHeader title="Your Cart" />}
-                ListEmptyComponent={() => <Text>Cart Empty</Text>}
-                ListFooterComponent={() => totalItems > 0 && (
-                    <View className="gap-5">
-                        <View className="mt-6 border border-gray-200 p-5 rounded-2xl">
-                            <Text className="h3-bold text-dark-100 mb-5">
-                                Payment Summary
-                            </Text>
+      <View style={styles.body} testID="cart.body">
+        <ObservedView
+          accessibilityLabel="空购物车图形"
+          accessibilityRole="image"
+          accessible
+          observationRole="decoration"
+          sourceRef={sourceRef}
+          stableId="cart.empty.icon"
+          style={styles.emptyIcon}
+        />
 
-                            <PaymentInfoStripe
-                                label={`Total Items (${totalItems})`}
-                                value={`$${totalPrice.toFixed(2)}`}
-                            />
-                            <PaymentInfoStripe
-                                label={`Delivery Fee`}
-                                value={`$5.00`}
-                            />
-                            <PaymentInfoStripe
-                                label={`Discount`}
-                                value={`- $0.50`}
-                                valueStyle="!text-success"
-                            />
-                            <View className="border-t border-gray-300 my-2" />
-                            <PaymentInfoStripe
-                                label={`Total`}
-                                value={`$${(totalPrice + 5 - 0.5).toFixed(2)}`}
-                                labelStyle="base-bold !text-dark-100"
-                                valueStyle="base-bold !text-dark-100 !text-right"
-                            />
-                        </View>
+        <ObservedText
+          observationRole="text"
+          observationStyle={styles.emptyMessageFrame}
+          sourceRef={sourceRef}
+          stableId="cart.empty.message"
+          style={styles.emptyMessage}
+        >
+          购物车还是空的
+        </ObservedText>
 
-                        <CustomButton title="Order Now" />
-                    </View>
-                )}
-            />
-        </SafeAreaView>
-    )
+        <ObservedPressable
+          accessibilityLabel="去逛逛"
+          accessibilityRole="button"
+          observationRole="button"
+          onPress={() => router.push("/")}
+          sourceRef={sourceRef}
+          stableId="cart.empty.primary_action"
+          style={styles.primaryAction}
+        >
+          <Text style={styles.primaryActionLabel}>去逛逛</Text>
+        </ObservedPressable>
+      </View>
+    </SafeAreaView>
+  );
 }
 
-export default Cart
+const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: "#FFF9F1",
+    flex: 1,
+  },
+  header: {
+    alignItems: "center",
+    height: 44.33,
+    justifyContent: "center",
+  },
+  headerTitle: {
+    color: "#1D1D1D",
+    fontSize: 18,
+    fontWeight: "700",
+    lineHeight: 24,
+  },
+  body: {
+    alignItems: "center",
+    flex: 1,
+    paddingHorizontal: 22,
+    paddingTop: 96,
+  },
+  emptyIcon: {
+    alignItems: "center",
+    backgroundColor: "#FFEBD6",
+    borderRadius: 36,
+    height: 72,
+    justifyContent: "center",
+    width: 72,
+  },
+  emptyMessage: {
+    color: "#6B6B6B",
+    fontSize: 16,
+    lineHeight: 21.67,
+  },
+  emptyMessageFrame: {
+    height: 21.67,
+    marginTop: 18,
+    width: 112,
+  },
+  primaryAction: {
+    alignItems: "center",
+    backgroundColor: "#E5432B",
+    borderRadius: 16,
+    height: 50,
+    justifyContent: "center",
+    marginTop: 26,
+    width: 220,
+  },
+  primaryActionLabel: {
+    color: "#FFFFFF",
+    fontSize: 17,
+    fontWeight: "700",
+    lineHeight: 22,
+  },
+});

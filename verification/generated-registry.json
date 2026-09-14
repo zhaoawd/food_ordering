@@ -1,0 +1,100 @@
+{
+  "schema_version": "ui-eval-runtime-registry/v1",
+  "enabled": true,
+  "baseline_mutation_id": "baseline",
+  "control_mutation_id": "__nc1_control__",
+  "mutations": [
+    {
+      "mutation_id": "M-COLOR-01",
+      "runtime_patch": {
+        "path": "home.primaryActionBackground",
+        "value": "#FF7504"
+      }
+    },
+    {
+      "mutation_id": "M-COLOR-02",
+      "runtime_patch": {
+        "path": "home.primaryActionBackground",
+        "value": "#FF7808"
+      }
+    },
+    {
+      "mutation_id": "M-COLOR-03",
+      "runtime_patch": {
+        "path": "home.primaryActionBackground",
+        "value": "#FF7C0F"
+      }
+    },
+    {
+      "mutation_id": "M-SHIFT-01",
+      "runtime_patch": {
+        "path": "home.locationTranslateY",
+        "value": 0.5
+      }
+    },
+    {
+      "mutation_id": "M-SHIFT-02",
+      "runtime_patch": {
+        "path": "home.locationTranslateY",
+        "value": 1
+      }
+    },
+    {
+      "mutation_id": "M-SHIFT-03",
+      "runtime_patch": {
+        "path": "home.locationTranslateY",
+        "value": 2
+      }
+    },
+    {
+      "mutation_id": "M-FONT-01",
+      "runtime_patch": {
+        "path": "home.locationFontSize",
+        "value": 15.5
+      }
+    },
+    {
+      "mutation_id": "M-FONT-02",
+      "runtime_patch": {
+        "path": "home.locationFontSize",
+        "value": 16
+      }
+    },
+    {
+      "mutation_id": "M-FONT-03",
+      "runtime_patch": {
+        "path": "home.locationFontSize",
+        "value": 17
+      }
+    },
+    {
+      "mutation_id": "M-SPACE-01",
+      "runtime_patch": {
+        "path": "home.headerSpacing",
+        "value": 0.5
+      }
+    },
+    {
+      "mutation_id": "M-SPACE-02",
+      "runtime_patch": {
+        "path": "home.headerSpacing",
+        "value": 1
+      }
+    },
+    {
+      "mutation_id": "M-SPACE-03",
+      "runtime_patch": {
+        "path": "home.headerSpacing",
+        "value": 2
+      }
+    },
+    {
+      "mutation_id": "NC-2-01",
+      "runtime_patch": {
+        "path": "about.title",
+        "value": "Profile (mutated)"
+      }
+    }
+  ],
+  "projection_sha256": "7c9af7b50fc8255101a17abb87e4614d07016b2638c925ab7ba1c1dc1c3a1fd5"
+}

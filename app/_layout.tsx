@@ -5,8 +5,11 @@ import { useEffect} from "react";
 import './globals.css';
 import * as Sentry from '@sentry/react-native';
 import useAuthStore from "@/store/auth.store";
+import { isVerificationBuild } from "@/verification/runtime";
+import { resetObservationExport } from "@/verification/observation";
 
-Sentry.init({
+if (!isVerificationBuild) {
+  Sentry.init({
   dsn: 'https://94edd17ee98a307f2d85d750574c454a@o4506876178464768.ingest.us.sentry.io/4509588544094208',
 
   // Adds more context data to events (IP address, cookies, user, etc.)
@@ -20,9 +23,10 @@ Sentry.init({
 
   // uncomment the line below to enable Spotlight (https://spotlightjs.com)
   // spotlight: __DEV__,
-});
+  });
+}
 
-export default Sentry.wrap(function RootLayout() {
+function RootLayout() {
   const { isLoading, fetchAuthenticatedUser } = useAuthStore();
 
   const [fontsLoaded, error] = useFonts({
@@ -31,6 +35,9 @@ export default Sentry.wrap(function RootLayout() {
     "QuickSand-Regular": require('../assets/fonts/Quicksand-Regular.ttf'),
     "QuickSand-SemiBold": require('../assets/fonts/Quicksand-SemiBold.ttf'),
     "QuickSand-Light": require('../assets/fonts/Quicksand-Light.ttf'),
+    "NotoSansSC-Regular": require('../assets/fonts/NotoSansSC-Regular-autophone-v1.ttf'),
+    "NotoSansSC-SemiBold": require('../assets/fonts/NotoSansSC-SemiBold-autophone-v1.ttf'),
+    "NotoSansSC-Bold": require('../assets/fonts/NotoSansSC-Bold-autophone-v1.ttf'),
   });
 
   useEffect(() => {
@@ -39,12 +46,36 @@ export default Sentry.wrap(function RootLayout() {
   }, [fontsLoaded, error]);
 
   useEffect(() => {
-    fetchAuthenticatedUser()
-  }, []);
+    if (!isVerificationBuild) {
+      void fetchAuthenticatedUser();
+      return;
+    }
+
+    let active = true;
+    void resetObservationExport().then(() => {
+      if (!active) return;
+      useAuthStore.setState({
+        isAuthenticated: true,
+        user: null,
+        isLoading: false,
+      });
+    });
+    return () => {
+      active = false;
+    };
+  }, [fetchAuthenticatedUser]);
 
   if(!fontsLoaded || isLoading) return null;
 
   return <Stack screenOptions={{ headerShown: false }} />;
-});
+}
 
-Sentry.showFeedbackWidget();
+const ExportedRootLayout = isVerificationBuild
+  ? RootLayout
+  : Sentry.wrap(RootLayout);
+
+export default ExportedRootLayout;
+
+if (!isVerificationBuild) {
+  Sentry.showFeedbackWidget();
+}
