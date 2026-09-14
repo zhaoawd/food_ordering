@@ -2,8 +2,8 @@ import {Account, Avatars, Client, Databases, ID, Query, Storage} from "react-nat
 import {CreateUserParams, GetMenuParams, SignInParams} from "@/type";
 
 export const appwriteConfig = {
-    endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT!,
-    projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!,
+    endpoint: "https://verification.invalid/v1",
+    projectId: "autophone-verification-fixture",
     platform: "com.jsm.foodordering",
     databaseId: '68629ae60038a7c61fe4',
     bucketId: '68643e170015edaa95d7',
