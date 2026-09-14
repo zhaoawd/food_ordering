@@ -24,6 +24,7 @@ const recommendations = [
     title: "炙烤牛肉拌饭",
     attributes: "热乎、微辣，预计 30 分钟送达",
     price: 32,
+    savings: 6,
     eta: "25–35 分钟",
     match: 96,
   },
@@ -31,6 +32,7 @@ const recommendations = [
     title: "香辣鸡腿拌饭",
     attributes: "焦香、微辣，预计 28 分钟送达",
     price: 29,
+    savings: 4,
     eta: "20–30 分钟",
     match: 93,
   },
@@ -133,7 +135,7 @@ export default function Index() {
       ? "正在加入"
       : ctaState === "success"
         ? "已加入购物袋"
-        : "就吃这个";
+        : "立即下单";
 
   return (
     <SafeAreaView
@@ -354,6 +356,15 @@ export default function Index() {
             >
               ¥{recommendation.price}
             </ObservedText>
+            <ObservedView
+              accessibilityLabel="限时立减 6 元"
+              observationRole="text"
+              sourceRef={sourceRef}
+              stableId="home.recommendation.savings"
+              style={styles.savingsBadge}
+            >
+              <Text style={styles.savingsText}>限时立减 ¥{recommendation.savings}</Text>
+            </ObservedView>
             <View style={styles.offerDivider} />
             <ObservedView
               observationRole="text"
@@ -664,7 +675,22 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "700",
     lineHeight: 29,
-    width: 60,
+    width: 56,
+  },
+  savingsBadge: {
+    alignItems: "center",
+    backgroundColor: foodAiTokens.color.primitive.orange["500"],
+    borderRadius: 13,
+    height: 26,
+    justifyContent: "center",
+    marginLeft: 14,
+    width: 120,
+  },
+  savingsText: {
+    color: "#FFFFFF",
+    fontSize: 13,
+    fontWeight: "700",
+    lineHeight: 16,
   },
   offerDivider: {
     backgroundColor: "rgba(255,255,255,0.76)",
