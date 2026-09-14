@@ -115,7 +115,6 @@ export default function Index() {
     return undefined;
   }, [ctaState]);
 
-
   const paginationLabel = useMemo(
     () => `${recommendationIndex + 1}/4`,
     [recommendationIndex],
@@ -264,7 +263,6 @@ export default function Index() {
             />
           </ObservedPressable>
         </ObservedView>
-
 
       </View>
 
@@ -666,7 +664,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "700",
     lineHeight: 29,
-    width: 72,
+    width: 60,
   },
   offerDivider: {
     backgroundColor: "rgba(255,255,255,0.76)",
