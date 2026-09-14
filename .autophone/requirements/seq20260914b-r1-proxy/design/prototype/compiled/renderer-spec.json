@@ -1,0 +1,208 @@
+{
+  "schema_version": "prototype-render-spec/v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "entry": "index.html",
+  "node_scope": [
+    "home.header.location",
+    "home.header.cart",
+    "home.brand.wordmark",
+    "home.hero.headline",
+    "home.ai_prompt.input",
+    "home.ai_prompt.submit",
+    "home.recommendation.match_score",
+    "home.recommendation.title",
+    "home.recommendation.attributes",
+    "home.recommendation.pagination",
+    "home.recommendation.price",
+    "home.recommendation.savings",
+    "home.recommendation.eta",
+    "home.recommendation.primary_action",
+    "home.recommendation.next_action",
+    "home.navigation.home",
+    "home.navigation.discover",
+    "home.navigation.orders",
+    "home.navigation.profile"
+  ],
+  "locale": "zh-CN",
+  "color_scheme": "light",
+  "packer_version": "autophone-prototype-packager/v2",
+  "property_scope": {
+    "home.header.location": [
+      "text",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.header.cart": [
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.brand.wordmark": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.hero.headline": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.ai_prompt.input": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.ai_prompt.submit": [
+      "text",
+      "resolved_style.backgroundColor",
+      "resolved_style.color",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.recommendation.match_score": [
+      "text",
+      "resolved_style.backgroundColor",
+      "resolved_style.color",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.recommendation.title": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.recommendation.attributes": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.recommendation.pagination": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.recommendation.price": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.recommendation.savings": [
+      "text",
+      "resolved_style.backgroundColor",
+      "resolved_style.color",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.recommendation.eta": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.recommendation.primary_action": [
+      "text",
+      "resolved_style.backgroundColor",
+      "resolved_style.color",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.recommendation.next_action": [
+      "text",
+      "resolved_style.backgroundColor",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.navigation.home": [
+      "text",
+      "resolved_style.backgroundColor",
+      "resolved_style.color",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.navigation.discover": [
+      "text",
+      "resolved_style.backgroundColor",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.navigation.orders": [
+      "text",
+      "resolved_style.backgroundColor",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.navigation.profile": [
+      "text",
+      "resolved_style.backgroundColor",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ]
+  }
+}
