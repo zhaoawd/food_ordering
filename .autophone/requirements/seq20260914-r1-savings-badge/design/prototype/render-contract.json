@@ -1,0 +1,27 @@
+{
+  "schema_version": "ios-render-contract/v1",
+  "platform": "ios",
+  "device_profile": "vm-2607/430x932",
+  "logical_size": {
+    "width": 430,
+    "height": 932
+  },
+  "pixel_size": {
+    "width": 1290,
+    "height": 2796
+  },
+  "scale": 3,
+  "format": "PNG",
+  "color_space": "sRGB",
+  "locale": "en-US",
+  "theme": "light",
+  "dynamic_type": "L",
+  "safe_area": {
+    "top": 59,
+    "right": 0,
+    "bottom": 37,
+    "left": 0
+  },
+  "system_ui": "separate_region",
+  "resampling": "forbidden"
+}

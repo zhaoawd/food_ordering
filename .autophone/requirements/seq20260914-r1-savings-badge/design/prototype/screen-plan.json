@@ -1,0 +1,18 @@
+{
+  "schema_version": "ui-prototype-plan/v1",
+  "product_type": "food-ordering",
+  "platform": "mobile",
+  "screens": [
+    {
+      "id": "home",
+      "purpose": "在已验收 Food AI 首页中增加垂直居中的限时立减徽标，重排价格行并更新操作文案",
+      "sections": [
+        "header",
+        "intent-entry",
+        "recommendation",
+        "bottom-navigation"
+      ]
+    }
+  ],
+  "flows": []
+}
