@@ -4,6 +4,7 @@ import { router } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
 import {
   Keyboard,
+  Pressable,
   StyleSheet,
   Text,
   TextInput,
@@ -248,6 +249,18 @@ export default function Index() {
               value={prompt}
             />
           </ObservedView>
+          <Pressable
+            accessibilityLabel="调偏好"
+            accessibilityRole="button"
+            onPress={() => {
+              Keyboard.dismiss();
+              router.push("/preferences");
+            }}
+            style={styles.promptPreferences}
+            testID="home.ai_prompt.preferences"
+          >
+            <Ionicons color="#B94A00" name="options-outline" size={20} />
+          </Pressable>
           <ObservedPressable
             accessibilityLabel={promptButtonLabel}
             accessibilityRole="button"
@@ -571,6 +584,12 @@ const styles = StyleSheet.create({
     marginVertical: 1,
     position: "relative",
     top: 1,
+    width: 44,
+  },
+  promptPreferences: {
+    alignItems: "center",
+    height: 44,
+    justifyContent: "center",
     width: 44,
   },
   recommendation: {
