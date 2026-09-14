@@ -1,0 +1,180 @@
+{
+  "schema_version": "ios-typography-contract/v1",
+  "platform": "ios",
+  "locale": "en-US",
+  "family": {
+    "policy": "platform_system",
+    "latin": "SF Pro",
+    "cjk": "PingFang SC",
+    "react_native_font_family": null
+  },
+  "renderers": {
+    "production": "react-native-ios",
+    "review_reference": "ios-wkwebview",
+    "mapping_font_role": "non_visible_stable_id_mapping_only"
+  },
+  "styles": [
+    {
+      "stable_id": "preferences.header.back",
+      "font_size_pt": 16,
+      "font_weight": 600,
+      "line_height_pt": 22,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 600,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.header.title",
+      "font_size_pt": 18,
+      "font_weight": 700,
+      "line_height_pt": 24,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 700,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.spice.none",
+      "font_size_pt": 14,
+      "font_weight": 400,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 400,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.spice.mild",
+      "font_size_pt": 14,
+      "font_weight": 400,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 400,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.spice.medium",
+      "font_size_pt": 14,
+      "font_weight": 400,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 400,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.spice.hot",
+      "font_size_pt": 14,
+      "font_weight": 400,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 400,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.budget.under_20",
+      "font_size_pt": 14,
+      "font_weight": 400,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 400,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.budget.20_35",
+      "font_size_pt": 14,
+      "font_weight": 400,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 400,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.budget.35_50",
+      "font_size_pt": 14,
+      "font_weight": 400,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 400,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.budget.unlimited",
+      "font_size_pt": 14,
+      "font_weight": 400,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 400,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.avoid.cilantro",
+      "font_size_pt": 14,
+      "font_weight": 400,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 400,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.avoid.peanut",
+      "font_size_pt": 14,
+      "font_weight": 400,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 400,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.avoid.dairy",
+      "font_size_pt": 14,
+      "font_weight": 400,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 400,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.avoid.seafood",
+      "font_size_pt": 14,
+      "font_weight": 400,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 400,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.summary.label",
+      "font_size_pt": 12,
+      "font_weight": 700,
+      "line_height_pt": 15,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 700,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.summary",
+      "font_size_pt": 15,
+      "font_weight": 600,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 600,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.actions.reset",
+      "font_size_pt": 16,
+      "font_weight": 700,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 700,
+      "preview_letter_spacing_pt": 0
+    },
+    {
+      "stable_id": "preferences.actions.save",
+      "font_size_pt": 16,
+      "font_weight": 700,
+      "line_height_pt": 20,
+      "letter_spacing_pt": 0,
+      "preview_font_weight": 700,
+      "preview_letter_spacing_pt": 0
+    }
+  ]
+}

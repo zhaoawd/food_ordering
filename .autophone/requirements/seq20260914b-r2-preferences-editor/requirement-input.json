@@ -1,0 +1,241 @@
+{
+  "app": "food_ordering_v2",
+  "baseline": {
+    "branch": "autophone/req-seq20260914b-r1-proxy",
+    "requirement_key": "seq20260914b-r1-proxy"
+  },
+  "branch": "autophone/req-seq20260914b-r2-preferences-editor",
+  "design_package": {
+    "adapter": "ai-prototype-dsl/v2",
+    "element_count": 18,
+    "frame_size": {
+      "height": 932,
+      "width": 430
+    },
+    "manifest_sha256": "4b5cf06959b1ae46bb76cfe9db5737bcf0a68680476a1322919f31bd3b2ae2c4",
+    "role": "design_source",
+    "root": "design",
+    "scale": 3,
+    "schema_version": "structured-design-package/v1",
+    "stable_ids": [
+      "preferences.actions.reset",
+      "preferences.actions.save",
+      "preferences.avoid.cilantro",
+      "preferences.avoid.dairy",
+      "preferences.avoid.peanut",
+      "preferences.avoid.seafood",
+      "preferences.budget.20_35",
+      "preferences.budget.35_50",
+      "preferences.budget.under_20",
+      "preferences.budget.unlimited",
+      "preferences.header.back",
+      "preferences.header.title",
+      "preferences.spice.hot",
+      "preferences.spice.medium",
+      "preferences.spice.mild",
+      "preferences.spice.none",
+      "preferences.summary",
+      "preferences.summary.label"
+    ]
+  },
+  "expectation": {
+    "clauses": [
+      {
+        "clause_id": "C1",
+        "expect": "饮食偏好",
+        "stable_id": "preferences.header.title",
+        "text": "页眉标题为「饮食偏好」"
+      },
+      {
+        "clause_id": "C2",
+        "expect": "当前偏好",
+        "stable_id": "preferences.summary.label",
+        "text": "摘要卡标签为「当前偏好」"
+      },
+      {
+        "clause_id": "C3",
+        "expect": "保存偏好",
+        "stable_id": "preferences.actions.save",
+        "text": "主操作按钮文案统一为「保存偏好」"
+      }
+    ],
+    "comparison_policy": {
+      "frame_tolerance_pt": 0.5,
+      "max_changed_pixel_ratio": 0.004,
+      "pixel_channel_tolerance": 0,
+      "pixel_scope": "expected_alpha"
+    },
+    "kind": "prd",
+    "noise_baseline": {
+      "path": "expectation/noise-baseline-v1.json",
+      "sha256": "e9a5474cb1b3f88e6092a16a793278448e1c62f30451571d4458fa16e5225d05"
+    },
+    "property_channels": "sha256:21e0fac5cd4a0093d41a780c9ece36efae8b4b3b5cbc7d85bea3af586e350b80",
+    "reference": {
+      "path": "expectation/expected-full.png",
+      "sha256": "f14020b485c3e104c73e41838140a03d03b79eb6b090f18d6793462c59064bae"
+    },
+    "region_mappings": {
+      "screen": {
+        "coordinate_space": "screen_points",
+        "frame": {
+          "height": 932,
+          "width": 430,
+          "x": 0,
+          "y": 0
+        },
+        "scale": 3,
+        "stable_ids": [
+          "$screen"
+        ]
+      }
+    },
+    "regions": [
+      "screen"
+    ],
+    "required_property_policy": "production-v1",
+    "role": "executable_expectation",
+    "unverifiable_clauses": []
+  },
+  "files": [
+    {
+      "bytes": 3474,
+      "kind": "requirement_document",
+      "origin": "authored",
+      "path": "requirement.md",
+      "purpose": "需求原文。页面上传的就是这个文件，建单时冻结成需求单的原始输入快照。",
+      "sha256": "cd3eb2b37c4ea8fab087cff689e67593831a43fb4fa85095dd63e243db424871"
+    },
+    {
+      "bytes": 19910,
+      "kind": "design_package_manifest",
+      "origin": "compiled",
+      "path": "design/design-package.json",
+      "purpose": "设计源包身份与清单：屏/状态、frame、scale、逐元素属性和比较策略。它用于设计追溯，不作为本轮机器可执行期望。",
+      "sha256": "4b5cf06959b1ae46bb76cfe9db5737bcf0a68680476a1322919f31bd3b2ae2c4"
+    },
+    {
+      "bytes": 11318,
+      "kind": "design_compiled_scene",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/compiled-scene.json",
+      "purpose": "编译后的场景节点与测量值。stable_id → 属性期望的映射来源。",
+      "sha256": "049803961fc2902c3ef6e3896953fb075c75c21c532efd3ad09f13a51d6517eb"
+    },
+    {
+      "bytes": 9564,
+      "kind": "design_compiled_prototype",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/index.html",
+      "purpose": "编译器生成的可执行原型 HTML。参考图由它渲染，不手工编辑。",
+      "sha256": "c4c47c1173d31e9de950959179b7883fc001879c842c64f2a5aae398188238be"
+    },
+    {
+      "bytes": 4947,
+      "kind": "design_renderer_spec",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/renderer-spec.json",
+      "purpose": "渲染器输入参数。参考图能否复现取决于它。",
+      "sha256": "bfbc60b342f7192435474f2ec5e6d98ed1c87547a6ca6e46284dc537e232b7a1"
+    },
+    {
+      "bytes": 2110,
+      "kind": "design_prototype_spec",
+      "origin": "authored",
+      "path": "design/prototype/prototype-spec.json",
+      "purpose": "设计原始内容：草稿装配说明——viewport profile、safe area、系统 UI 策略与逐元素验收范围。",
+      "sha256": "a39cb463d31d3ec24ab2661996a1b019cde024e524aa427b5c2659fd15d3eac9"
+    },
+    {
+      "bytes": 501,
+      "kind": "design_render_contract",
+      "origin": "authored",
+      "path": "design/prototype/render-contract.json",
+      "purpose": "设计原始内容：渲染契约——渲染器、浏览器、缩放与有效像素范围。",
+      "sha256": "c8fc22a41836f99740180b3e2e3d432ecd215c1ca3d7b19cadf2d3c6f4ed4655"
+    },
+    {
+      "bytes": 478,
+      "kind": "design_screen_plan",
+      "origin": "authored",
+      "path": "design/prototype/screen-plan.json",
+      "purpose": "设计原始内容：页面目的、区块划分与页面流。不含设计节点。",
+      "sha256": "37dbccd95e9edf00ed93b9bf04e49c4bf9bfaaf77578dfa956f8e0b82b8ada0a"
+    },
+    {
+      "bytes": 1208,
+      "kind": "design_state_fixture",
+      "origin": "authored",
+      "path": "design/prototype/state-fixture.json",
+      "purpose": "设计原始内容：Fixture Spec，业务状态的独立真源（选项、列表、文案样例）。",
+      "sha256": "00290d1c4d2223f2b31a128d3d6a430f6c29d202b8910eb2c56eda4e7d2ae1e1"
+    },
+    {
+      "bytes": 4750,
+      "kind": "design_typography_contract",
+      "origin": "authored",
+      "path": "design/prototype/typography-contract.json",
+      "purpose": "设计原始内容：字体栈与字号契约。字体栈声明不等就不能复用墨迹基线。",
+      "sha256": "f122855fd413db5a5cd963c59050379e6886a5a3f18edc4d04fbd1b11244b53b"
+    },
+    {
+      "bytes": 21120,
+      "kind": "design_ui_document",
+      "origin": "authored",
+      "path": "design/prototype/ui-document.json",
+      "purpose": "设计原始内容：UI DSL 节点树，设计的唯一真源。布局、Token 引用和 stable_id 都在这里。",
+      "sha256": "88d727788b32cf07dcca516acfb3f6d02e810411a35212b7b6e58cc94a9d8d98"
+    },
+    {
+      "bytes": 150154,
+      "kind": "design_reference_image",
+      "origin": "rendered",
+      "path": "design/reference.png",
+      "purpose": "设计参考图（1290×2796 PNG）。它由编译原型渲染并已作用 comparison_mask，文字与图片区域被挖空，只作遮罩见证；人读设计叙事看评审参考图，本轮全视觉比较使用 expectation 下的 runtime golden。",
+      "sha256": "17e76334ffe281d8b5b0bf27707eb667e9257483023f2a544142967b871f0f7f"
+    },
+    {
+      "bytes": 140087,
+      "kind": "design_review_reference_image",
+      "origin": "rendered",
+      "path": "design/review-reference.png",
+      "purpose": "评审参考图：viewport scope 之后、遮罩之前的那一帧。遮罩覆盖率的分母只能从它复算。",
+      "sha256": "d7f59d4d1b33c859ffdac24960e173546e6da8bd18752abfa7da2dbedcfaf4f0"
+    },
+    {
+      "bytes": 226295,
+      "kind": "expectation_reference_image",
+      "origin": "rendered",
+      "path": "expectation/expected-full.png",
+      "purpose": "机器可执行期望的运行时参考图。D0 全视觉比较使用这份位图，不使用设计叙事包的参考图。",
+      "sha256": "f14020b485c3e104c73e41838140a03d03b79eb6b090f18d6793462c59064bae"
+    },
+    {
+      "bytes": 5500,
+      "kind": "expectation_noise_baseline",
+      "origin": "compiled",
+      "path": "expectation/noise-baseline-v1.json",
+      "purpose": "机器可执行期望的噪声基线。由同一干净构建的重复采样计算，限定允许的视觉残差。",
+      "sha256": "e9a5474cb1b3f88e6092a16a793278448e1c62f30451571d4458fa16e5225d05"
+    }
+  ],
+  "packed_at": "2026-09-14T12:21:25Z",
+  "packed_by": "codex",
+  "requirement_document": {
+    "media_type": "text/markdown",
+    "path": "requirement.md",
+    "sha256": "cd3eb2b37c4ea8fab087cff689e67593831a43fb4fa85095dd63e243db424871"
+  },
+  "requirement_key": "seq20260914b-r2-preferences-editor",
+  "round_role": "delivery",
+  "schema_version": "requirement-input-package/v1",
+  "screen_id": "preferences",
+  "sequence": 2,
+  "state_id": "preferences.default.fixture-v1",
+  "summary": "R2 代理实现；新增入口、偏好编辑与进程内保存，不包含 R3 首页回填。",
+  "title": "饮食偏好编辑与保存",
+  "upstream": {
+    "commit_sha": "881b8832f9fa7d4f8b60ea73f63a5d202db5bed5",
+    "source_url": "https://github.com/adrianhajdin/food_ordering"
+  }
+}

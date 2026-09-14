@@ -1,0 +1,20 @@
+{
+  "schema_version": "ui-prototype-plan/v1",
+  "product_type": "food-ordering",
+  "platform": "mobile",
+  "screens": [
+    {
+      "id": "preferences",
+      "purpose": "在已验收 R1 产品基线上编辑辣度、单餐预算和忌口，实时核对摘要并保存到进程内偏好 Store",
+      "sections": [
+        "header",
+        "spice-choice",
+        "budget-choice",
+        "avoid-choice",
+        "summary",
+        "actions"
+      ]
+    }
+  ],
+  "flows": []
+}
