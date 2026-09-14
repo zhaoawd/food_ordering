@@ -1,0 +1,485 @@
+{
+  "schema_version": "ui-prototype-document/v1",
+  "name": "Food AI 基础首页",
+  "tokens": {
+    "color.canvas": { "type": "color", "value": "#FFF8EF" },
+    "color.surface": { "type": "color", "value": "#FFFFFF" },
+    "color.text.primary": { "type": "color", "value": "#241713" },
+    "color.text.secondary": { "type": "color", "value": "#77655F" },
+    "color.brand": { "type": "color", "value": "#E6472F" },
+    "color.brand.soft": { "type": "color", "value": "#F7D7B5" },
+    "color.hero": { "type": "color", "value": "#7E3825" },
+    "color.hero.accent": { "type": "color", "value": "#B7653E" },
+    "color.hero.highlight": { "type": "color", "value": "#EAB478" },
+    "color.border": { "type": "color", "value": "#E8DCD3" },
+    "color.on.brand": { "type": "color", "value": "#FFFFFF" },
+    "dimension.header.height": { "type": "dimension", "value": 44 },
+    "dimension.intro.height": { "type": "dimension", "value": 151 },
+    "dimension.card.height": { "type": "dimension", "value": 608 },
+    "dimension.hero.height": { "type": "dimension", "value": 350 },
+    "dimension.nav.height": { "type": "dimension", "value": 70 },
+    "dimension.control.height": { "type": "dimension", "value": 44 },
+    "dimension.primary.height": { "type": "dimension", "value": 46 },
+    "dimension.cart.size": { "type": "dimension", "value": 38 },
+    "dimension.badge.size": { "type": "dimension", "value": 20 },
+    "radius.control": { "type": "dimension", "value": 16 },
+    "radius.pill": { "type": "dimension", "value": 14 },
+    "radius.circle": { "type": "dimension", "value": 80 },
+    "type.location": { "type": "typography", "value": { "fontSize": 15, "fontWeight": 600, "lineHeight": 21 } },
+    "type.brand": { "type": "typography", "value": { "fontSize": 26, "fontWeight": 800, "lineHeight": 34 } },
+    "type.headline": { "type": "typography", "value": { "fontSize": 32, "fontWeight": 800, "lineHeight": 46 } },
+    "type.intent": { "type": "typography", "value": { "fontSize": 14, "fontWeight": 500, "lineHeight": 20 } },
+    "type.score": { "type": "typography", "value": { "fontSize": 13, "fontWeight": 700, "lineHeight": 20 } },
+    "type.title": { "type": "typography", "value": { "fontSize": 24, "fontWeight": 800, "lineHeight": 31 } },
+    "type.body": { "type": "typography", "value": { "fontSize": 14, "fontWeight": 400, "lineHeight": 20 } },
+    "type.price": { "type": "typography", "value": { "fontSize": 23, "fontWeight": 800, "lineHeight": 29 } },
+    "type.eta": { "type": "typography", "value": { "fontSize": 13, "fontWeight": 600, "lineHeight": 18 } },
+    "type.action": { "type": "typography", "value": { "fontSize": 16, "fontWeight": 700, "lineHeight": 22 } },
+    "type.nav": { "type": "typography", "value": { "fontSize": 12, "fontWeight": 600, "lineHeight": 17 } }
+  },
+  "screens": [
+    {
+      "id": "home",
+      "name": "Food AI 基础首页",
+      "root": {
+        "id": "home.root",
+        "component": "Screen",
+        "stable_id": "home.root",
+        "style": {
+          "backgroundColor": "$color.canvas",
+          "color": "$color.text.primary"
+        },
+        "children": [
+          {
+            "id": "home.header",
+            "component": "Frame",
+            "layout": {
+              "direction": "row",
+              "width": "fill",
+              "height": "$dimension.header.height",
+              "padding": [0, 18, 0, 18],
+              "align": "center",
+              "justify": "between"
+            },
+            "children": [
+              {
+                "id": "home.header.location",
+                "component": "Text",
+                "stable_id": "home.header.location",
+                "layout": { "width": 120, "height": 21 },
+                "style": {
+                  "typography": "$type.location",
+                  "color": "$color.text.primary"
+                },
+                "props": { "text_path": "view.location_label" }
+              },
+              {
+                "id": "home.header.cart",
+                "component": "Frame",
+                "stable_id": "home.header.cart",
+                "layout": {
+                  "direction": "row",
+                  "width": "$dimension.cart.size",
+                  "height": "$dimension.cart.size",
+                  "align": "center",
+                  "justify": "center"
+                },
+                "style": {
+                  "backgroundColor": "$color.surface",
+                  "borderRadius": "$radius.circle"
+                },
+                "children": [
+                  {
+                    "id": "home.header.cart.icon",
+                    "component": "Text",
+                    "style": {
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 18,
+                      "color": "$color.text.primary"
+                    },
+                    "props": { "text_path": "view.cart_icon" }
+                  },
+                  {
+                    "id": "home.header.cart_badge",
+                    "component": "Text",
+                    "layout": {
+                      "position": "absolute",
+                      "inset": { "top": 0, "right": 0 },
+                      "width": "$dimension.badge.size",
+                      "height": "$dimension.badge.size"
+                    },
+                    "style": {
+                      "backgroundColor": "$color.brand",
+                      "color": "$color.on.brand",
+                      "borderRadius": "$radius.circle",
+                      "fontSize": 12,
+                      "fontWeight": 800,
+                      "lineHeight": 20,
+                      "textAlign": "center"
+                    },
+                    "props": { "text_path": "view.cart_count_label" }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "home.intro",
+            "component": "Frame",
+            "layout": {
+              "direction": "column",
+              "width": "fill",
+              "height": "$dimension.intro.height",
+              "padding": [0, 21, 14, 21]
+            },
+            "children": [
+              {
+                "id": "home.brand.wordmark",
+                "component": "Text",
+                "stable_id": "home.brand.wordmark",
+                "layout": { "width": 120, "height": 34 },
+                "style": {
+                  "typography": "$type.brand",
+                  "color": "$color.brand"
+                },
+                "props": { "text_path": "view.brand" }
+              },
+              {
+                "id": "home.hero.headline",
+                "component": "Text",
+                "stable_id": "home.hero.headline",
+                "layout": { "width": 360, "height": 46, "margin": [3, 0, 0, 0] },
+                "style": {
+                  "typography": "$type.headline",
+                  "color": "$color.text.primary"
+                },
+                "props": { "text_path": "view.headline" }
+              },
+              {
+                "id": "home.ai_prompt",
+                "component": "Frame",
+                "layout": {
+                  "direction": "row",
+                  "width": "fill",
+                  "height": "$dimension.control.height",
+                  "margin": [8, 0, 0, 0],
+                  "padding": [0, 4, 0, 16],
+                  "align": "center"
+                },
+                "style": {
+                  "backgroundColor": "$color.surface",
+                  "borderColor": "$color.border",
+                  "borderWidth": 1,
+                  "borderRadius": "$radius.control"
+                },
+                "children": [
+                  {
+                    "id": "home.ai_prompt.input",
+                    "component": "Text",
+                    "stable_id": "home.ai_prompt.input",
+                    "layout": { "width": 332, "height": 20 },
+                    "style": {
+                      "typography": "$type.intent",
+                      "color": "$color.text.secondary"
+                    },
+                    "props": { "text_path": "view.intent_value" }
+                  },
+                  {
+                    "id": "home.ai_prompt.submit",
+                    "component": "Button",
+                    "stable_id": "home.ai_prompt.submit",
+                    "layout": {
+                      "width": 36,
+                      "height": 36
+                    },
+                    "style": {
+                      "backgroundColor": "$color.brand",
+                      "color": "$color.on.brand",
+                      "borderRadius": "$radius.circle",
+                      "fontSize": 20,
+                      "fontWeight": 700,
+                      "lineHeight": 24
+                    },
+                    "props": { "label_path": "view.submit_label" }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "home.recommendation.card",
+            "component": "Frame",
+            "layout": {
+              "direction": "column",
+              "width": "fill",
+              "height": "$dimension.card.height",
+              "overflow": "hidden"
+            },
+            "style": { "backgroundColor": "$color.surface" },
+            "children": [
+              {
+                "id": "home.recommendation.image",
+                "component": "Frame",
+                "layout": {
+                  "direction": "row",
+                  "width": "fill",
+                  "height": "$dimension.hero.height",
+                  "align": "center",
+                  "justify": "center",
+                  "overflow": "hidden"
+                },
+                "style": { "backgroundColor": "$color.hero" },
+                "children": [
+                  {
+                    "id": "home.recommendation.image.halo",
+                    "component": "Decoration",
+                    "layout": { "width": 270, "height": 270 },
+                    "style": {
+                      "backgroundColor": "$color.hero.accent",
+                      "borderRadius": "$radius.circle"
+                    }
+                  },
+                  {
+                    "id": "home.recommendation.image.bowl",
+                    "component": "Decoration",
+                    "layout": {
+                      "position": "absolute",
+                      "inset": { "top": 85, "left": 100 },
+                      "width": 230,
+                      "height": 170
+                    },
+                    "style": {
+                      "backgroundColor": "$color.hero.highlight",
+                      "borderRadius": "$radius.circle"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "home.recommendation.details",
+                "component": "Frame",
+                "layout": {
+                  "direction": "column",
+                  "width": "fill",
+                  "flex": 1,
+                  "padding": [10, 22, 8, 22],
+                  "gap": 6
+                },
+                "children": [
+                  {
+                    "id": "home.recommendation.match_score",
+                    "component": "Text",
+                    "stable_id": "home.recommendation.match_score",
+                    "layout": { "width": 100, "height": 20 },
+                    "style": {
+                      "backgroundColor": "$color.brand.soft",
+                      "color": "$color.text.primary",
+                      "borderRadius": "$radius.pill",
+                      "typography": "$type.score",
+                      "textAlign": "center"
+                    },
+                    "props": { "text_path": "view.match_label" }
+                  },
+                  {
+                    "id": "home.recommendation.title",
+                    "component": "Text",
+                    "stable_id": "home.recommendation.title",
+                    "layout": { "width": 386, "height": 31 },
+                    "style": {
+                      "typography": "$type.title",
+                      "color": "$color.text.primary"
+                    },
+                    "props": { "text_path": "view.recommendation_title" }
+                  },
+                  {
+                    "id": "home.recommendation.attributes",
+                    "component": "Text",
+                    "stable_id": "home.recommendation.attributes",
+                    "layout": { "width": 386, "height": 20 },
+                    "style": {
+                      "typography": "$type.body",
+                      "color": "$color.text.secondary"
+                    },
+                    "props": { "text_path": "view.recommendation_attributes" }
+                  },
+                  {
+                    "id": "home.recommendation.pagination",
+                    "component": "Text",
+                    "stable_id": "home.recommendation.pagination",
+                    "layout": { "width": 50, "height": 14 },
+                    "style": {
+                      "fontSize": 11,
+                      "fontWeight": 700,
+                      "lineHeight": 14,
+                      "color": "$color.brand"
+                    },
+                    "props": { "text_path": "view.pagination" }
+                  },
+                  {
+                    "id": "home.recommendation.purchase_meta",
+                    "component": "Frame",
+                    "layout": {
+                      "direction": "row",
+                      "width": "fill",
+                      "height": 32,
+                      "align": "center",
+                      "gap": 18
+                    },
+                    "children": [
+                      {
+                        "id": "home.recommendation.price",
+                        "component": "Text",
+                        "stable_id": "home.recommendation.price",
+                        "layout": { "width": 60, "height": 29 },
+                        "style": {
+                          "typography": "$type.price",
+                          "color": "$color.brand"
+                        },
+                        "props": { "text_path": "view.price" }
+                      },
+                      {
+                        "id": "home.recommendation.eta",
+                        "component": "Text",
+                        "stable_id": "home.recommendation.eta",
+                        "layout": { "width": 180, "height": 18 },
+                        "style": {
+                          "typography": "$type.eta",
+                          "color": "$color.text.secondary"
+                        },
+                        "props": { "text_path": "view.eta" }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "home.recommendation.primary_action",
+                    "component": "Button",
+                    "stable_id": "home.recommendation.primary_action",
+                    "layout": {
+                      "width": "fill",
+                      "height": "$dimension.primary.height"
+                    },
+                    "style": {
+                      "backgroundColor": "$color.brand",
+                      "color": "$color.on.brand",
+                      "borderRadius": "$radius.control",
+                      "typography": "$type.action"
+                    },
+                    "props": { "label_path": "view.primary_action" }
+                  },
+                  {
+                    "id": "home.recommendation.next_action",
+                    "component": "Button",
+                    "stable_id": "home.recommendation.next_action",
+                    "layout": {
+                      "width": "fill",
+                      "height": 28
+                    },
+                    "style": {
+                      "backgroundColor": "$color.surface",
+                      "color": "$color.brand",
+                      "typography": "$type.action"
+                    },
+                    "props": { "label_path": "view.next_action" }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "home.navigation",
+            "component": "Frame",
+            "layout": {
+              "direction": "row",
+              "width": "fill",
+              "height": "$dimension.nav.height",
+              "padding": [5, 9, 14, 9]
+            },
+            "style": {
+              "backgroundColor": "$color.surface",
+              "borderTopColor": "$color.border",
+              "borderTopWidth": 1
+            },
+            "children": [
+              {
+                "id": "home.navigation.home",
+                "component": "Button",
+                "stable_id": "home.navigation.home",
+                "layout": { "width": 103, "height": 50 },
+                "style": {
+                  "backgroundColor": "$color.brand.soft",
+                  "color": "$color.brand",
+                  "borderRadius": "$radius.control",
+                  "typography": "$type.nav"
+                },
+                "props": { "label_path": "view.nav_home" }
+              },
+              {
+                "id": "home.navigation.discover",
+                "component": "Button",
+                "stable_id": "home.navigation.discover",
+                "layout": { "width": 103, "height": 50 },
+                "style": {
+                  "backgroundColor": "$color.surface",
+                  "color": "$color.text.secondary",
+                  "typography": "$type.nav"
+                },
+                "props": { "label_path": "view.nav_discover" }
+              },
+              {
+                "id": "home.navigation.orders",
+                "component": "Button",
+                "stable_id": "home.navigation.orders",
+                "layout": { "width": 103, "height": 50 },
+                "style": {
+                  "backgroundColor": "$color.surface",
+                  "color": "$color.text.secondary",
+                  "typography": "$type.nav"
+                },
+                "props": { "label_path": "view.nav_orders" }
+              },
+              {
+                "id": "home.navigation.profile",
+                "component": "Button",
+                "stable_id": "home.navigation.profile",
+                "layout": { "width": 103, "height": 50 },
+                "style": {
+                  "backgroundColor": "$color.surface",
+                  "color": "$color.text.secondary",
+                  "typography": "$type.nav"
+                },
+                "props": { "label_path": "view.nav_profile" }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "prototype": { "start_screen_id": "home" },
+  "acceptance": [
+    {
+      "screen_id": "home",
+      "targets": [
+        { "stable_id": "home.header.location", "properties": ["text", "resolved_style.fontSize", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.header.cart", "properties": ["resolved_style.backgroundColor", "resolved_style.borderRadius", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.brand.wordmark", "properties": ["text", "resolved_style.color", "resolved_style.fontSize", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.hero.headline", "properties": ["text", "resolved_style.color", "resolved_style.fontSize", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.ai_prompt.input", "properties": ["text", "resolved_style.color", "resolved_style.fontSize", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.ai_prompt.submit", "properties": ["text", "resolved_style.backgroundColor", "resolved_style.color", "resolved_style.borderRadius", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.recommendation.match_score", "properties": ["text", "resolved_style.backgroundColor", "resolved_style.color", "resolved_style.borderRadius", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.recommendation.title", "properties": ["text", "resolved_style.color", "resolved_style.fontSize", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.recommendation.attributes", "properties": ["text", "resolved_style.color", "resolved_style.fontSize", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.recommendation.pagination", "properties": ["text", "resolved_style.color", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.recommendation.price", "properties": ["text", "resolved_style.color", "resolved_style.fontSize", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.recommendation.eta", "properties": ["text", "resolved_style.color", "resolved_style.fontSize", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.recommendation.primary_action", "properties": ["text", "resolved_style.backgroundColor", "resolved_style.color", "resolved_style.borderRadius", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.recommendation.next_action", "properties": ["text", "resolved_style.backgroundColor", "resolved_style.color", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.navigation.home", "properties": ["text", "resolved_style.backgroundColor", "resolved_style.color", "resolved_style.borderRadius", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.navigation.discover", "properties": ["text", "resolved_style.backgroundColor", "resolved_style.color", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.navigation.orders", "properties": ["text", "resolved_style.backgroundColor", "resolved_style.color", "frame.x", "frame.y", "frame.width", "frame.height"] },
+        { "stable_id": "home.navigation.profile", "properties": ["text", "resolved_style.backgroundColor", "resolved_style.color", "frame.x", "frame.y", "frame.width", "frame.height"] }
+      ]
+    }
+  ]
+}

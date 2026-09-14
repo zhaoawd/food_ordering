@@ -1,0 +1,35 @@
+{
+  "schema_version": "ios-typography-contract/v1",
+  "platform": "ios",
+  "locale": "en-US",
+  "family": {
+    "policy": "platform_system",
+    "latin": "SF Pro",
+    "cjk": "PingFang SC",
+    "react_native_font_family": null
+  },
+  "renderers": {
+    "production": "react-native-ios",
+    "review_reference": "ios-wkwebview",
+    "mapping_font_role": "non_visible_stable_id_mapping_only"
+  },
+  "styles": [
+    { "stable_id": "home.header.location", "font_size_pt": 15, "font_weight": 600, "line_height_pt": 21, "letter_spacing_pt": 0, "preview_font_weight": 500, "preview_letter_spacing_pt": 0.3 },
+    { "stable_id": "home.brand.wordmark", "font_size_pt": 26, "font_weight": 800, "line_height_pt": 34, "letter_spacing_pt": 0, "preview_font_weight": 800, "preview_letter_spacing_pt": 0 },
+    { "stable_id": "home.hero.headline", "font_size_pt": 32, "font_weight": 800, "line_height_pt": 46, "letter_spacing_pt": 0, "preview_font_weight": 900, "preview_letter_spacing_pt": -1.5, "preview_text_stroke_width_pt": 0.4 },
+    { "stable_id": "home.ai_prompt.input", "font_size_pt": 14, "font_weight": 500, "line_height_pt": 20, "letter_spacing_pt": 0, "preview_font_weight": 470, "preview_letter_spacing_pt": -0.1 },
+    { "stable_id": "home.ai_prompt.submit", "font_size_pt": 20, "font_weight": 700, "line_height_pt": 24, "letter_spacing_pt": 0, "preview_font_weight": 700, "preview_letter_spacing_pt": 0 },
+    { "stable_id": "home.recommendation.match_score", "font_size_pt": 13, "font_weight": 700, "line_height_pt": 20, "letter_spacing_pt": 0, "preview_font_weight": 700, "preview_letter_spacing_pt": 0 },
+    { "stable_id": "home.recommendation.title", "font_size_pt": 24, "font_weight": 800, "line_height_pt": 31, "letter_spacing_pt": 0, "preview_font_weight": 900, "preview_letter_spacing_pt": -1.4, "preview_text_stroke_width_pt": 0.1 },
+    { "stable_id": "home.recommendation.attributes", "font_size_pt": 14, "font_weight": 400, "line_height_pt": 20, "letter_spacing_pt": 0, "preview_font_weight": 400, "preview_letter_spacing_pt": 0 },
+    { "stable_id": "home.recommendation.pagination", "font_size_pt": 11, "font_weight": 700, "line_height_pt": 14, "letter_spacing_pt": 0, "preview_font_weight": 700, "preview_letter_spacing_pt": 0 },
+    { "stable_id": "home.recommendation.price", "font_size_pt": 23, "font_weight": 800, "line_height_pt": 29, "letter_spacing_pt": 0, "preview_font_weight": 800, "preview_letter_spacing_pt": 0 },
+    { "stable_id": "home.recommendation.eta", "font_size_pt": 13, "font_weight": 600, "line_height_pt": 18, "letter_spacing_pt": 0, "preview_font_weight": 500, "preview_letter_spacing_pt": 0.1 },
+    { "stable_id": "home.recommendation.primary_action", "font_size_pt": 16, "font_weight": 700, "line_height_pt": 22, "letter_spacing_pt": 0, "preview_font_weight": 700, "preview_letter_spacing_pt": 0 },
+    { "stable_id": "home.recommendation.next_action", "font_size_pt": 16, "font_weight": 700, "line_height_pt": 22, "letter_spacing_pt": 0, "preview_font_weight": 700, "preview_letter_spacing_pt": 0 },
+    { "stable_id": "home.navigation.home", "font_size_pt": 12, "font_weight": 600, "line_height_pt": 17, "letter_spacing_pt": 0, "preview_font_weight": 500, "preview_letter_spacing_pt": -0.5 },
+    { "stable_id": "home.navigation.discover", "font_size_pt": 12, "font_weight": 600, "line_height_pt": 17, "letter_spacing_pt": 0, "preview_font_weight": 500, "preview_letter_spacing_pt": -0.5 },
+    { "stable_id": "home.navigation.orders", "font_size_pt": 12, "font_weight": 600, "line_height_pt": 17, "letter_spacing_pt": 0, "preview_font_weight": 500, "preview_letter_spacing_pt": -0.5 },
+    { "stable_id": "home.navigation.profile", "font_size_pt": 12, "font_weight": 600, "line_height_pt": 17, "letter_spacing_pt": 0, "preview_font_weight": 500, "preview_letter_spacing_pt": -0.5 }
+  ]
+}
