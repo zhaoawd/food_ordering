@@ -102,3 +102,56 @@ for (const [style, property, id, contract] of cases) {
     );
   });
 }
+
+const typography = JSON.parse(
+  fs.readFileSync(
+    path.join(
+      root,
+      ".autophone/requirements/seq20260914b-r1-savings-increment-v2/design/prototype/typography-contract.json",
+    ),
+    "utf8",
+  ),
+);
+const typographyStyles = {
+  "home.header.location": "locationLabel",
+  "home.brand.wordmark": "brand",
+  "home.hero.headline": "headline",
+  "home.ai_prompt.input": "promptInput",
+  "home.ai_prompt.submit": "promptSubmitText",
+  "home.recommendation.match_score": "matchText",
+  "home.recommendation.title": "dishTitle",
+  "home.recommendation.attributes": "attributesText",
+  "home.recommendation.pagination": "paginationText",
+  "home.recommendation.price": "price",
+  "home.recommendation.savings": "savingsText",
+  "home.recommendation.eta": "etaText",
+  "home.recommendation.primary_action": "primaryActionText",
+  "home.recommendation.next_action": "nextActionText",
+  "home.navigation.home": "tabLabel",
+  "home.navigation.discover": "tabLabel",
+  "home.navigation.orders": "tabLabel",
+  "home.navigation.profile": "tabLabel",
+};
+for (const contract of typography.styles) {
+  test(`${contract.stable_id}: uses production iOS typography`, () => {
+    const block = styles.properties.find(
+      (p) => p.name?.getText(tree) === typographyStyles[contract.stable_id],
+    )?.initializer;
+    assert.ok(block && ts.isObjectLiteralExpression(block));
+    for (const [property, key] of [
+      ["fontSize", "font_size_pt"],
+      ["fontWeight", "font_weight"],
+      ["lineHeight", "line_height_pt"],
+      ["letterSpacing", "letter_spacing_pt"],
+    ]) {
+      const value = block.properties.find(
+        (p) => p.name?.getText(tree) === property,
+      )?.initializer;
+      assert.ok(
+        value && (ts.isNumericLiteral(value) || ts.isStringLiteral(value)),
+        property,
+      );
+      assert.equal(value.text, String(contract[key]), property);
+    }
+  });
+}

@@ -44,7 +44,7 @@ test("switching recommendation retains badge and updates price and ETA", async (
   );
   await expect(page.getByTestId("home.recommendation.savings")).toHaveAttribute(
     "aria-label",
-    "限时立减 4 元",
+    "限时立减 ¥4",
   );
   await expect(page.getByTestId("home.recommendation.price")).toHaveText("¥29");
   await expect(page.getByTestId("home.recommendation.eta")).toHaveText(

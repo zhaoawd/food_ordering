@@ -184,7 +184,8 @@ export default function Index() {
             stableId="home.header.cart"
             sourceRef={sourceRef}
             observationRole="button"
-            accessibilityLabel={`购物袋，${cartCount} 件商品`}
+            accessibilityLabel={`袋 ${cartCount}`}
+            accessibilityHint={`购物袋，${cartCount} 件商品`}
             style={styles.cartButton}
           >
             <Text style={styles.cartIcon}>袋</Text>
@@ -192,6 +193,7 @@ export default function Index() {
               stableId="home.header.cart_badge"
               sourceRef={sourceRef}
               observationRole="text"
+              accessible
               style={styles.cartBadge}
             >
               <Text style={styles.cartBadgeText}>{cartCount}</Text>
@@ -202,6 +204,7 @@ export default function Index() {
           stableId="home.brand.wordmark"
           sourceRef={sourceRef}
           observationRole="text"
+          accessible
           observationStyle={styles.brandObservation}
           style={styles.brand}
         >
@@ -211,6 +214,7 @@ export default function Index() {
           stableId="home.hero.headline"
           sourceRef={sourceRef}
           observationRole="text"
+          accessible
           observationStyle={styles.headlineObservation}
           style={styles.headline}
         >
@@ -226,6 +230,9 @@ export default function Index() {
             stableId="home.ai_prompt.input"
             sourceRef={sourceRef}
             observationRole="textbox"
+            accessible
+            accessibilityLabel={prompt || "想吃热乎的、微辣、别太油"}
+            accessibilityHint="饮食偏好"
             style={styles.promptInputObservation}
           >
             <Text style={styles.hiddenText}>
@@ -249,7 +256,8 @@ export default function Index() {
             stableId="home.ai_prompt.submit"
             sourceRef={sourceRef}
             observationRole="button"
-            accessibilityLabel={promptButtonLabel}
+            accessibilityLabel={promptState === "ready" ? "✓" : "→"}
+            accessibilityHint={promptButtonLabel}
             disabled={promptState === "submitting"}
             onPress={submitPrompt}
             style={styles.promptSubmit}
@@ -287,6 +295,7 @@ export default function Index() {
             stableId="home.recommendation.match_score"
             sourceRef={sourceRef}
             observationRole="text"
+            accessible
             style={styles.matchPill}
           >
             <Text style={styles.matchText}>匹配度 {recommendation.match}%</Text>
@@ -295,6 +304,7 @@ export default function Index() {
             stableId="home.recommendation.title"
             sourceRef={sourceRef_home_recommendation_title}
             observationRole="text"
+            accessible
             observationStyle={styles.dishTitleObservation}
             style={[styles.dishTitle, isSwapping && styles.mutedContent]}
           >
@@ -304,6 +314,7 @@ export default function Index() {
             stableId="home.recommendation.attributes"
             sourceRef={sourceRef}
             observationRole="text"
+            accessible
             style={styles.attributesRow}
           >
             <Text style={styles.attributesText}>
@@ -314,6 +325,7 @@ export default function Index() {
             stableId="home.recommendation.pagination"
             sourceRef={sourceRef}
             observationRole="text"
+            accessible
             style={styles.pagination}
           >
             <Text style={styles.paginationText}>{paginationLabel}</Text>
@@ -326,6 +338,7 @@ export default function Index() {
               stableId="home.recommendation.price"
               sourceRef={sourceRef}
               observationRole="text"
+              accessible
               observationStyle={styles.priceObservation}
               style={styles.price}
             >
@@ -335,7 +348,8 @@ export default function Index() {
               stableId="home.recommendation.savings"
               sourceRef={sourceRef}
               observationRole="text"
-              accessibilityLabel={`限时立减 ${recommendation.savings} 元`}
+              accessible
+              accessibilityLabel={`限时立减 ¥${recommendation.savings}`}
               style={styles.savingsBadge}
             >
               <Text style={styles.savingsText}>
@@ -346,6 +360,7 @@ export default function Index() {
               stableId="home.recommendation.eta"
               sourceRef={sourceRef}
               observationRole="text"
+              accessible
               style={styles.etaCopy}
             >
               <Text style={styles.etaText}>
@@ -438,9 +453,9 @@ const styles = StyleSheet.create({
   locationLabel: {
     color: "#241713",
     fontSize: 15,
-    fontWeight: "500",
+    fontWeight: "600",
     lineHeight: 21,
-    letterSpacing: 0.3,
+    letterSpacing: 0,
   },
   cartButton: {
     width: 38,
@@ -479,14 +494,15 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     lineHeight: 34,
     height: 34,
+    letterSpacing: 0,
   },
   headlineObservation: { width: 360, height: 46, marginTop: 3 },
   headline: {
     color: "#241713",
     fontSize: 32,
-    fontWeight: "900",
+    fontWeight: "800",
     lineHeight: 46,
-    letterSpacing: -1.5,
+    letterSpacing: 0,
   },
   promptShell: {
     height: 44,
@@ -508,7 +524,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "500",
     lineHeight: 20,
-    letterSpacing: -0.1,
+    letterSpacing: 0,
   },
   hiddenText: { height: 0, opacity: 0, width: 0 },
   promptSubmit: {
@@ -524,6 +540,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "700",
     lineHeight: 24,
+    letterSpacing: 0,
   },
   recommendation: { flex: 1, backgroundColor: "#FFFFFF", overflow: "hidden" },
   recommendationImage: {
@@ -571,14 +588,15 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: "700",
     lineHeight: 20,
+    letterSpacing: 0,
   },
   dishTitleObservation: { height: 31, width: 386, marginTop: 6 },
   dishTitle: {
     color: "#241713",
     fontSize: 24,
-    fontWeight: "900",
+    fontWeight: "800",
     lineHeight: 31,
-    letterSpacing: -1.4,
+    letterSpacing: 0,
   },
   mutedContent: { opacity: 0.45 },
   attributesRow: { height: 20, width: 386, marginTop: 6 },
@@ -587,6 +605,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "400",
     lineHeight: 20,
+    letterSpacing: 0,
   },
   pagination: { height: 14, width: 50, marginTop: 6 },
   paginationText: {
@@ -594,6 +613,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: "700",
     lineHeight: 14,
+    letterSpacing: 0,
   },
   offerRow: {
     height: 32,
@@ -609,6 +629,7 @@ const styles = StyleSheet.create({
     lineHeight: 29,
     width: 56,
     height: 29,
+    letterSpacing: 0,
   },
   savingsBadge: {
     width: 120,
@@ -624,14 +645,15 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "700",
     lineHeight: 26,
+    letterSpacing: 0,
   },
   etaCopy: { width: 163, height: 18, marginLeft: 33 },
   etaText: {
     color: "#77655F",
     fontSize: 13,
-    fontWeight: "500",
+    fontWeight: "600",
     lineHeight: 18,
-    letterSpacing: 0.1,
+    letterSpacing: 0,
   },
   primaryAction: {
     height: 46,
@@ -646,6 +668,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "700",
     lineHeight: 22,
+    letterSpacing: 0,
   },
   nextAction: {
     height: 28,
@@ -660,6 +683,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "700",
     lineHeight: 22,
+    letterSpacing: 0,
   },
   bottomNavigation: {
     height: 70,
@@ -682,9 +706,9 @@ const styles = StyleSheet.create({
   tabLabel: {
     color: "#77655F",
     fontSize: 12,
-    fontWeight: "500",
+    fontWeight: "600",
     lineHeight: 17,
-    letterSpacing: -0.5,
+    letterSpacing: 0,
   },
   tabLabelActive: { color: "#E6472F" },
 });
