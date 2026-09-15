@@ -39,3 +39,7 @@ yarn-error.*
 app-example
 
 .env.local
+
+# Isolated browser regression artifacts
+test-results/
+playwright-report/

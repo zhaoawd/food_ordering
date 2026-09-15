@@ -357,7 +357,7 @@ export default function Index() {
               ¥{recommendation.price}
             </ObservedText>
             <ObservedView
-              accessibilityLabel="限时立减 6 元"
+              accessibilityLabel={`限时立减 ${recommendation.savings} 元`}
               observationRole="text"
               sourceRef={sourceRef}
               stableId="home.recommendation.savings"
@@ -365,16 +365,14 @@ export default function Index() {
             >
               <Text style={styles.savingsText}>限时立减 ¥{recommendation.savings}</Text>
             </ObservedView>
-            <View style={styles.offerDivider} />
             <ObservedView
               observationRole="text"
               sourceRef={sourceRef}
               stableId="home.recommendation.eta"
               style={styles.etaCopy}
             >
-              <Ionicons color="#FFFFFF" name="time-outline" size={19} />
               <Text style={styles.etaText}>
-                {recommendation.eta}{"\n"}预计送达
+                {recommendation.eta} · 预计送达
               </Text>
             </ObservedView>
           </View>
@@ -598,7 +596,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   recommendationContent: {
-    bottom: 54,
+    bottom: 78,
     left: 22,
     position: "absolute",
     right: 22,
@@ -667,12 +665,12 @@ const styles = StyleSheet.create({
   offerRow: {
     alignItems: "center",
     flexDirection: "row",
-    height: 46,
+    height: 29,
     marginTop: 10,
   },
   price: {
     color: foodAiTokens.color.primitive.orange["500"],
-    fontSize: 25,
+    fontSize: 23,
     fontWeight: "700",
     lineHeight: 29,
     width: 56,
@@ -692,29 +690,23 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     lineHeight: 16,
   },
-  offerDivider: {
-    backgroundColor: "rgba(255,255,255,0.76)",
-    height: 30,
-    marginHorizontal: 16,
-    width: 1,
-  },
   etaCopy: {
     alignItems: "center",
     flexDirection: "row",
-    gap: 7,
-    height: 32,
-    width: 105,
+    marginLeft: 33,
+    height: 18,
+    width: 163,
   },
   etaText: {
-    color: "#FFFFFF",
-    fontSize: 15,
+    color: "#77655F",
+    fontSize: 13,
     fontWeight: "500",
-    lineHeight: 16,
+    lineHeight: 18,
   },
   primaryAction: {
     alignItems: "center",
     borderRadius: 16,
-    height: 50,
+    height: 46,
     justifyContent: "center",
     marginTop: 8,
   },
@@ -728,10 +720,10 @@ const styles = StyleSheet.create({
   nextAction: {
     alignItems: "center",
     alignSelf: "center",
-    height: 44,
+    height: 28,
     justifyContent: "center",
-    marginTop: 1,
-    width: 112,
+    marginTop: 6,
+    width: 386,
   },
   nextActionText: {
     color: "#FFFFFF",

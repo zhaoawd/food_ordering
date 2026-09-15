@@ -1,0 +1,76 @@
+/* global __dirname */
+const { test } = require("node:test");
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+const ts = require("typescript");
+const root = path.resolve(__dirname, "..");
+const source = fs.readFileSync(path.join(root, "app/(tabs)/index.tsx"), "utf8");
+const tree = ts.createSourceFile(
+  "index.tsx",
+  source,
+  ts.ScriptTarget.Latest,
+  true,
+  ts.ScriptKind.TSX,
+);
+const design = JSON.parse(
+  fs.readFileSync(
+    path.join(
+      root,
+      ".autophone/requirements/seq20260914b-r1-savings-increment-v2/design/design-package.json",
+    ),
+    "utf8",
+  ),
+);
+const expected = new Map();
+function collect(value) {
+  if (!value || typeof value !== "object") return;
+  if (value.stable_id && Array.isArray(value.properties))
+    expected.set(
+      value.stable_id,
+      new Map(value.properties.map((p) => [p.property, p.value])),
+    );
+  Object.values(value).forEach(collect);
+}
+collect(design);
+let styles;
+function visit(node) {
+  if (
+    ts.isVariableDeclaration(node) &&
+    node.name.getText(tree) === "styles" &&
+    node.initializer &&
+    ts.isCallExpression(node.initializer)
+  )
+    styles = node.initializer.arguments[0];
+  ts.forEachChild(node, visit);
+}
+visit(tree);
+const cases = [
+  ["price", "fontSize", "price", "resolved_style.fontSize"],
+  ["etaText", "fontSize", "eta", "resolved_style.fontSize"],
+  ["etaText", "color", "eta", "resolved_style.color"],
+  ["etaCopy", "width", "eta", "frame.width"],
+  ["etaCopy", "height", "eta", "frame.height"],
+  ["primaryAction", "height", "primary_action", "frame.height"],
+  ["nextAction", "width", "next_action", "frame.width"],
+  ["nextAction", "height", "next_action", "frame.height"],
+];
+for (const [style, property, id, contract] of cases) {
+  test(`${id}: declared ${property} matches frozen design`, () => {
+    assert.ok(styles && ts.isObjectLiteralExpression(styles));
+    const block = styles.properties.find(
+      (p) => p.name?.getText(tree) === style,
+    )?.initializer;
+    assert.ok(block && ts.isObjectLiteralExpression(block));
+    const value = block.properties.find(
+      (p) => p.name?.getText(tree) === property,
+    )?.initializer;
+    assert.ok(
+      value && (ts.isNumericLiteral(value) || ts.isStringLiteral(value)),
+    );
+    assert.equal(
+      value.text,
+      String(expected.get(`home.recommendation.${id}`).get(contract)),
+    );
+  });
+}
