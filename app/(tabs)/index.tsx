@@ -1,14 +1,6 @@
-import { Ionicons } from "@expo/vector-icons";
-import { Image } from "expo-image";
 import { router } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
-import {
-  Keyboard,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { Keyboard, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import {
@@ -16,7 +8,6 @@ import {
   ObservedText,
   ObservedView,
 } from "@/verification/observation";
-import { foodAiTokens } from "@/verification/food-ai-tokens.generated";
 import { useFoodOrderingEvalFixture } from "@/verification/useEvalFixture";
 
 const recommendations = [
@@ -39,10 +30,34 @@ const recommendations = [
 ] as const;
 
 const tabs = [
-  { id: "home", stableId: "home.navigation.home", label: "首页", icon: "home" , route: null },
-  { id: "discover", stableId: "home.navigation.discover", label: "发现", icon: "compass-outline" , route: null },
-  { id: "orders", stableId: "home.navigation.orders", label: "订单", icon: "receipt-outline" , route: "/cart" },
-  { id: "profile", stableId: "home.navigation.profile", label: "我的", icon: "person-outline" , route: null },
+  {
+    id: "home",
+    stableId: "home.navigation.home",
+    label: "首页",
+    icon: "home",
+    route: null,
+  },
+  {
+    id: "discover",
+    stableId: "home.navigation.discover",
+    label: "发现",
+    icon: "compass-outline",
+    route: null,
+  },
+  {
+    id: "orders",
+    stableId: "home.navigation.orders",
+    label: "订单",
+    icon: "receipt-outline",
+    route: "/cart",
+  },
+  {
+    id: "profile",
+    stableId: "home.navigation.profile",
+    label: "我的",
+    icon: "person-outline",
+    route: null,
+  },
 ] as const;
 
 type PromptState = "idle" | "submitting" | "ready";
@@ -96,7 +111,9 @@ export default function Index() {
   useEffect(() => {
     if (!isSwapping) return undefined;
     const timer = setTimeout(() => {
-      setRecommendationIndex((current) => (current + 1) % recommendations.length);
+      setRecommendationIndex(
+        (current) => (current + 1) % recommendations.length,
+      );
       setIsSwapping(false);
     }, 520);
     return () => clearTimeout(timer);
@@ -118,7 +135,7 @@ export default function Index() {
   }, [ctaState]);
 
   const paginationLabel = useMemo(
-    () => `${recommendationIndex + 1}/4`,
+    () => `${recommendationIndex + 1} / 4`,
     [recommendationIndex],
   );
 
@@ -138,22 +155,14 @@ export default function Index() {
         : "立即下单";
 
   return (
-    <SafeAreaView
-      edges={["top"]}
-      style={styles.screen}
-      testID="home.root"
-    >
-      <View
-        style={styles.intro}
-        testID="home.header"
-      >
+    <SafeAreaView edges={["top"]} style={styles.screen} testID="home.root">
+      <View style={styles.intro}>
         <View style={styles.headerActions}>
           <ObservedPressable
-            accessibilityLabel={home.location}
-            accessibilityRole="button"
-            observationRole="button"
-            sourceRef={sourceRef_home_header_location}
             stableId="home.header.location"
+            sourceRef={sourceRef_home_header_location}
+            observationRole="button"
+            accessibilityLabel={home.location}
             style={[
               styles.locationButton,
               {
@@ -162,78 +171,66 @@ export default function Index() {
               },
             ]}
           >
-            <Ionicons
-              color={foodAiTokens.color.primitive.forest["700"]}
-              name="location-sharp"
-              size={19}
-            />
             <Text
               style={[
                 styles.locationLabel,
-                {
-                  fontSize: home.locationFontSize,
-                  lineHeight: home.locationFontSize * 1.25,
-                },
+                { fontSize: home.locationFontSize },
               ]}
             >
               {home.location}
             </Text>
-            <Ionicons color="#24312E" name="chevron-down" size={13} />
           </ObservedPressable>
-
           <ObservedPressable
-            accessibilityLabel={`购物袋，${cartCount} 件商品`}
-            accessibilityRole="button"
-            observationRole="button"
-            sourceRef={sourceRef}
             stableId="home.header.cart"
+            sourceRef={sourceRef}
+            observationRole="button"
+            accessibilityLabel={`购物袋，${cartCount} 件商品`}
             style={styles.cartButton}
           >
-            <Ionicons color="#1D1D1D" name="bag-outline" size={29} />
+            <Text style={styles.cartIcon}>袋</Text>
             <ObservedView
-              observationRole="text"
-              sourceRef={sourceRef}
               stableId="home.header.cart_badge"
+              sourceRef={sourceRef}
+              observationRole="text"
               style={styles.cartBadge}
             >
               <Text style={styles.cartBadgeText}>{cartCount}</Text>
             </ObservedView>
           </ObservedPressable>
         </View>
-
         <ObservedText
-          accessibilityLabel="Food AI"
-          observationRole="text"
-          sourceRef={sourceRef}
           stableId="home.brand.wordmark"
+          sourceRef={sourceRef}
+          observationRole="text"
+          observationStyle={styles.brandObservation}
           style={styles.brand}
         >
-          <Text style={styles.brandFood}>Food</Text> AI
+          Food AI
         </ObservedText>
         <ObservedText
+          stableId="home.hero.headline"
+          sourceRef={sourceRef}
           observationRole="text"
           observationStyle={styles.headlineObservation}
-          sourceRef={sourceRef}
-          stableId="home.hero.headline"
           style={styles.headline}
         >
           今晚，好好吃一顿
         </ObservedText>
-
         <ObservedView
-          observationRole="group"
-          sourceRef={sourceRef}
           stableId="home.ai_prompt"
+          sourceRef={sourceRef}
+          observationRole="group"
           style={styles.promptShell}
         >
-          <Ionicons color="#B94A00" name="sparkles" size={18} />
           <ObservedView
-            observationRole="textbox"
-            sourceRef={sourceRef}
             stableId="home.ai_prompt.input"
+            sourceRef={sourceRef}
+            observationRole="textbox"
             style={styles.promptInputObservation}
           >
-            <Text style={styles.hiddenText}>想吃热乎的、微辣、别太油</Text>
+            <Text style={styles.hiddenText}>
+              {prompt || "想吃热乎的、微辣、别太油"}
+            </Text>
             <TextInput
               accessibilityLabel="饮食偏好"
               onChangeText={(value) => {
@@ -242,133 +239,113 @@ export default function Index() {
               }}
               onSubmitEditing={submitPrompt}
               placeholder="想吃热乎的、微辣、别太油"
-              placeholderTextColor="#756D68"
+              placeholderTextColor="#77655F"
               returnKeyType="go"
               style={styles.promptInput}
               value={prompt}
             />
           </ObservedView>
           <ObservedPressable
-            accessibilityLabel={promptButtonLabel}
-            accessibilityRole="button"
-            disabled={promptState === "submitting"}
-            observationRole="button"
-            onPress={submitPrompt}
-            sourceRef={sourceRef}
             stableId="home.ai_prompt.submit"
+            sourceRef={sourceRef}
+            observationRole="button"
+            accessibilityLabel={promptButtonLabel}
+            disabled={promptState === "submitting"}
+            onPress={submitPrompt}
             style={styles.promptSubmit}
           >
-            <Ionicons
-              color="#B94A00"
-              name={promptState === "ready" ? "checkmark" : "arrow-forward"}
-              size={22}
-            />
+            <Text style={styles.promptSubmitText}>
+              {promptState === "ready" ? "✓" : "→"}
+            </Text>
           </ObservedPressable>
         </ObservedView>
-
       </View>
-
       <ObservedView
-        observationRole="group"
-        sourceRef={sourceRef}
         stableId="home.recommendation.card"
+        sourceRef={sourceRef}
+        observationRole="group"
         style={styles.recommendation}
       >
         <ObservedView
-          observationRole="image"
-          sourceRef={sourceRef}
           stableId="home.recommendation.image"
+          sourceRef={sourceRef}
+          observationRole="image"
           style={styles.recommendationImage}
         >
-          <Image
-            accessibilityIgnoresInvertColors
-            contentFit="cover"
-            contentPosition={{ left: "50%", top: "88%" }}
-            source={require("@/assets/images/food-ai-beef-bowl.png")}
-            style={styles.recommendationImageAsset}
+          <View style={styles.imageHalo} />
+          <View style={styles.imageBowl} />
+          <ObservedView
+            stableId="home.recommendation.scrim"
+            sourceRef={sourceRef}
+            observationRole="decoration"
+            pointerEvents="none"
+            style={StyleSheet.absoluteFillObject}
           />
         </ObservedView>
-        <ObservedView
-          observationRole="decoration"
-          sourceRef={sourceRef}
-          stableId="home.recommendation.scrim"
-          style={styles.scrimLayer}
-        >
-          <View style={styles.scrimMiddle} />
-          <View style={styles.scrimBottom} />
-        </ObservedView>
-
         <View style={styles.recommendationContent}>
           <ObservedView
-            accessibilityLabel={`口味匹配度 ${recommendation.match}%`}
-            observationRole="text"
-            sourceRef={sourceRef}
             stableId="home.recommendation.match_score"
+            sourceRef={sourceRef}
+            observationRole="text"
             style={styles.matchPill}
           >
-            <Ionicons color="#FFFFFF" name="sparkles" size={14} />
             <Text style={styles.matchText}>匹配度 {recommendation.match}%</Text>
           </ObservedView>
-
           <ObservedText
-            accessibilityRole="text"
+            stableId="home.recommendation.title"
+            sourceRef={sourceRef_home_recommendation_title}
             observationRole="text"
             observationStyle={styles.dishTitleObservation}
-            sourceRef={sourceRef_home_recommendation_title}
-            stableId="home.recommendation.title"
             style={[styles.dishTitle, isSwapping && styles.mutedContent]}
           >
             {recommendation.title}
           </ObservedText>
-
           <ObservedView
-            observationRole="text"
-            sourceRef={sourceRef}
             stableId="home.recommendation.attributes"
+            sourceRef={sourceRef}
+            observationRole="text"
             style={styles.attributesRow}
           >
-            <Ionicons color="#70AD6C" name="checkmark-circle" size={17} />
-            <Text style={styles.attributesText}>{recommendation.attributes}</Text>
+            <Text style={styles.attributesText}>
+              {recommendation.attributes}
+            </Text>
           </ObservedView>
-
           <ObservedView
-            accessibilityLabel={`第 ${recommendationIndex + 1} 项，共 4 项`}
-            observationRole="image"
-            sourceRef={sourceRef}
             stableId="home.recommendation.pagination"
+            sourceRef={sourceRef}
+            observationRole="text"
             style={styles.pagination}
           >
-            {[0, 1, 2, 3].map((index) => (
-              <View
-                key={index}
-                style={index === recommendationIndex ? styles.pageActive : styles.pageIdle}
-              />
-            ))}
-            <Text style={styles.hiddenText}>{paginationLabel}</Text>
+            <Text style={styles.paginationText}>{paginationLabel}</Text>
           </ObservedView>
-
-          <View style={styles.offerRow} testID="home.recommendation.purchase_meta">
+          <View
+            style={styles.offerRow}
+            testID="home.recommendation.purchase_meta"
+          >
             <ObservedText
-              observationRole="text"
-              sourceRef={sourceRef}
               stableId="home.recommendation.price"
+              sourceRef={sourceRef}
+              observationRole="text"
+              observationStyle={styles.priceObservation}
               style={styles.price}
             >
               ¥{recommendation.price}
             </ObservedText>
             <ObservedView
-              accessibilityLabel={`限时立减 ${recommendation.savings} 元`}
-              observationRole="text"
-              sourceRef={sourceRef}
               stableId="home.recommendation.savings"
+              sourceRef={sourceRef}
+              observationRole="text"
+              accessibilityLabel={`限时立减 ${recommendation.savings} 元`}
               style={styles.savingsBadge}
             >
-              <Text style={styles.savingsText}>限时立减 ¥{recommendation.savings}</Text>
+              <Text style={styles.savingsText}>
+                限时立减 ¥{recommendation.savings}
+              </Text>
             </ObservedView>
             <ObservedView
-              observationRole="text"
-              sourceRef={sourceRef}
               stableId="home.recommendation.eta"
+              sourceRef={sourceRef}
+              observationRole="text"
               style={styles.etaCopy}
             >
               <Text style={styles.etaText}>
@@ -376,40 +353,34 @@ export default function Index() {
               </Text>
             </ObservedView>
           </View>
-
           <ObservedPressable
-            accessibilityLabel={primaryActionLabel}
-            accessibilityRole="button"
-            disabled={ctaState !== "idle"}
+            stableId="home.recommendation.primary_action"
+            sourceRef={sourceRef_home_recommendation_primary_action}
             observationRole="button"
+            accessibilityLabel={primaryActionLabel}
+            disabled={ctaState !== "idle"}
             onPress={() => {
               Keyboard.dismiss();
               setCtaState("loading");
             }}
-            sourceRef={sourceRef_home_recommendation_primary_action}
-            stableId="home.recommendation.primary_action"
             style={[
               styles.primaryAction,
               { backgroundColor: home.primaryActionBackground },
               ctaState === "success" && styles.primaryActionSuccess,
             ]}
           >
-            <Text style={styles.primaryActionText}>
-              {primaryActionLabel}
-            </Text>
+            <Text style={styles.primaryActionText}>{primaryActionLabel}</Text>
           </ObservedPressable>
-
           <ObservedPressable
+            stableId="home.recommendation.next_action"
+            sourceRef={sourceRef}
+            observationRole="button"
             accessibilityRole="button"
             disabled={isSwapping}
-            hitSlop={2}
-            observationRole="button"
             onPress={() => {
               Keyboard.dismiss();
               setIsSwapping(true);
             }}
-            sourceRef={sourceRef}
-            stableId="home.recommendation.next_action"
             style={styles.nextAction}
           >
             <Text style={styles.nextActionText}>
@@ -418,38 +389,30 @@ export default function Index() {
           </ObservedPressable>
         </View>
       </ObservedView>
-
       <ObservedView
-        accessibilityRole="tablist"
-        observationRole="tablist"
-        sourceRef={sourceRef}
         stableId="home.navigation"
+        sourceRef={sourceRef}
+        observationRole="tablist"
+        accessibilityRole="tablist"
         style={styles.bottomNavigation}
       >
         {tabs.map((tab) => {
           const active = activeTab === tab.id;
           return (
             <ObservedPressable
+              key={tab.id}
+              stableId={tab.stableId}
+              sourceRef={sourceRef}
+              observationRole="tab"
               accessibilityRole="tab"
               accessibilityState={{ selected: active }}
-              key={tab.id}
-              observationRole="tab"
               onPress={() => {
                 Keyboard.dismiss();
                 setActiveTab(tab.id);
-                if (tab.route) {
-                  router.push(tab.route);
-                }
+                if (tab.route) router.push(tab.route);
               }}
-              sourceRef={sourceRef}
-              stableId={tab.stableId}
-              style={styles.tab}
+              style={[styles.tab, active && styles.tabActive]}
             >
-              <Ionicons
-                color={active ? "#B94A00" : "#1D1D1D"}
-                name={active && tab.id === "home" ? "home" : tab.icon}
-                size={24}
-              />
               <Text style={[styles.tabLabel, active && styles.tabLabelActive]}>
                 {tab.label}
               </Text>
@@ -462,304 +425,266 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    backgroundColor: foodAiTokens.color.primitive.cream["50"],
-    flex: 1,
-  },
-  intro: {
-    backgroundColor: foodAiTokens.color.primitive.cream["50"],
-    height: 195,
-    paddingHorizontal: 21,
-  },
+  screen: { backgroundColor: "#FFF8EF", flex: 1 },
+  intro: { height: 195, paddingHorizontal: 21 },
   headerActions: {
-    alignItems: "center",
-    flexDirection: "row",
     height: 44,
+    marginHorizontal: -3,
+    flexDirection: "row",
+    alignItems: "center",
     justifyContent: "space-between",
   },
-  locationButton: {
-    alignItems: "center",
-    flexDirection: "row",
-    gap: 6,
-    marginLeft: -4,
-    minHeight: 44,
-    width: 176,
-  },
+  locationButton: { width: 120, height: 21 },
   locationLabel: {
-    color: "#0E2E2A",
+    color: "#241713",
+    fontSize: 15,
     fontWeight: "500",
+    lineHeight: 21,
+    letterSpacing: 0.3,
   },
   cartButton: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: "#FFFFFF",
     alignItems: "center",
-    height: 44,
     justifyContent: "center",
-    marginRight: -3,
-    width: 44,
+  },
+  cartIcon: {
+    color: "#241713",
+    fontSize: 14,
+    fontWeight: "700",
+    lineHeight: 18,
   },
   cartBadge: {
-    backgroundColor: "#B94A00",
-    borderColor: foodAiTokens.color.primitive.cream["50"],
+    width: 20,
+    height: 20,
     borderRadius: 10,
-    borderWidth: 2,
-    height: 19,
+    backgroundColor: "#E6472F",
     position: "absolute",
-    right: -2,
-    top: -4,
-    width: 21,
+    top: 0,
+    right: 0,
   },
   cartBadgeText: {
     color: "#FFFFFF",
     fontSize: 12,
-    fontWeight: "600",
-    lineHeight: 15,
+    fontWeight: "800",
+    lineHeight: 20,
     textAlign: "center",
   },
+  brandObservation: { width: 120, height: 34 },
   brand: {
-    color: foodAiTokens.color.primitive.ink["900"],
-    fontSize: 29,
-    fontWeight: "900",
-    height: 34,
-    letterSpacing: -1.015,
+    color: "#E6472F",
+    fontSize: 26,
+    fontWeight: "800",
     lineHeight: 34,
-    marginTop: 0,
+    height: 34,
   },
-  brandFood: { color: "#B94A00" },
+  headlineObservation: { width: 360, height: 46, marginTop: 3 },
   headline: {
-    color: foodAiTokens.color.primitive.ink["900"],
-    fontSize: 39,
+    color: "#241713",
+    fontSize: 32,
     fontWeight: "900",
-    letterSpacing: -2.028,
     lineHeight: 46,
-  },
-  headlineObservation: {
-    height: 46,
-    marginTop: 5,
+    letterSpacing: -1.5,
   },
   promptShell: {
-    alignItems: "center",
-    backgroundColor: "rgba(255,250,244,0.72)",
-    borderColor: "#9C8D80",
-    borderRadius: 22,
-    borderWidth: 1.5,
-    flexDirection: "row",
     height: 44,
     marginTop: 8,
-    overflow: "hidden",
-    paddingLeft: 13,
-  },
-  promptInput: {
-    color: foodAiTokens.color.primitive.ink["900"],
-    flex: 1,
-    fontSize: 14.5,
-    fontWeight: "400",
-    height: 42,
-    lineHeight: 18,
-    paddingHorizontal: 10,
-    paddingVertical: 0,
-  },
-  promptInputObservation: {
-    flex: 1,
-    height: 42,
-  },
-  promptSubmit: {
+    flexDirection: "row",
     alignItems: "center",
-    flexShrink: 0,
-    height: 44,
-    justifyContent: "center",
-    marginVertical: 1,
-    position: "relative",
-    top: 1,
-    width: 44,
+    paddingLeft: 16,
+    paddingRight: 4,
+    backgroundColor: "#FFFFFF",
+    borderColor: "#E8DCD3",
+    borderWidth: 1,
+    borderRadius: 16,
   },
-  recommendation: {
-    backgroundColor: "#2B1408",
-    flex: 1,
+  promptInputObservation: { height: 20, flex: 1 },
+  promptInput: {
+    height: 20,
+    padding: 0,
+    color: "#77655F",
+    fontSize: 14,
+    fontWeight: "500",
+    lineHeight: 20,
+    letterSpacing: -0.1,
+  },
+  hiddenText: { height: 0, opacity: 0, width: 0 },
+  promptSubmit: {
+    width: 35.7969,
+    height: 36,
+    backgroundColor: "#E6472F",
+    borderRadius: 18,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  promptSubmitText: {
+    color: "#FFFFFF",
+    fontSize: 20,
+    fontWeight: "700",
+    lineHeight: 24,
+  },
+  recommendation: { flex: 1, backgroundColor: "#FFFFFF", overflow: "hidden" },
+  recommendationImage: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 261,
+    backgroundColor: "#7E3825",
+    alignItems: "center",
+    justifyContent: "center",
     overflow: "hidden",
   },
-  recommendationImage: { ...StyleSheet.absoluteFillObject },
-  recommendationImageAsset: { ...StyleSheet.absoluteFillObject },
-  scrimLayer: { ...StyleSheet.absoluteFillObject },
-  scrimMiddle: {
-    backgroundColor: "rgba(7,3,1,0.28)",
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-    right: 0,
-    top: "43%",
+  imageHalo: {
+    height: 270,
+    width: 270,
+    backgroundColor: "#B7653E",
+    borderRadius: 80,
   },
-  scrimBottom: {
-    backgroundColor: "rgba(7,3,1,0.58)",
-    bottom: 0,
-    height: "37%",
-    left: 0,
+  imageBowl: {
+    height: 170,
+    width: 230,
+    backgroundColor: "#EAB478",
+    borderRadius: 80,
     position: "absolute",
-    right: 0,
+    left: 100,
+    top: 85,
   },
   recommendationContent: {
-    bottom: 78,
-    left: 22,
     position: "absolute",
+    bottom: 8,
+    left: 22,
     right: 22,
   },
   matchPill: {
+    height: 20,
+    width: 100,
+    backgroundColor: "#F7D7B5",
+    borderRadius: 10,
     alignItems: "center",
-    alignSelf: "flex-start",
-    backgroundColor: foodAiTokens.color.primitive.green["700"],
-    borderRadius: 14,
-    flexDirection: "row",
-    gap: 5,
-    height: 28,
-    paddingHorizontal: 9,
-    width: 128,
+    justifyContent: "center",
   },
   matchText: {
-    color: "#FFFFFF",
-    fontSize: 15,
-    fontWeight: "600",
-    lineHeight: 18.75,
-  },
-  dishTitle: {
-    color: "#FFFFFF",
-    fontSize: 22,
+    color: "#241713",
+    fontSize: 13,
     fontWeight: "700",
-    lineHeight: 27.5,
+    lineHeight: 20,
   },
-  dishTitleObservation: {
-    height: 31,
-    marginTop: 7,
+  dishTitleObservation: { height: 31, width: 386, marginTop: 6 },
+  dishTitle: {
+    color: "#241713",
+    fontSize: 24,
+    fontWeight: "900",
+    lineHeight: 31,
+    letterSpacing: -1.4,
   },
   mutedContent: { opacity: 0.45 },
-  attributesRow: {
-    alignItems: "center",
-    flexDirection: "row",
-    gap: 6,
-    height: 20,
-    marginTop: 3,
-  },
+  attributesRow: { height: 20, width: 386, marginTop: 6 },
   attributesText: {
-    color: "#FEF9F3",
-    fontSize: 15,
+    color: "#77655F",
+    fontSize: 14,
     fontWeight: "400",
-    lineHeight: 21,
+    lineHeight: 20,
   },
-  pagination: {
-    alignItems: "center",
-    flexDirection: "row",
-    gap: 5,
-    height: 5,
-    marginTop: 14,
-  },
-  pageActive: {
-    backgroundColor: foodAiTokens.color.primitive.orange["500"],
-    borderRadius: 2,
-    height: 4,
-    width: 31,
-  },
-  pageIdle: {
-    backgroundColor: "rgba(255,249,243,0.58)",
-    borderRadius: 2,
-    height: 4,
-    width: 15,
-  },
-  hiddenText: { height: 0, opacity: 0, width: 0 },
-  offerRow: {
-    alignItems: "center",
-    flexDirection: "row",
-    height: 29,
-    marginTop: 10,
-  },
-  price: {
-    color: foodAiTokens.color.primitive.orange["500"],
-    fontSize: 23,
+  pagination: { height: 14, width: 50, marginTop: 6 },
+  paginationText: {
+    color: "#E6472F",
+    fontSize: 11,
     fontWeight: "700",
+    lineHeight: 14,
+  },
+  offerRow: {
+    height: 32,
+    marginTop: 22,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  priceObservation: { width: 56, height: 29 },
+  price: {
+    color: "#E6472F",
+    fontSize: 23,
+    fontWeight: "800",
     lineHeight: 29,
     width: 56,
+    height: 29,
   },
   savingsBadge: {
-    alignItems: "center",
-    backgroundColor: foodAiTokens.color.primitive.orange["500"],
-    borderRadius: 13,
-    height: 26,
-    justifyContent: "center",
-    marginLeft: 14,
     width: 120,
+    height: 26,
+    marginLeft: 14,
+    backgroundColor: "#E6472F",
+    borderRadius: 13,
+    alignItems: "center",
+    justifyContent: "center",
   },
   savingsText: {
     color: "#FFFFFF",
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: "700",
-    lineHeight: 16,
+    lineHeight: 26,
   },
-  etaCopy: {
-    alignItems: "center",
-    flexDirection: "row",
-    marginLeft: 33,
-    height: 18,
-    width: 163,
-  },
+  etaCopy: { width: 163, height: 18, marginLeft: 33 },
   etaText: {
     color: "#77655F",
     fontSize: 13,
     fontWeight: "500",
     lineHeight: 18,
+    letterSpacing: 0.1,
   },
   primaryAction: {
-    alignItems: "center",
-    borderRadius: 16,
     height: 46,
+    marginTop: 6,
+    borderRadius: 16,
+    alignItems: "center",
     justifyContent: "center",
-    marginTop: 8,
   },
   primaryActionSuccess: { backgroundColor: "#70AD6C" },
   primaryActionText: {
-    color: foodAiTokens.color.primitive.ink["900"],
-    fontSize: 17,
+    color: "#FFFFFF",
+    fontSize: 16,
     fontWeight: "700",
-    lineHeight: 21.25,
+    lineHeight: 22,
   },
   nextAction: {
-    alignItems: "center",
-    alignSelf: "center",
     height: 28,
-    justifyContent: "center",
-    marginTop: 6,
     width: 386,
+    marginTop: 6,
+    backgroundColor: "#FFFFFF",
+    alignItems: "center",
+    justifyContent: "center",
   },
   nextActionText: {
-    color: "#FFFFFF",
-    fontSize: 17,
-    fontWeight: "500",
-    lineHeight: 21.25,
-    textDecorationColor: foodAiTokens.color.primitive.orange["500"],
-    textDecorationLine: "underline",
+    color: "#E6472F",
+    fontSize: 16,
+    fontWeight: "700",
+    lineHeight: 22,
   },
   bottomNavigation: {
-    backgroundColor: "rgba(255,249,241,0.98)",
-    borderTopColor: "rgba(34,23,14,0.18)",
-    borderTopWidth: 1,
-    bottom: 0,
-    flexDirection: "row",
     height: 70,
-    left: 0,
-    paddingBottom: 14,
+    flexDirection: "row",
     paddingHorizontal: 9,
     paddingTop: 5,
-    position: "absolute",
-    right: 0,
+    paddingBottom: 14,
+    borderTopColor: "#E8DCD3",
+    borderTopWidth: 1,
+    backgroundColor: "#FFFFFF",
   },
   tab: {
-    alignItems: "center",
     flex: 1,
-    gap: 2,
+    height: 50,
+    backgroundColor: "#FFFFFF",
+    alignItems: "center",
     justifyContent: "center",
   },
+  tabActive: { backgroundColor: "#F7D7B5", borderRadius: 16 },
   tabLabel: {
-    color: "#1D1D1D",
+    color: "#77655F",
     fontSize: 12,
     fontWeight: "500",
-    lineHeight: 15,
+    lineHeight: 17,
+    letterSpacing: -0.5,
   },
-  tabLabelActive: {
-    color: "#B94A00",
-  },
+  tabLabelActive: { color: "#E6472F" },
 });

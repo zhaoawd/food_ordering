@@ -5,12 +5,13 @@ const path = require("node:path");
 const root = path.resolve(__dirname, "..");
 // This isolated component harness replaces native IO and navigation. It is not device evidence.
 const shim = `import React from 'react'; import {baselineFixture} from '@/verification/fixture'; import {View, Text, Pressable} from 'react-native-web';
-export const SafeAreaView=View;
+export const SafeAreaView=({style,edges,...props})=><View {...props} style={[style,{paddingTop:59}]}/>;
 export const Ionicons=()=>null;
 export const Image=View;
 export const router={push:(route)=>{window.__lastRoute=route}};
 const wrap=(Component)=>({stableId,observationRole,sourceRef,...props})=><Component {...props} testID={stableId}/>;
-export const ObservedView=wrap(View), ObservedText=wrap(Text), ObservedPressable=wrap(Pressable);
+export const ObservedView=wrap(View), ObservedPressable=wrap(Pressable);
+export const ObservedText=({stableId,observationRole,sourceRef,observationStyle,style,...props})=><View style={observationStyle} testID={stableId}><Text {...props} style={style}/></View>;
 export function useFoodOrderingEvalFixture(){return {status:'ready',fixture:baselineFixture}};`;
 (async () => {
   const bundle = await esbuild.build({

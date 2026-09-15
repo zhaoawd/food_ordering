@@ -46,6 +46,34 @@ function visit(node) {
 }
 visit(tree);
 const cases = [
+  [
+    "matchPill",
+    "backgroundColor",
+    "match_score",
+    "resolved_style.backgroundColor",
+  ],
+  ["matchPill", "borderRadius", "match_score", "resolved_style.borderRadius"],
+  ["matchText", "color", "match_score", "resolved_style.color"],
+  ["dishTitle", "color", "title", "resolved_style.color"],
+  ["dishTitle", "fontSize", "title", "resolved_style.fontSize"],
+  ["attributesText", "color", "attributes", "resolved_style.color"],
+  ["attributesText", "fontSize", "attributes", "resolved_style.fontSize"],
+  ["price", "color", "price", "resolved_style.color"],
+  [
+    "savingsBadge",
+    "backgroundColor",
+    "savings",
+    "resolved_style.backgroundColor",
+  ],
+  ["primaryActionText", "color", "primary_action", "resolved_style.color"],
+  [
+    "nextAction",
+    "backgroundColor",
+    "next_action",
+    "resolved_style.backgroundColor",
+  ],
+  ["nextActionText", "color", "next_action", "resolved_style.color"],
+
   ["price", "fontSize", "price", "resolved_style.fontSize"],
   ["etaText", "fontSize", "eta", "resolved_style.fontSize"],
   ["etaText", "color", "eta", "resolved_style.color"],

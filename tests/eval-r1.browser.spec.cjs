@@ -68,3 +68,85 @@ test("order action updates bag count and orders tab requests existing route", as
     .poll(() => page.evaluate(() => window.__lastRoute))
     .toBe("/cart");
 });
+
+test("record full design-scope browser geometry for diagnosis", async ({
+  page,
+}, testInfo) => {
+  const fs = require("node:fs");
+  const path = require("node:path");
+  const design = JSON.parse(
+    fs.readFileSync(
+      path.resolve(
+        process.cwd(),
+        ".autophone/requirements/seq20260914b-r1-savings-increment-v2/design/design-package.json",
+      ),
+      "utf8",
+    ),
+  );
+  const elements = [];
+  for (const stableId of design.node_scope) {
+    const locator = page.getByTestId(stableId);
+    await expect(locator).toHaveCount(1);
+    elements.push(
+      await locator.evaluate((element, stable_id) => {
+        const box = element.getBoundingClientRect();
+        const style = getComputedStyle(element);
+        return {
+          stable_id,
+          text: element.textContent,
+          frame: { x: box.x, y: box.y, width: box.width, height: box.height },
+          browser_style: {
+            color: style.color,
+            backgroundColor: style.backgroundColor,
+            fontSize: style.fontSize,
+            borderRadius: style.borderRadius,
+          },
+        };
+      }, stableId),
+    );
+  }
+  const record = {
+    status: "diagnostic_only",
+    boundary:
+      "Browser component harness with native boundaries replaced; not iOS Actual or independent device coverage.",
+    elements,
+  };
+  fs.writeFileSync(
+    testInfo.outputPath("full-scope-browser.json"),
+    JSON.stringify(record, null, 2),
+  );
+});
+
+test("all 19 element frames agree with frozen design in browser fixture", async ({
+  page,
+}) => {
+  const fs = require("node:fs");
+  const design = JSON.parse(
+    fs.readFileSync(
+      ".autophone/requirements/seq20260914b-r1-savings-increment-v2/design/design-package.json",
+      "utf8",
+    ),
+  );
+  const expected = [];
+  function walk(value) {
+    if (!value || typeof value !== "object") return;
+    if (value.stable_id && Array.isArray(value.properties))
+      expected.push(value);
+    Object.values(value).forEach(walk);
+  }
+  walk(design);
+  for (const element of expected) {
+    const box = await page.getByTestId(element.stable_id).boundingBox();
+    for (const property of element.properties) {
+      if (property.property.startsWith("frame.")) {
+        const key = property.property.slice(6);
+        expect
+          .soft(
+            Math.abs(box[key] - Number(property.value)),
+            element.stable_id + "." + key,
+          )
+          .toBeLessThanOrEqual(0.51);
+      }
+    }
+  }
+});
