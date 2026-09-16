@@ -15,7 +15,6 @@ const recommendations = [
     title: "炙烤牛肉拌饭",
     attributes: "热乎、微辣，预计 30 分钟送达",
     price: 32,
-    savings: 6,
     eta: "25–35 分钟",
     match: 96,
   },
@@ -23,7 +22,6 @@ const recommendations = [
     title: "香辣鸡腿拌饭",
     attributes: "焦香、微辣，预计 28 分钟送达",
     price: 29,
-    savings: 4,
     eta: "20–30 分钟",
     match: 93,
   },
@@ -345,18 +343,6 @@ export default function Index() {
               ¥{recommendation.price}
             </ObservedText>
             <ObservedView
-              stableId="home.recommendation.savings"
-              sourceRef={sourceRef}
-              observationRole="text"
-              accessible
-              accessibilityLabel={`限时立减 ¥${recommendation.savings}`}
-              style={styles.savingsBadge}
-            >
-              <Text style={styles.savingsText}>
-                限时立减 ¥{recommendation.savings}
-              </Text>
-            </ObservedView>
-            <ObservedView
               stableId="home.recommendation.eta"
               sourceRef={sourceRef}
               observationRole="text"
@@ -631,23 +617,7 @@ const styles = StyleSheet.create({
     height: 29,
     letterSpacing: 0,
   },
-  savingsBadge: {
-    width: 120,
-    height: 26,
-    marginLeft: 14,
-    backgroundColor: "#E6472F",
-    borderRadius: 13,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  savingsText: {
-    color: "#FFFFFF",
-    fontSize: 12,
-    fontWeight: "700",
-    lineHeight: 26,
-    letterSpacing: 0,
-  },
-  etaCopy: { width: 163, height: 18, marginLeft: 33 },
+  etaCopy: { width: 163, height: 18, marginLeft: 167 },
   etaText: {
     color: "#77655F",
     fontSize: 13,
