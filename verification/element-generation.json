@@ -1,0 +1,61 @@
+{
+  "schema_version": "ui-element-generation-template/v1",
+  "app": "food_ordering_v2",
+  "indent_unit": "  ",
+  "style_expression": "styles.{style_key}",
+  "required_clauses": [
+    "layout.height",
+    "layout.width",
+    "style.backgroundColor",
+    "style.borderRadius",
+    "style.color",
+    "style.fontSize"
+  ],
+  "mounts": [
+    {
+      "design_parent_id": "home.recommendation.purchase_meta",
+      "file": "app/(tabs)/index.tsx",
+      "anchor_literal": "testID=\"home.recommendation.purchase_meta\"",
+      "sibling_stable_ids": [
+        "home.recommendation.price",
+        "home.recommendation.savings",
+        "home.recommendation.eta"
+      ]
+    }
+  ],
+  "emitters": {
+    "Text": {
+      "wrapper": {
+        "element": "ObservedView",
+        "props": {
+          "observationRole": { "literal": "text" },
+          "sourceRef": { "expression": "sourceRef" }
+        }
+      },
+      "inner": {
+        "element": "Text"
+      },
+      "ax_label_template": "{text}"
+    }
+  },
+  "style_key_naming": {
+    "source": "stable_id_last_segment",
+    "wrapper_suffix": "Badge",
+    "inner_suffix": "Text"
+  },
+  "style_reference_key": "price",
+  "style_key_map": {
+    "layout.position": { "key": "position", "slot": "wrapper", "value_format": "string" },
+    "layout.inset.top": { "key": "top", "slot": "wrapper", "value_format": "number" },
+    "layout.inset.left": { "key": "left", "slot": "wrapper", "value_format": "number" },
+    "layout.width": { "key": "width", "slot": "wrapper", "value_format": "number" },
+    "layout.height": { "key": "height", "slot": "wrapper", "value_format": "number" },
+    "style.backgroundColor": { "key": "backgroundColor", "slot": "wrapper", "value_format": "string" },
+    "style.borderRadius": { "key": "borderRadius", "slot": "wrapper", "value_format": "number" },
+    "style.color": { "key": "color", "slot": "inner", "value_format": "string" },
+    "style.fontSize": { "key": "fontSize", "slot": "inner", "value_format": "number" },
+    "style.fontWeight": { "key": "fontWeight", "slot": "inner", "value_format": "string" },
+    "style.lineHeight": { "key": "lineHeight", "slot": "inner", "value_format": "number" },
+    "style.textAlign": { "key": "textAlign", "slot": "inner", "value_format": "string" }
+  }
+}
