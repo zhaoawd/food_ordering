@@ -13,7 +13,7 @@ export type FoodOrderingEvalFixture = Readonly<{
 
 export const baselineFixture: FoodOrderingEvalFixture = Object.freeze({
   home: Object.freeze({
-    location: "送至 · 望京",
+    location: "送至 · 望京SOHO",
     primaryActionBackground: "#E6472F",
     locationFontSize: 15,
     locationTranslateY: 0,
