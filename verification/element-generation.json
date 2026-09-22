@@ -28,8 +28,12 @@
       "wrapper": {
         "element": "ObservedView",
         "props": {
-          "observationRole": { "literal": "text" },
-          "sourceRef": { "expression": "sourceRef" }
+          "observationRole": {
+            "literal": "text"
+          },
+          "sourceRef": {
+            "expression": "sourceRef"
+          }
         }
       },
       "inner": {
@@ -45,17 +49,556 @@
   },
   "style_reference_key": "price",
   "style_key_map": {
-    "layout.position": { "key": "position", "slot": "wrapper", "value_format": "string" },
-    "layout.inset.top": { "key": "top", "slot": "wrapper", "value_format": "number" },
-    "layout.inset.left": { "key": "left", "slot": "wrapper", "value_format": "number" },
-    "layout.width": { "key": "width", "slot": "wrapper", "value_format": "number" },
-    "layout.height": { "key": "height", "slot": "wrapper", "value_format": "number" },
-    "style.backgroundColor": { "key": "backgroundColor", "slot": "wrapper", "value_format": "string" },
-    "style.borderRadius": { "key": "borderRadius", "slot": "wrapper", "value_format": "number" },
-    "style.color": { "key": "color", "slot": "inner", "value_format": "string" },
-    "style.fontSize": { "key": "fontSize", "slot": "inner", "value_format": "number" },
-    "style.fontWeight": { "key": "fontWeight", "slot": "inner", "value_format": "string" },
-    "style.lineHeight": { "key": "lineHeight", "slot": "inner", "value_format": "number" },
-    "style.textAlign": { "key": "textAlign", "slot": "inner", "value_format": "string" }
+    "layout.position": {
+      "key": "position",
+      "slot": "wrapper",
+      "value_format": "string"
+    },
+    "layout.inset.top": {
+      "key": "top",
+      "slot": "wrapper",
+      "value_format": "number"
+    },
+    "layout.inset.left": {
+      "key": "left",
+      "slot": "wrapper",
+      "value_format": "number"
+    },
+    "layout.width": {
+      "key": "width",
+      "slot": "wrapper",
+      "value_format": "number"
+    },
+    "layout.height": {
+      "key": "height",
+      "slot": "wrapper",
+      "value_format": "number"
+    },
+    "style.backgroundColor": {
+      "key": "backgroundColor",
+      "slot": "wrapper",
+      "value_format": "string"
+    },
+    "style.borderRadius": {
+      "key": "borderRadius",
+      "slot": "wrapper",
+      "value_format": "number"
+    },
+    "style.color": {
+      "key": "color",
+      "slot": "inner",
+      "value_format": "string"
+    },
+    "style.fontSize": {
+      "key": "fontSize",
+      "slot": "inner",
+      "value_format": "number"
+    },
+    "style.fontWeight": {
+      "key": "fontWeight",
+      "slot": "inner",
+      "value_format": "string"
+    },
+    "style.lineHeight": {
+      "key": "lineHeight",
+      "slot": "inner",
+      "value_format": "number"
+    },
+    "style.textAlign": {
+      "key": "textAlign",
+      "slot": "inner",
+      "value_format": "string"
+    }
+  },
+  "composition_repair": {
+    "schema_version": "ui-composition-repair-recipe/v1",
+    "source_files": {
+      "app/(tabs)/index.tsx": "0e598d0138c4e49178958ee8d9328bf3b3bd992db6f1e855dfa9dab4a0aa44c5",
+      "verification/fixture.ts": "83eff6750363479cf9c1575963cdcc7127270274922391b5c32cc9be3c668249"
+    },
+    "target": {
+      "file": "app/(tabs)/index.tsx",
+      "symbol": "Index"
+    },
+    "composition_sha256": "78a3656332f518e682aee70cb5460f3629aed3aad7697f430e83565da4debfa0",
+    "screen_edges": [
+      "top"
+    ],
+    "style_namespace": "compositionStyles",
+    "source_refs": {
+      "home.header.location": {
+        "file": "verification/fixture.ts",
+        "symbol": "baselineFixture"
+      },
+      "home.header.cart": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.header.cart_badge": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.brand.wordmark": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.hero.headline": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.ai_prompt": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.ai_prompt.input": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.ai_prompt.submit": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.recommendation.card": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.recommendation.image": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.recommendation.scrim": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.recommendation.match_score": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.recommendation.title": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.recommendation.attributes": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.recommendation.pagination": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.recommendation.price": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.recommendation.savings": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.recommendation.eta": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.recommendation.primary_action": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.recommendation.next_action": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.navigation": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.navigation.home": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.navigation.discover": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.navigation.orders": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      },
+      "home.navigation.profile": {
+        "file": "app/(tabs)/index.tsx",
+        "symbol": "Index"
+      }
+    },
+    "bindings": {
+      "home.header.location": {
+        "source_ref_expression": "sourceRef_home_header_location",
+        "text_expression": "home.location",
+        "event_props": {
+          "accessibilityLabel": "home.location"
+        },
+        "inert_button": true
+      },
+      "home.header.cart": {
+        "source_ref_expression": "sourceRef",
+        "expected_text": true,
+        "event_props": {
+          "accessibilityLabel": "cartIconLabel",
+          "accessibilityHint": "cartHint"
+        },
+        "inert_button": true
+      },
+      "home.header.cart_badge": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "cartCount",
+        "event_props": {
+          "accessible": "true"
+        }
+      },
+      "home.brand.wordmark": {
+        "source_ref_expression": "sourceRef",
+        "expected_text": true,
+        "event_props": {
+          "accessible": "true"
+        }
+      },
+      "home.hero.headline": {
+        "source_ref_expression": "sourceRef",
+        "expected_text": true,
+        "event_props": {
+          "accessible": "true"
+        }
+      },
+      "home.ai_prompt": {
+        "source_ref_expression": "sourceRef",
+        "observation_role": "group"
+      },
+      "home.ai_prompt.input": {
+        "source_ref_expression": "sourceRef",
+        "observation_role": "textbox",
+        "event_props": {
+          "accessibilityLabel": "promptValueLabel",
+          "accessibilityHint": "\"饮食偏好\"",
+          "accessible": "true"
+        }
+      },
+      "home.ai_prompt.input.text": {
+        "source_ref_expression": "sourceRef",
+        "text_input": {
+          "value": "prompt",
+          "onChangeText": "changePrompt",
+          "onSubmitEditing": "submitPrompt",
+          "placeholder": "promptPlaceholder",
+          "returnKeyType": "\"go\"",
+          "accessibilityLabel": "\"饮食偏好\""
+        }
+      },
+      "home.ai_prompt.submit": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "promptSubmitLabel",
+        "event_props": {
+          "onPress": "submitPrompt",
+          "disabled": "promptState === \"submitting\"",
+          "accessibilityLabel": "promptSubmitLabel",
+          "accessibilityHint": "promptButtonLabel"
+        }
+      },
+      "home.recommendation.card": {
+        "source_ref_expression": "sourceRef",
+        "observation_role": "group"
+      },
+      "home.recommendation.image": {
+        "source_ref_expression": "sourceRef",
+        "observation_role": "image"
+      },
+      "home.recommendation.scrim": {
+        "source_ref_expression": "sourceRef",
+        "observation_role": "decoration"
+      },
+      "home.recommendation.match_score": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "matchScoreLabel",
+        "event_props": {
+          "accessible": "true"
+        }
+      },
+      "home.recommendation.title": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "recommendation.title",
+        "text_style_expression": "recommendationTextStateStyle",
+        "event_props": {
+          "accessible": "true"
+        }
+      },
+      "home.recommendation.attributes": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "recommendation.attributes",
+        "event_props": {
+          "accessible": "true"
+        }
+      },
+      "home.recommendation.pagination": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "paginationLabel",
+        "event_props": {
+          "accessible": "true"
+        }
+      },
+      "home.recommendation.price": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "priceLabel",
+        "event_props": {
+          "accessible": "true"
+        }
+      },
+      "home.recommendation.eta": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "recommendation.eta",
+        "event_props": {
+          "accessible": "true"
+        }
+      },
+      "home.recommendation.primary_action": {
+        "source_ref_expression": "sourceRef_home_recommendation_primary_action",
+        "text_expression": "primaryActionLabel",
+        "event_props": {
+          "onPress": "addToCart",
+          "disabled": "ctaState !== \"idle\"",
+          "accessibilityLabel": "primaryActionLabel"
+        },
+        "box_style_expression": "primaryActionDynamicStyle"
+      },
+      "home.recommendation.next_action": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "nextActionLabel",
+        "event_props": {
+          "onPress": "swapRecommendation",
+          "disabled": "isSwapping",
+          "accessibilityRole": "\"button\""
+        }
+      },
+      "home.recommendation.savings": {
+        "source_ref_expression": "sourceRef",
+        "expected_text": true
+      },
+      "home.navigation": {
+        "source_ref_expression": "sourceRef",
+        "observation_role": "tablist",
+        "event_props": {
+          "accessibilityRole": "\"tablist\""
+        }
+      },
+      "home.navigation.home": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "homeTabLabel",
+        "observation_role": "tab",
+        "event_props": {
+          "onPress": "onHomeTab",
+          "accessibilityRole": "\"tab\"",
+          "accessibilityState": "homeTabState"
+        },
+        "text_style_expression": "homeTabTextStateStyle"
+      },
+      "home.navigation.discover": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "discoverTabLabel",
+        "observation_role": "tab",
+        "event_props": {
+          "onPress": "onDiscoverTab",
+          "accessibilityRole": "\"tab\"",
+          "accessibilityState": "discoverTabState"
+        },
+        "text_style_expression": "discoverTabTextStateStyle"
+      },
+      "home.navigation.orders": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "ordersTabLabel",
+        "observation_role": "tab",
+        "event_props": {
+          "onPress": "onOrdersTab",
+          "accessibilityRole": "\"tab\"",
+          "accessibilityState": "ordersTabState"
+        },
+        "text_style_expression": "ordersTabTextStateStyle"
+      },
+      "home.navigation.profile": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "profileTabLabel",
+        "observation_role": "tab",
+        "event_props": {
+          "onPress": "onProfileTab",
+          "accessibilityRole": "\"tab\"",
+          "accessibilityState": "profileTabState"
+        },
+        "text_style_expression": "profileTabTextStateStyle"
+      }
+    },
+    "text_edits": [
+      {
+        "stable_id": "home.header.location",
+        "file": "verification/fixture.ts",
+        "before": "    location: \"送至 · 望京\",",
+        "prefix": "    location: ",
+        "suffix": ",",
+        "format": "string"
+      },
+      {
+        "stable_id": "home.header.cart",
+        "file": "app/(tabs)/index.tsx",
+        "before": "  const cartIconLabel = \"袋\";",
+        "prefix": "  const cartIconLabel = ",
+        "suffix": ";",
+        "format": "string"
+      },
+      {
+        "stable_id": "home.header.cart_badge",
+        "file": "app/(tabs)/index.tsx",
+        "before": "  const [cartCount, setCartCount] = useState(2);",
+        "prefix": "  const [cartCount, setCartCount] = useState(",
+        "suffix": ");",
+        "format": "numeric_value"
+      },
+      {
+        "stable_id": "home.recommendation.title",
+        "file": "app/(tabs)/index.tsx",
+        "before": "    title: \"炙烤牛肉拌饭\",",
+        "prefix": "    title: ",
+        "suffix": ",",
+        "format": "string"
+      },
+      {
+        "stable_id": "home.recommendation.attributes",
+        "file": "app/(tabs)/index.tsx",
+        "before": "    attributes: \"热乎、微辣，预计 30 分钟送达\",",
+        "prefix": "    attributes: ",
+        "suffix": ",",
+        "format": "string"
+      },
+      {
+        "stable_id": "home.recommendation.eta",
+        "file": "app/(tabs)/index.tsx",
+        "before": "    eta: \"25–35 分钟\",",
+        "prefix": "    eta: ",
+        "suffix": ",",
+        "format": "string"
+      },
+      {
+        "stable_id": "home.recommendation.match_score",
+        "file": "app/(tabs)/index.tsx",
+        "before": "    match: 96,",
+        "prefix": "    match: ",
+        "suffix": ",",
+        "format": "numeric_value"
+      },
+      {
+        "stable_id": "home.recommendation.match_score",
+        "file": "app/(tabs)/index.tsx",
+        "before": "  const matchPrefix = \"匹配度 \";",
+        "prefix": "  const matchPrefix = ",
+        "suffix": ";",
+        "format": "numeric_prefix"
+      },
+      {
+        "stable_id": "home.recommendation.match_score",
+        "file": "app/(tabs)/index.tsx",
+        "before": "  const matchSuffix = \"%\";",
+        "prefix": "  const matchSuffix = ",
+        "suffix": ";",
+        "format": "numeric_suffix"
+      },
+      {
+        "stable_id": "home.recommendation.price",
+        "file": "app/(tabs)/index.tsx",
+        "before": "    price: 32,",
+        "prefix": "    price: ",
+        "suffix": ",",
+        "format": "numeric_value"
+      },
+      {
+        "stable_id": "home.recommendation.price",
+        "file": "app/(tabs)/index.tsx",
+        "before": "  const pricePrefix = \"¥\";",
+        "prefix": "  const pricePrefix = ",
+        "suffix": ";",
+        "format": "numeric_prefix"
+      },
+      {
+        "stable_id": "home.recommendation.price",
+        "file": "app/(tabs)/index.tsx",
+        "before": "  const priceSuffix = \"\";",
+        "prefix": "  const priceSuffix = ",
+        "suffix": ";",
+        "format": "numeric_suffix"
+      },
+      {
+        "stable_id": "home.recommendation.price",
+        "file": "app/(tabs)/index.tsx",
+        "before": "  const priceDecimalPlaces = 0;",
+        "prefix": "  const priceDecimalPlaces = ",
+        "suffix": ";",
+        "format": "decimal_places"
+      },
+      {
+        "stable_id": "home.recommendation.primary_action",
+        "file": "app/(tabs)/index.tsx",
+        "before": "        : \"立即下单\";",
+        "prefix": "        : ",
+        "suffix": ";",
+        "format": "string"
+      },
+      {
+        "stable_id": "home.recommendation.next_action",
+        "file": "app/(tabs)/index.tsx",
+        "before": "  const nextActionLabel = isSwapping ? \"正在换口味\" : \"换个口味\";",
+        "prefix": "  const nextActionLabel = isSwapping ? \"正在换口味\" : ",
+        "suffix": ";",
+        "format": "string"
+      },
+      {
+        "stable_id": "home.ai_prompt.submit",
+        "file": "app/(tabs)/index.tsx",
+        "before": "  const promptSubmitLabel = promptState === \"ready\" ? \"✓\" : \"→\";",
+        "prefix": "  const promptSubmitLabel = promptState === \"ready\" ? \"✓\" : ",
+        "suffix": ";",
+        "format": "string"
+      },
+      {
+        "stable_id": "home.navigation.home",
+        "file": "app/(tabs)/index.tsx",
+        "before": "    label: \"首页\",",
+        "prefix": "    label: ",
+        "suffix": ",",
+        "format": "string"
+      },
+      {
+        "stable_id": "home.navigation.discover",
+        "file": "app/(tabs)/index.tsx",
+        "before": "    label: \"发现\",",
+        "prefix": "    label: ",
+        "suffix": ",",
+        "format": "string"
+      },
+      {
+        "stable_id": "home.navigation.orders",
+        "file": "app/(tabs)/index.tsx",
+        "before": "    label: \"订单\",",
+        "prefix": "    label: ",
+        "suffix": ",",
+        "format": "string"
+      },
+      {
+        "stable_id": "home.navigation.profile",
+        "file": "app/(tabs)/index.tsx",
+        "before": "    label: \"我的\",",
+        "prefix": "    label: ",
+        "suffix": ",",
+        "format": "string"
+      },
+      {
+        "node_id": "home.ai_prompt.input.text",
+        "file": "app/(tabs)/index.tsx",
+        "before": "  const promptPlaceholder = \"想吃热乎的、微辣、别太油\";",
+        "prefix": "  const promptPlaceholder = ",
+        "suffix": ";",
+        "format": "string"
+      }
+    ]
   }
 }

@@ -152,7 +152,67 @@ export default function Index() {
         ? "已加入购物袋"
         : "立即下单";
 
+  const promptPlaceholder = "想吃热乎的、微辣、别太油";
+  const promptValueLabel = prompt || promptPlaceholder;
+  const promptSubmitLabel = promptState === "ready" ? "✓" : "→";
+  const cartIconLabel = "袋";
+  const cartLabel = `袋 ${cartCount}`;
+  const cartHint = `购物袋，${cartCount} 件商品`;
+  const matchPrefix = "匹配度 ";
+  const matchSuffix = "%";
+  const matchScoreLabel = `${matchPrefix}${recommendation.match}${matchSuffix}`;
+  const pricePrefix = "¥";
+  const priceSuffix = "";
+  const priceDecimalPlaces = 0;
+  const priceLabel = `${pricePrefix}${recommendation.price.toFixed(priceDecimalPlaces)}${priceSuffix}`;
+  const etaLabel = `${recommendation.eta} · 预计送达`;
+  const nextActionLabel = isSwapping ? "正在换口味" : "换个口味";
+  const changePrompt = (value: string) => {
+    setPrompt(value);
+    if (promptState === "ready") setPromptState("idle");
+  };
+  const addToCart = () => {
+    Keyboard.dismiss();
+    setCtaState("loading");
+  };
+  const swapRecommendation = () => {
+    Keyboard.dismiss();
+    setIsSwapping(true);
+  };
+  const selectTab = (tab: (typeof tabs)[number]) => {
+    Keyboard.dismiss();
+    setActiveTab(tab.id);
+    if (tab.route) router.push(tab.route);
+  };
+  const homeTabLabel = tabs[0].label;
+  const discoverTabLabel = tabs[1].label;
+  const ordersTabLabel = tabs[2].label;
+  const profileTabLabel = tabs[3].label;
+  const homeTabState = { selected: activeTab === tabs[0].id };
+  const discoverTabState = { selected: activeTab === tabs[1].id };
+  const ordersTabState = { selected: activeTab === tabs[2].id };
+  const profileTabState = { selected: activeTab === tabs[3].id };
+  const onHomeTab = () => selectTab(tabs[0]);
+  const onDiscoverTab = () => selectTab(tabs[1]);
+  const onOrdersTab = () => selectTab(tabs[2]);
+  const onProfileTab = () => selectTab(tabs[3]);
+
+  const recommendationTextStateStyle = isSwapping && styles.mutedContent;
+  const primaryActionDynamicStyle = [
+    { backgroundColor: home.primaryActionBackground },
+    ctaState === "success" && styles.primaryActionSuccess,
+  ];
+  const homeTabBoxStateStyle = homeTabState.selected && styles.tabActive;
+  const homeTabTextStateStyle = homeTabState.selected && styles.tabLabelActive;
+  const discoverTabBoxStateStyle = discoverTabState.selected && styles.tabActive;
+  const discoverTabTextStateStyle = discoverTabState.selected && styles.tabLabelActive;
+  const ordersTabBoxStateStyle = ordersTabState.selected && styles.tabActive;
+  const ordersTabTextStateStyle = ordersTabState.selected && styles.tabLabelActive;
+  const profileTabBoxStateStyle = profileTabState.selected && styles.tabActive;
+  const profileTabTextStateStyle = profileTabState.selected && styles.tabLabelActive;
+
   return (
+    /* AUTOPHONE_COMPOSITION_START */
     <SafeAreaView edges={["top"]} style={styles.screen} testID="home.root">
       <View style={styles.intro}>
         <View style={styles.headerActions}>
@@ -182,11 +242,11 @@ export default function Index() {
             stableId="home.header.cart"
             sourceRef={sourceRef}
             observationRole="button"
-            accessibilityLabel={`袋 ${cartCount}`}
-            accessibilityHint={`购物袋，${cartCount} 件商品`}
+            accessibilityLabel={cartLabel}
+            accessibilityHint={cartHint}
             style={styles.cartButton}
           >
-            <Text style={styles.cartIcon}>袋</Text>
+            <Text style={styles.cartIcon}>{cartIconLabel}</Text>
             <ObservedView
               stableId="home.header.cart_badge"
               sourceRef={sourceRef}
@@ -229,21 +289,18 @@ export default function Index() {
             sourceRef={sourceRef}
             observationRole="textbox"
             accessible
-            accessibilityLabel={prompt || "想吃热乎的、微辣、别太油"}
+            accessibilityLabel={promptValueLabel}
             accessibilityHint="饮食偏好"
             style={styles.promptInputObservation}
           >
             <Text style={styles.hiddenText}>
-              {prompt || "想吃热乎的、微辣、别太油"}
+              {promptValueLabel}
             </Text>
             <TextInput
               accessibilityLabel="饮食偏好"
-              onChangeText={(value) => {
-                setPrompt(value);
-                if (promptState === "ready") setPromptState("idle");
-              }}
+              onChangeText={changePrompt}
               onSubmitEditing={submitPrompt}
-              placeholder="想吃热乎的、微辣、别太油"
+              placeholder={promptPlaceholder}
               placeholderTextColor="#77655F"
               returnKeyType="go"
               style={styles.promptInput}
@@ -254,14 +311,14 @@ export default function Index() {
             stableId="home.ai_prompt.submit"
             sourceRef={sourceRef}
             observationRole="button"
-            accessibilityLabel={promptState === "ready" ? "✓" : "→"}
+            accessibilityLabel={promptSubmitLabel}
             accessibilityHint={promptButtonLabel}
             disabled={promptState === "submitting"}
             onPress={submitPrompt}
             style={styles.promptSubmit}
           >
             <Text style={styles.promptSubmitText}>
-              {promptState === "ready" ? "✓" : "→"}
+              {promptSubmitLabel}
             </Text>
           </ObservedPressable>
         </ObservedView>
@@ -296,7 +353,7 @@ export default function Index() {
             accessible
             style={styles.matchPill}
           >
-            <Text style={styles.matchText}>匹配度 {recommendation.match}%</Text>
+            <Text style={styles.matchText}>{matchScoreLabel}</Text>
           </ObservedView>
           <ObservedText
             stableId="home.recommendation.title"
@@ -304,7 +361,7 @@ export default function Index() {
             observationRole="text"
             accessible
             observationStyle={styles.dishTitleObservation}
-            style={[styles.dishTitle, isSwapping && styles.mutedContent]}
+            style={[styles.dishTitle, recommendationTextStateStyle]}
           >
             {recommendation.title}
           </ObservedText>
@@ -340,7 +397,7 @@ export default function Index() {
               observationStyle={styles.priceObservation}
               style={styles.price}
             >
-              ¥{recommendation.price}
+              {priceLabel}
             </ObservedText>
             <ObservedView
               stableId="home.recommendation.eta"
@@ -350,7 +407,7 @@ export default function Index() {
               style={styles.etaCopy}
             >
               <Text style={styles.etaText}>
-                {recommendation.eta} · 预计送达
+                {etaLabel}
               </Text>
             </ObservedView>
           </View>
@@ -360,15 +417,8 @@ export default function Index() {
             observationRole="button"
             accessibilityLabel={primaryActionLabel}
             disabled={ctaState !== "idle"}
-            onPress={() => {
-              Keyboard.dismiss();
-              setCtaState("loading");
-            }}
-            style={[
-              styles.primaryAction,
-              { backgroundColor: home.primaryActionBackground },
-              ctaState === "success" && styles.primaryActionSuccess,
-            ]}
+            onPress={addToCart}
+            style={[styles.primaryAction, primaryActionDynamicStyle]}
           >
             <Text style={styles.primaryActionText}>{primaryActionLabel}</Text>
           </ObservedPressable>
@@ -378,14 +428,11 @@ export default function Index() {
             observationRole="button"
             accessibilityRole="button"
             disabled={isSwapping}
-            onPress={() => {
-              Keyboard.dismiss();
-              setIsSwapping(true);
-            }}
+            onPress={swapRecommendation}
             style={styles.nextAction}
           >
             <Text style={styles.nextActionText}>
-              {isSwapping ? "正在换口味" : "换个口味"}
+              {nextActionLabel}
             </Text>
           </ObservedPressable>
         </View>
@@ -397,31 +444,65 @@ export default function Index() {
         accessibilityRole="tablist"
         style={styles.bottomNavigation}
       >
-        {tabs.map((tab) => {
-          const active = activeTab === tab.id;
-          return (
-            <ObservedPressable
-              key={tab.id}
-              stableId={tab.stableId}
-              sourceRef={sourceRef}
-              observationRole="tab"
-              accessibilityRole="tab"
-              accessibilityState={{ selected: active }}
-              onPress={() => {
-                Keyboard.dismiss();
-                setActiveTab(tab.id);
-                if (tab.route) router.push(tab.route);
-              }}
-              style={[styles.tab, active && styles.tabActive]}
-            >
-              <Text style={[styles.tabLabel, active && styles.tabLabelActive]}>
-                {tab.label}
-              </Text>
-            </ObservedPressable>
-          );
-        })}
+        <ObservedPressable
+          key={tabs[0].id}
+          stableId={tabs[0].stableId}
+          sourceRef={sourceRef}
+          observationRole="tab"
+          accessibilityRole="tab"
+          accessibilityState={homeTabState}
+          onPress={onHomeTab}
+          style={[styles.tab, homeTabBoxStateStyle]}
+        >
+          <Text style={[styles.tabLabel, homeTabTextStateStyle]}>
+            {homeTabLabel}
+          </Text>
+        </ObservedPressable>
+        <ObservedPressable
+          key={tabs[1].id}
+          stableId={tabs[1].stableId}
+          sourceRef={sourceRef}
+          observationRole="tab"
+          accessibilityRole="tab"
+          accessibilityState={discoverTabState}
+          onPress={onDiscoverTab}
+          style={[styles.tab, discoverTabBoxStateStyle]}
+        >
+          <Text style={[styles.tabLabel, discoverTabTextStateStyle]}>
+            {discoverTabLabel}
+          </Text>
+        </ObservedPressable>
+        <ObservedPressable
+          key={tabs[2].id}
+          stableId={tabs[2].stableId}
+          sourceRef={sourceRef}
+          observationRole="tab"
+          accessibilityRole="tab"
+          accessibilityState={ordersTabState}
+          onPress={onOrdersTab}
+          style={[styles.tab, ordersTabBoxStateStyle]}
+        >
+          <Text style={[styles.tabLabel, ordersTabTextStateStyle]}>
+            {ordersTabLabel}
+          </Text>
+        </ObservedPressable>
+        <ObservedPressable
+          key={tabs[3].id}
+          stableId={tabs[3].stableId}
+          sourceRef={sourceRef}
+          observationRole="tab"
+          accessibilityRole="tab"
+          accessibilityState={profileTabState}
+          onPress={onProfileTab}
+          style={[styles.tab, profileTabBoxStateStyle]}
+        >
+          <Text style={[styles.tabLabel, profileTabTextStateStyle]}>
+            {profileTabLabel}
+          </Text>
+        </ObservedPressable>
       </ObservedView>
     </SafeAreaView>
+    /* AUTOPHONE_COMPOSITION_END */
   );
 }
 
