@@ -1,5 +1,6 @@
 import * as FileSystem from "expo-file-system";
 import {
+  Children,
   isValidElement,
   ReactNode,
   useCallback,
@@ -127,6 +128,21 @@ function primitiveStyle(style: unknown): Record<string, Primitive> {
       value === null || ["string", "number", "boolean"].includes(typeof value),
     ),
   ) as Record<string, Primitive>;
+}
+
+// 仅合并唯一直接 Text 子节点的颜色；不把文本布局当作按钮布局。
+// 多个文本子节点或 render-prop 无法确定唯一颜色时保留缺失值。
+export function pressableObservationStyle(
+  style: StyleProp<ViewStyle>,
+  children: ReactNode | PressableProps["children"],
+): StyleProp<ViewStyle | TextStyle> {
+  if (typeof children === "function") return style;
+  const labels = Children.toArray(children).filter(
+    (child) => isValidElement<TextProps>(child) && child.type === Text,
+  );
+  if (labels.length !== 1 || !isValidElement<TextProps>(labels[0])) return style;
+  const labelStyle = StyleSheet.flatten(labels[0].props.style);
+  return labelStyle?.color == null ? style : [style, { color: labelStyle.color }];
 }
 
 function observationPath(): string | null {
@@ -400,7 +416,8 @@ export function ObservedPressable({
     () => typeof children === "function" ? null : renderedText(children),
     [children],
   );
-  const observation = useObservation({ stableId, observationRole, sourceRef }, style, text);
+  const observedStyle = useMemo(() => pressableObservationStyle(style, children), [style, children]);
+  const observation = useObservation({ stableId, observationRole, sourceRef }, observedStyle, text);
   const handleLayout = useCallback((event: LayoutChangeEvent) => {
     onLayout?.(event);
     observation.measure();

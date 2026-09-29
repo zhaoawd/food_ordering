@@ -117,7 +117,7 @@ test("record full design-scope browser geometry for diagnosis", async ({
   );
 });
 
-test("all 19 element frames agree with frozen design in browser fixture", async ({
+test("R1 frames retain their geometry with the BL-202 preferences button reservation", async ({
   page,
 }) => {
   const fs = require("node:fs");
@@ -142,11 +142,25 @@ test("all 19 element frames agree with frozen design in browser fixture", async 
         const key = property.property.slice(6);
         expect
           .soft(
-            Math.abs(box[key] - Number(property.value)),
+            Math.abs(box[key] - (Number(property.value) -
+              (element.stable_id === "home.ai_prompt.input" && key === "width" ? 44 : 0))),
             element.stable_id + "." + key,
           )
           .toBeLessThanOrEqual(0.51);
       }
     }
   }
+});
+
+// BL-202 reserves a 44-point target within the existing prompt row.
+test("preferences entry fits between input and submit and opens preferences", async ({ page }) => {
+  const input = await page.getByTestId("home.ai_prompt.input").boundingBox();
+  const preferences = page.getByRole("button", { name: "调偏好", exact: true });
+  const button = await preferences.boundingBox();
+  const submit = await page.getByTestId("home.ai_prompt.submit").boundingBox();
+  expect(button.width).toBe(44);
+  expect(input.x + input.width).toBeLessThanOrEqual(button.x + 0.01);
+  expect(button.x + button.width).toBeLessThanOrEqual(submit.x + 0.01);
+  await preferences.click();
+  await expect.poll(() => page.evaluate(() => window.__lastRoute)).toBe("/preferences");
 });
