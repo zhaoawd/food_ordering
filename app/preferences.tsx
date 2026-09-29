@@ -184,352 +184,155 @@ export default function PreferencesScreen() {
 
   return (
     /* AUTOPHONE_COMPOSITION_START */
-    <SafeAreaView edges={["top"]} style={styles.screen} testID="preferences.root">
-      <View style={styles.header} testID="preferences.header">
-        <Pressable
-          accessible={false}
-          onPress={goBack}
-          style={styles.backButton}
-          testID="preferences.header.back_button"
-        >
-          <Text accessible={false} style={styles.backChevron}>‹</Text>
-          <ObservedText
-            accessibilityLabel="返回"
-            accessibilityRole="button"
-            observationRole="text"
-            observationStyle={styles.backLabelFrame}
-            sourceRef={sourceRef}
-            stableId="preferences.header.back"
-            style={styles.backLabel}
-          >
-            返回
-          </ObservedText>
-        </Pressable>
-        <ObservedText
-          accessibilityRole="header"
-          observationRole="text"
-          observationStyle={styles.headerTitleFrame}
-          sourceRef={sourceRef}
-          stableId="preferences.header.title"
-          style={styles.headerTitle}
-        >
-          饮食偏好
+<SafeAreaView edges={["top"]} testID={"preferences.root"} style={compositionStyles.n_71bfb7b15fdd1590}>
+  <View style={compositionStyles.n_ecd0f436a76724f6}>
+    <ObservedPressable stableId={"preferences.header.back"} sourceRef={sourceRef} observationRole={"text"} accessibilityLabel={"‹ 返回"} accessibilityRole={"button"} onPress={goBack} style={compositionStyles.n_6697c97efdab17ce}>
+      <Text style={compositionStyles.n_6697c97efdab17ce_text}>{"‹ 返回"}</Text>
+    </ObservedPressable>
+    <ObservedText stableId={"preferences.header.title"} sourceRef={sourceRef} observationRole={"text"} accessibilityRole={"header"} observationStyle={compositionStyles.n_2bcdcfb628afca9d} style={compositionStyles.n_2bcdcfb628afca9d_text}>
+      {"饮食偏好"}
+    </ObservedText>
+    <VerificationCommitSave onPress={commitAndLeave} visible={showCommitSave} />
+  </View>
+  <ScrollView style={compositionStyles.n_3d6e09607f2afdb6} contentContainerStyle={compositionStyles.n_3d6e09607f2afdb6_content}>
+    <View style={compositionStyles.n_a27075b4b50704b9}>
+      <View style={compositionStyles.n_19aa0c034e13a5bb}>
+        <ObservedText stableId={"preferences.spice.title"} sourceRef={sourceRef} observationRole={"text"} observationStyle={compositionStyles.n_9f028f5f96d98059} style={compositionStyles.n_9f028f5f96d98059_text}>
+          {"辣度"}
         </ObservedText>
-        <VerificationCommitSave onPress={commitAndLeave} visible={showCommitSave} />
+        <ObservedText stableId={"preferences.spice.note"} sourceRef={sourceRef} observationRole={"text"} observationStyle={compositionStyles.n_df7887907907cd64} style={compositionStyles.n_df7887907907cd64_text}>
+          {"单选"}
+        </ObservedText>
       </View>
-
-      <ScrollView
-        contentContainerStyle={styles.content}
-        style={styles.scroll}
-        testID="preferences.content"
-      >
-        <View style={styles.sectionFirst} testID="preferences.section.spice">
-          <View style={styles.sectionHead}>
-            <ObservedText
-              observationRole="text"
-              observationStyle={styles.sectionTitleFrame}
-              sourceRef={sourceRef}
-              stableId="preferences.spice.title"
-              style={styles.sectionTitle}
-            >
-              辣度
-            </ObservedText>
-            <ObservedText
-              observationRole="text"
-              observationStyle={styles.sectionNoteFrame}
-              sourceRef={sourceRef}
-              stableId="preferences.spice.note"
-              style={styles.sectionNote}
-            >
-              单选
-            </ObservedText>
+      <View style={compositionStyles.n_53480d8ea7c5b8c7}>
+        <View style={compositionStyles.n_8b47af017916b5ad}>
+          <View style={compositionStyles.n_fd9734bd6411724e_cell}>
+            <ObservedPressable stableId={"preferences.spice.none"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={spiceNoneLabel} accessibilityRole={"button"} accessibilityState={spiceNoneState} onPress={onSpiceNone} style={[compositionStyles.n_fd9734bd6411724e, spiceNoneSelected && compositionStyles.n_fd9734bd6411724e_selected]}>
+              <Text style={[compositionStyles.n_fd9734bd6411724e_text, spiceNoneSelected && compositionStyles.n_fd9734bd6411724e_text_selected]}>{spiceNoneLabel}</Text>
+              <CompositionSelectedMark style={[compositionStyles.n_fd9734bd6411724e_text, spiceNoneSelected && compositionStyles.n_fd9734bd6411724e_text_selected]} visible={spiceNoneSelected} />
+            </ObservedPressable>
           </View>
-          <View style={styles.optionRow}>
-            <ObservedPressable
-              accessibilityLabel={spiceNoneLabel}
-              accessibilityRole="button"
-              accessibilityState={spiceNoneState}
-              observationRole="button"
-              onPress={onSpiceNone}
-              sourceRef={sourceRef}
-              stableId="preferences.spice.none"
-              style={[styles.option, styles.optionColumn, spiceNoneBoxStateStyle]}
-            >
-              <Text style={[styles.optionLabel, spiceNoneTextStateStyle]}>
-                {spiceNoneLabel}
-              </Text>
-              <OptionCheck visible={spiceNoneSelected} />
+          <View style={compositionStyles.n_d26a9225a1e51c20_cell}>
+            <ObservedPressable stableId={"preferences.spice.mild"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={spiceMildLabel} accessibilityRole={"button"} accessibilityState={spiceMildState} onPress={onSpiceMild} style={[compositionStyles.n_d26a9225a1e51c20, spiceMildSelected && compositionStyles.n_d26a9225a1e51c20_selected]}>
+              <Text style={[compositionStyles.n_d26a9225a1e51c20_text, spiceMildSelected && compositionStyles.n_d26a9225a1e51c20_text_selected]}>{spiceMildLabel}</Text>
+              <CompositionSelectedMark style={[compositionStyles.n_d26a9225a1e51c20_text, spiceMildSelected && compositionStyles.n_d26a9225a1e51c20_text_selected]} visible={spiceMildSelected} />
             </ObservedPressable>
-            <ObservedPressable
-              accessibilityLabel={spiceMildLabel}
-              accessibilityRole="button"
-              accessibilityState={spiceMildState}
-              observationRole="button"
-              onPress={onSpiceMild}
-              sourceRef={sourceRef}
-              stableId="preferences.spice.mild"
-              style={[styles.option, styles.optionColumn, spiceMildBoxStateStyle]}
-            >
-              <Text style={[styles.optionLabel, spiceMildTextStateStyle]}>
-                {spiceMildLabel}
-              </Text>
-              <OptionCheck visible={spiceMildSelected} />
+          </View>
+          <View style={compositionStyles.n_a94091c2812d7c23_cell}>
+            <ObservedPressable stableId={"preferences.spice.medium"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={spiceMediumLabel} accessibilityRole={"button"} accessibilityState={spiceMediumState} onPress={onSpiceMedium} style={[compositionStyles.n_a94091c2812d7c23, spiceMediumSelected && compositionStyles.n_a94091c2812d7c23_selected]}>
+              <Text style={[compositionStyles.n_a94091c2812d7c23_text, spiceMediumSelected && compositionStyles.n_a94091c2812d7c23_text_selected]}>{spiceMediumLabel}</Text>
+              <CompositionSelectedMark style={[compositionStyles.n_a94091c2812d7c23_text, spiceMediumSelected && compositionStyles.n_a94091c2812d7c23_text_selected]} visible={spiceMediumSelected} />
             </ObservedPressable>
-            <ObservedPressable
-              accessibilityLabel={spiceMediumLabel}
-              accessibilityRole="button"
-              accessibilityState={spiceMediumState}
-              observationRole="button"
-              onPress={onSpiceMedium}
-              sourceRef={sourceRef}
-              stableId="preferences.spice.medium"
-              style={[styles.option, styles.optionColumn, styles.optionColumnNarrow, spiceMediumBoxStateStyle]}
-            >
-              <Text style={[styles.optionLabel, spiceMediumTextStateStyle]}>
-                {spiceMediumLabel}
-              </Text>
-              <OptionCheck visible={spiceMediumSelected} />
-            </ObservedPressable>
-            <ObservedPressable
-              accessibilityLabel={spiceHotLabel}
-              accessibilityRole="button"
-              accessibilityState={spiceHotState}
-              observationRole="button"
-              onPress={onSpiceHot}
-              sourceRef={sourceRef}
-              stableId="preferences.spice.hot"
-              style={[styles.option, styles.optionColumn, spiceHotBoxStateStyle]}
-            >
-              <Text style={[styles.optionLabel, spiceHotTextStateStyle]}>
-                {spiceHotLabel}
-              </Text>
-              <OptionCheck visible={spiceHotSelected} />
+          </View>
+          <View style={compositionStyles.n_c958fb81a4defe16_cell}>
+            <ObservedPressable stableId={"preferences.spice.hot"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={spiceHotLabel} accessibilityRole={"button"} accessibilityState={spiceHotState} onPress={onSpiceHot} style={[compositionStyles.n_c958fb81a4defe16, spiceHotSelected && compositionStyles.n_c958fb81a4defe16_selected]}>
+              <Text style={[compositionStyles.n_c958fb81a4defe16_text, spiceHotSelected && compositionStyles.n_c958fb81a4defe16_text_selected]}>{spiceHotLabel}</Text>
+              <CompositionSelectedMark style={[compositionStyles.n_c958fb81a4defe16_text, spiceHotSelected && compositionStyles.n_c958fb81a4defe16_text_selected]} visible={spiceHotSelected} />
             </ObservedPressable>
           </View>
         </View>
-
-        <View style={styles.section} testID="preferences.section.budget">
-          <View style={styles.sectionHead}>
-            <ObservedText
-              observationRole="text"
-              observationStyle={styles.sectionTitleFrame}
-              sourceRef={sourceRef}
-              stableId="preferences.budget.title"
-              style={styles.sectionTitle}
-            >
-              单餐预算
-            </ObservedText>
-            <ObservedText
-              observationRole="text"
-              observationStyle={styles.sectionNoteFrame}
-              sourceRef={sourceRef}
-              stableId="preferences.budget.note"
-              style={styles.sectionNote}
-            >
-              单选
-            </ObservedText>
-          </View>
-          <View style={styles.optionGrid}>
-            <ObservedPressable
-              accessibilityLabel={budgetUnder20Label}
-              accessibilityRole="button"
-              accessibilityState={budgetUnder20State}
-              observationRole="button"
-              onPress={onBudgetUnder20}
-              sourceRef={sourceRef}
-              stableId="preferences.budget.under_20"
-              style={[styles.option, styles.optionCell, budgetUnder20BoxStateStyle]}
-            >
-              <Text style={[styles.optionLabel, budgetUnder20TextStateStyle]}>
-                {budgetUnder20Label}
-              </Text>
-              <OptionCheck visible={budgetUnder20Selected} />
-            </ObservedPressable>
-            <ObservedPressable
-              accessibilityLabel={budget20To35Label}
-              accessibilityRole="button"
-              accessibilityState={budget20To35State}
-              observationRole="button"
-              onPress={onBudget20To35}
-              sourceRef={sourceRef}
-              stableId="preferences.budget.20_35"
-              style={[styles.option, styles.optionCell, budget20To35BoxStateStyle]}
-            >
-              <Text style={[styles.optionLabel, budget20To35TextStateStyle]}>
-                {budget20To35Label}
-              </Text>
-              <OptionCheck visible={budget20To35Selected} />
-            </ObservedPressable>
-            <ObservedPressable
-              accessibilityLabel={budget35To50Label}
-              accessibilityRole="button"
-              accessibilityState={budget35To50State}
-              observationRole="button"
-              onPress={onBudget35To50}
-              sourceRef={sourceRef}
-              stableId="preferences.budget.35_50"
-              style={[styles.option, styles.optionCell, budget35To50BoxStateStyle]}
-            >
-              <Text style={[styles.optionLabel, budget35To50TextStateStyle]}>
-                {budget35To50Label}
-              </Text>
-              <OptionCheck visible={budget35To50Selected} />
-            </ObservedPressable>
-            <ObservedPressable
-              accessibilityLabel={budgetUnlimitedLabel}
-              accessibilityRole="button"
-              accessibilityState={budgetUnlimitedState}
-              observationRole="button"
-              onPress={onBudgetUnlimited}
-              sourceRef={sourceRef}
-              stableId="preferences.budget.unlimited"
-              style={[styles.option, styles.optionCell, budgetUnlimitedBoxStateStyle]}
-            >
-              <Text style={[styles.optionLabel, budgetUnlimitedTextStateStyle]}>
-                {budgetUnlimitedLabel}
-              </Text>
-              <OptionCheck visible={budgetUnlimitedSelected} />
-            </ObservedPressable>
-          </View>
-        </View>
-
-        <View style={styles.section} testID="preferences.section.avoid">
-          <View style={styles.sectionHead}>
-            <ObservedText
-              observationRole="text"
-              observationStyle={styles.sectionTitleFrame}
-              sourceRef={sourceRef}
-              stableId="preferences.avoid.title"
-              style={styles.sectionTitle}
-            >
-              忌口
-            </ObservedText>
-            <ObservedText
-              observationRole="text"
-              observationStyle={styles.sectionNoteFrame}
-              sourceRef={sourceRef}
-              stableId="preferences.avoid.note"
-              style={styles.sectionNote}
-            >
-              可多选
-            </ObservedText>
-          </View>
-          <View style={styles.chips}>
-            <ObservedPressable
-              accessibilityLabel={avoidCilantroLabel}
-              accessibilityRole="button"
-              accessibilityState={avoidCilantroState}
-              observationRole="button"
-              onPress={onAvoidCilantro}
-              sourceRef={sourceRef}
-              stableId="preferences.avoid.cilantro"
-              style={[styles.option, styles.optionColumn, avoidCilantroBoxStateStyle]}
-            >
-              <Text style={[styles.optionLabel, avoidCilantroTextStateStyle]}>
-                {avoidCilantroLabel}
-              </Text>
-              <OptionCheck visible={avoidCilantroSelected} />
-            </ObservedPressable>
-            <ObservedPressable
-              accessibilityLabel={avoidPeanutLabel}
-              accessibilityRole="button"
-              accessibilityState={avoidPeanutState}
-              observationRole="button"
-              onPress={onAvoidPeanut}
-              sourceRef={sourceRef}
-              stableId="preferences.avoid.peanut"
-              style={[styles.option, styles.optionColumn, avoidPeanutBoxStateStyle]}
-            >
-              <Text style={[styles.optionLabel, avoidPeanutTextStateStyle]}>
-                {avoidPeanutLabel}
-              </Text>
-              <OptionCheck visible={avoidPeanutSelected} />
-            </ObservedPressable>
-            <ObservedPressable
-              accessibilityLabel={avoidDairyLabel}
-              accessibilityRole="button"
-              accessibilityState={avoidDairyState}
-              observationRole="button"
-              onPress={onAvoidDairy}
-              sourceRef={sourceRef}
-              stableId="preferences.avoid.dairy"
-              style={[styles.option, styles.optionColumn, styles.optionColumnNarrow, avoidDairyBoxStateStyle]}
-            >
-              <Text style={[styles.optionLabel, avoidDairyTextStateStyle]}>
-                {avoidDairyLabel}
-              </Text>
-              <OptionCheck visible={avoidDairySelected} />
-            </ObservedPressable>
-            <ObservedPressable
-              accessibilityLabel={avoidSeafoodLabel}
-              accessibilityRole="button"
-              accessibilityState={avoidSeafoodState}
-              observationRole="button"
-              onPress={onAvoidSeafood}
-              sourceRef={sourceRef}
-              stableId="preferences.avoid.seafood"
-              style={[styles.option, styles.optionColumn, avoidSeafoodBoxStateStyle]}
-            >
-              <Text style={[styles.optionLabel, avoidSeafoodTextStateStyle]}>
-                {avoidSeafoodLabel}
-              </Text>
-              <OptionCheck visible={avoidSeafoodSelected} />
-            </ObservedPressable>
-          </View>
-        </View>
-
-        <View style={styles.summaryCard} testID="preferences.summary_card">
-          <ObservedText
-            observationRole="text"
-            observationStyle={styles.summaryLabelFrame}
-            sourceRef={sourceRef}
-            stableId="preferences.summary.label"
-            style={styles.summaryLabel}
-          >
-            {summaryTitleLabel}
-          </ObservedText>
-          <ObservedText
-            accessibilityRole="text"
-            observationRole="text"
-            observationStyle={styles.summaryValueFrame}
-            sourceRef={sourceRef}
-            stableId="preferences.summary"
-            style={styles.summaryValue}
-          >
-            {summaryLabel}
-          </ObservedText>
-        </View>
-      </ScrollView>
-
-      <View style={styles.actions} testID="preferences.actions">
-        <ObservedPressable
-          accessibilityLabel="恢复默认"
-          accessibilityRole="button"
-          observationRole="button"
-          onPress={resetDraft}
-          sourceRef={sourceRef}
-          stableId="preferences.actions.reset"
-          style={[styles.reset, resetBoxStateStyle]}
-        >
-          <Text style={[styles.resetLabel, resetTextStateStyle]}>
-            恢复默认
-          </Text>
-        </ObservedPressable>
-        <ObservedPressable
-          accessibilityLabel={saveLabel}
-          accessibilityRole="button"
-          disabled={saving}
-          observationRole="button"
-          onPress={startSaving}
-          sourceRef={sourceRef}
-          stableId="preferences.actions.save"
-          style={[styles.save, saveBoxStateStyle]}
-        >
-          <Text style={styles.saveLabel}>{saveLabel}</Text>
-        </ObservedPressable>
       </View>
-    </SafeAreaView>
-    /* AUTOPHONE_COMPOSITION_END */
+    </View>
+    <View style={compositionStyles.n_3e64a3cdc02b2d45}>
+      <View style={compositionStyles.n_74c013b255c3b387}>
+        <ObservedText stableId={"preferences.budget.title"} sourceRef={sourceRef} observationRole={"text"} observationStyle={compositionStyles.n_e6fba3e23d8f937e} style={compositionStyles.n_e6fba3e23d8f937e_text}>
+          {"单餐预算"}
+        </ObservedText>
+        <ObservedText stableId={"preferences.budget.note"} sourceRef={sourceRef} observationRole={"text"} observationStyle={compositionStyles.n_a60dc885dc704dae} style={compositionStyles.n_a60dc885dc704dae_text}>
+          {"单选"}
+        </ObservedText>
+      </View>
+      <View style={compositionStyles.n_42096a1bade00ea8}>
+        <View style={compositionStyles.n_8509a1bcb5d3356b}>
+          <View style={compositionStyles.n_1e98d7c4d1b0df0e_cell}>
+            <ObservedPressable stableId={"preferences.budget.under_20"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={budgetUnder20Label} accessibilityRole={"button"} accessibilityState={budgetUnder20State} onPress={onBudgetUnder20} style={[compositionStyles.n_1e98d7c4d1b0df0e, budgetUnder20Selected && compositionStyles.n_1e98d7c4d1b0df0e_selected]}>
+              <Text style={[compositionStyles.n_1e98d7c4d1b0df0e_text, budgetUnder20Selected && compositionStyles.n_1e98d7c4d1b0df0e_text_selected]}>{budgetUnder20Label}</Text>
+              <CompositionSelectedMark style={[compositionStyles.n_1e98d7c4d1b0df0e_text, budgetUnder20Selected && compositionStyles.n_1e98d7c4d1b0df0e_text_selected]} visible={budgetUnder20Selected} />
+            </ObservedPressable>
+          </View>
+          <View style={compositionStyles.n_38fdb2bee2a01481_cell}>
+            <ObservedPressable stableId={"preferences.budget.20_35"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={budget20To35Label} accessibilityRole={"button"} accessibilityState={budget20To35State} onPress={onBudget20To35} style={[compositionStyles.n_38fdb2bee2a01481, budget20To35Selected && compositionStyles.n_38fdb2bee2a01481_selected]}>
+              <Text style={[compositionStyles.n_38fdb2bee2a01481_text, budget20To35Selected && compositionStyles.n_38fdb2bee2a01481_text_selected]}>{budget20To35Label}</Text>
+              <CompositionSelectedMark style={[compositionStyles.n_38fdb2bee2a01481_text, budget20To35Selected && compositionStyles.n_38fdb2bee2a01481_text_selected]} visible={budget20To35Selected} />
+            </ObservedPressable>
+          </View>
+        </View>
+        <View style={compositionStyles.n_04217d393f0e67a5}>
+          <View style={compositionStyles.n_087bdfe4aeab86f1_cell}>
+            <ObservedPressable stableId={"preferences.budget.35_50"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={budget35To50Label} accessibilityRole={"button"} accessibilityState={budget35To50State} onPress={onBudget35To50} style={[compositionStyles.n_087bdfe4aeab86f1, budget35To50Selected && compositionStyles.n_087bdfe4aeab86f1_selected]}>
+              <Text style={[compositionStyles.n_087bdfe4aeab86f1_text, budget35To50Selected && compositionStyles.n_087bdfe4aeab86f1_text_selected]}>{budget35To50Label}</Text>
+              <CompositionSelectedMark style={[compositionStyles.n_087bdfe4aeab86f1_text, budget35To50Selected && compositionStyles.n_087bdfe4aeab86f1_text_selected]} visible={budget35To50Selected} />
+            </ObservedPressable>
+          </View>
+          <View style={compositionStyles.n_bb95381b6007b803_cell}>
+            <ObservedPressable stableId={"preferences.budget.unlimited"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={budgetUnlimitedLabel} accessibilityRole={"button"} accessibilityState={budgetUnlimitedState} onPress={onBudgetUnlimited} style={[compositionStyles.n_bb95381b6007b803, budgetUnlimitedSelected && compositionStyles.n_bb95381b6007b803_selected]}>
+              <Text style={[compositionStyles.n_bb95381b6007b803_text, budgetUnlimitedSelected && compositionStyles.n_bb95381b6007b803_text_selected]}>{budgetUnlimitedLabel}</Text>
+              <CompositionSelectedMark style={[compositionStyles.n_bb95381b6007b803_text, budgetUnlimitedSelected && compositionStyles.n_bb95381b6007b803_text_selected]} visible={budgetUnlimitedSelected} />
+            </ObservedPressable>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View style={compositionStyles.n_1a6f7dbb2a739bb0}>
+      <View style={compositionStyles.n_51542617d34df846}>
+        <ObservedText stableId={"preferences.avoid.title"} sourceRef={sourceRef} observationRole={"text"} observationStyle={compositionStyles.n_c5397ddb2ee6abc8} style={compositionStyles.n_c5397ddb2ee6abc8_text}>
+          {"忌口"}
+        </ObservedText>
+        <ObservedText stableId={"preferences.avoid.note"} sourceRef={sourceRef} observationRole={"text"} observationStyle={compositionStyles.n_e684b30cbc664fa5} style={compositionStyles.n_e684b30cbc664fa5_text}>
+          {"可多选"}
+        </ObservedText>
+      </View>
+      <View style={compositionStyles.n_ff510da3858b7a76}>
+        <View style={compositionStyles.n_fae667959eba9139}>
+          <View style={compositionStyles.n_31519462063e44ea_cell}>
+            <ObservedPressable stableId={"preferences.avoid.cilantro"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={avoidCilantroLabel} accessibilityRole={"button"} accessibilityState={avoidCilantroState} onPress={onAvoidCilantro} style={[compositionStyles.n_31519462063e44ea, avoidCilantroSelected && compositionStyles.n_31519462063e44ea_selected]}>
+              <Text style={[compositionStyles.n_31519462063e44ea_text, avoidCilantroSelected && compositionStyles.n_31519462063e44ea_text_selected]}>{avoidCilantroLabel}</Text>
+              <CompositionSelectedMark style={[compositionStyles.n_31519462063e44ea_text, avoidCilantroSelected && compositionStyles.n_31519462063e44ea_text_selected]} visible={avoidCilantroSelected} />
+            </ObservedPressable>
+          </View>
+          <View style={compositionStyles.n_cc15ffb033b3161f_cell}>
+            <ObservedPressable stableId={"preferences.avoid.peanut"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={avoidPeanutLabel} accessibilityRole={"button"} accessibilityState={avoidPeanutState} onPress={onAvoidPeanut} style={[compositionStyles.n_cc15ffb033b3161f, avoidPeanutSelected && compositionStyles.n_cc15ffb033b3161f_selected]}>
+              <Text style={[compositionStyles.n_cc15ffb033b3161f_text, avoidPeanutSelected && compositionStyles.n_cc15ffb033b3161f_text_selected]}>{avoidPeanutLabel}</Text>
+              <CompositionSelectedMark style={[compositionStyles.n_cc15ffb033b3161f_text, avoidPeanutSelected && compositionStyles.n_cc15ffb033b3161f_text_selected]} visible={avoidPeanutSelected} />
+            </ObservedPressable>
+          </View>
+          <View style={compositionStyles.n_ee0bc98f28f3ddb4_cell}>
+            <ObservedPressable stableId={"preferences.avoid.dairy"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={avoidDairyLabel} accessibilityRole={"button"} accessibilityState={avoidDairyState} onPress={onAvoidDairy} style={[compositionStyles.n_ee0bc98f28f3ddb4, avoidDairySelected && compositionStyles.n_ee0bc98f28f3ddb4_selected]}>
+              <Text style={[compositionStyles.n_ee0bc98f28f3ddb4_text, avoidDairySelected && compositionStyles.n_ee0bc98f28f3ddb4_text_selected]}>{avoidDairyLabel}</Text>
+              <CompositionSelectedMark style={[compositionStyles.n_ee0bc98f28f3ddb4_text, avoidDairySelected && compositionStyles.n_ee0bc98f28f3ddb4_text_selected]} visible={avoidDairySelected} />
+            </ObservedPressable>
+          </View>
+          <View style={compositionStyles.n_4283730847fd91fe_cell}>
+            <ObservedPressable stableId={"preferences.avoid.seafood"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={avoidSeafoodLabel} accessibilityRole={"button"} accessibilityState={avoidSeafoodState} onPress={onAvoidSeafood} style={[compositionStyles.n_4283730847fd91fe, avoidSeafoodSelected && compositionStyles.n_4283730847fd91fe_selected]}>
+              <Text style={[compositionStyles.n_4283730847fd91fe_text, avoidSeafoodSelected && compositionStyles.n_4283730847fd91fe_text_selected]}>{avoidSeafoodLabel}</Text>
+              <CompositionSelectedMark style={[compositionStyles.n_4283730847fd91fe_text, avoidSeafoodSelected && compositionStyles.n_4283730847fd91fe_text_selected]} visible={avoidSeafoodSelected} />
+            </ObservedPressable>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View style={compositionStyles.n_cbd340759a81b260}>
+      <ObservedText stableId={"preferences.summary.label"} sourceRef={sourceRef} observationRole={"text"} observationStyle={compositionStyles.n_f4a04e4f2c77fdcc} style={compositionStyles.n_f4a04e4f2c77fdcc_text}>
+        {summaryTitleLabel}
+      </ObservedText>
+      <ObservedText stableId={"preferences.summary"} sourceRef={sourceRef} observationRole={"text"} accessibilityRole={"text"} observationStyle={compositionStyles.n_9702846e66c29683} style={compositionStyles.n_9702846e66c29683_text}>
+        {summaryLabel}
+      </ObservedText>
+      <View pointerEvents="none" style={compositionStyles.n_8550b80d8fa82ba1}>
+
+      </View>
+    </View>
+  </ScrollView>
+  <View style={compositionStyles.n_52bf1efa1edcf677}>
+    <ObservedPressable stableId={"preferences.actions.reset"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={"恢复默认"} accessibilityRole={"button"} onPress={resetDraft} style={compositionStyles.n_4004758eebc9bc1c}>
+      <Text style={compositionStyles.n_4004758eebc9bc1c_text}>{"恢复默认"}</Text>
+    </ObservedPressable>
+    <ObservedPressable stableId={"preferences.actions.save"} sourceRef={sourceRef} observationRole={"button"} accessibilityLabel={saveLabel} accessibilityRole={"button"} disabled={saving} onPress={startSaving} style={[compositionStyles.n_6ccd4623363102e6, saveBoxStateStyle]}>
+      <Text style={compositionStyles.n_6ccd4623363102e6_text}>{saveLabel}</Text>
+    </ObservedPressable>
+  </View>
+</SafeAreaView>
+/* AUTOPHONE_COMPOSITION_END */
   );
 }
 
@@ -737,3 +540,706 @@ const styles = StyleSheet.create({
     width: 44,
   },
 });
+
+const compositionStyles = StyleSheet.create({
+"n_71bfb7b15fdd1590": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "column",
+    "backgroundColor": "#FFF9F1",
+    "flex": 1
+  },
+  "n_ecd0f436a76724f6": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "row",
+    "width": "100%",
+    "height": 52,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "backgroundColor": "#FFF9F1",
+    "borderBottomColor": "#EADFD4",
+    "borderBottomWidth": 1
+  },
+  "n_6697c97efdab17ce": {
+    "position": "absolute",
+    "flexShrink": 1,
+    "flexDirection": "row",
+    "height": 44,
+    "alignItems": "center",
+    "top": 4,
+    "left": 20,
+    "justifyContent": "center"
+  },
+  "n_6697c97efdab17ce_text": {
+    "fontSize": 16,
+    "fontWeight": "600",
+    "color": "#B94A00",
+    "lineHeight": 22
+  },
+  "n_2bcdcfb628afca9d": {
+    "position": "relative",
+    "flexShrink": 1
+  },
+  "n_2bcdcfb628afca9d_text": {
+    "fontSize": 18,
+    "fontWeight": "700",
+    "color": "#1D1D1D",
+    "lineHeight": 24,
+    "textAlign": "center"
+  },
+  "n_3d6e09607f2afdb6": {
+    "position": "relative",
+    "flexShrink": 1,
+    "width": "100%",
+    "flexGrow": 1,
+    "flexBasis": 0,
+    "overflow": "hidden"
+  },
+  "n_3d6e09607f2afdb6_content": {
+    "flexDirection": "column",
+    "gap": 25,
+    "paddingBottom": 20,
+    "paddingLeft": 20,
+    "paddingRight": 20,
+    "paddingTop": 22
+  },
+  "n_a27075b4b50704b9": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "column"
+  },
+  "n_19aa0c034e13a5bb": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "row",
+    "marginTop": 0,
+    "marginRight": 0,
+    "marginBottom": 11,
+    "marginLeft": 0,
+    "alignItems": "center",
+    "justifyContent": "space-between"
+  },
+  "n_9f028f5f96d98059": {
+    "position": "relative",
+    "flexShrink": 1
+  },
+  "n_9f028f5f96d98059_text": {
+    "fontSize": 17,
+    "fontWeight": "700",
+    "color": "#1D1D1D",
+    "lineHeight": 22
+  },
+  "n_df7887907907cd64": {
+    "position": "relative",
+    "flexShrink": 1
+  },
+  "n_df7887907907cd64_text": {
+    "fontSize": 12,
+    "fontWeight": "400",
+    "color": "#6B6B6B",
+    "lineHeight": 22
+  },
+  "n_53480d8ea7c5b8c7": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "column",
+    "gap": 8
+  },
+  "n_8b47af017916b5ad": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "row",
+    "gap": 8
+  },
+  "n_fd9734bd6411724e": {
+    "position": "relative",
+    "flexShrink": 1,
+    "borderColor": "#D8CFC6",
+    "borderRadius": 14,
+    "borderWidth": 1,
+    "minHeight": 44,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "flexDirection": "row",
+    "width": "100%",
+    "flexGrow": 1
+  },
+  "n_fd9734bd6411724e_text": {
+    "fontSize": 14,
+    "fontWeight": "400",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  },
+  "n_fd9734bd6411724e_selected": {
+    "backgroundColor": "#FFEBD6",
+    "borderColor": "#B94A00",
+    "borderWidth": 2
+  },
+  "n_fd9734bd6411724e_text_selected": {
+    "color": "#B94A00"
+  },
+  "n_fd9734bd6411724e_cell": {
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "flexBasis": 0
+  },
+  "n_d26a9225a1e51c20": {
+    "position": "relative",
+    "flexShrink": 1,
+    "borderColor": "#D8CFC6",
+    "borderRadius": 14,
+    "borderWidth": 1,
+    "minHeight": 44,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "flexDirection": "row",
+    "width": "100%",
+    "flexGrow": 1
+  },
+  "n_d26a9225a1e51c20_text": {
+    "fontSize": 14,
+    "fontWeight": "400",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  },
+  "n_d26a9225a1e51c20_selected": {
+    "backgroundColor": "#FFEBD6",
+    "borderColor": "#B94A00",
+    "borderWidth": 2
+  },
+  "n_d26a9225a1e51c20_text_selected": {
+    "color": "#B94A00"
+  },
+  "n_d26a9225a1e51c20_cell": {
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "flexBasis": 0
+  },
+  "n_a94091c2812d7c23": {
+    "position": "relative",
+    "flexShrink": 1,
+    "borderColor": "#D8CFC6",
+    "borderRadius": 14,
+    "borderWidth": 1,
+    "minHeight": 44,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "flexDirection": "row",
+    "width": "100%",
+    "flexGrow": 1
+  },
+  "n_a94091c2812d7c23_text": {
+    "fontSize": 14,
+    "fontWeight": "400",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  },
+  "n_a94091c2812d7c23_selected": {
+    "backgroundColor": "#FFEBD6",
+    "borderColor": "#B94A00",
+    "borderWidth": 2
+  },
+  "n_a94091c2812d7c23_text_selected": {
+    "color": "#B94A00"
+  },
+  "n_a94091c2812d7c23_cell": {
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "flexBasis": 0
+  },
+  "n_c958fb81a4defe16": {
+    "position": "relative",
+    "flexShrink": 1,
+    "borderColor": "#D8CFC6",
+    "borderRadius": 14,
+    "borderWidth": 1,
+    "minHeight": 44,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "flexDirection": "row",
+    "width": "100%",
+    "flexGrow": 1
+  },
+  "n_c958fb81a4defe16_text": {
+    "fontSize": 14,
+    "fontWeight": "400",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  },
+  "n_c958fb81a4defe16_selected": {
+    "backgroundColor": "#FFEBD6",
+    "borderColor": "#B94A00",
+    "borderWidth": 2
+  },
+  "n_c958fb81a4defe16_text_selected": {
+    "color": "#B94A00"
+  },
+  "n_c958fb81a4defe16_cell": {
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "flexBasis": 0
+  },
+  "n_3e64a3cdc02b2d45": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "column"
+  },
+  "n_74c013b255c3b387": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "row",
+    "marginTop": 0,
+    "marginRight": 0,
+    "marginBottom": 11,
+    "marginLeft": 0,
+    "alignItems": "center",
+    "justifyContent": "space-between"
+  },
+  "n_e6fba3e23d8f937e": {
+    "position": "relative",
+    "flexShrink": 1
+  },
+  "n_e6fba3e23d8f937e_text": {
+    "fontSize": 17,
+    "fontWeight": "700",
+    "color": "#1D1D1D",
+    "lineHeight": 22
+  },
+  "n_a60dc885dc704dae": {
+    "position": "relative",
+    "flexShrink": 1
+  },
+  "n_a60dc885dc704dae_text": {
+    "fontSize": 12,
+    "fontWeight": "400",
+    "color": "#6B6B6B",
+    "lineHeight": 22
+  },
+  "n_42096a1bade00ea8": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "column",
+    "gap": 10
+  },
+  "n_8509a1bcb5d3356b": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "row",
+    "gap": 10
+  },
+  "n_1e98d7c4d1b0df0e": {
+    "position": "relative",
+    "flexShrink": 1,
+    "borderColor": "#D8CFC6",
+    "borderRadius": 14,
+    "borderWidth": 1,
+    "minHeight": 44,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "flexDirection": "row",
+    "width": "100%",
+    "flexGrow": 1
+  },
+  "n_1e98d7c4d1b0df0e_text": {
+    "fontSize": 14,
+    "fontWeight": "400",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  },
+  "n_1e98d7c4d1b0df0e_selected": {
+    "backgroundColor": "#FFEBD6",
+    "borderColor": "#B94A00",
+    "borderWidth": 2
+  },
+  "n_1e98d7c4d1b0df0e_text_selected": {
+    "color": "#B94A00"
+  },
+  "n_1e98d7c4d1b0df0e_cell": {
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "flexBasis": 0
+  },
+  "n_38fdb2bee2a01481": {
+    "position": "relative",
+    "flexShrink": 1,
+    "borderColor": "#D8CFC6",
+    "borderRadius": 14,
+    "borderWidth": 1,
+    "minHeight": 44,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "flexDirection": "row",
+    "width": "100%",
+    "flexGrow": 1
+  },
+  "n_38fdb2bee2a01481_text": {
+    "fontSize": 14,
+    "fontWeight": "400",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  },
+  "n_38fdb2bee2a01481_selected": {
+    "backgroundColor": "#FFEBD6",
+    "borderColor": "#B94A00",
+    "borderWidth": 2
+  },
+  "n_38fdb2bee2a01481_text_selected": {
+    "color": "#B94A00"
+  },
+  "n_38fdb2bee2a01481_cell": {
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "flexBasis": 0
+  },
+  "n_04217d393f0e67a5": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "row",
+    "gap": 10
+  },
+  "n_087bdfe4aeab86f1": {
+    "position": "relative",
+    "flexShrink": 1,
+    "borderColor": "#D8CFC6",
+    "borderRadius": 14,
+    "borderWidth": 1,
+    "minHeight": 44,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "flexDirection": "row",
+    "width": "100%",
+    "flexGrow": 1
+  },
+  "n_087bdfe4aeab86f1_text": {
+    "fontSize": 14,
+    "fontWeight": "400",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  },
+  "n_087bdfe4aeab86f1_selected": {
+    "backgroundColor": "#FFEBD6",
+    "borderColor": "#B94A00",
+    "borderWidth": 2
+  },
+  "n_087bdfe4aeab86f1_text_selected": {
+    "color": "#B94A00"
+  },
+  "n_087bdfe4aeab86f1_cell": {
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "flexBasis": 0
+  },
+  "n_bb95381b6007b803": {
+    "position": "relative",
+    "flexShrink": 1,
+    "borderColor": "#D8CFC6",
+    "borderRadius": 14,
+    "borderWidth": 1,
+    "minHeight": 44,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "flexDirection": "row",
+    "width": "100%",
+    "flexGrow": 1
+  },
+  "n_bb95381b6007b803_text": {
+    "fontSize": 14,
+    "fontWeight": "400",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  },
+  "n_bb95381b6007b803_selected": {
+    "backgroundColor": "#FFEBD6",
+    "borderColor": "#B94A00",
+    "borderWidth": 2
+  },
+  "n_bb95381b6007b803_text_selected": {
+    "color": "#B94A00"
+  },
+  "n_bb95381b6007b803_cell": {
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "flexBasis": 0
+  },
+  "n_1a6f7dbb2a739bb0": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "column"
+  },
+  "n_51542617d34df846": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "row",
+    "marginTop": 0,
+    "marginRight": 0,
+    "marginBottom": 11,
+    "marginLeft": 0,
+    "alignItems": "center",
+    "justifyContent": "space-between"
+  },
+  "n_c5397ddb2ee6abc8": {
+    "position": "relative",
+    "flexShrink": 1
+  },
+  "n_c5397ddb2ee6abc8_text": {
+    "fontSize": 17,
+    "fontWeight": "700",
+    "color": "#1D1D1D",
+    "lineHeight": 22
+  },
+  "n_e684b30cbc664fa5": {
+    "position": "relative",
+    "flexShrink": 1
+  },
+  "n_e684b30cbc664fa5_text": {
+    "fontSize": 12,
+    "fontWeight": "400",
+    "color": "#6B6B6B",
+    "lineHeight": 22
+  },
+  "n_ff510da3858b7a76": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "column",
+    "gap": 9
+  },
+  "n_fae667959eba9139": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "row",
+    "gap": 9
+  },
+  "n_31519462063e44ea": {
+    "position": "relative",
+    "flexShrink": 1,
+    "borderColor": "#D8CFC6",
+    "borderRadius": 14,
+    "borderWidth": 1,
+    "minHeight": 44,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "flexDirection": "row",
+    "width": "100%",
+    "flexGrow": 1
+  },
+  "n_31519462063e44ea_text": {
+    "fontSize": 14,
+    "fontWeight": "400",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  },
+  "n_31519462063e44ea_selected": {
+    "backgroundColor": "#FFEBD6",
+    "borderColor": "#B94A00",
+    "borderWidth": 2
+  },
+  "n_31519462063e44ea_text_selected": {
+    "color": "#B94A00"
+  },
+  "n_31519462063e44ea_cell": {
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "flexBasis": 0
+  },
+  "n_cc15ffb033b3161f": {
+    "position": "relative",
+    "flexShrink": 1,
+    "borderColor": "#D8CFC6",
+    "borderRadius": 14,
+    "borderWidth": 1,
+    "minHeight": 44,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "flexDirection": "row",
+    "width": "100%",
+    "flexGrow": 1
+  },
+  "n_cc15ffb033b3161f_text": {
+    "fontSize": 14,
+    "fontWeight": "400",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  },
+  "n_cc15ffb033b3161f_selected": {
+    "backgroundColor": "#FFEBD6",
+    "borderColor": "#B94A00",
+    "borderWidth": 2
+  },
+  "n_cc15ffb033b3161f_text_selected": {
+    "color": "#B94A00"
+  },
+  "n_cc15ffb033b3161f_cell": {
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "flexBasis": 0
+  },
+  "n_ee0bc98f28f3ddb4": {
+    "position": "relative",
+    "flexShrink": 1,
+    "borderColor": "#D8CFC6",
+    "borderRadius": 14,
+    "borderWidth": 1,
+    "minHeight": 44,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "flexDirection": "row",
+    "width": "100%",
+    "flexGrow": 1
+  },
+  "n_ee0bc98f28f3ddb4_text": {
+    "fontSize": 14,
+    "fontWeight": "400",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  },
+  "n_ee0bc98f28f3ddb4_selected": {
+    "backgroundColor": "#FFEBD6",
+    "borderColor": "#B94A00",
+    "borderWidth": 2
+  },
+  "n_ee0bc98f28f3ddb4_text_selected": {
+    "color": "#B94A00"
+  },
+  "n_ee0bc98f28f3ddb4_cell": {
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "flexBasis": 0
+  },
+  "n_4283730847fd91fe": {
+    "position": "relative",
+    "flexShrink": 1,
+    "borderColor": "#D8CFC6",
+    "borderRadius": 14,
+    "borderWidth": 1,
+    "minHeight": 44,
+    "alignItems": "center",
+    "justifyContent": "center",
+    "flexDirection": "row",
+    "width": "100%",
+    "flexGrow": 1
+  },
+  "n_4283730847fd91fe_text": {
+    "fontSize": 14,
+    "fontWeight": "400",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  },
+  "n_4283730847fd91fe_selected": {
+    "backgroundColor": "#FFEBD6",
+    "borderColor": "#B94A00",
+    "borderWidth": 2
+  },
+  "n_4283730847fd91fe_text_selected": {
+    "color": "#B94A00"
+  },
+  "n_4283730847fd91fe_cell": {
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "flexBasis": 0
+  },
+  "n_cbd340759a81b260": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "column",
+    "width": "100%",
+    "height": 64,
+    "paddingTop": 10,
+    "paddingRight": 14,
+    "paddingBottom": 10,
+    "paddingLeft": 14,
+    "gap": 7,
+    "backgroundColor": "#FFEBD6",
+    "borderRadius": 16
+  },
+  "n_f4a04e4f2c77fdcc": {
+    "position": "relative",
+    "flexShrink": 1
+  },
+  "n_f4a04e4f2c77fdcc_text": {
+    "fontSize": 12,
+    "fontWeight": "700",
+    "color": "#6B6B6B",
+    "lineHeight": 15
+  },
+  "n_9702846e66c29683": {
+    "position": "relative",
+    "flexShrink": 1
+  },
+  "n_9702846e66c29683_text": {
+    "fontSize": 15,
+    "fontWeight": "600",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  },
+  "n_8550b80d8fa82ba1": {
+    "position": "absolute",
+    "flexShrink": 1,
+    "width": 32,
+    "height": 6,
+    "right": 12,
+    "bottom": 10,
+    "backgroundColor": "#FF7300",
+    "borderRadius": 3
+  },
+  "n_52bf1efa1edcf677": {
+    "position": "relative",
+    "flexShrink": 1,
+    "flexDirection": "row",
+    "width": "100%",
+    "height": 96,
+    "paddingTop": 12,
+    "paddingRight": 20,
+    "paddingBottom": 34,
+    "paddingLeft": 20,
+    "gap": 12,
+    "backgroundColor": "#FFF9F1",
+    "borderTopColor": "#EADFD4",
+    "borderTopWidth": 1
+  },
+  "n_4004758eebc9bc1c": {
+    "position": "relative",
+    "flexShrink": 1,
+    "width": 132,
+    "height": 50,
+    "borderColor": "#D8CFC6",
+    "borderRadius": 16,
+    "borderWidth": 1,
+    "alignItems": "center",
+    "justifyContent": "center"
+  },
+  "n_4004758eebc9bc1c_text": {
+    "fontSize": 16,
+    "fontWeight": "700",
+    "color": "#6B6B6B",
+    "lineHeight": 20
+  },
+  "n_6ccd4623363102e6": {
+    "position": "relative",
+    "flexShrink": 1,
+    "width": "100%",
+    "height": 50,
+    "flexGrow": 1,
+    "flexBasis": 0,
+    "backgroundColor": "#FF7300",
+    "borderRadius": 16,
+    "alignItems": "center",
+    "justifyContent": "center"
+  },
+  "n_6ccd4623363102e6_text": {
+    "fontSize": 16,
+    "fontWeight": "700",
+    "color": "#1D1D1D",
+    "lineHeight": 20
+  }
+});
+
+// BL-195: ChoiceGroup selected mark (prototype CSS ::after); decorative, outside observed text and AX.
+function CompositionSelectedMark({ visible, style }: { visible: boolean; style: import("react-native").TextProps["style"] }) {
+  if (!visible) return null;
+  return (
+    <Text accessibilityElementsHidden importantForAccessibility="no-hide-descendants" style={style}>
+      {"✓"}
+    </Text>
+  );
+}
