@@ -282,11 +282,13 @@ export default function Index() {
         <View style={styles.preferencesResult}>
           <ObservedText
             stableId="home.preferences.saved_notice"
+            observationRole="text"
             sourceRef={sourceRef}
             style={styles.preferencesNotice}
           >偏好已保存</ObservedText>
           <ObservedText
             stableId="home.preferences.summary"
+            observationRole="text"
             sourceRef={sourceRef}
             style={styles.preferencesSummary}
           >{preferenceSummary(savedPreferences)}</ObservedText>
