@@ -1,6 +1,7 @@
+import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
-import { Keyboard, StyleSheet, Text, TextInput, View } from "react-native";
+import { Keyboard, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import {
@@ -8,6 +9,7 @@ import {
   ObservedText,
   ObservedView,
 } from "@/verification/observation";
+import usePreferencesStore, { preferenceSummary } from "@/store/preferences.store";
 import { useFoodOrderingEvalFixture } from "@/verification/useEvalFixture";
 
 const recommendations = [
@@ -84,6 +86,7 @@ const sourceRef_home_recommendation_title = {
 
 export default function Index() {
   const evaluation = useFoodOrderingEvalFixture();
+  const savedPreferences = usePreferencesStore((state) => state.saved);
   const [prompt, setPrompt] = useState("");
   const [promptState, setPromptState] = useState<PromptState>("idle");
   const [recommendationIndex, setRecommendationIndex] = useState(0);
@@ -250,6 +253,15 @@ export default function Index() {
               value={prompt}
             />
           </ObservedView>
+          <Pressable
+            accessibilityLabel="调偏好"
+            accessibilityRole="button"
+            onPress={() => { Keyboard.dismiss(); router.push("/preferences"); }}
+            style={styles.promptPreferences}
+            testID="home.ai_prompt.preferences"
+          >
+            <Ionicons color="#B94A00" name="options-outline" size={20} />
+          </Pressable>
           <ObservedPressable
             stableId="home.ai_prompt.submit"
             sourceRef={sourceRef}
@@ -266,6 +278,20 @@ export default function Index() {
           </ObservedPressable>
         </ObservedView>
       </View>
+      {savedPreferences !== null && (
+        <View style={styles.preferencesResult}>
+          <ObservedText
+            stableId="home.preferences.saved_notice"
+            sourceRef={sourceRef}
+            style={styles.preferencesNotice}
+          >偏好已保存</ObservedText>
+          <ObservedText
+            stableId="home.preferences.summary"
+            sourceRef={sourceRef}
+            style={styles.preferencesSummary}
+          >{preferenceSummary(savedPreferences)}</ObservedText>
+        </View>
+      )}
       <ObservedView
         stableId="home.recommendation.card"
         sourceRef={sourceRef}
@@ -426,6 +452,10 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
+  promptPreferences: { alignItems: "center", height: 44, justifyContent: "center", width: 44 },
+  preferencesResult: { paddingHorizontal: 24, paddingBottom: 12, gap: 4 },
+  preferencesNotice: { color: "#B94A00", fontSize: 14, fontWeight: "600" },
+  preferencesSummary: { color: "#6B6B6B", fontSize: 14 },
   screen: { backgroundColor: "#FFF8EF", flex: 1 },
   intro: { height: 195, paddingHorizontal: 21 },
   headerActions: {
