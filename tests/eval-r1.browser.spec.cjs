@@ -164,3 +164,32 @@ test("preferences entry fits between input and submit and opens preferences", as
   await preferences.click();
   await expect.poll(() => page.evaluate(() => window.__lastRoute)).toBe("/preferences");
 });
+
+test("observation removes blurred screens and ignores their delayed measurements", async ({ page }) => {
+  const esbuild = require("esbuild");
+  const shim = `import React from 'react';export const FocusContext=React.createContext(true);export const useIsFocused=()=>React.useContext(FocusContext);export const isVerificationBuild=true;export const documentDirectory='memory/';export async function writeAsStringAsync(path,text){window.__observation=JSON.parse(text)};export async function deleteAsync(){};export async function moveAsync(){}`;
+  const result = await esbuild.build({
+    stdin: {
+      contents: `import React from 'react';import {createRoot} from 'react-dom/client';import {Text} from 'react-native';import {ObservedPressable} from './verification/observation';import {FocusContext} from '@react-navigation/native';function App(){const [screen,setScreen]=React.useState('home');return <><button id="switch" onClick={()=>setScreen(s=>s==='home'?'preferences':'home')}>Switch</button>{['home','preferences'].map(s=><FocusContext.Provider value={screen===s} key={s}><ObservedPressable stableId={s+'.button'} observationRole="button" style={{width:100,height:44,display:screen===s?'flex':'none'}}><Text style={{color:'#B94A00'}}>Label</Text></ObservedPressable></FocusContext.Provider>)}</>};createRoot(document.getElementById('root')).render(<App/>);`,
+      resolveDir: process.cwd(), loader: 'tsx',
+    }, bundle:true, write:false, platform:'browser', jsx:'automatic',
+    define:{'process.env.NODE_ENV':'"test"',__DEV__:'false'},
+    plugins:[{name:'observation-native-io',setup(build){
+      build.onResolve({filter:/^(@react-navigation\/native|expo-file-system|@\/verification\/runtime)$/},()=>({path:'observation-shim',namespace:'test'}));
+      build.onLoad({filter:/.*/,namespace:'test'},()=>({contents:shim,loader:'jsx',resolveDir:process.cwd()}));
+      build.onResolve({filter:/^react-native$/},()=>({path:require.resolve('react-native-web')}));
+    }}],
+  });
+  await page.goto('about:blank');
+  await page.setContent('<div id="root"></div>');
+  await page.addScriptTag({content:result.outputFiles[0].text});
+  const ids = () => page.evaluate(() => window.__observation?.elements?.map(e=>e.stable_id));
+  await expect.poll(ids).toEqual(['home.button']);
+  await page.locator('#switch').click();
+  await expect.poll(ids).toEqual(['preferences.button']);
+  await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 1100)));
+  await expect.poll(ids).toEqual(['preferences.button']);
+  await page.locator('#switch').click();
+  await expect.poll(ids).toEqual(['home.button']);
+  expect(await page.evaluate(() => window.__observation.elements[0].resolved_style.color)).toBe('#B94A00');
+});

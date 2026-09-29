@@ -13,6 +13,7 @@ const output = ts.transpileModule(fs.readFileSync(path.join(__dirname, '../verif
 }).outputText;
 const exportsObject = {};
 vm.runInNewContext(output, {exports: exportsObject, require(name) {
+  if (name === '@react-navigation/native') return {useIsFocused: () => true};
   if (name === 'react-native') return native;
   if (name === 'expo-file-system') return {};
   if (name === '@/verification/runtime') return {isVerificationBuild: false};

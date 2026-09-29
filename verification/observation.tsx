@@ -1,3 +1,4 @@
+import { useIsFocused } from "@react-navigation/native";
 import * as FileSystem from "expo-file-system";
 import {
   Children,
@@ -265,11 +266,14 @@ function useObservation(
   style: StyleProp<ViewStyle | TextStyle>,
   text: string | null,
 ) {
+  const focused = useIsFocused();
+  const active = useRef(focused);
+  active.current = focused;
   const ref = useRef<any>(null);
   const resolvedStyle = useMemo(() => primitiveStyle(style), [style]);
   const styleSignature = canonical(resolvedStyle);
   const measure = useCallback(() => {
-    if (!isVerificationBuild || !props.stableId) return;
+    if (!isVerificationBuild || !props.stableId || !focused) return;
     // 只在 onLayout 测一次不够：safe-area inset 在 layout 之后才作用到窗口位置，
     // 此后没有事件触发重测，而 upsertElement 只在值变化时发布 —— 提前测到的坐标会
     // 「稳定地」停在错值上，就绪闸反而把它当成合格观测。重测幂等：值没变直接返回。
@@ -279,7 +283,9 @@ function useObservation(
     );
     if (writeTimer) schedulePublish();
     const sample = () => {
+      if (!active.current) return;
       ref.current?.measureInWindow((x: number, y: number, width: number, height: number) => {
+        if (!active.current) return;
         upsertElement({
           stable_id: props.stableId as string,
           role: props.observationRole,
@@ -298,7 +304,7 @@ function useObservation(
     for (const delayMs of SETTLE_RESAMPLE_MS) {
       setTimeout(sample, delayMs);
     }
-  }, [props.stableId, props.observationRole, props.sourceRef, styleSignature, text]);
+  }, [props.stableId, props.observationRole, props.sourceRef, styleSignature, text, focused]);
   // 只挂 onLayout 不够：文案或样式变了而盒子没变时，RN 不发 layout 事件，
   // 观测里的 text 会**永久**停在旧值上，且因为不再变化而通过稳定性判据——
   // 2026-08-17 实测：偏好摘要连续两次交互后 AX 走到「重辣 · 2 项忌口」，观测仍是
@@ -307,12 +313,20 @@ function useObservation(
   useEffect(() => {
     measure();
   }, [measure]);
-  useEffect(() => () => {
+  useEffect(() => {
+    active.current = focused;
+    if (!focused && props.stableId && elements.delete(props.stableId)) {
+      layoutEpoch += 1;
+      schedulePublish();
+    }
+    return () => {
+    active.current = false;
     if (!isVerificationBuild || !props.stableId) return;
     if (!elements.delete(props.stableId)) return;
     layoutEpoch += 1;
     schedulePublish();
-  }, [props.stableId]);
+    };
+  }, [props.stableId, focused]);
   return { ref, measure };
 }
 
