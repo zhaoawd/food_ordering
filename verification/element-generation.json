@@ -1,0 +1,424 @@
+{
+  "schema_version": "ui-element-generation-template/v1",
+  "app": "food_ordering_v2",
+  "indent_unit": "  ",
+  "style_expression": "styles.{style_key}",
+  "required_clauses": [
+    "layout.height",
+    "layout.width",
+    "style.backgroundColor",
+    "style.borderRadius",
+    "style.color",
+    "style.fontSize"
+  ],
+  "mounts": [
+    {
+      "design_parent_id": "home.recommendation.purchase_meta",
+      "file": "app/(tabs)/index.tsx",
+      "anchor_literal": "testID=\"home.recommendation.purchase_meta\"",
+      "sibling_stable_ids": [
+        "home.recommendation.price",
+        "home.recommendation.savings",
+        "home.recommendation.eta"
+      ]
+    }
+  ],
+  "emitters": {
+    "Text": {
+      "wrapper": {
+        "element": "ObservedView",
+        "props": {
+          "observationRole": {
+            "literal": "text"
+          },
+          "sourceRef": {
+            "expression": "sourceRef"
+          }
+        }
+      },
+      "inner": {
+        "element": "Text"
+      },
+      "ax_label_template": "{text}"
+    }
+  },
+  "style_key_naming": {
+    "source": "stable_id_last_segment",
+    "wrapper_suffix": "Badge",
+    "inner_suffix": "Text"
+  },
+  "style_reference_key": "price",
+  "style_key_map": {
+    "layout.position": {
+      "key": "position",
+      "slot": "wrapper",
+      "value_format": "string"
+    },
+    "layout.inset.top": {
+      "key": "top",
+      "slot": "wrapper",
+      "value_format": "number"
+    },
+    "layout.inset.left": {
+      "key": "left",
+      "slot": "wrapper",
+      "value_format": "number"
+    },
+    "layout.width": {
+      "key": "width",
+      "slot": "wrapper",
+      "value_format": "number"
+    },
+    "layout.height": {
+      "key": "height",
+      "slot": "wrapper",
+      "value_format": "number"
+    },
+    "style.backgroundColor": {
+      "key": "backgroundColor",
+      "slot": "wrapper",
+      "value_format": "string"
+    },
+    "style.borderRadius": {
+      "key": "borderRadius",
+      "slot": "wrapper",
+      "value_format": "number"
+    },
+    "style.color": {
+      "key": "color",
+      "slot": "inner",
+      "value_format": "string"
+    },
+    "style.fontSize": {
+      "key": "fontSize",
+      "slot": "inner",
+      "value_format": "number"
+    },
+    "style.fontWeight": {
+      "key": "fontWeight",
+      "slot": "inner",
+      "value_format": "string"
+    },
+    "style.lineHeight": {
+      "key": "lineHeight",
+      "slot": "inner",
+      "value_format": "number"
+    },
+    "style.textAlign": {
+      "key": "textAlign",
+      "slot": "inner",
+      "value_format": "string"
+    }
+  },
+  "composition_repair": {
+    "schema_version": "ui-composition-repair-recipe/v1",
+    "target": {
+      "file": "app/preferences.tsx",
+      "symbol": "PreferencesScreen"
+    },
+    "source_files": {
+      "app/preferences.tsx": "81ec061ff6d3f3a24893af60be606eb9cc88991a302297ef78e89ef2a3b50157"
+    },
+    "composition_sha256": "88215e8e254ed2674fd46eb83068f4cfb27d5aee1bc8bfd6fcb660cea9fec1ab",
+    "source_refs": {
+      "preferences.header.back": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.header.title": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.spice.none": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.spice.mild": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.spice.medium": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.spice.hot": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.budget.under_20": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.budget.20_35": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.budget.35_50": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.budget.unlimited": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.avoid.cilantro": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.avoid.peanut": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.avoid.dairy": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.avoid.seafood": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.summary": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.actions.reset": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      },
+      "preferences.actions.save": {
+        "file": "app/preferences.tsx",
+        "symbol": "PreferencesScreen"
+      }
+    },
+    "bindings": {
+      "preferences.header.back": {
+        "source_ref_expression": "sourceRef",
+        "observation_role": "text",
+        "event_props": {
+          "accessibilityRole": "\"button\"",
+          "onPress": "goBack"
+        },
+        "expected_text": true,
+        "expected_accessibility_label": true
+      },
+      "preferences.header.title": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityRole": "\"header\""
+        },
+        "expected_text": true
+      },
+      "preferences.content": {
+        "host": "ScrollView"
+      },
+      "preferences.spice.title": {
+        "source_ref_expression": "sourceRef",
+        "expected_text": true
+      },
+      "preferences.spice.note": {
+        "source_ref_expression": "sourceRef",
+        "expected_text": true
+      },
+      "preferences.spice.none": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "spiceNoneLabel",
+          "accessibilityRole": "\"button\"",
+          "accessibilityState": "spiceNoneState",
+          "onPress": "onSpiceNone"
+        },
+        "text_expression": "spiceNoneLabel",
+        "selected_expression": "spiceNoneSelected"
+      },
+      "preferences.spice.mild": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "spiceMildLabel",
+          "accessibilityRole": "\"button\"",
+          "accessibilityState": "spiceMildState",
+          "onPress": "onSpiceMild"
+        },
+        "text_expression": "spiceMildLabel",
+        "selected_expression": "spiceMildSelected"
+      },
+      "preferences.spice.medium": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "spiceMediumLabel",
+          "accessibilityRole": "\"button\"",
+          "accessibilityState": "spiceMediumState",
+          "onPress": "onSpiceMedium"
+        },
+        "text_expression": "spiceMediumLabel",
+        "selected_expression": "spiceMediumSelected"
+      },
+      "preferences.spice.hot": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "spiceHotLabel",
+          "accessibilityRole": "\"button\"",
+          "accessibilityState": "spiceHotState",
+          "onPress": "onSpiceHot"
+        },
+        "text_expression": "spiceHotLabel",
+        "selected_expression": "spiceHotSelected"
+      },
+      "preferences.budget.title": {
+        "source_ref_expression": "sourceRef",
+        "expected_text": true
+      },
+      "preferences.budget.note": {
+        "source_ref_expression": "sourceRef",
+        "expected_text": true
+      },
+      "preferences.budget.under_20": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "budgetUnder20Label",
+          "accessibilityRole": "\"button\"",
+          "accessibilityState": "budgetUnder20State",
+          "onPress": "onBudgetUnder20"
+        },
+        "text_expression": "budgetUnder20Label",
+        "selected_expression": "budgetUnder20Selected"
+      },
+      "preferences.budget.20_35": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "budget20To35Label",
+          "accessibilityRole": "\"button\"",
+          "accessibilityState": "budget20To35State",
+          "onPress": "onBudget20To35"
+        },
+        "text_expression": "budget20To35Label",
+        "selected_expression": "budget20To35Selected"
+      },
+      "preferences.budget.35_50": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "budget35To50Label",
+          "accessibilityRole": "\"button\"",
+          "accessibilityState": "budget35To50State",
+          "onPress": "onBudget35To50"
+        },
+        "text_expression": "budget35To50Label",
+        "selected_expression": "budget35To50Selected"
+      },
+      "preferences.budget.unlimited": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "budgetUnlimitedLabel",
+          "accessibilityRole": "\"button\"",
+          "accessibilityState": "budgetUnlimitedState",
+          "onPress": "onBudgetUnlimited"
+        },
+        "text_expression": "budgetUnlimitedLabel",
+        "selected_expression": "budgetUnlimitedSelected"
+      },
+      "preferences.avoid.title": {
+        "source_ref_expression": "sourceRef",
+        "expected_text": true
+      },
+      "preferences.avoid.note": {
+        "source_ref_expression": "sourceRef",
+        "expected_text": true
+      },
+      "preferences.avoid.cilantro": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "avoidCilantroLabel",
+          "accessibilityRole": "\"button\"",
+          "accessibilityState": "avoidCilantroState",
+          "onPress": "onAvoidCilantro"
+        },
+        "text_expression": "avoidCilantroLabel",
+        "selected_expression": "avoidCilantroSelected"
+      },
+      "preferences.avoid.peanut": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "avoidPeanutLabel",
+          "accessibilityRole": "\"button\"",
+          "accessibilityState": "avoidPeanutState",
+          "onPress": "onAvoidPeanut"
+        },
+        "text_expression": "avoidPeanutLabel",
+        "selected_expression": "avoidPeanutSelected"
+      },
+      "preferences.avoid.dairy": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "avoidDairyLabel",
+          "accessibilityRole": "\"button\"",
+          "accessibilityState": "avoidDairyState",
+          "onPress": "onAvoidDairy"
+        },
+        "text_expression": "avoidDairyLabel",
+        "selected_expression": "avoidDairySelected"
+      },
+      "preferences.avoid.seafood": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "avoidSeafoodLabel",
+          "accessibilityRole": "\"button\"",
+          "accessibilityState": "avoidSeafoodState",
+          "onPress": "onAvoidSeafood"
+        },
+        "text_expression": "avoidSeafoodLabel",
+        "selected_expression": "avoidSeafoodSelected"
+      },
+      "preferences.summary.label": {
+        "source_ref_expression": "sourceRef",
+        "text_expression": "summaryTitleLabel"
+      },
+      "preferences.summary": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityRole": "\"text\""
+        },
+        "text_expression": "summaryLabel"
+      },
+      "preferences.actions.reset": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "\"恢复默认\"",
+          "accessibilityRole": "\"button\"",
+          "onPress": "resetDraft"
+        },
+        "expected_text": true
+      },
+      "preferences.actions.save": {
+        "source_ref_expression": "sourceRef",
+        "event_props": {
+          "accessibilityLabel": "saveLabel",
+          "accessibilityRole": "\"button\"",
+          "disabled": "saving",
+          "onPress": "startSaving"
+        },
+        "box_style_expression": "saveBoxStateStyle",
+        "text_expression": "saveLabel"
+      }
+    },
+    "screen_edges": [
+      "top"
+    ],
+    "style_namespace": "compositionStyles",
+    "text_edits": [],
+    "retained_identities": {
+      "preferences.avoid.note": "preferences.avoid.note",
+      "preferences.avoid.title": "preferences.avoid.title",
+      "preferences.budget.note": "preferences.budget.note",
+      "preferences.budget.title": "preferences.budget.title",
+      "preferences.spice.note": "preferences.spice.note",
+      "preferences.spice.title": "preferences.spice.title",
+      "preferences.summary.label": "preferences.summary.label"
+    },
+    "passthrough": [
+      {
+        "element": "VerificationCommitSave",
+        "parent_node": "preferences.header",
+        "order": 2
+      }
+    ]
+  }
+}
