@@ -1,0 +1,93 @@
+{
+  "schema_version": "prototype-render-spec/v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "entry": "index.html",
+  "node_scope": [
+    "address.description",
+    "address.option.home",
+    "address.option.company",
+    "address.detail.tag",
+    "address.detail.address",
+    "address.detail.room",
+    "address.detail.contact",
+    "address.notice",
+    "address.summary",
+    "address.confirm",
+    "address.back",
+    "address.brand",
+    "address.title"
+  ],
+  "locale": "zh-CN",
+  "color_scheme": "light",
+  "packer_version": "autophone-prototype-packager/v2",
+  "property_scope": {
+    "address.description": [
+      "text",
+      "resolved_style.color"
+    ],
+    "address.option.home": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "address.option.company": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "address.detail.tag": [
+      "text",
+      "resolved_style.color"
+    ],
+    "address.detail.address": [
+      "text",
+      "resolved_style.color"
+    ],
+    "address.detail.room": [
+      "text",
+      "resolved_style.color"
+    ],
+    "address.detail.contact": [
+      "text",
+      "resolved_style.color"
+    ],
+    "address.notice": [
+      "text",
+      "resolved_style.color"
+    ],
+    "address.summary": [
+      "text",
+      "resolved_style.color"
+    ],
+    "address.confirm": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "address.back": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "address.brand": [
+      "text",
+      "resolved_style.color"
+    ],
+    "address.title": [
+      "text",
+      "resolved_style.color"
+    ]
+  }
+}
