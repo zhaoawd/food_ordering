@@ -1,0 +1,105 @@
+{
+  "format": "food-ordering-acceptance-spec/v1",
+  "executable": false,
+  "reset_between_cases": true,
+  "feature": "coupons",
+  "cases": [
+    {
+      "id": "C01",
+      "precondition": "播种标准份牛肉拌饭 2 份且无券",
+      "steps": [
+        "从 cart.coupon.entry 进入"
+      ],
+      "expected": [
+        "商品 ¥64、费用 ¥7、优惠 ¥0、应付 ¥71"
+      ],
+      "visual_state_id": "coupons.default.fixture-v1"
+    },
+    {
+      "id": "C02",
+      "precondition": "加载 coupons.default.fixture-v1",
+      "steps": [
+        "点击 coupons.option.save6",
+        "在确认前截图",
+        "点击 coupons.confirm"
+      ],
+      "expected": [
+        "截图时优惠 −¥6、应付 ¥65",
+        "确认后购物车优惠与应付一致"
+      ],
+      "visual_state_id": "coupons.selected.fixture-v1"
+    },
+    {
+      "id": "C03",
+      "precondition": "加载 coupons.default.fixture-v1",
+      "steps": [
+        "尝试点击 save20 不可用区域"
+      ],
+      "expected": [
+        "显示还差 ¥36 可用",
+        "选择仍为 none",
+        "应付仍为 ¥71"
+      ]
+    },
+    {
+      "id": "C04",
+      "precondition": "商品合计恰为 ¥32，1 份，包装 ¥2，配送 ¥3",
+      "steps": [
+        "选择 save6"
+      ],
+      "expected": [
+        "save6 可用，应付 ¥31",
+        "门槛不把包装费与配送费计入"
+      ]
+    },
+    {
+      "id": "C05",
+      "precondition": "商品 ¥64，2 份，已保存 save10",
+      "steps": [
+        "购物车减少到 1 份"
+      ],
+      "expected": [
+        "商品 ¥32、包装 ¥2、配送 ¥3",
+        "save10 失效，折扣 ¥0，应付 ¥37",
+        "显示 cart.coupon.notice"
+      ]
+    },
+    {
+      "id": "C06",
+      "precondition": "商品 ¥64，2 份，已保存 save6",
+      "steps": [
+        "进入优惠页选 save10",
+        "返回取消"
+      ],
+      "expected": [
+        "购物车仍应用 save6，应付 ¥65"
+      ]
+    },
+    {
+      "id": "C07",
+      "precondition": "非空购物车且应用 save6",
+      "steps": [
+        "清空购物车"
+      ],
+      "expected": [
+        "全部金额为 0",
+        "应用券为 none",
+        "隐藏优惠入口，显示原空态"
+      ]
+    },
+    {
+      "id": "C08",
+      "precondition": "优惠页草稿选 save10，当前商品 ¥64",
+      "steps": [
+        "通过测试状态通道把购物车减为标准份 1 份",
+        "点击 coupons.confirm"
+      ],
+      "expected": [
+        "不提交 save10",
+        "保留优惠页",
+        "显示订单金额变化，请重新选择优惠券",
+        "草稿回到 none，应付 ¥37"
+      ]
+    }
+  ]
+}

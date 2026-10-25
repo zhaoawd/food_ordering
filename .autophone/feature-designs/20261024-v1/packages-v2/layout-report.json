@@ -1,0 +1,46 @@
+{
+  "scope": "browser_layout_and_package_integrity",
+  "device_verified": false,
+  "states": [
+    {
+      "state_id": "address.default.fixture-v1",
+      "elements": 13,
+      "failures": []
+    },
+    {
+      "state_id": "address.company.fixture-v1",
+      "elements": 13,
+      "failures": []
+    },
+    {
+      "state_id": "preferences.default.fixture-v1",
+      "elements": 18,
+      "failures": []
+    },
+    {
+      "state_id": "preferences.edited.fixture-v1",
+      "elements": 18,
+      "failures": []
+    },
+    {
+      "state_id": "dish.default.fixture-v1",
+      "elements": 19,
+      "failures": []
+    },
+    {
+      "state_id": "dish.customized.fixture-v1",
+      "elements": 19,
+      "failures": []
+    },
+    {
+      "state_id": "coupons.default.fixture-v1",
+      "elements": 18,
+      "failures": []
+    },
+    {
+      "state_id": "coupons.selected.fixture-v1",
+      "elements": 18,
+      "failures": []
+    }
+  ]
+}

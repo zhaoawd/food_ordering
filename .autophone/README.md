@@ -18,3 +18,7 @@
 - 一轮一个分支（`autophone/req-<requirement_key>`），从本次生效分支的当时末端开出。
 
 autophone 侧入口：`uv run python3 -m autophone.cli workflow input list --app <app>`。
+
+## 新增功能设计
+
+[2026-10-24 功能设计集](feature-designs/20261024-v1/README.md)包含配送地址、饮食偏好、菜品规格与优惠券的需求、8 个状态设计包和 27 条验收规格。该目录是待实现设计输入；正式需求输入包仍按上述冻结流程生成。

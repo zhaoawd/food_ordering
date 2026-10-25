@@ -1,0 +1,80 @@
+{
+  "format": "food-ordering-acceptance-spec/v1",
+  "executable": false,
+  "reset_between_cases": true,
+  "feature": "address",
+  "cases": [
+    {
+      "id": "A01",
+      "precondition": "重置 committed=home",
+      "steps": [
+        "点击 home.header.location"
+      ],
+      "expected": [
+        "address.option.home 选中",
+        "address.detail.address=北京市朝阳区望京街 10 号"
+      ],
+      "visual_state_id": "address.default.fixture-v1"
+    },
+    {
+      "id": "A02",
+      "precondition": "加载 address.default.fixture-v1",
+      "steps": [
+        "点击 address.option.company"
+      ],
+      "expected": [
+        "address.option.company 选中",
+        "详情变为中关村东路 8 号",
+        "committed 仍为 home"
+      ],
+      "visual_state_id": "address.company.fixture-v1"
+    },
+    {
+      "id": "A03",
+      "precondition": "加载 address.company.fixture-v1",
+      "steps": [
+        "点击 address.confirm"
+      ],
+      "expected": [
+        "返回首页",
+        "home.header.location=送至 · 中关村",
+        "committed=company"
+      ]
+    },
+    {
+      "id": "A04",
+      "precondition": "已保存 home",
+      "steps": [
+        "进入地址页",
+        "选择 company",
+        "分别通过顶部返回、系统返回、手势返回重复执行"
+      ],
+      "expected": [
+        "每次返回后首页均为送至 · 望京",
+        "未保存草稿丢弃"
+      ]
+    },
+    {
+      "id": "A05",
+      "precondition": "已完成 A03",
+      "steps": [
+        "重新点击 home.header.location"
+      ],
+      "expected": [
+        "company 选中",
+        "公司详情显示"
+      ]
+    },
+    {
+      "id": "A06",
+      "precondition": "加载 address.company.fixture-v1",
+      "steps": [
+        "连续快速点击 address.confirm 两次"
+      ],
+      "expected": [
+        "只保存一次并返回一次",
+        "购物车和推荐内容不变"
+      ]
+    }
+  ]
+}

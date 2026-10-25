@@ -1,0 +1,28 @@
+{
+  "schema_version": "prototype-design-draft/v2",
+  "adapter": "ai-prototype-dsl/v2",
+  "screen_id": "preferences",
+  "state_id": "preferences.edited.fixture-v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "plan": "screen-plan.json",
+  "source": "ui-document.json",
+  "fixture": "state-fixture.json",
+  "viewport_profile": {
+    "profile_id": "vphone-ios26-430x932",
+    "safe_area": {
+      "top": 59,
+      "right": 0,
+      "bottom": 37,
+      "left": 0
+    },
+    "safe_area_application": [
+      "top",
+      "bottom"
+    ],
+    "system_ui": "separate_region"
+  }
+}

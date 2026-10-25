@@ -1,0 +1,99 @@
+{
+  "format": "food-ordering-acceptance-spec/v1",
+  "executable": false,
+  "reset_between_cases": true,
+  "feature": "dish",
+  "cases": [
+    {
+      "id": "D01",
+      "precondition": "重置购物车为空",
+      "steps": [
+        "点击牛肉推荐卡 home.recommendation.details"
+      ],
+      "expected": [
+        "dish.total=¥32",
+        "dish.quantity.value=1",
+        "减号 disabled"
+      ],
+      "visual_state_id": "dish.default.fixture-v1"
+    },
+    {
+      "id": "D02",
+      "precondition": "加载 dish.default.fixture-v1",
+      "steps": [
+        "选择大份",
+        "选择加蛋",
+        "数量增加为 2"
+      ],
+      "expected": [
+        "单价 ¥41，合计 ¥82",
+        "dish.quantity.value=2"
+      ],
+      "visual_state_id": "dish.customized.fixture-v1"
+    },
+    {
+      "id": "D03",
+      "precondition": "加载 dish.default.fixture-v1",
+      "steps": [
+        "在 1 份时点击减号",
+        "连续加到 9 份",
+        "再次点击加号"
+      ],
+      "expected": [
+        "数量不小于 1，不大于 9",
+        "达到 9 后加号 disabled",
+        "总额 ¥288"
+      ]
+    },
+    {
+      "id": "D04",
+      "precondition": "加载 dish.customized.fixture-v1，购物车为空",
+      "steps": [
+        "点击 dish.add",
+        "点击 home.header.cart"
+      ],
+      "expected": [
+        "角标与 cart.summary.quantity 均为 2",
+        "购物车显示大份、加蛋、2 份",
+        "cart.summary.subtotal=¥82"
+      ]
+    },
+    {
+      "id": "D05",
+      "precondition": "购物车已有大份加蛋 2 份",
+      "steps": [
+        "再加相同规格 2 份",
+        "尝试再加相同规格 6 份"
+      ],
+      "expected": [
+        "首次合并为 4 份、¥164",
+        "第二次显示同一规格最多 9 份",
+        "购物车仍为 4 份、¥164"
+      ]
+    },
+    {
+      "id": "D06",
+      "precondition": "购物车已有大份加蛋 2 份",
+      "steps": [
+        "加入标准份不加料 1 份",
+        "进入详情编辑后返回取消"
+      ],
+      "expected": [
+        "两行合计 3 份、¥114",
+        "取消后购物车不变"
+      ]
+    },
+    {
+      "id": "D07",
+      "precondition": "购物车为空",
+      "steps": [
+        "打开 /dish-detail?dishId=unknown"
+      ],
+      "expected": [
+        "显示菜品不存在",
+        "返回首页入口可用",
+        "购物车仍为空"
+      ]
+    }
+  ]
+}

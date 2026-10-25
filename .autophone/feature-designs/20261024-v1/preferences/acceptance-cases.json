@@ -1,0 +1,84 @@
+{
+  "format": "food-ordering-acceptance-spec/v1",
+  "executable": false,
+  "reset_between_cases": true,
+  "feature": "preferences",
+  "cases": [
+    {
+      "id": "P01",
+      "precondition": "重置偏好",
+      "steps": [
+        "首页进入我的",
+        "点击 profile.preferences"
+      ],
+      "expected": [
+        "微辣、¥40 内选中",
+        "无忌口"
+      ],
+      "visual_state_id": "preferences.default.fixture-v1"
+    },
+    {
+      "id": "P02",
+      "precondition": "加载 preferences.default.fixture-v1",
+      "steps": [
+        "选择不辣",
+        "选择香菜和花生",
+        "选择 ¥30 内"
+      ],
+      "expected": [
+        "preferences.summary=不辣 · 不要香菜、花生 · ¥30 内"
+      ],
+      "visual_state_id": "preferences.edited.fixture-v1"
+    },
+    {
+      "id": "P03",
+      "precondition": "加载 preferences.edited.fixture-v1",
+      "steps": [
+        "点击 preferences.avoid.onion",
+        "取消香菜",
+        "再次选择洋葱"
+      ],
+      "expected": [
+        "第三项首次点击被拒绝，原两项保留并显示错误",
+        "取消后错误消失",
+        "最后为洋葱、花生两项，摘要顺序固定"
+      ]
+    },
+    {
+      "id": "P04",
+      "precondition": "已保存默认偏好",
+      "steps": [
+        "修改三组选择",
+        "点击 preferences.back",
+        "重新进入"
+      ],
+      "expected": [
+        "草稿丢弃，恢复已保存默认值"
+      ]
+    },
+    {
+      "id": "P05",
+      "precondition": "加载 preferences.edited.fixture-v1",
+      "steps": [
+        "点击 preferences.reset"
+      ],
+      "expected": [
+        "草稿为微辣、无忌口、¥40 内",
+        "不自动导航，不自动保存"
+      ],
+      "visual_state_id": "preferences.default.fixture-v1"
+    },
+    {
+      "id": "P06",
+      "precondition": "加载 preferences.edited.fixture-v1",
+      "steps": [
+        "点击 preferences.save",
+        "再次进入偏好页"
+      ],
+      "expected": [
+        "个人页摘要正确",
+        "重新进入保留不辣、香菜与花生、¥30 内"
+      ]
+    }
+  ]
+}

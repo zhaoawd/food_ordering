@@ -1,0 +1,710 @@
+{
+  "schema_version": "ui-prototype-document/v1",
+  "name": "优惠券选择与金额明细 · default",
+  "tokens": {
+    "color.canvas": {
+      "type": "color",
+      "value": "#FFF8EF"
+    },
+    "color.surface": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "color.text": {
+      "type": "color",
+      "value": "#241713"
+    },
+    "color.muted": {
+      "type": "color",
+      "value": "#77655F"
+    },
+    "color.brand": {
+      "type": "color",
+      "value": "#E6472F"
+    },
+    "color.soft": {
+      "type": "color",
+      "value": "#F7D7B5"
+    },
+    "color.border": {
+      "type": "color",
+      "value": "#E8DCD3"
+    },
+    "color.success": {
+      "type": "color",
+      "value": "#2D7046"
+    },
+    "color.successSoft": {
+      "type": "color",
+      "value": "#E8F3EA"
+    },
+    "space.page": {
+      "type": "dimension",
+      "value": 22
+    },
+    "space.gap": {
+      "type": "dimension",
+      "value": 16
+    },
+    "space.small": {
+      "type": "dimension",
+      "value": 8
+    },
+    "space.radius": {
+      "type": "dimension",
+      "value": 16
+    },
+    "space.control": {
+      "type": "dimension",
+      "value": 48
+    },
+    "space.option": {
+      "type": "dimension",
+      "value": 52
+    },
+    "space.header": {
+      "type": "dimension",
+      "value": 64
+    },
+    "type.title": {
+      "type": "typography",
+      "value": {
+        "fontSize": 26,
+        "fontWeight": 700,
+        "lineHeight": 36
+      }
+    },
+    "type.heading": {
+      "type": "typography",
+      "value": {
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 26
+      }
+    },
+    "type.body": {
+      "type": "typography",
+      "value": {
+        "fontSize": 15,
+        "fontWeight": 400,
+        "lineHeight": 23
+      }
+    },
+    "type.label": {
+      "type": "typography",
+      "value": {
+        "fontSize": 15,
+        "fontWeight": 600,
+        "lineHeight": 22
+      }
+    },
+    "type.caption": {
+      "type": "typography",
+      "value": {
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": 20
+      }
+    },
+    "type.price": {
+      "type": "typography",
+      "value": {
+        "fontSize": 28,
+        "fontWeight": 700,
+        "lineHeight": 38
+      }
+    }
+  },
+  "screens": [
+    {
+      "id": "coupons",
+      "name": "优惠券选择与金额明细",
+      "root": {
+        "id": "coupons.root",
+        "component": "Screen",
+        "style": {
+          "backgroundColor": "$color.canvas",
+          "color": "$color.text"
+        },
+        "children": [
+          {
+            "id": "coupons.header",
+            "component": "Frame",
+            "layout": {
+              "direction": "row",
+              "width": "fill",
+              "gap": "$space.small",
+              "height": "$space.header",
+              "align": "center",
+              "justify": "between",
+              "padding": [
+                0,
+                "$space.page",
+                0,
+                "$space.page"
+              ]
+            },
+            "children": [
+              {
+                "id": "coupons.back",
+                "component": "Button",
+                "stable_id": "coupons.back",
+                "layout": {
+                  "width": 64,
+                  "height": "$space.control"
+                },
+                "style": {
+                  "typography": "$type.label",
+                  "color": "$color.brand",
+                  "backgroundColor": "$color.surface",
+                  "borderRadius": "$space.radius"
+                },
+                "props": {
+                  "label_path": "view.back"
+                }
+              },
+              {
+                "id": "coupons.brand",
+                "component": "Text",
+                "stable_id": "coupons.brand",
+                "style": {
+                  "typography": "$type.label",
+                  "color": "$color.brand"
+                },
+                "props": {
+                  "text_path": "view.brand"
+                }
+              }
+            ]
+          },
+          {
+            "id": "coupons.content",
+            "component": "Frame",
+            "layout": {
+              "direction": "column",
+              "width": "fill",
+              "gap": "$space.gap",
+              "flex": 1,
+              "padding": [
+                "$space.small",
+                "$space.page",
+                "$space.gap",
+                "$space.page"
+              ],
+              "overflow": "auto"
+            },
+            "children": [
+              {
+                "id": "coupons.title",
+                "component": "Text",
+                "stable_id": "coupons.title",
+                "style": {
+                  "typography": "$type.title",
+                  "color": "$color.text"
+                },
+                "props": {
+                  "text_path": "view.title"
+                }
+              },
+              {
+                "id": "coupons.description",
+                "component": "Text",
+                "stable_id": "coupons.description",
+                "style": {
+                  "typography": "$type.body",
+                  "color": "$color.muted"
+                },
+                "props": {
+                  "text_path": "view.description"
+                }
+              },
+              {
+                "id": "coupons.option",
+                "component": "ChoiceGroup",
+                "layout": {
+                  "width": "fill",
+                  "columns": 1,
+                  "gap": "$space.small"
+                },
+                "props": {
+                  "title": "可用优惠券",
+                  "mode": "single",
+                  "options_source": "option",
+                  "selected_path": "values.option",
+                  "stable_id_prefix": "coupons.option",
+                  "header_gap": 12
+                },
+                "slot_styles": {
+                  "title": {
+                    "typography": "$type.heading",
+                    "color": "$color.text"
+                  },
+                  "option": {
+                    "minHeight": "$space.option",
+                    "typography": "$type.label",
+                    "backgroundColor": "$color.surface",
+                    "color": "$color.muted",
+                    "borderColor": "$color.border",
+                    "borderWidth": 1,
+                    "borderRadius": 12
+                  },
+                  "option_selected": {
+                    "color": "$color.brand",
+                    "backgroundColor": "$color.soft",
+                    "borderColor": "$color.brand"
+                  }
+                }
+              },
+              {
+                "id": "coupons.unavailable",
+                "component": "Frame",
+                "layout": {
+                  "direction": "column",
+                  "width": "fill",
+                  "gap": "$space.small",
+                  "padding": [
+                    "$space.gap",
+                    "$space.gap",
+                    "$space.gap",
+                    "$space.gap"
+                  ]
+                },
+                "children": [
+                  {
+                    "id": "coupons.unavailable.title",
+                    "component": "Text",
+                    "stable_id": "coupons.unavailable.title",
+                    "style": {
+                      "typography": "$type.label",
+                      "color": "$color.muted"
+                    },
+                    "props": {
+                      "text_path": "view.unavailable_title"
+                    }
+                  },
+                  {
+                    "id": "coupons.unavailable.reason",
+                    "component": "Text",
+                    "stable_id": "coupons.unavailable.reason",
+                    "style": {
+                      "typography": "$type.caption",
+                      "color": "$color.muted"
+                    },
+                    "props": {
+                      "text_path": "view.unavailable_reason"
+                    }
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "$color.surface",
+                  "borderRadius": "$space.radius"
+                }
+              },
+              {
+                "id": "coupons.bill",
+                "component": "Frame",
+                "layout": {
+                  "direction": "column",
+                  "width": "fill",
+                  "gap": "$space.small",
+                  "padding": [
+                    "$space.gap",
+                    "$space.gap",
+                    "$space.gap",
+                    "$space.gap"
+                  ]
+                },
+                "children": [
+                  {
+                    "id": "coupons.bill.goods.row",
+                    "component": "Frame",
+                    "layout": {
+                      "direction": "row",
+                      "width": "fill",
+                      "gap": "$space.small",
+                      "justify": "between"
+                    },
+                    "children": [
+                      {
+                        "id": "coupons.bill.goods.label",
+                        "component": "Text",
+                        "stable_id": "coupons.bill.goods.label",
+                        "style": {
+                          "typography": "$type.body",
+                          "color": "$color.text"
+                        },
+                        "props": {
+                          "text_path": "view.bill_goods_label"
+                        }
+                      },
+                      {
+                        "id": "coupons.bill.goods",
+                        "component": "Text",
+                        "stable_id": "coupons.bill.goods",
+                        "style": {
+                          "typography": "$type.body",
+                          "color": "$color.text"
+                        },
+                        "props": {
+                          "text_path": "view.bill_goods"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "coupons.bill.fees.row",
+                    "component": "Frame",
+                    "layout": {
+                      "direction": "row",
+                      "width": "fill",
+                      "gap": "$space.small",
+                      "justify": "between"
+                    },
+                    "children": [
+                      {
+                        "id": "coupons.bill.fees.label",
+                        "component": "Text",
+                        "stable_id": "coupons.bill.fees.label",
+                        "style": {
+                          "typography": "$type.caption",
+                          "color": "$color.muted"
+                        },
+                        "props": {
+                          "text_path": "view.bill_fees_label"
+                        }
+                      },
+                      {
+                        "id": "coupons.bill.fees",
+                        "component": "Text",
+                        "stable_id": "coupons.bill.fees",
+                        "style": {
+                          "typography": "$type.caption",
+                          "color": "$color.muted"
+                        },
+                        "props": {
+                          "text_path": "view.bill_fees"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "coupons.bill.discount.row",
+                    "component": "Frame",
+                    "layout": {
+                      "direction": "row",
+                      "width": "fill",
+                      "gap": "$space.small",
+                      "justify": "between"
+                    },
+                    "children": [
+                      {
+                        "id": "coupons.bill.discount.label",
+                        "component": "Text",
+                        "stable_id": "coupons.bill.discount.label",
+                        "style": {
+                          "typography": "$type.label",
+                          "color": "$color.text"
+                        },
+                        "props": {
+                          "text_path": "view.bill_discount_label"
+                        }
+                      },
+                      {
+                        "id": "coupons.bill.discount",
+                        "component": "Text",
+                        "stable_id": "coupons.bill.discount",
+                        "style": {
+                          "typography": "$type.label",
+                          "color": "$color.brand"
+                        },
+                        "props": {
+                          "text_path": "view.bill_discount"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "$color.surface",
+                  "borderRadius": "$space.radius"
+                }
+              }
+            ]
+          },
+          {
+            "id": "coupons.footer",
+            "component": "Frame",
+            "layout": {
+              "direction": "column",
+              "width": "fill",
+              "gap": "$space.small",
+              "padding": [
+                "$space.gap",
+                "$space.page",
+                "$space.gap",
+                "$space.page"
+              ]
+            },
+            "children": [
+              {
+                "id": "coupons.payable.row",
+                "component": "Frame",
+                "layout": {
+                  "direction": "row",
+                  "width": "fill",
+                  "gap": "$space.small",
+                  "justify": "between",
+                  "align": "center"
+                },
+                "children": [
+                  {
+                    "id": "coupons.payable.label",
+                    "component": "Text",
+                    "stable_id": "coupons.payable.label",
+                    "style": {
+                      "typography": "$type.label",
+                      "color": "$color.text"
+                    },
+                    "props": {
+                      "text_path": "view.payable_label"
+                    }
+                  },
+                  {
+                    "id": "coupons.payable",
+                    "component": "Text",
+                    "stable_id": "coupons.payable",
+                    "style": {
+                      "typography": "$type.price",
+                      "color": "$color.brand"
+                    },
+                    "props": {
+                      "text_path": "view.payable"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "coupons.confirm",
+                "component": "Button",
+                "stable_id": "coupons.confirm",
+                "layout": {
+                  "width": "fill",
+                  "height": "$space.control"
+                },
+                "style": {
+                  "typography": "$type.label",
+                  "color": "$color.surface",
+                  "backgroundColor": "$color.brand",
+                  "borderRadius": "$space.radius"
+                },
+                "props": {
+                  "label_path": "view.confirm"
+                }
+              }
+            ],
+            "style": {
+              "backgroundColor": "$color.surface",
+              "borderTopColor": "$color.border",
+              "borderTopWidth": 1
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "interactions": [
+    {
+      "id": "coupons.option.none.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "coupons.option.none"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.option"
+      }
+    },
+    {
+      "id": "coupons.option.save6.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "coupons.option.save6"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.option"
+      }
+    },
+    {
+      "id": "coupons.option.save10.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "coupons.option.save10"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.option"
+      }
+    },
+    {
+      "id": "coupons.confirm.press",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "coupons.confirm"
+      },
+      "action": {
+        "type": "save"
+      }
+    }
+  ],
+  "prototype": {
+    "start_screen_id": "coupons"
+  },
+  "acceptance": [
+    {
+      "screen_id": "coupons",
+      "targets": [
+        {
+          "stable_id": "coupons.description",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "coupons.option.none",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
+          ]
+        },
+        {
+          "stable_id": "coupons.option.save6",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
+          ]
+        },
+        {
+          "stable_id": "coupons.option.save10",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
+          ]
+        },
+        {
+          "stable_id": "coupons.unavailable.title",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "coupons.unavailable.reason",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "coupons.bill.goods.label",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "coupons.bill.goods",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "coupons.bill.fees.label",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "coupons.bill.fees",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "coupons.bill.discount.label",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "coupons.bill.discount",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "coupons.payable.label",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "coupons.payable",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "coupons.confirm",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
+          ]
+        },
+        {
+          "stable_id": "coupons.back",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "coupons.brand",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "coupons.title",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        }
+      ]
+    }
+  ]
+}

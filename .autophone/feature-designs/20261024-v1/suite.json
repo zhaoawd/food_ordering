@@ -1,0 +1,88 @@
+{
+  "format": "food-ordering-feature-design-suite/v1",
+  "status": "design_only",
+  "created_date": "2026-10-24",
+  "baseline_commit": "b195ca744b887bc76713008bde8970b4ecb93f0a",
+  "baseline_branch": "eval/r1-case-v2-start",
+  "formal_requirement_input_package": false,
+  "features": [
+    {
+      "id": "address",
+      "title": "配送地址选择",
+      "requirement": "address/requirement.md",
+      "acceptance_cases": "address/acceptance-cases.json",
+      "depends_on": [],
+      "states": [
+        {
+          "state_id": "address.default.fixture-v1",
+          "draft": "address/states/default",
+          "design_package": "packages-v2/address-default"
+        },
+        {
+          "state_id": "address.company.fixture-v1",
+          "draft": "address/states/company",
+          "design_package": "packages-v2/address-company"
+        }
+      ]
+    },
+    {
+      "id": "preferences",
+      "title": "饮食偏好设置",
+      "requirement": "preferences/requirement.md",
+      "acceptance_cases": "preferences/acceptance-cases.json",
+      "depends_on": [],
+      "states": [
+        {
+          "state_id": "preferences.default.fixture-v1",
+          "draft": "preferences/states/default",
+          "design_package": "packages-v2/preferences-default"
+        },
+        {
+          "state_id": "preferences.edited.fixture-v1",
+          "draft": "preferences/states/edited",
+          "design_package": "packages-v2/preferences-edited"
+        }
+      ]
+    },
+    {
+      "id": "dish",
+      "title": "菜品规格与数量",
+      "requirement": "dish/requirement.md",
+      "acceptance_cases": "dish/acceptance-cases.json",
+      "depends_on": [],
+      "states": [
+        {
+          "state_id": "dish.default.fixture-v1",
+          "draft": "dish/states/default",
+          "design_package": "packages-v2/dish-default"
+        },
+        {
+          "state_id": "dish.customized.fixture-v1",
+          "draft": "dish/states/customized",
+          "design_package": "packages-v2/dish-customized"
+        }
+      ]
+    },
+    {
+      "id": "coupons",
+      "title": "优惠券选择与金额明细",
+      "requirement": "coupons/requirement.md",
+      "acceptance_cases": "coupons/acceptance-cases.json",
+      "depends_on": [
+        "dish"
+      ],
+      "states": [
+        {
+          "state_id": "coupons.default.fixture-v1",
+          "draft": "coupons/states/default",
+          "design_package": "packages-v2/coupons-default"
+        },
+        {
+          "state_id": "coupons.selected.fixture-v1",
+          "draft": "coupons/states/selected",
+          "design_package": "packages-v2/coupons-selected"
+        }
+      ]
+    }
+  ]
+}

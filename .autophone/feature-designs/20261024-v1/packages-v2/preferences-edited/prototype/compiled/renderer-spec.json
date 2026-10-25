@@ -1,0 +1,138 @@
+{
+  "schema_version": "prototype-render-spec/v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "entry": "index.html",
+  "node_scope": [
+    "preferences.description",
+    "preferences.spice.none",
+    "preferences.spice.mild",
+    "preferences.spice.hot",
+    "preferences.avoid.coriander",
+    "preferences.avoid.onion",
+    "preferences.avoid.peanut",
+    "preferences.budget.under30",
+    "preferences.budget.under40",
+    "preferences.budget.any",
+    "preferences.summary.title",
+    "preferences.summary",
+    "preferences.disclaimer",
+    "preferences.reset",
+    "preferences.save",
+    "preferences.back",
+    "preferences.brand",
+    "preferences.title"
+  ],
+  "locale": "zh-CN",
+  "color_scheme": "light",
+  "packer_version": "autophone-prototype-packager/v2",
+  "property_scope": {
+    "preferences.description": [
+      "text",
+      "resolved_style.color"
+    ],
+    "preferences.spice.none": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "preferences.spice.mild": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "preferences.spice.hot": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "preferences.avoid.coriander": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "preferences.avoid.onion": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "preferences.avoid.peanut": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "preferences.budget.under30": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "preferences.budget.under40": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "preferences.budget.any": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "preferences.summary.title": [
+      "text",
+      "resolved_style.color"
+    ],
+    "preferences.summary": [
+      "text",
+      "resolved_style.color"
+    ],
+    "preferences.disclaimer": [
+      "text",
+      "resolved_style.color"
+    ],
+    "preferences.reset": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.save": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "preferences.back": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "preferences.brand": [
+      "text",
+      "resolved_style.color"
+    ],
+    "preferences.title": [
+      "text",
+      "resolved_style.color"
+    ]
+  }
+}

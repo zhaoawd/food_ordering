@@ -1,0 +1,70 @@
+{
+  "schema_version": "ui-prototype-fixture/v1",
+  "state_id": "preferences.edited.fixture-v1",
+  "data_sources": {
+    "spice": [
+      {
+        "value": "none",
+        "label": "不辣"
+      },
+      {
+        "value": "mild",
+        "label": "微辣"
+      },
+      {
+        "value": "hot",
+        "label": "中辣"
+      }
+    ],
+    "avoid": [
+      {
+        "value": "coriander",
+        "label": "香菜"
+      },
+      {
+        "value": "onion",
+        "label": "洋葱"
+      },
+      {
+        "value": "peanut",
+        "label": "花生"
+      }
+    ],
+    "budget": [
+      {
+        "value": "under30",
+        "label": "¥30 内"
+      },
+      {
+        "value": "under40",
+        "label": "¥40 内"
+      },
+      {
+        "value": "any",
+        "label": "不限"
+      }
+    ]
+  },
+  "values": {
+    "committed_spice": "mild",
+    "committed_avoid": [],
+    "committed_budget": "under40",
+    "spice": "none",
+    "avoid": [
+      "coriander",
+      "peanut"
+    ],
+    "budget": "under30"
+  },
+  "view": {
+    "description": "设置口味、忌口与单餐预算。",
+    "summary_title": "当前偏好",
+    "summary": "不辣 · 不要香菜、花生 · ¥30 内",
+    "disclaimer": "保存后可在“我的”查看和修改。",
+    "reset": "恢复默认",
+    "save": "保存偏好",
+    "back": "返回",
+    "brand": "Food AI",
+    "title": "饮食偏好设置"
+  }
+}

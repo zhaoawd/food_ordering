@@ -1,0 +1,127 @@
+{
+  "scope": "design_schema_binding_compile_render_mapping",
+  "app_implementation_verified": false,
+  "device_behavior_verified": false,
+  "states": [
+    {
+      "state_id": "address.default.fixture-v1",
+      "package": "address-default",
+      "element_count": 13,
+      "property_count": 38,
+      "mapping_gaps": [],
+      "manifest_sha256": "3c517adb430341f4d8a921ab15ff12f572c2b23f30ba8ade5fc482718ce38d7b",
+      "reference_sha256": "c2892b83e38b8adc877014fd092491601e449fad9e829d943b8f2415efb18273",
+      "toolchain": {
+        "packer": "autophone-prototype-packager/v2",
+        "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+        "browser": "chromium/149.0.7827.55",
+        "compiler": "autophone-ui-prototype-compiler/v2"
+      }
+    },
+    {
+      "state_id": "address.company.fixture-v1",
+      "package": "address-company",
+      "element_count": 13,
+      "property_count": 38,
+      "mapping_gaps": [],
+      "manifest_sha256": "519728e88e02c7b3cd4dab957e4886f19c154102ffcb9cf8612357b5dd1a05b8",
+      "reference_sha256": "1e067bef1ea0b0da74a9ae959aca1aa30ee23270834ddb981c0f7d39f7b9851e",
+      "toolchain": {
+        "packer": "autophone-prototype-packager/v2",
+        "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+        "browser": "chromium/149.0.7827.55",
+        "compiler": "autophone-ui-prototype-compiler/v2"
+      }
+    },
+    {
+      "state_id": "preferences.default.fixture-v1",
+      "package": "preferences-default",
+      "element_count": 18,
+      "property_count": 68,
+      "mapping_gaps": [],
+      "manifest_sha256": "73ea8291d423a7eaf90ec936fae17b0b8c6d9d292457491a120f6b61fc951b1a",
+      "reference_sha256": "b12feb2d8cd4d3b8a51d0615277ebf23398bc7a71841d33d92307b933cd54dfc",
+      "toolchain": {
+        "packer": "autophone-prototype-packager/v2",
+        "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+        "browser": "chromium/149.0.7827.55",
+        "compiler": "autophone-ui-prototype-compiler/v2"
+      }
+    },
+    {
+      "state_id": "preferences.edited.fixture-v1",
+      "package": "preferences-edited",
+      "element_count": 18,
+      "property_count": 68,
+      "mapping_gaps": [],
+      "manifest_sha256": "7bf89ad0f79818383f51aefb2d25913b937df0cdfb11440dc3f17092c4483c48",
+      "reference_sha256": "035c56ad9b4997a2dee47b60ec051c12b9de5777700a08dd44d1a4e1cceeadc9",
+      "toolchain": {
+        "packer": "autophone-prototype-packager/v2",
+        "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+        "browser": "chromium/149.0.7827.55",
+        "compiler": "autophone-ui-prototype-compiler/v2"
+      }
+    },
+    {
+      "state_id": "dish.default.fixture-v1",
+      "package": "dish-default",
+      "element_count": 19,
+      "property_count": 68,
+      "mapping_gaps": [],
+      "manifest_sha256": "0ba6ecc339f4776b1838693040c556ad0dad132e869616fe2f8305c08dc501ed",
+      "reference_sha256": "a50ce2dadb1e0ddb8cd19411e9cb7aff4995fba2d4167abea2d993d298b9ffc1",
+      "toolchain": {
+        "packer": "autophone-prototype-packager/v2",
+        "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+        "browser": "chromium/149.0.7827.55",
+        "compiler": "autophone-ui-prototype-compiler/v2"
+      }
+    },
+    {
+      "state_id": "dish.customized.fixture-v1",
+      "package": "dish-customized",
+      "element_count": 19,
+      "property_count": 68,
+      "mapping_gaps": [],
+      "manifest_sha256": "d8c8ac6ec655c05aed61bb378ccb2de2c8e38bad35414c7bd9ebb3deff5d48c6",
+      "reference_sha256": "7532c53c58ba447a280119ae70e9e55643b20f87c3811b8b274a0a0945ce60fb",
+      "toolchain": {
+        "packer": "autophone-prototype-packager/v2",
+        "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+        "browser": "chromium/149.0.7827.55",
+        "compiler": "autophone-ui-prototype-compiler/v2"
+      }
+    },
+    {
+      "state_id": "coupons.default.fixture-v1",
+      "package": "coupons-default",
+      "element_count": 18,
+      "property_count": 50,
+      "mapping_gaps": [],
+      "manifest_sha256": "1902a251bc45ed4449ae663fe1870357e3ec4301fad26569469fb09d30677069",
+      "reference_sha256": "ca84f34c17b83997e1b8de226a9088131d880cdc06ead1a14dc73c50dc250d79",
+      "toolchain": {
+        "packer": "autophone-prototype-packager/v2",
+        "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+        "browser": "chromium/149.0.7827.55",
+        "compiler": "autophone-ui-prototype-compiler/v2"
+      }
+    },
+    {
+      "state_id": "coupons.selected.fixture-v1",
+      "package": "coupons-selected",
+      "element_count": 18,
+      "property_count": 50,
+      "mapping_gaps": [],
+      "manifest_sha256": "d89972585c73b552a691fea530cf57bff01cd532feed9a050f90535edfdcb752",
+      "reference_sha256": "7be1d9e45c2226e48423effc2dd8544e3f2510d56efbb6bb338eff339c673cbe",
+      "toolchain": {
+        "packer": "autophone-prototype-packager/v2",
+        "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+        "browser": "chromium/149.0.7827.55",
+        "compiler": "autophone-ui-prototype-compiler/v2"
+      }
+    }
+  ]
+}

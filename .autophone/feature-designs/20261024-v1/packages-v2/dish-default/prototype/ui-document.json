@@ -1,0 +1,764 @@
+{
+  "schema_version": "ui-prototype-document/v1",
+  "name": "菜品规格与数量 · default",
+  "tokens": {
+    "color.canvas": {
+      "type": "color",
+      "value": "#FFF8EF"
+    },
+    "color.surface": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "color.text": {
+      "type": "color",
+      "value": "#241713"
+    },
+    "color.muted": {
+      "type": "color",
+      "value": "#77655F"
+    },
+    "color.brand": {
+      "type": "color",
+      "value": "#E6472F"
+    },
+    "color.soft": {
+      "type": "color",
+      "value": "#F7D7B5"
+    },
+    "color.border": {
+      "type": "color",
+      "value": "#E8DCD3"
+    },
+    "color.success": {
+      "type": "color",
+      "value": "#2D7046"
+    },
+    "color.successSoft": {
+      "type": "color",
+      "value": "#E8F3EA"
+    },
+    "space.page": {
+      "type": "dimension",
+      "value": 22
+    },
+    "space.gap": {
+      "type": "dimension",
+      "value": 16
+    },
+    "space.small": {
+      "type": "dimension",
+      "value": 8
+    },
+    "space.radius": {
+      "type": "dimension",
+      "value": 16
+    },
+    "space.control": {
+      "type": "dimension",
+      "value": 48
+    },
+    "space.option": {
+      "type": "dimension",
+      "value": 52
+    },
+    "space.header": {
+      "type": "dimension",
+      "value": 64
+    },
+    "type.title": {
+      "type": "typography",
+      "value": {
+        "fontSize": 26,
+        "fontWeight": 700,
+        "lineHeight": 36
+      }
+    },
+    "type.heading": {
+      "type": "typography",
+      "value": {
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 26
+      }
+    },
+    "type.body": {
+      "type": "typography",
+      "value": {
+        "fontSize": 15,
+        "fontWeight": 400,
+        "lineHeight": 23
+      }
+    },
+    "type.label": {
+      "type": "typography",
+      "value": {
+        "fontSize": 15,
+        "fontWeight": 600,
+        "lineHeight": 22
+      }
+    },
+    "type.caption": {
+      "type": "typography",
+      "value": {
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": 20
+      }
+    },
+    "type.price": {
+      "type": "typography",
+      "value": {
+        "fontSize": 28,
+        "fontWeight": 700,
+        "lineHeight": 38
+      }
+    },
+    "color.disabled": {
+      "type": "color",
+      "value": "#F3ECE6"
+    }
+  },
+  "screens": [
+    {
+      "id": "dish",
+      "name": "菜品规格与数量",
+      "root": {
+        "id": "dish.root",
+        "component": "Screen",
+        "style": {
+          "backgroundColor": "$color.canvas",
+          "color": "$color.text"
+        },
+        "children": [
+          {
+            "id": "dish.header",
+            "component": "Frame",
+            "layout": {
+              "direction": "row",
+              "width": "fill",
+              "gap": "$space.small",
+              "height": "$space.header",
+              "align": "center",
+              "justify": "between",
+              "padding": [
+                0,
+                "$space.page",
+                0,
+                "$space.page"
+              ]
+            },
+            "children": [
+              {
+                "id": "dish.back",
+                "component": "Button",
+                "stable_id": "dish.back",
+                "layout": {
+                  "width": 64,
+                  "height": "$space.control"
+                },
+                "style": {
+                  "typography": "$type.label",
+                  "color": "$color.brand",
+                  "backgroundColor": "$color.surface",
+                  "borderRadius": "$space.radius"
+                },
+                "props": {
+                  "label_path": "view.back"
+                }
+              },
+              {
+                "id": "dish.brand",
+                "component": "Text",
+                "stable_id": "dish.brand",
+                "style": {
+                  "typography": "$type.label",
+                  "color": "$color.brand"
+                },
+                "props": {
+                  "text_path": "view.brand"
+                }
+              }
+            ]
+          },
+          {
+            "id": "dish.content",
+            "component": "Frame",
+            "layout": {
+              "direction": "column",
+              "width": "fill",
+              "gap": "$space.gap",
+              "flex": 1,
+              "padding": [
+                "$space.small",
+                "$space.page",
+                "$space.gap",
+                "$space.page"
+              ],
+              "overflow": "auto"
+            },
+            "children": [
+              {
+                "id": "dish.title",
+                "component": "Text",
+                "stable_id": "dish.title",
+                "style": {
+                  "typography": "$type.title",
+                  "color": "$color.text"
+                },
+                "props": {
+                  "text_path": "view.title"
+                }
+              },
+              {
+                "id": "dish.dish.card",
+                "component": "Frame",
+                "layout": {
+                  "direction": "column",
+                  "width": "fill",
+                  "gap": "$space.small",
+                  "padding": [
+                    "$space.gap",
+                    "$space.gap",
+                    "$space.gap",
+                    "$space.gap"
+                  ]
+                },
+                "children": [
+                  {
+                    "id": "dish.name",
+                    "component": "Text",
+                    "stable_id": "dish.name",
+                    "style": {
+                      "typography": "$type.heading",
+                      "color": "$color.text"
+                    },
+                    "props": {
+                      "text_path": "view.name"
+                    }
+                  },
+                  {
+                    "id": "dish.description",
+                    "component": "Text",
+                    "stable_id": "dish.description",
+                    "style": {
+                      "typography": "$type.caption",
+                      "color": "$color.muted"
+                    },
+                    "props": {
+                      "text_path": "view.description"
+                    }
+                  },
+                  {
+                    "id": "dish.base_price",
+                    "component": "Text",
+                    "stable_id": "dish.base_price",
+                    "style": {
+                      "typography": "$type.price",
+                      "color": "$color.brand"
+                    },
+                    "props": {
+                      "text_path": "view.base_price"
+                    }
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "$color.surface",
+                  "borderRadius": "$space.radius"
+                }
+              },
+              {
+                "id": "dish.portion",
+                "component": "ChoiceGroup",
+                "layout": {
+                  "width": "fill",
+                  "columns": 2,
+                  "gap": "$space.small"
+                },
+                "props": {
+                  "title": "份量",
+                  "mode": "single",
+                  "options_source": "portion",
+                  "selected_path": "values.portion",
+                  "stable_id_prefix": "dish.portion",
+                  "header_gap": 12
+                },
+                "slot_styles": {
+                  "title": {
+                    "typography": "$type.heading",
+                    "color": "$color.text"
+                  },
+                  "option": {
+                    "minHeight": "$space.option",
+                    "typography": "$type.label",
+                    "backgroundColor": "$color.surface",
+                    "color": "$color.muted",
+                    "borderColor": "$color.border",
+                    "borderWidth": 1,
+                    "borderRadius": 12
+                  },
+                  "option_selected": {
+                    "color": "$color.brand",
+                    "backgroundColor": "$color.soft",
+                    "borderColor": "$color.brand"
+                  }
+                }
+              },
+              {
+                "id": "dish.extras",
+                "component": "ChoiceGroup",
+                "layout": {
+                  "width": "fill",
+                  "columns": 3,
+                  "gap": "$space.small"
+                },
+                "props": {
+                  "title": "加料（可多选）",
+                  "mode": "multiple",
+                  "options_source": "extras",
+                  "selected_path": "values.extras",
+                  "stable_id_prefix": "dish.extras",
+                  "header_gap": 12
+                },
+                "slot_styles": {
+                  "title": {
+                    "typography": "$type.heading",
+                    "color": "$color.text"
+                  },
+                  "option": {
+                    "minHeight": "$space.option",
+                    "typography": "$type.label",
+                    "backgroundColor": "$color.surface",
+                    "color": "$color.muted",
+                    "borderColor": "$color.border",
+                    "borderWidth": 1,
+                    "borderRadius": 12
+                  },
+                  "option_selected": {
+                    "color": "$color.brand",
+                    "backgroundColor": "$color.soft",
+                    "borderColor": "$color.brand"
+                  }
+                }
+              },
+              {
+                "id": "dish.quantity.row",
+                "component": "Frame",
+                "layout": {
+                  "direction": "row",
+                  "width": "fill",
+                  "gap": "$space.small",
+                  "align": "center",
+                  "justify": "between"
+                },
+                "children": [
+                  {
+                    "id": "dish.quantity.label",
+                    "component": "Text",
+                    "stable_id": "dish.quantity.label",
+                    "style": {
+                      "typography": "$type.heading",
+                      "color": "$color.text"
+                    },
+                    "props": {
+                      "text_path": "view.quantity_label"
+                    }
+                  },
+                  {
+                    "id": "dish.quantity.controls",
+                    "component": "Frame",
+                    "layout": {
+                      "direction": "row",
+                      "width": "hug",
+                      "gap": 20,
+                      "align": "center"
+                    },
+                    "children": [
+                      {
+                        "id": "dish.quantity.decrease",
+                        "component": "Button",
+                        "stable_id": "dish.quantity.decrease",
+                        "layout": {
+                          "width": 48,
+                          "height": "$space.control"
+                        },
+                        "style": {
+                          "typography": "$type.label",
+                          "color": "$color.muted",
+                          "backgroundColor": "$color.disabled",
+                          "borderRadius": "$space.radius"
+                        },
+                        "props": {
+                          "label_path": "view.quantity_decrease"
+                        }
+                      },
+                      {
+                        "id": "dish.quantity.value",
+                        "component": "Text",
+                        "stable_id": "dish.quantity.value",
+                        "style": {
+                          "typography": "$type.heading",
+                          "color": "$color.text"
+                        },
+                        "props": {
+                          "text_path": "view.quantity_value"
+                        }
+                      },
+                      {
+                        "id": "dish.quantity.increase",
+                        "component": "Button",
+                        "stable_id": "dish.quantity.increase",
+                        "layout": {
+                          "width": 48,
+                          "height": "$space.control"
+                        },
+                        "style": {
+                          "typography": "$type.label",
+                          "color": "$color.brand",
+                          "backgroundColor": "$color.surface",
+                          "borderRadius": "$space.radius"
+                        },
+                        "props": {
+                          "label_path": "view.quantity_increase"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "dish.selection",
+                "component": "Text",
+                "stable_id": "dish.selection",
+                "style": {
+                  "typography": "$type.caption",
+                  "color": "$color.muted"
+                },
+                "props": {
+                  "text_path": "view.selection"
+                }
+              }
+            ]
+          },
+          {
+            "id": "dish.footer",
+            "component": "Frame",
+            "layout": {
+              "direction": "column",
+              "width": "fill",
+              "gap": "$space.small",
+              "padding": [
+                "$space.gap",
+                "$space.page",
+                "$space.gap",
+                "$space.page"
+              ]
+            },
+            "children": [
+              {
+                "id": "dish.total.row",
+                "component": "Frame",
+                "layout": {
+                  "direction": "row",
+                  "width": "fill",
+                  "gap": "$space.small",
+                  "justify": "between",
+                  "align": "center"
+                },
+                "children": [
+                  {
+                    "id": "dish.total.label",
+                    "component": "Text",
+                    "stable_id": "dish.total.label",
+                    "style": {
+                      "typography": "$type.label",
+                      "color": "$color.text"
+                    },
+                    "props": {
+                      "text_path": "view.total_label"
+                    }
+                  },
+                  {
+                    "id": "dish.total",
+                    "component": "Text",
+                    "stable_id": "dish.total",
+                    "style": {
+                      "typography": "$type.price",
+                      "color": "$color.brand"
+                    },
+                    "props": {
+                      "text_path": "view.total"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "dish.add",
+                "component": "Button",
+                "stable_id": "dish.add",
+                "layout": {
+                  "width": "fill",
+                  "height": "$space.control"
+                },
+                "style": {
+                  "typography": "$type.label",
+                  "color": "$color.surface",
+                  "backgroundColor": "$color.brand",
+                  "borderRadius": "$space.radius"
+                },
+                "props": {
+                  "label_path": "view.add"
+                }
+              }
+            ],
+            "style": {
+              "backgroundColor": "$color.surface",
+              "borderTopColor": "$color.border",
+              "borderTopWidth": 1
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "interactions": [
+    {
+      "id": "dish.portion.standard.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "dish.portion.standard"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.portion"
+      }
+    },
+    {
+      "id": "dish.portion.large.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "dish.portion.large"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.portion"
+      }
+    },
+    {
+      "id": "dish.extras.egg.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "dish.extras.egg"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.extras"
+      }
+    },
+    {
+      "id": "dish.extras.tofu.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "dish.extras.tofu"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.extras"
+      }
+    },
+    {
+      "id": "dish.extras.vegetables.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "dish.extras.vegetables"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.extras"
+      }
+    },
+    {
+      "id": "dish.add.press",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "dish.add"
+      },
+      "action": {
+        "type": "save"
+      }
+    }
+  ],
+  "prototype": {
+    "start_screen_id": "dish"
+  },
+  "acceptance": [
+    {
+      "screen_id": "dish",
+      "targets": [
+        {
+          "stable_id": "dish.name",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "dish.description",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "dish.base_price",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "dish.portion.standard",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
+          ]
+        },
+        {
+          "stable_id": "dish.portion.large",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
+          ]
+        },
+        {
+          "stable_id": "dish.extras.egg",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
+          ]
+        },
+        {
+          "stable_id": "dish.extras.tofu",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
+          ]
+        },
+        {
+          "stable_id": "dish.extras.vegetables",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
+          ]
+        },
+        {
+          "stable_id": "dish.quantity.label",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "dish.quantity.decrease",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "dish.quantity.value",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "dish.quantity.increase",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "dish.selection",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "dish.total.label",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "dish.total",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "dish.add",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
+          ]
+        },
+        {
+          "stable_id": "dish.back",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "dish.brand",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "dish.title",
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "state_id": "address.default.fixture-v1",
+    "source_snapshot_matches": true,
+    "safe_area_transparent": true,
+    "app_region_opaque": true
+  },
+  {
+    "state_id": "address.company.fixture-v1",
+    "source_snapshot_matches": true,
+    "safe_area_transparent": true,
+    "app_region_opaque": true
+  },
+  {
+    "state_id": "preferences.default.fixture-v1",
+    "source_snapshot_matches": true,
+    "safe_area_transparent": true,
+    "app_region_opaque": true
+  },
+  {
+    "state_id": "preferences.edited.fixture-v1",
+    "source_snapshot_matches": true,
+    "safe_area_transparent": true,
+    "app_region_opaque": true
+  },
+  {
+    "state_id": "dish.default.fixture-v1",
+    "source_snapshot_matches": true,
+    "safe_area_transparent": true,
+    "app_region_opaque": true
+  },
+  {
+    "state_id": "dish.customized.fixture-v1",
+    "source_snapshot_matches": true,
+    "safe_area_transparent": true,
+    "app_region_opaque": true
+  },
+  {
+    "state_id": "coupons.default.fixture-v1",
+    "source_snapshot_matches": true,
+    "safe_area_transparent": true,
+    "app_region_opaque": true
+  },
+  {
+    "state_id": "coupons.selected.fixture-v1",
+    "source_snapshot_matches": true,
+    "safe_area_transparent": true,
+    "app_region_opaque": true
+  }
+]

@@ -1,0 +1,393 @@
+{
+  "schema_version": "structured-design-package/v1",
+  "adapter": "ai-prototype-dsl/v2",
+  "toolchain": {
+    "packer": "autophone-prototype-packager/v2",
+    "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+    "browser": "chromium/149.0.7827.55",
+    "compiler": "autophone-ui-prototype-compiler/v2"
+  },
+  "screen_id": "coupons",
+  "state_id": "coupons.selected.fixture-v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "node_scope": [
+    "coupons.description",
+    "coupons.option.none",
+    "coupons.option.save6",
+    "coupons.option.save10",
+    "coupons.unavailable.title",
+    "coupons.unavailable.reason",
+    "coupons.bill.goods.label",
+    "coupons.bill.goods",
+    "coupons.bill.fees.label",
+    "coupons.bill.fees",
+    "coupons.bill.discount.label",
+    "coupons.bill.discount",
+    "coupons.payable.label",
+    "coupons.payable",
+    "coupons.confirm",
+    "coupons.back",
+    "coupons.brand",
+    "coupons.title"
+  ],
+  "artifacts": [
+    {
+      "role": "reference",
+      "path": "reference.png",
+      "sha256": "7be1d9e45c2226e48423effc2dd8544e3f2510d56efbb6bb338eff339c673cbe"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/compiled-scene.json",
+      "sha256": "84974c1b4dea846eb404767f49829e489c0ab2e1c86618da3ff86bef8d26f44a"
+    },
+    {
+      "role": "prototype",
+      "path": "prototype/compiled/index.html",
+      "sha256": "08bc3dd97f14e0bf3c412a92818bfde89547e24e46533c0cc883b45190dedcdb"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/renderer-spec.json",
+      "sha256": "2be9045a110fe15e27387ec3fdb002cd351f590d528cdfdec4af296840734384"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/prototype-spec.json",
+      "sha256": "782ef32309e9e09b70c03426df70a3dabfa82ec003b712f20dc38383c47b327b"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/screen-plan.json",
+      "sha256": "aee54cd73e1db3a74f7c79a86181a64f3e46d98ca63306007211f39332d71a48"
+    },
+    {
+      "role": "fixture",
+      "path": "prototype/state-fixture.json",
+      "sha256": "6242ccf8e689d257bfa135219a3be0ed20b987a6dd25d35a1723bb901292a233"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/ui-document.json",
+      "sha256": "4b843eaad5fc35ef06195b16a05f498ba9d373a34068cd083c5c2e12041322bb"
+    }
+  ],
+  "elements": [
+    {
+      "node_id": "coupons.description",
+      "stable_id": "coupons.description",
+      "properties": [
+        {
+          "property": "text",
+          "value": "按商品金额判断门槛，每单限用 1 张。"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.option.none",
+      "stable_id": "coupons.option.none",
+      "properties": [
+        {
+          "property": "text",
+          "value": "不使用优惠券"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.option.save6",
+      "stable_id": "coupons.option.save6",
+      "properties": [
+        {
+          "property": "text",
+          "value": "满 ¥32 减 ¥6"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.option.save10",
+      "stable_id": "coupons.option.save10",
+      "properties": [
+        {
+          "property": "text",
+          "value": "满 ¥60 减 ¥10"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.unavailable.title",
+      "stable_id": "coupons.unavailable.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "满 ¥100 减 ¥20"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.unavailable.reason",
+      "stable_id": "coupons.unavailable.reason",
+      "properties": [
+        {
+          "property": "text",
+          "value": "还差 ¥36 可用"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.bill.goods.label",
+      "stable_id": "coupons.bill.goods.label",
+      "properties": [
+        {
+          "property": "text",
+          "value": "商品金额"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.bill.goods",
+      "stable_id": "coupons.bill.goods",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥64"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.bill.fees.label",
+      "stable_id": "coupons.bill.fees.label",
+      "properties": [
+        {
+          "property": "text",
+          "value": "包装费 ¥4 + 配送费 ¥3"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.bill.fees",
+      "stable_id": "coupons.bill.fees",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥7"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.bill.discount.label",
+      "stable_id": "coupons.bill.discount.label",
+      "properties": [
+        {
+          "property": "text",
+          "value": "优惠"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.bill.discount",
+      "stable_id": "coupons.bill.discount",
+      "properties": [
+        {
+          "property": "text",
+          "value": "−¥6"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.payable.label",
+      "stable_id": "coupons.payable.label",
+      "properties": [
+        {
+          "property": "text",
+          "value": "应付金额"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.payable",
+      "stable_id": "coupons.payable",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥65"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.confirm",
+      "stable_id": "coupons.confirm",
+      "properties": [
+        {
+          "property": "text",
+          "value": "确认使用"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.back",
+      "stable_id": "coupons.back",
+      "properties": [
+        {
+          "property": "text",
+          "value": "返回"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "67"
+        },
+        {
+          "property": "frame.width",
+          "value": "64"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.brand",
+      "stable_id": "coupons.brand",
+      "properties": [
+        {
+          "property": "text",
+          "value": "Food AI"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.title",
+      "stable_id": "coupons.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "优惠券选择与金额明细"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        }
+      ]
+    }
+  ],
+  "mapping_gaps": [],
+  "comparison_policy": {
+    "pixel_scope": "expected_alpha"
+  }
+}

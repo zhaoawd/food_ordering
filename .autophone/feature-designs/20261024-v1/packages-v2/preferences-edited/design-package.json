@@ -1,0 +1,465 @@
+{
+  "schema_version": "structured-design-package/v1",
+  "adapter": "ai-prototype-dsl/v2",
+  "toolchain": {
+    "packer": "autophone-prototype-packager/v2",
+    "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+    "browser": "chromium/149.0.7827.55",
+    "compiler": "autophone-ui-prototype-compiler/v2"
+  },
+  "screen_id": "preferences",
+  "state_id": "preferences.edited.fixture-v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "node_scope": [
+    "preferences.description",
+    "preferences.spice.none",
+    "preferences.spice.mild",
+    "preferences.spice.hot",
+    "preferences.avoid.coriander",
+    "preferences.avoid.onion",
+    "preferences.avoid.peanut",
+    "preferences.budget.under30",
+    "preferences.budget.under40",
+    "preferences.budget.any",
+    "preferences.summary.title",
+    "preferences.summary",
+    "preferences.disclaimer",
+    "preferences.reset",
+    "preferences.save",
+    "preferences.back",
+    "preferences.brand",
+    "preferences.title"
+  ],
+  "artifacts": [
+    {
+      "role": "reference",
+      "path": "reference.png",
+      "sha256": "035c56ad9b4997a2dee47b60ec051c12b9de5777700a08dd44d1a4e1cceeadc9"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/compiled-scene.json",
+      "sha256": "7e7fbc5ec3d901f9511abc6cf2c2779d4928815d16c60a83b2c7fc807b9955af"
+    },
+    {
+      "role": "prototype",
+      "path": "prototype/compiled/index.html",
+      "sha256": "8a9f0a10a043dee8a7cd60a35038444cbf42e4fe203f5bf262f2872c1d6d21a8"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/renderer-spec.json",
+      "sha256": "9c3baee3f1437de60037a5ca34cc24e626394bf9a2fa39164688cc39c2392986"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/prototype-spec.json",
+      "sha256": "4fa940b1de4e3424491fa1754bad898bed3d730fd7f11829d1eed0cf2bbd6256"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/screen-plan.json",
+      "sha256": "54babf6d74fadeea620967c404123c6404116fe7ba1966747a4557322c089018"
+    },
+    {
+      "role": "fixture",
+      "path": "prototype/state-fixture.json",
+      "sha256": "7628090c21ba4b3d86628501f4bb916bc987569da221e7b4afa76d2249bd99a5"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/ui-document.json",
+      "sha256": "7ee5fa56a6dd646cb2e2def6ed4c09196d5f38fa5ad56b9bae0170c865f3b743"
+    }
+  ],
+  "elements": [
+    {
+      "node_id": "preferences.description",
+      "stable_id": "preferences.description",
+      "properties": [
+        {
+          "property": "text",
+          "value": "设置口味、忌口与单餐预算。"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.spice.none",
+      "stable_id": "preferences.spice.none",
+      "properties": [
+        {
+          "property": "text",
+          "value": "不辣"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.spice.mild",
+      "stable_id": "preferences.spice.mild",
+      "properties": [
+        {
+          "property": "text",
+          "value": "微辣"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.spice.hot",
+      "stable_id": "preferences.spice.hot",
+      "properties": [
+        {
+          "property": "text",
+          "value": "中辣"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.avoid.coriander",
+      "stable_id": "preferences.avoid.coriander",
+      "properties": [
+        {
+          "property": "text",
+          "value": "香菜"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.avoid.onion",
+      "stable_id": "preferences.avoid.onion",
+      "properties": [
+        {
+          "property": "text",
+          "value": "洋葱"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.avoid.peanut",
+      "stable_id": "preferences.avoid.peanut",
+      "properties": [
+        {
+          "property": "text",
+          "value": "花生"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.budget.under30",
+      "stable_id": "preferences.budget.under30",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥30 内"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.budget.under40",
+      "stable_id": "preferences.budget.under40",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥40 内"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.budget.any",
+      "stable_id": "preferences.budget.any",
+      "properties": [
+        {
+          "property": "text",
+          "value": "不限"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.summary.title",
+      "stable_id": "preferences.summary.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "当前偏好"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.summary",
+      "stable_id": "preferences.summary",
+      "properties": [
+        {
+          "property": "text",
+          "value": "不辣 · 不要香菜、花生 · ¥30 内"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.disclaimer",
+      "stable_id": "preferences.disclaimer",
+      "properties": [
+        {
+          "property": "text",
+          "value": "保存后可在“我的”查看和修改。"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.reset",
+      "stable_id": "preferences.reset",
+      "properties": [
+        {
+          "property": "text",
+          "value": "恢复默认"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "831"
+        },
+        {
+          "property": "frame.width",
+          "value": "120"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.save",
+      "stable_id": "preferences.save",
+      "properties": [
+        {
+          "property": "text",
+          "value": "保存偏好"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.back",
+      "stable_id": "preferences.back",
+      "properties": [
+        {
+          "property": "text",
+          "value": "返回"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "67"
+        },
+        {
+          "property": "frame.width",
+          "value": "64"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.brand",
+      "stable_id": "preferences.brand",
+      "properties": [
+        {
+          "property": "text",
+          "value": "Food AI"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.title",
+      "stable_id": "preferences.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "饮食偏好设置"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        }
+      ]
+    }
+  ],
+  "mapping_gaps": [],
+  "comparison_policy": {
+    "pixel_scope": "expected_alpha"
+  }
+}
