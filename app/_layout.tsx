@@ -67,7 +67,13 @@ function RootLayout() {
 
   if(!fontsLoaded || isLoading) return null;
 
-  return <Stack screenOptions={{ headerShown: false }} />;
+  return <Stack screenOptions={{ headerShown: false }}>
+    <Stack.Screen name="delivery-address" options={{
+      gestureEnabled: true,
+      fullScreenGestureEnabled: true,
+      gestureResponseDistance: { start: 0, end: 32 },
+    }} />
+  </Stack>;
 }
 
 const ExportedRootLayout = isVerificationBuild
