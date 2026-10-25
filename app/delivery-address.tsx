@@ -5,6 +5,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ObservedPressable, ObservedText } from '@/verification/observation';
 import { addresses, addressStore, useAddressStore, type AddressId } from '@/store/address.store';
 
+const addressText = (text: string) => text.split(/([\p{Script=Han}\u3000-\u303f\uff00-\uffef]+)/u).filter(Boolean).map((part, index) => (
+  <Text key={index} style={{ fontFamily: /[\p{Script=Han}\u3000-\u303f\uff00-\uffef]/u.test(part) ? 'PingFang SC' : 'System' }}>{part}</Text>
+));
+
 const sourceRef = { file: 'app/delivery-address.tsx', symbol: 'DeliveryAddress' } as const;
 export default function DeliveryAddress() {
   const draft = useAddressStore(state => state.draft);
@@ -19,12 +23,12 @@ export default function DeliveryAddress() {
     else router.replace('/');
   };
   const label = (id: string, text: string, style: object) => (
-    <ObservedText stableId={id} sourceRef={sourceRef} observationRole="text" style={style}>{text}</ObservedText>
+    <ObservedText stableId={id} sourceRef={sourceRef} observationRole="text" style={style}>{addressText(text)}</ObservedText>
   );
-  return <SafeAreaView style={styles.screen}>
+  return <SafeAreaView edges={{ top: 'maximum', bottom: 'maximum' }} style={styles.screen}>
     <View style={styles.header}>
       <ObservedPressable stableId="address.back" sourceRef={sourceRef} observationRole="button" accessibilityRole="button" accessibilityLabel="返回" onPress={() => { addressStore.getState().cancel(); leave(); }} style={styles.back}>
-        <Text style={styles.backLabel}>返回</Text>
+        <Text style={styles.backLabel}>{addressText('返回')}</Text>
       </ObservedPressable>
       {label('address.brand', 'Food AI', styles.brand)}
     </View>
@@ -32,12 +36,12 @@ export default function DeliveryAddress() {
       {label('address.title', '配送地址选择', styles.title)}
       {label('address.description', '选择本次配送地点，确认后更新首页。', styles.description)}
       <View style={styles.choices} accessibilityRole="radiogroup">
-        <Text style={styles.heading}>常用地址</Text>
+        <Text style={styles.heading}>{addressText('常用地址')}</Text>
         <View style={styles.options}>
           {(Object.keys(addresses) as AddressId[]).map(id => {
             const selected = draft === id;
             return <ObservedPressable key={id} stableId={`address.option.${id}`} sourceRef={sourceRef} observationRole="button" accessibilityRole="radio" aria-checked={selected} accessibilityState={{ checked: selected, selected }} accessibilityLabel={addresses[id].label} onPress={() => addressStore.getState().select(id)} style={[styles.option, selected && styles.selected]}>
-              <Text style={[styles.optionLabel, selected && styles.selectedLabel]}>{addresses[id].label}</Text>
+              <Text style={[styles.optionLabel, selected && styles.selectedLabel]}>{addressText(addresses[id].label)}</Text>
               {selected && <View accessible={false} importantForAccessibility="no-hide-descendants" style={styles.check}><View style={styles.checkStroke}/></View>}
             </ObservedPressable>;
           })}
@@ -54,13 +58,13 @@ export default function DeliveryAddress() {
     <View style={styles.footer}>
       {label('address.summary', `已选择：${address.label}`, styles.summary)}
       <ObservedPressable stableId="address.confirm" sourceRef={sourceRef} observationRole="button" accessibilityRole="button" accessibilityLabel="确认配送地址" accessibilityState={{ disabled: !editing }} disabled={!editing} onPress={() => { if (addressStore.getState().confirm()) leave(); }} style={styles.confirm}>
-        <Text style={styles.confirmLabel}>确认配送地址</Text>
+        <Text style={styles.confirmLabel}>{addressText('确认配送地址')}</Text>
       </ObservedPressable>
     </View>
   </SafeAreaView>;
 }
 const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: '#FFF8EF' },
+  screen: { flex: 1, backgroundColor: '#FFF8EF', paddingTop: 59, paddingBottom: 37 },
   header: { height: 64, paddingHorizontal: 22, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   back: { width: 64, height: 48, backgroundColor: '#FFFFFF', borderRadius: 16, alignItems: 'center', justifyContent: 'center' },
   backLabel: { fontSize: 15, lineHeight: 22, fontWeight: '600', color: '#E6472F' },

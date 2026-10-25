@@ -74,3 +74,14 @@ test('address choice labels and checkmark form a centered group as designed',asy
  });
  expect(Math.abs(boxes.outerCenter-boxes.textCenter)).toBeLessThanOrEqual(10);
 });
+
+test('native 34pt bottom inset preserves frozen footer geometry',async({page})=>{
+ await page.goto('/?bottomInset=34');await open(page);
+ const button=await page.getByTestId('address.confirm').boundingBox();
+ expect(button.y).toBe(831);expect(button.height).toBe(48);
+});
+test('larger native safe area is respected',async({page})=>{
+ await page.goto('/?bottomInset=50&topInset=64');await open(page);
+ const back=await page.getByTestId('address.back').boundingBox(),button=await page.getByTestId('address.confirm').boundingBox();
+ expect(back.y).toBeGreaterThanOrEqual(64);expect(button.y+button.height).toBeLessThanOrEqual(932-50);
+});
