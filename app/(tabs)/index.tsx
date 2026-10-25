@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import { Keyboard, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -9,6 +9,8 @@ import {
   ObservedView,
 } from "@/verification/observation";
 import { useFoodOrderingEvalFixture } from "@/verification/useEvalFixture";
+
+import { addresses, useAddressStore } from "@/store/address.store";
 
 const recommendations = [
   {
@@ -68,8 +70,8 @@ const sourceRef = {
 } as const;
 
 const sourceRef_home_header_location = {
-  file: "verification/fixture.ts",
-  symbol: "baselineFixture",
+  file: "store/address.store.ts",
+  symbol: "addresses",
 } as const;
 
 const sourceRef_home_recommendation_primary_action = {
@@ -84,6 +86,15 @@ const sourceRef_home_recommendation_title = {
 
 export default function Index() {
   const evaluation = useFoodOrderingEvalFixture();
+  const navigatedSelection = useRef<string | null>(null);
+  useEffect(() => {
+    if (evaluation.status === "ready" && evaluation.addressStateId && navigatedSelection.current !== evaluation.selectionNonce) {
+      navigatedSelection.current = evaluation.selectionNonce;
+      router.push("/delivery-address");
+    }
+  }, [evaluation]);
+  const committedAddress = useAddressStore(state => state.committed);
+  const location = addresses[committedAddress].location;
   const [prompt, setPrompt] = useState("");
   const [promptState, setPromptState] = useState<PromptState>("idle");
   const [recommendationIndex, setRecommendationIndex] = useState(0);
@@ -160,7 +171,8 @@ export default function Index() {
             stableId="home.header.location"
             sourceRef={sourceRef_home_header_location}
             observationRole="button"
-            accessibilityLabel={home.location}
+            accessibilityLabel={location}
+            onPress={() => router.push("/delivery-address")}
             style={[
               styles.locationButton,
               {
@@ -175,7 +187,7 @@ export default function Index() {
                 { fontSize: home.locationFontSize },
               ]}
             >
-              {home.location}
+              {location}
             </Text>
           </ObservedPressable>
           <ObservedPressable

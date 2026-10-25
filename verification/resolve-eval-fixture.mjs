@@ -165,6 +165,14 @@ export function resolveEvalFixture({ selectionJson, registry, baselineFixture })
     throw new Error("selection nonce must be a non-empty string");
   }
 
+  let addressStateId = null;
+  if (typeof selection.state_id === "string" && selection.state_id.startsWith("address.")) {
+    if (!["address.default.fixture-v1", "address.company.fixture-v1"].includes(selection.state_id)) {
+      throw new Error(`unknown address state_id: ${selection.state_id}`);
+    }
+    addressStateId = selection.state_id;
+  }
+
   let fixture = baselineFixture;
   let mutationEpoch = 0;
   if (selection.mutation_id !== baselineMutationId) {
@@ -189,5 +197,6 @@ export function resolveEvalFixture({ selectionJson, registry, baselineFixture })
     mutationEpoch,
     selectionNonce: selection.nonce,
     registrySha256: registry.projection_sha256,
+    addressStateId,
   };
 }

@@ -6,6 +6,8 @@ import { baselineFixture, type FoodOrderingEvalFixture } from "./fixture";
 import { beginEvalObservationSession } from "./observation";
 import { resolveEvalFixture } from "./resolve-eval-fixture.mjs";
 
+import { addressStore } from "@/store/address.store";
+
 const SELECTION_DOCUMENT = "autophone-ui-eval-selection.json";
 
 type EvalFixtureState =
@@ -17,6 +19,7 @@ type EvalFixtureState =
       mutationId: string;
       mutationEpoch: number;
       selectionNonce: string;
+      addressStateId: string | null;
     }>;
 
 function selectionUri(): string {
@@ -39,6 +42,9 @@ export function useFoodOrderingEvalFixture(): EvalFixtureState {
           registry: registryJson,
           baselineFixture,
         });
+        if (resolved.addressStateId) {
+          addressStore.getState().loadFixture(resolved.addressStateId, resolved.selectionNonce);
+        }
         await beginEvalObservationSession(resolved);
         if (active) setState({ status: "ready", ...resolved });
       } catch (error) {
