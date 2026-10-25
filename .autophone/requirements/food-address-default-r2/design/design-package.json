@@ -1,0 +1,310 @@
+{
+  "schema_version": "structured-design-package/v1",
+  "adapter": "ai-prototype-dsl/v2",
+  "toolchain": {
+    "packer": "autophone-prototype-packager/v2",
+    "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+    "browser": "chromium/149.0.7827.55",
+    "compiler": "autophone-ui-prototype-compiler/v2"
+  },
+  "screen_id": "address",
+  "state_id": "address.default.fixture-v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "node_scope": [
+    "address.description",
+    "address.option.home",
+    "address.option.company",
+    "address.detail.tag",
+    "address.detail.address",
+    "address.detail.room",
+    "address.detail.contact",
+    "address.notice",
+    "address.summary",
+    "address.confirm",
+    "address.back",
+    "address.brand",
+    "address.title"
+  ],
+  "artifacts": [
+    {
+      "role": "reference",
+      "path": "reference.png",
+      "sha256": "c2892b83e38b8adc877014fd092491601e449fad9e829d943b8f2415efb18273"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/compiled-scene.json",
+      "sha256": "ec3c011720b292fb45d3ee136a6d1ddfe0609b5d596c3f886790b36d34dd8da6"
+    },
+    {
+      "role": "prototype",
+      "path": "prototype/compiled/index.html",
+      "sha256": "1a0453e8ff758187c38491ed4f5a4b8317d44cfece46f8e6ae30919a083783a3"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/renderer-spec.json",
+      "sha256": "385194833ac6d267389bbd88be9c2a896fd687e80125fc365d971de8e5db6096"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/prototype-spec.json",
+      "sha256": "0233c265b5595ec083b42c57497ce9f8224b03b2ce1b927764b6020a0f9071a7"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/screen-plan.json",
+      "sha256": "d2cf91a1461a7f98050ffe9283e4f318333487fab77b2d512d710a2fd5323bca"
+    },
+    {
+      "role": "fixture",
+      "path": "prototype/state-fixture.json",
+      "sha256": "7660b78a999bbe6f9b68171293bb57b5a6eda1271b2c6b29036b220b62adef51"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/ui-document.json",
+      "sha256": "be6b824ef70511df3bd5aa7827ef4dc5a32a68f79d799aa89341e0ab004de064"
+    }
+  ],
+  "elements": [
+    {
+      "node_id": "address.description",
+      "stable_id": "address.description",
+      "properties": [
+        {
+          "property": "text",
+          "value": "选择本次配送地点，确认后更新首页。"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        }
+      ]
+    },
+    {
+      "node_id": "address.option.home",
+      "stable_id": "address.option.home",
+      "properties": [
+        {
+          "property": "text",
+          "value": "家 · 望京"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "address.option.company",
+      "stable_id": "address.option.company",
+      "properties": [
+        {
+          "property": "text",
+          "value": "公司 · 中关村"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "node_id": "address.detail.tag",
+      "stable_id": "address.detail.tag",
+      "properties": [
+        {
+          "property": "text",
+          "value": "家"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        }
+      ]
+    },
+    {
+      "node_id": "address.detail.address",
+      "stable_id": "address.detail.address",
+      "properties": [
+        {
+          "property": "text",
+          "value": "北京市朝阳区望京街 10 号"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        }
+      ]
+    },
+    {
+      "node_id": "address.detail.room",
+      "stable_id": "address.detail.room",
+      "properties": [
+        {
+          "property": "text",
+          "value": "3 号楼 1202 室"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        }
+      ]
+    },
+    {
+      "node_id": "address.detail.contact",
+      "stable_id": "address.detail.contact",
+      "properties": [
+        {
+          "property": "text",
+          "value": "测试用户 · 138****0000"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        }
+      ]
+    },
+    {
+      "node_id": "address.notice",
+      "stable_id": "address.notice",
+      "properties": [
+        {
+          "property": "text",
+          "value": "仅配送至已保存地址。"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        }
+      ]
+    },
+    {
+      "node_id": "address.summary",
+      "stable_id": "address.summary",
+      "properties": [
+        {
+          "property": "text",
+          "value": "已选择：家 · 望京"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        }
+      ]
+    },
+    {
+      "node_id": "address.confirm",
+      "stable_id": "address.confirm",
+      "properties": [
+        {
+          "property": "text",
+          "value": "确认配送地址"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        }
+      ]
+    },
+    {
+      "node_id": "address.back",
+      "stable_id": "address.back",
+      "properties": [
+        {
+          "property": "text",
+          "value": "返回"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "67"
+        },
+        {
+          "property": "frame.width",
+          "value": "64"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "address.brand",
+      "stable_id": "address.brand",
+      "properties": [
+        {
+          "property": "text",
+          "value": "Food AI"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        }
+      ]
+    },
+    {
+      "node_id": "address.title",
+      "stable_id": "address.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "配送地址选择"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        }
+      ]
+    }
+  ],
+  "mapping_gaps": [],
+  "comparison_policy": {
+    "pixel_scope": "expected_alpha"
+  }
+}

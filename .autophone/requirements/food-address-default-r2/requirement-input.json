@@ -1,0 +1,194 @@
+{
+  "app": "food_ordering_v2",
+  "baseline": null,
+  "branch": "autophone/req-food-address-default-r2",
+  "design_package": {
+    "adapter": "ai-prototype-dsl/v2",
+    "element_count": 13,
+    "frame_size": {
+      "height": 932,
+      "width": 430
+    },
+    "manifest_sha256": "3c517adb430341f4d8a921ab15ff12f572c2b23f30ba8ade5fc482718ce38d7b",
+    "origin": {
+      "path": "evidence/inputs/food-address-20261025/address-default",
+      "repo": "autophone"
+    },
+    "role": "design_source",
+    "root": "design",
+    "scale": 3,
+    "schema_version": "structured-design-package/v1",
+    "stable_ids": [
+      "address.back",
+      "address.brand",
+      "address.confirm",
+      "address.description",
+      "address.detail.address",
+      "address.detail.contact",
+      "address.detail.room",
+      "address.detail.tag",
+      "address.notice",
+      "address.option.company",
+      "address.option.home",
+      "address.summary",
+      "address.title"
+    ]
+  },
+  "expectation": {
+    "clauses": [],
+    "comparison_policy": {
+      "frame_tolerance_pt": 0.5,
+      "max_changed_pixel_ratio": 0.002,
+      "pixel_channel_tolerance": 0,
+      "pixel_scope": "expected_alpha"
+    },
+    "design_package_sha256": "3c517adb430341f4d8a921ab15ff12f572c2b23f30ba8ade5fc482718ce38d7b",
+    "kind": "structured",
+    "noise_baseline": {
+      "path": "expectation/noise-baseline-v1.json",
+      "sha256": "78dde005ff6e597b0ef7416630048895199459787b55325a086382c6caab141f"
+    },
+    "property_channels": "sha256:21e0fac5cd4a0093d41a780c9ece36efae8b4b3b5cbc7d85bea3af586e350b80",
+    "reference": {
+      "path": "expectation/expected-full.png",
+      "sha256": "c2892b83e38b8adc877014fd092491601e449fad9e829d943b8f2415efb18273"
+    },
+    "region_mappings": {
+      "screen": {
+        "coordinate_space": "screen_points",
+        "frame": {
+          "height": 932,
+          "width": 430,
+          "x": 0,
+          "y": 0
+        },
+        "scale": 3,
+        "stable_ids": [
+          "$screen"
+        ]
+      }
+    },
+    "regions": [
+      "screen"
+    ],
+    "required_property_policy": "production-v1",
+    "role": "executable_expectation",
+    "unverifiable_clauses": []
+  },
+  "files": [
+    {
+      "bytes": 4087,
+      "kind": "requirement_document",
+      "origin": "authored",
+      "path": "requirement.md",
+      "purpose": "需求原文。页面上传的就是这个文件，建单时冻结成需求单的原始输入快照。",
+      "sha256": "4e68e35100909396f2f72330a61e76a9c9c2e3bb726b94a3547db7f512ae702f"
+    },
+    {
+      "bytes": 7485,
+      "kind": "design_package_manifest",
+      "origin": "compiled",
+      "path": "design/design-package.json",
+      "purpose": "设计源包身份与清单：屏/状态、frame、scale、逐元素属性和比较策略。它用于设计追溯，不作为本轮机器可执行期望。",
+      "sha256": "3c517adb430341f4d8a921ab15ff12f572c2b23f30ba8ade5fc482718ce38d7b"
+    },
+    {
+      "bytes": 6670,
+      "kind": "design_compiled_scene",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/compiled-scene.json",
+      "purpose": "编译后的场景节点与测量值。stable_id → 属性期望的映射来源。",
+      "sha256": "ec3c011720b292fb45d3ee136a6d1ddfe0609b5d596c3f886790b36d34dd8da6"
+    },
+    {
+      "bytes": 4693,
+      "kind": "design_compiled_prototype",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/index.html",
+      "purpose": "编译器生成的可执行原型 HTML。参考图由它渲染，不手工编辑。",
+      "sha256": "1a0453e8ff758187c38491ed4f5a4b8317d44cfece46f8e6ae30919a083783a3"
+    },
+    {
+      "bytes": 2015,
+      "kind": "design_renderer_spec",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/renderer-spec.json",
+      "purpose": "渲染器输入参数。参考图能否复现取决于它。",
+      "sha256": "385194833ac6d267389bbd88be9c2a896fd687e80125fc365d971de8e5db6096"
+    },
+    {
+      "bytes": 597,
+      "kind": "design_prototype_spec",
+      "origin": "authored",
+      "path": "design/prototype/prototype-spec.json",
+      "purpose": "设计原始内容：草稿装配说明——viewport profile、safe area、系统 UI 策略与逐元素验收范围。",
+      "sha256": "0233c265b5595ec083b42c57497ce9f8224b03b2ce1b927764b6020a0f9071a7"
+    },
+    {
+      "bytes": 297,
+      "kind": "design_screen_plan",
+      "origin": "authored",
+      "path": "design/prototype/screen-plan.json",
+      "purpose": "设计原始内容：页面目的、区块划分与页面流。不含设计节点。",
+      "sha256": "d2cf91a1461a7f98050ffe9283e4f318333487fab77b2d512d710a2fd5323bca"
+    },
+    {
+      "bytes": 879,
+      "kind": "design_state_fixture",
+      "origin": "authored",
+      "path": "design/prototype/state-fixture.json",
+      "purpose": "设计原始内容：Fixture Spec，业务状态的独立真源（选项、列表、文案样例）。",
+      "sha256": "7660b78a999bbe6f9b68171293bb57b5a6eda1271b2c6b29036b220b62adef51"
+    },
+    {
+      "bytes": 14569,
+      "kind": "design_ui_document",
+      "origin": "authored",
+      "path": "design/prototype/ui-document.json",
+      "purpose": "设计原始内容：UI DSL 节点树，设计的唯一真源。布局、Token 引用和 stable_id 都在这里。",
+      "sha256": "be6b824ef70511df3bd5aa7827ef4dc5a32a68f79d799aa89341e0ab004de064"
+    },
+    {
+      "bytes": 135826,
+      "kind": "design_reference_image",
+      "origin": "rendered",
+      "path": "design/reference.png",
+      "purpose": "设计参考图：由编译原型渲染，尺寸由设计包的 frame_size 与 scale 决定。声明 comparison_mask 时，它应用遮罩，评审使用遮罩前的 review-reference.png；未声明遮罩时，它也用于设计评审。本轮比较使用 expectation 声明的参考图。",
+      "sha256": "c2892b83e38b8adc877014fd092491601e449fad9e829d943b8f2415efb18273"
+    },
+    {
+      "bytes": 135826,
+      "kind": "expectation_reference_image",
+      "origin": "rendered",
+      "path": "expectation/expected-full.png",
+      "purpose": "机器可执行期望的参考图。structured 类型必须与设计参考图逐字节一致；prd 类型使用已冻结的运行时参考图。",
+      "sha256": "c2892b83e38b8adc877014fd092491601e449fad9e829d943b8f2415efb18273"
+    },
+    {
+      "bytes": 4733,
+      "kind": "expectation_noise_baseline",
+      "origin": "compiled",
+      "path": "expectation/noise-baseline-v1.json",
+      "purpose": "机器可执行期望的噪声基线。由同一干净构建的重复采样计算，限定允许的视觉残差。",
+      "sha256": "78dde005ff6e597b0ef7416630048895199459787b55325a086382c6caab141f"
+    }
+  ],
+  "packed_at": "2026-10-25T12:19:27Z",
+  "packed_by": "codex",
+  "requirement_document": {
+    "media_type": "text/markdown",
+    "path": "requirement.md",
+    "sha256": "4e68e35100909396f2f72330a61e76a9c9c2e3bb726b94a3547db7f512ae702f"
+  },
+  "requirement_key": "food-address-default-r2",
+  "round_role": "delivery",
+  "schema_version": "requirement-input-package/v1",
+  "screen_id": "address",
+  "sequence": 2,
+  "state_id": "address.default.fixture-v1",
+  "title": "配送地址选择：默认态",
+  "upstream": {
+    "commit_sha": "881b8832f9fa7d4f8b60ea73f63a5d202db5bed5",
+    "source_url": "https://github.com/adrianhajdin/food_ordering"
+  }
+}

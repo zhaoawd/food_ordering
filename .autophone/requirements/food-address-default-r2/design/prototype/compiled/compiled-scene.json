@@ -1,0 +1,283 @@
+{
+  "schema_version": "ui-prototype-compiled-scene/v1",
+  "compiler": "autophone-ui-prototype-compiler/v2",
+  "source_schema_version": "ui-prototype-document/v1",
+  "screen_id": "address",
+  "state_id": "address.default.fixture-v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "viewport_profile": {
+    "profile_id": "vphone-ios26-430x932",
+    "safe_area": {
+      "top": 59,
+      "right": 0,
+      "bottom": 37,
+      "left": 0
+    },
+    "safe_area_application": [
+      "top",
+      "bottom"
+    ],
+    "system_ui": "separate_region"
+  },
+  "inputs": [
+    {
+      "role": "plan",
+      "path": "screen-plan.json",
+      "sha256": "d2cf91a1461a7f98050ffe9283e4f318333487fab77b2d512d710a2fd5323bca"
+    },
+    {
+      "role": "source",
+      "path": "ui-document.json",
+      "sha256": "be6b824ef70511df3bd5aa7827ef4dc5a32a68f79d799aa89341e0ab004de064"
+    },
+    {
+      "role": "fixture",
+      "path": "state-fixture.json",
+      "sha256": "7660b78a999bbe6f9b68171293bb57b5a6eda1271b2c6b29036b220b62adef51"
+    }
+  ],
+  "component_registry": [
+    "Button",
+    "ChoiceGroup",
+    "Decoration",
+    "Frame",
+    "Screen",
+    "Text"
+  ],
+  "node_scope": [
+    {
+      "node_id": "address.description",
+      "stable_id": "address.description",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "address.option.home",
+      "stable_id": "address.option.home",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius"
+      ]
+    },
+    {
+      "node_id": "address.option.company",
+      "stable_id": "address.option.company",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius"
+      ]
+    },
+    {
+      "node_id": "address.detail.tag",
+      "stable_id": "address.detail.tag",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "address.detail.address",
+      "stable_id": "address.detail.address",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "address.detail.room",
+      "stable_id": "address.detail.room",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "address.detail.contact",
+      "stable_id": "address.detail.contact",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "address.notice",
+      "stable_id": "address.notice",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "address.summary",
+      "stable_id": "address.summary",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "address.confirm",
+      "stable_id": "address.confirm",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius"
+      ]
+    },
+    {
+      "node_id": "address.back",
+      "stable_id": "address.back",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "address.brand",
+      "stable_id": "address.brand",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "address.title",
+      "stable_id": "address.title",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    }
+  ],
+  "emitted_nodes": [
+    {
+      "source_node_id": "address.back",
+      "node_id": "address.back",
+      "stable_id": "address.back",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "address.brand",
+      "node_id": "address.brand",
+      "stable_id": "address.brand",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "address.title",
+      "node_id": "address.title",
+      "stable_id": "address.title",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "address.description",
+      "node_id": "address.description",
+      "stable_id": "address.description",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "address.option",
+      "node_id": "address.option.home",
+      "stable_id": "address.option.home",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "address.option",
+      "node_id": "address.option.company",
+      "stable_id": "address.option.company",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "address.detail.tag",
+      "node_id": "address.detail.tag",
+      "stable_id": "address.detail.tag",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "address.detail.address",
+      "node_id": "address.detail.address",
+      "stable_id": "address.detail.address",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "address.detail.room",
+      "node_id": "address.detail.room",
+      "stable_id": "address.detail.room",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "address.detail.contact",
+      "node_id": "address.detail.contact",
+      "stable_id": "address.detail.contact",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "address.notice",
+      "node_id": "address.notice",
+      "stable_id": "address.notice",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "address.summary",
+      "node_id": "address.summary",
+      "stable_id": "address.summary",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "address.confirm",
+      "node_id": "address.confirm",
+      "stable_id": "address.confirm",
+      "component": "Button"
+    }
+  ],
+  "interactions": [
+    {
+      "id": "address.option.home.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "address.option.home"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.option"
+      }
+    },
+    {
+      "id": "address.option.company.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "address.option.company"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.option"
+      }
+    },
+    {
+      "id": "address.confirm.press",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "address.confirm"
+      },
+      "action": {
+        "type": "save"
+      }
+    }
+  ]
+}
