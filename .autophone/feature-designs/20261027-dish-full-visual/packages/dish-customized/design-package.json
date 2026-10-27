@@ -1,0 +1,843 @@
+{
+  "schema_version": "structured-design-package/v1",
+  "adapter": "ai-prototype-dsl/v2",
+  "toolchain": {
+    "packer": "autophone-prototype-packager/v2",
+    "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+    "browser": "chromium/149.0.7827.55",
+    "compiler": "autophone-ui-prototype-compiler/v2"
+  },
+  "screen_id": "dish",
+  "state_id": "dish.customized.fixture-v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "node_scope": [
+    "dish.name",
+    "dish.description",
+    "dish.base_price",
+    "dish.portion.standard",
+    "dish.portion.large",
+    "dish.extras.egg",
+    "dish.extras.tofu",
+    "dish.extras.vegetables",
+    "dish.quantity.label",
+    "dish.quantity.decrease",
+    "dish.quantity.value",
+    "dish.quantity.increase",
+    "dish.selection",
+    "dish.total.label",
+    "dish.total",
+    "dish.add",
+    "dish.back",
+    "dish.brand",
+    "dish.title"
+  ],
+  "artifacts": [
+    {
+      "role": "reference",
+      "path": "reference.png",
+      "sha256": "fa3ae5368b93abd7ae5367386fd689bbd3bf09ecb9b592a322f48cb7b7ffe5ae"
+    },
+    {
+      "role": "review_reference",
+      "path": "review-reference.png",
+      "sha256": "3dc0661eb770678a683833c5367b0927e940b03f2cdbec42c3170ff749f6c729"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/compiled-scene.json",
+      "sha256": "59931565966674d8768bb2b4d89866f239966e6b8420780933dd9fbe940a6d36"
+    },
+    {
+      "role": "prototype",
+      "path": "prototype/compiled/index.html",
+      "sha256": "2e97ab94f91f948f4414d9159603e1e912b64cb68e0158720a63b17cfc8949c4"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/renderer-spec.json",
+      "sha256": "e7d16b67be6e943a08434340e11aee02bed58133970c4159b870a348f744b8ff"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/prototype-spec.json",
+      "sha256": "deab7b83caac8d137b1cdc1f74f30df1991b25c9f98e2ec97cbf3bd60ff122de"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/screen-plan.json",
+      "sha256": "b64e23092b7e848dbbc8237126e54baae5ea5493374578624b3142d9582eb4cd"
+    },
+    {
+      "role": "fixture",
+      "path": "prototype/state-fixture.json",
+      "sha256": "0e68fc414e79fed305db815ed2bbacb0a1ba889cebb5024dc28c0d4cc22130f3"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/ui-document.json",
+      "sha256": "ca165a213c1daee2490be2165e9e6067b61d06773f90cd71e769b136f423dbcc"
+    }
+  ],
+  "elements": [
+    {
+      "node_id": "dish.name",
+      "stable_id": "dish.name",
+      "properties": [
+        {
+          "property": "text",
+          "value": "炙烤牛肉拌饭"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "18"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "199"
+        },
+        {
+          "property": "frame.width",
+          "value": "354"
+        },
+        {
+          "property": "frame.height",
+          "value": "26"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.description",
+      "stable_id": "dish.description",
+      "properties": [
+        {
+          "property": "text",
+          "value": "热乎 · 微辣 · 25–35 分钟送达"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "13"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "233"
+        },
+        {
+          "property": "frame.width",
+          "value": "354"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.base_price",
+      "stable_id": "dish.base_price",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥32 起"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "28"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "261"
+        },
+        {
+          "property": "frame.width",
+          "value": "354"
+        },
+        {
+          "property": "frame.height",
+          "value": "38"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.portion.standard",
+      "stable_id": "dish.portion.standard",
+      "properties": [
+        {
+          "property": "text",
+          "value": "标准份"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "369"
+        },
+        {
+          "property": "frame.width",
+          "value": "189"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.portion.large",
+      "stable_id": "dish.portion.large",
+      "properties": [
+        {
+          "property": "text",
+          "value": "大份 +¥6"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "219"
+        },
+        {
+          "property": "frame.y",
+          "value": "369"
+        },
+        {
+          "property": "frame.width",
+          "value": "189"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.extras.egg",
+      "stable_id": "dish.extras.egg",
+      "properties": [
+        {
+          "property": "text",
+          "value": "加蛋 +¥3"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "475"
+        },
+        {
+          "property": "frame.width",
+          "value": "123.3281"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.extras.tofu",
+      "stable_id": "dish.extras.tofu",
+      "properties": [
+        {
+          "property": "text",
+          "value": "豆腐 +¥4"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "153.3281"
+        },
+        {
+          "property": "frame.y",
+          "value": "475"
+        },
+        {
+          "property": "frame.width",
+          "value": "123.3281"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.extras.vegetables",
+      "stable_id": "dish.extras.vegetables",
+      "properties": [
+        {
+          "property": "text",
+          "value": "蔬菜 +¥5"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "284.6563"
+        },
+        {
+          "property": "frame.y",
+          "value": "475"
+        },
+        {
+          "property": "frame.width",
+          "value": "123.3438"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.quantity.label",
+      "stable_id": "dish.quantity.label",
+      "properties": [
+        {
+          "property": "text",
+          "value": "数量"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "18"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "554"
+        },
+        {
+          "property": "frame.width",
+          "value": "36"
+        },
+        {
+          "property": "frame.height",
+          "value": "26"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.quantity.decrease",
+      "stable_id": "dish.quantity.decrease",
+      "properties": [
+        {
+          "property": "text",
+          "value": "−"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "261.125"
+        },
+        {
+          "property": "frame.y",
+          "value": "543"
+        },
+        {
+          "property": "frame.width",
+          "value": "48"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.quantity.value",
+      "stable_id": "dish.quantity.value",
+      "properties": [
+        {
+          "property": "text",
+          "value": "2"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "18"
+        },
+        {
+          "property": "frame.x",
+          "value": "329.125"
+        },
+        {
+          "property": "frame.y",
+          "value": "554"
+        },
+        {
+          "property": "frame.width",
+          "value": "10.875"
+        },
+        {
+          "property": "frame.height",
+          "value": "26"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.quantity.increase",
+      "stable_id": "dish.quantity.increase",
+      "properties": [
+        {
+          "property": "text",
+          "value": "+"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "360"
+        },
+        {
+          "property": "frame.y",
+          "value": "543"
+        },
+        {
+          "property": "frame.width",
+          "value": "48"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.selection",
+      "stable_id": "dish.selection",
+      "properties": [
+        {
+          "property": "text",
+          "value": "大份 · 加蛋 · 2 份"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "13"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "607"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.total.label",
+      "stable_id": "dish.total.label",
+      "properties": [
+        {
+          "property": "text",
+          "value": "商品合计"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "793"
+        },
+        {
+          "property": "frame.width",
+          "value": "60"
+        },
+        {
+          "property": "frame.height",
+          "value": "22"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.total",
+      "stable_id": "dish.total",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥82"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "28"
+        },
+        {
+          "property": "frame.x",
+          "value": "353.6719"
+        },
+        {
+          "property": "frame.y",
+          "value": "785"
+        },
+        {
+          "property": "frame.width",
+          "value": "54.3281"
+        },
+        {
+          "property": "frame.height",
+          "value": "38"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.add",
+      "stable_id": "dish.add",
+      "properties": [
+        {
+          "property": "text",
+          "value": "加入购物车"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "831"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.back",
+      "stable_id": "dish.back",
+      "properties": [
+        {
+          "property": "text",
+          "value": "返回"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "67"
+        },
+        {
+          "property": "frame.width",
+          "value": "64"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.brand",
+      "stable_id": "dish.brand",
+      "properties": [
+        {
+          "property": "text",
+          "value": "Food AI"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "353.7188"
+        },
+        {
+          "property": "frame.y",
+          "value": "80"
+        },
+        {
+          "property": "frame.width",
+          "value": "54.2813"
+        },
+        {
+          "property": "frame.height",
+          "value": "22"
+        }
+      ]
+    },
+    {
+      "node_id": "dish.title",
+      "stable_id": "dish.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "菜品规格与数量"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "26"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "131"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "36"
+        }
+      ]
+    }
+  ],
+  "mapping_gaps": [],
+  "comparison_policy": {
+    "pixel_scope": "expected_alpha",
+    "text_ink_verification": "ink_geometry",
+    "text_ink_stable_ids": [
+      "dish.name",
+      "dish.description",
+      "dish.base_price",
+      "dish.portion.standard",
+      "dish.portion.large",
+      "dish.extras.egg",
+      "dish.extras.tofu",
+      "dish.extras.vegetables",
+      "dish.quantity.label",
+      "dish.quantity.decrease",
+      "dish.quantity.value",
+      "dish.quantity.increase",
+      "dish.selection",
+      "dish.total.label",
+      "dish.total",
+      "dish.add",
+      "dish.back",
+      "dish.brand",
+      "dish.title"
+    ],
+    "max_text_ink_width_delta_ratio": 0.02,
+    "max_text_ink_height_delta_ratio": 0.06,
+    "max_text_ink_area_delta_ratio": 0.09,
+    "flat_color_geometry_verification": "component_bounds",
+    "flat_color_geometry_targets": [
+      {
+        "stable_id": "dish.portion.large",
+        "color": "#F7D7B5"
+      },
+      {
+        "stable_id": "dish.extras.egg",
+        "color": "#F7D7B5"
+      },
+      {
+        "stable_id": "dish.add",
+        "color": "#E6472F"
+      }
+    ],
+    "max_flat_color_bounds_delta_px": 1
+  },
+  "comparison_mask": {
+    "mode": "flat_color_interiors",
+    "strategy": "design_owned_stable_regions",
+    "input_domain": "design_reference_only",
+    "include_colors": [
+      "#FFF8EF",
+      "#FFFFFF",
+      "#F7D7B5",
+      "#E6472F"
+    ],
+    "included_classes": [
+      "solid_backgrounds",
+      "component_interiors",
+      "stable_fill_regions"
+    ],
+    "excluded_classes": [
+      "undeclared_colors",
+      "text_glyph_edges",
+      "thin_stroke_edges",
+      "platform_symbol_edges",
+      "declared_color_edges"
+    ],
+    "edge_inset_px": 12,
+    "minimum_content_coverage_ratio": 0.12,
+    "selected_pixels": 2670680,
+    "content_pixels": 3235320,
+    "content_coverage_ratio": 0.82547631,
+    "review_reference": "review-reference.png"
+  }
+}

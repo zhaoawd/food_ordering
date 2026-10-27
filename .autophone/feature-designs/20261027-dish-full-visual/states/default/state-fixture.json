@@ -1,0 +1,54 @@
+{
+  "schema_version": "ui-prototype-fixture/v1",
+  "state_id": "dish.default.fixture-v1",
+  "data_sources": {
+    "portion": [
+      {
+        "value": "standard",
+        "label": "标准份"
+      },
+      {
+        "value": "large",
+        "label": "大份 +¥6"
+      }
+    ],
+    "extras": [
+      {
+        "value": "egg",
+        "label": "加蛋 +¥3"
+      },
+      {
+        "value": "tofu",
+        "label": "豆腐 +¥4"
+      },
+      {
+        "value": "vegetables",
+        "label": "蔬菜 +¥5"
+      }
+    ]
+  },
+  "values": {
+    "quantity": 1,
+    "base_price_cents": 3200,
+    "total_cents": 3200,
+    "cart_count_before": 0,
+    "portion": "standard",
+    "extras": []
+  },
+  "view": {
+    "name": "炙烤牛肉拌饭",
+    "description": "热乎 · 微辣 · 25–35 分钟送达",
+    "base_price": "¥32 起",
+    "quantity_label": "数量",
+    "quantity_decrease": "−",
+    "quantity_value": "1",
+    "quantity_increase": "+",
+    "selection": "标准份 · 不加料 · 1 份",
+    "total_label": "商品合计",
+    "total": "¥32",
+    "add": "加入购物车",
+    "back": "返回",
+    "brand": "Food AI",
+    "title": "菜品规格与数量"
+  }
+}

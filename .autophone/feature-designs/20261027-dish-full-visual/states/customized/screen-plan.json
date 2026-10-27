@@ -1,0 +1,17 @@
+{
+  "schema_version": "ui-prototype-plan/v1",
+  "product_type": "food-ordering",
+  "platform": "mobile",
+  "screens": [
+    {
+      "id": "dish",
+      "purpose": "菜品规格与数量",
+      "sections": [
+        "header",
+        "content",
+        "footer"
+      ]
+    }
+  ],
+  "flows": []
+}
