@@ -28,3 +28,9 @@ full_visual 的验收方法与配送地址、饮食偏好、菜品规格相同�
 ```sh
 python3 make_full_visual_draft.py ../20261024-v1/coupons/states/default /path/to/new/default
 ```
+
+## 默认态 v3（同日修订）
+
+设备上默认态的 `coupons.bill.discount`（“¥0”，frame 约 19 pt 宽）字色测不出：笔画游程超过 autophone 像素字色派生的笔画形状闸，墨迹也随之无法测量。按用户决定，仅默认态以 v3 移除该元素的字色断言，并移出墨迹几何清单（18 → 17）；frame、文本与字号保留。选中态显示“−¥6”，可正常测量，继续使用 v2。参考图与 v2 逐字节相同，阈值不变。
+
+`states-v3/default` 与 `packages-v3/coupons-default` 由当前 `make_full_visual_draft.py` 生成；`states/` 与 `packages/` 是 v2，由该脚本的上一版生成。

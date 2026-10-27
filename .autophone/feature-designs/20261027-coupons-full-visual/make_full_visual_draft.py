@@ -15,6 +15,9 @@ INK = {"max_width_delta_ratio": 0.02, "max_height_delta_ratio": 0.06, "max_area_
 # 设计 Token 中的实心填充色；描边色只出现在 1px 边框上，不进入遮罩。
 FILL_TOKENS = ("color.canvas", "color.surface", "color.soft", "color.brand")
 UNAVAILABLE_COUPON = "save20"
+# v3：默认态的优惠金额是“¥0”，frame 约 19 pt 宽，笔画游程超过平台像素字色派生的笔画形状闸，
+# 字色测不出，墨迹也随之无法测量。只在该状态移除字色断言并移出墨迹清单；选中态“−¥6”可测，不变。
+UNMEASURABLE_TEXT = {"coupons.default.fixture-v1": {"coupons.bill.discount"}}
 RENAMED = {
     "coupons.unavailable.title": f"coupons.unavailable.{UNAVAILABLE_COUPON}.title",
     "coupons.unavailable.reason": f"coupons.unavailable.{UNAVAILABLE_COUPON}.reason",
@@ -58,15 +61,20 @@ def derive(source: Path, target: Path) -> None:
     fixture = json.loads((target / "state-fixture.json").read_text())
     tokens = ui["tokens"]
     texts = text_ids(ui)
+    unmeasurable = UNMEASURABLE_TEXT.get(spec["state_id"], set())
     stable_ids = []
     for screen in ui["acceptance"]:
         for item in screen["targets"]:
-            props = list(item["properties"])
+            props = [
+                name for name in item["properties"]
+                if not (item["stable_id"] in unmeasurable and name == "resolved_style.color")
+            ]
             if item["stable_id"] in texts and "resolved_style.fontSize" not in props:
                 props.append("resolved_style.fontSize")
             props += [name for name in FRAME if name not in props]
             item["properties"] = props
-            stable_ids.append(item["stable_id"])
+            if item["stable_id"] not in unmeasurable:
+                stable_ids.append(item["stable_id"])
     spec["comparison_mask"] = {
         "mode": "flat_color_interiors",
         "include_colors": [tokens[name]["value"] for name in FILL_TOKENS],

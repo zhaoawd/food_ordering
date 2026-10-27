@@ -1,0 +1,200 @@
+{
+  "schema_version": "prototype-render-spec/v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "entry": "index.html",
+  "node_scope": [
+    "coupons.description",
+    "coupons.option.none",
+    "coupons.option.save6",
+    "coupons.option.save10",
+    "coupons.unavailable.save20.title",
+    "coupons.unavailable.save20.reason",
+    "coupons.bill.goods.label",
+    "coupons.bill.goods",
+    "coupons.bill.fees.label",
+    "coupons.bill.fees",
+    "coupons.bill.discount.label",
+    "coupons.bill.discount",
+    "coupons.payable.label",
+    "coupons.payable",
+    "coupons.confirm",
+    "coupons.back",
+    "coupons.brand",
+    "coupons.title"
+  ],
+  "locale": "zh-CN",
+  "color_scheme": "light",
+  "packer_version": "autophone-prototype-packager/v2",
+  "property_scope": {
+    "coupons.description": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.option.none": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.option.save6": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.option.save10": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.unavailable.save20.title": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.unavailable.save20.reason": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.bill.goods.label": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.bill.goods": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.bill.fees.label": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.bill.fees": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.bill.discount.label": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.bill.discount": [
+      "text",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.payable.label": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.payable": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.confirm": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.back": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.brand": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "coupons.title": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ]
+  }
+}
