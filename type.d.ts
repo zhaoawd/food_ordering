@@ -38,13 +38,19 @@ export interface CartItemType {
     customizations?: CartCustomization[];
 }
 
+export type CartAddResult = "added" | "line_limit" | "invalid_quantity";
+
 export interface CartStore {
     items: CartItemType[];
+    fixtureNonce: string | null;
+    /** 一次加入 N 份；同规格合并后超过单行上限时整笔拒绝，购物车不变。 */
+    addItems: (item: Omit<CartItemType, "quantity">, quantity: number) => CartAddResult;
     addItem: (item: Omit<CartItemType, "quantity">) => void;
     removeItem: (id: string, customizations: CartCustomization[]) => void;
     increaseQty: (id: string, customizations: CartCustomization[]) => void;
     decreaseQty: (id: string, customizations: CartCustomization[]) => void;
     clearCart: () => void;
+    loadFixture: (stateId: string, nonce: string) => void;
     getTotalItems: () => number;
     getTotalPrice: () => number;
 }

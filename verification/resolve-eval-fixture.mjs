@@ -181,6 +181,15 @@ export function resolveEvalFixture({ selectionJson, registry, baselineFixture })
     preferencesStateId = selection.state_id;
   }
 
+  // 这些状态要求购物车初始为空；与 store/cart.store.ts 的 EMPTY_CART_STATE_IDS 一致。
+  const cartStateId = [
+    "dish.default.fixture-v1",
+    "dish.customized.fixture-v1",
+    "cart.empty.fixture-v1",
+  ].includes(selection.state_id)
+    ? selection.state_id
+    : null;
+
   let fixture = baselineFixture;
   let mutationEpoch = 0;
   if (selection.mutation_id !== baselineMutationId) {
@@ -207,5 +216,6 @@ export function resolveEvalFixture({ selectionJson, registry, baselineFixture })
     registrySha256: registry.projection_sha256,
     addressStateId,
     preferencesStateId,
+    cartStateId,
   };
 }

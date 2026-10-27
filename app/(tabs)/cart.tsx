@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import {
@@ -7,6 +7,9 @@ import {
   ObservedText,
   ObservedView,
 } from "@/verification/observation";
+import { cartLineStableId, useCartStore } from "@/store/cart.store";
+import { formatYuan, lineSpecSummary } from "@/store/dish.catalog";
+import type { CartItemType } from "@/type";
 
 // 评测靶的第二个状态：空购物车。
 //
@@ -24,6 +27,8 @@ const sourceRef = {
 } as const;
 
 export default function Cart() {
+  const items = useCartStore((state) => state.items);
+  if (items.length > 0) return <CartLines items={items} />;
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.header} testID="cart.header">
@@ -129,4 +134,73 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     lineHeight: 22,
   },
+});
+
+const lineTotalCents = (item: CartItemType) =>
+  item.quantity *
+  (item.price + (item.customizations ?? []).reduce((sum, c) => sum + c.price, 0));
+
+// 非空购物车没有设计参考图；空态的元素、文案与样式保持上面的原样。
+function CartLines({ items }: { items: CartItemType[] }) {
+  const removeItem = useCartStore((state) => state.removeItem);
+  const quantity = items.reduce((sum, item) => sum + item.quantity, 0);
+  const subtotal = items.reduce((sum, item) => sum + lineTotalCents(item), 0);
+  return (
+    <SafeAreaView style={styles.screen}>
+      <View style={styles.header} testID="cart.header">
+        <ObservedText observationRole="text" sourceRef={sourceRef} stableId="cart.header.title" style={styles.headerTitle}>
+          购物车
+        </ObservedText>
+      </View>
+      <ScrollView contentContainerStyle={lineStyles.list}>
+        {items.map((item) => {
+          const id = cartLineStableId(item);
+          return (
+            <ObservedView key={id} stableId={id} sourceRef={sourceRef} observationRole="group" style={lineStyles.line}>
+              <View style={lineStyles.lineText}>
+                <ObservedText stableId={`${id}.name`} sourceRef={sourceRef} observationRole="text" style={lineStyles.name}>{item.name}</ObservedText>
+                <ObservedText stableId={`${id}.spec`} sourceRef={sourceRef} observationRole="text" style={lineStyles.meta}>{lineSpecSummary(item)}</ObservedText>
+                <ObservedText stableId={`${id}.quantity`} sourceRef={sourceRef} observationRole="text" style={lineStyles.meta}>{`${item.quantity} 份`}</ObservedText>
+              </View>
+              <View style={lineStyles.lineSide}>
+                <ObservedText stableId={`${id}.subtotal`} sourceRef={sourceRef} observationRole="text" style={lineStyles.price}>{formatYuan(lineTotalCents(item))}</ObservedText>
+                <ObservedPressable stableId={`${id}.remove`} sourceRef={sourceRef} observationRole="button" accessibilityRole="button" accessibilityLabel={`删除${item.name}`} onPress={() => removeItem(item.id, item.customizations ?? [])} style={lineStyles.remove}>
+                  <Text style={lineStyles.removeLabel}>删除</Text>
+                </ObservedPressable>
+              </View>
+            </ObservedView>
+          );
+        })}
+      </ScrollView>
+      <View style={lineStyles.footer}>
+        <View style={lineStyles.summaryRow}>
+          <Text style={lineStyles.name}>共</Text>
+          <ObservedText stableId="cart.summary.quantity" sourceRef={sourceRef} observationRole="text" style={lineStyles.name}>{String(quantity)}</ObservedText>
+          <Text style={lineStyles.name}>件</Text>
+          <View style={lineStyles.spacer} />
+          <ObservedText stableId="cart.summary.subtotal" sourceRef={sourceRef} observationRole="text" style={lineStyles.price}>{formatYuan(subtotal)}</ObservedText>
+        </View>
+        <ObservedPressable stableId="cart.continue" sourceRef={sourceRef} observationRole="button" accessibilityRole="button" accessibilityLabel="继续选购" onPress={() => router.navigate("/")} style={lineStyles.continue}>
+          <Text style={lineStyles.continueLabel}>继续选购</Text>
+        </ObservedPressable>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const lineStyles = StyleSheet.create({
+  list: { gap: 12, paddingHorizontal: 22, paddingTop: 8, paddingBottom: 16 },
+  line: { backgroundColor: "#FFFFFF", borderRadius: 16, flexDirection: "row", gap: 12, padding: 16 },
+  lineText: { flex: 1, gap: 4 },
+  lineSide: { alignItems: "flex-end", gap: 8, justifyContent: "space-between" },
+  name: { color: "#241713", fontSize: 16, fontWeight: "600", lineHeight: 22 },
+  meta: { color: "#77655F", fontSize: 13, lineHeight: 20 },
+  price: { color: "#E6472F", fontSize: 18, fontWeight: "700", lineHeight: 24 },
+  remove: { borderColor: "#E8DCD3", borderRadius: 12, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 6 },
+  removeLabel: { color: "#77655F", fontSize: 13, lineHeight: 18 },
+  footer: { backgroundColor: "#FFFFFF", borderTopColor: "#E8DCD3", borderTopWidth: 1, gap: 12, paddingHorizontal: 22, paddingVertical: 16 },
+  summaryRow: { alignItems: "center", flexDirection: "row", gap: 4 },
+  spacer: { flex: 1 },
+  continue: { alignItems: "center", backgroundColor: "#E6472F", borderRadius: 16, height: 48, justifyContent: "center" },
+  continueLabel: { color: "#FFFFFF", fontSize: 15, fontWeight: "600", lineHeight: 22 },
 });

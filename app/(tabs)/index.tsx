@@ -1,6 +1,6 @@
 import { router } from "expo-router";
 import { useEffect, useMemo, useState, useRef } from "react";
-import { Keyboard, StyleSheet, Text, TextInput, View } from "react-native";
+import { Keyboard, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import {
@@ -11,9 +11,12 @@ import {
 import { useFoodOrderingEvalFixture } from "@/verification/useEvalFixture";
 
 import { addresses, useAddressStore } from "@/store/address.store";
+import { useCartStore } from "@/store/cart.store";
+import { cartItemFor, CUSTOMIZABLE_DISH_ID, defaultSelection, type DishId } from "@/store/dish.catalog";
 
 const recommendations = [
   {
+    dishId: "beef-bowl-001",
     title: "炙烤牛肉拌饭",
     attributes: "热乎、微辣，预计 30 分钟送达",
     price: 32,
@@ -21,6 +24,7 @@ const recommendations = [
     match: 96,
   },
   {
+    dishId: "chicken-bowl-002",
     title: "香辣鸡腿拌饭",
     attributes: "焦香、微辣，预计 28 分钟送达",
     price: 29,
@@ -100,7 +104,12 @@ export default function Index() {
   const [recommendationIndex, setRecommendationIndex] = useState(0);
   const [isSwapping, setIsSwapping] = useState(false);
   const [ctaState, setCtaState] = useState<CtaState>("idle");
-  const [cartCount, setCartCount] = useState(2);
+  const cartCount = useCartStore((state) =>
+    state.items.reduce((sum, item) => sum + item.quantity, 0),
+  );
+  const addItems = useCartStore((state) => state.addItems);
+  // 点击时记下要加入的菜品；加入在 loading 结束时执行，换口味不改变已点的菜。
+  const pendingDish = useRef<DishId | null>(null);
   const [activeTab, setActiveTab] = useState<TabId>("home");
 
   const recommendation = recommendations[recommendationIndex];
@@ -131,8 +140,12 @@ export default function Index() {
   useEffect(() => {
     if (ctaState === "loading") {
       const timer = setTimeout(() => {
-        setCartCount(3);
-        setCtaState("success");
+        const dishId = pendingDish.current;
+        pendingDish.current = null;
+        const result = dishId
+          ? addItems(cartItemFor(dishId, defaultSelection), 1)
+          : "invalid_quantity";
+        setCtaState(result === "added" ? "success" : "idle");
       }, 220);
       return () => clearTimeout(timer);
     }
@@ -141,7 +154,7 @@ export default function Index() {
       return () => clearTimeout(timer);
     }
     return undefined;
-  }, [ctaState]);
+  }, [ctaState, addItems]);
 
   const paginationLabel = useMemo(
     () => `${recommendationIndex + 1} / 4`,
@@ -196,6 +209,7 @@ export default function Index() {
             observationRole="button"
             accessibilityLabel={`袋 ${cartCount}`}
             accessibilityHint={`购物袋，${cartCount} 件商品`}
+            onPress={() => router.push("/cart")}
             style={styles.cartButton}
           >
             <Text style={styles.cartIcon}>袋</Text>
@@ -310,16 +324,31 @@ export default function Index() {
           >
             <Text style={styles.matchText}>匹配度 {recommendation.match}%</Text>
           </ObservedView>
-          <ObservedText
-            stableId="home.recommendation.title"
-            sourceRef={sourceRef_home_recommendation_title}
-            observationRole="text"
-            accessible
-            observationStyle={styles.dishTitleObservation}
-            style={[styles.dishTitle, isSwapping && styles.mutedContent]}
-          >
-            {recommendation.title}
-          </ObservedText>
+          <View>
+            <ObservedText
+              stableId="home.recommendation.title"
+              sourceRef={sourceRef_home_recommendation_title}
+              observationRole="text"
+              accessible
+              observationStyle={styles.dishTitleObservation}
+              style={[styles.dishTitle, isSwapping && styles.mutedContent]}
+            >
+              {recommendation.title}
+            </ObservedText>
+            {recommendation.dishId === CUSTOMIZABLE_DISH_ID && !isSwapping && (
+              // 透明入口叠在标题上：标题仍是独立的观测与无障碍节点，布局不变；入口不进观测文档。
+              <Pressable
+                testID="home.recommendation.details"
+                accessibilityRole="button"
+                accessibilityLabel={`查看${recommendation.title}规格`}
+                onPress={() => {
+                  Keyboard.dismiss();
+                  router.push(`/dish-detail?dishId=${CUSTOMIZABLE_DISH_ID}`);
+                }}
+                style={StyleSheet.absoluteFill}
+              />
+            )}
+          </View>
           <ObservedView
             stableId="home.recommendation.attributes"
             sourceRef={sourceRef}
@@ -374,6 +403,7 @@ export default function Index() {
             disabled={ctaState !== "idle"}
             onPress={() => {
               Keyboard.dismiss();
+              pendingDish.current = recommendation.dishId;
               setCtaState("loading");
             }}
             style={[

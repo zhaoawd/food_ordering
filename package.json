@@ -14,7 +14,9 @@
     "test:address": "node --test tests/address-state.test.cjs tests/address-fixture.test.cjs",
     "test:address-browser": "playwright test --config tests/address.playwright.config.cjs",
     "test:preferences": "node --test tests/preferences-state.test.cjs tests/preferences-fixture.test.cjs",
-    "test:preferences-browser": "playwright test --config tests/preferences.playwright.config.cjs"
+    "test:preferences-browser": "playwright test --config tests/preferences.playwright.config.cjs",
+    "test:dish": "node --test tests/dish-cart.test.cjs tests/dish-fixture.test.cjs",
+    "test:dish-browser": "playwright test --config tests/dish.playwright.config.cjs"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
