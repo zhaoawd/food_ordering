@@ -1,0 +1,603 @@
+{
+  "schema_version": "structured-design-package/v1",
+  "adapter": "ai-prototype-dsl/v2",
+  "toolchain": {
+    "packer": "autophone-prototype-packager/v2",
+    "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+    "browser": "chromium/149.0.7827.55",
+    "compiler": "autophone-ui-prototype-compiler/v2"
+  },
+  "screen_id": "address",
+  "state_id": "address.company.fixture-v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "node_scope": [
+    "address.description",
+    "address.option.home",
+    "address.option.company",
+    "address.detail.tag",
+    "address.detail.address",
+    "address.detail.room",
+    "address.detail.contact",
+    "address.notice",
+    "address.summary",
+    "address.confirm",
+    "address.back",
+    "address.brand",
+    "address.title"
+  ],
+  "artifacts": [
+    {
+      "role": "reference",
+      "path": "reference.png",
+      "sha256": "cbae8806a6b19cdee59264fc122f5c436c3e6156a367fe9addd9b127407b69d4"
+    },
+    {
+      "role": "review_reference",
+      "path": "review-reference.png",
+      "sha256": "057a92381a231d501afabd084389660585495616448a1b81061757365dbac4c8"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/compiled-scene.json",
+      "sha256": "4a39d75997efdfce32e63f27706f02d8b8fc65b7b939115d38084a49b2769391"
+    },
+    {
+      "role": "prototype",
+      "path": "prototype/compiled/index.html",
+      "sha256": "1be35e1bdb057f9aba839ae6b166059d9fd9225895db4defb2cf0c236fd4b373"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/renderer-spec.json",
+      "sha256": "01b9ceafd1349d1ba1a5b65c806973218afa62971a5fe7cc89c4b557d60a48ed"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/prototype-spec.json",
+      "sha256": "2da3328d855117c90089c5ff03b5f737aa635bf2478de1b8362c05488117948a"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/screen-plan.json",
+      "sha256": "d2cf91a1461a7f98050ffe9283e4f318333487fab77b2d512d710a2fd5323bca"
+    },
+    {
+      "role": "fixture",
+      "path": "prototype/state-fixture.json",
+      "sha256": "2d2b502c318fd8f79651742ae145fe561932d7c575b82ce01f79b2936839080f"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/ui-document.json",
+      "sha256": "9a3c8d1da2dab06e9449c5bf767014e93db70e027ce9592c2877ce042d07a2f9"
+    }
+  ],
+  "elements": [
+    {
+      "node_id": "address.description",
+      "stable_id": "address.description",
+      "properties": [
+        {
+          "property": "text",
+          "value": "选择本次配送地点，确认后更新首页。"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "183"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "23"
+        }
+      ]
+    },
+    {
+      "node_id": "address.option.home",
+      "stable_id": "address.option.home",
+      "properties": [
+        {
+          "property": "text",
+          "value": "家 · 望京"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "260"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "address.option.company",
+      "stable_id": "address.option.company",
+      "properties": [
+        {
+          "property": "text",
+          "value": "公司 · 中关村"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "320"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "address.detail.tag",
+      "stable_id": "address.detail.tag",
+      "properties": [
+        {
+          "property": "text",
+          "value": "公司"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "13"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "404"
+        },
+        {
+          "property": "frame.width",
+          "value": "354"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "address.detail.address",
+      "stable_id": "address.detail.address",
+      "properties": [
+        {
+          "property": "text",
+          "value": "北京市海淀区中关村东路 8 号"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "18"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "432"
+        },
+        {
+          "property": "frame.width",
+          "value": "354"
+        },
+        {
+          "property": "frame.height",
+          "value": "26"
+        }
+      ]
+    },
+    {
+      "node_id": "address.detail.room",
+      "stable_id": "address.detail.room",
+      "properties": [
+        {
+          "property": "text",
+          "value": "B 座 6 层前台"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "466"
+        },
+        {
+          "property": "frame.width",
+          "value": "354"
+        },
+        {
+          "property": "frame.height",
+          "value": "23"
+        }
+      ]
+    },
+    {
+      "node_id": "address.detail.contact",
+      "stable_id": "address.detail.contact",
+      "properties": [
+        {
+          "property": "text",
+          "value": "测试用户 · 138****0000"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "13"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "497"
+        },
+        {
+          "property": "frame.width",
+          "value": "354"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "address.notice",
+      "stable_id": "address.notice",
+      "properties": [
+        {
+          "property": "text",
+          "value": "仅配送至已保存地址。"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "13"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "549"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "address.summary",
+      "stable_id": "address.summary",
+      "properties": [
+        {
+          "property": "text",
+          "value": "已选择：公司 · 中关村"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "801"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "22"
+        }
+      ]
+    },
+    {
+      "node_id": "address.confirm",
+      "stable_id": "address.confirm",
+      "properties": [
+        {
+          "property": "text",
+          "value": "确认配送地址"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "831"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "address.back",
+      "stable_id": "address.back",
+      "properties": [
+        {
+          "property": "text",
+          "value": "返回"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "67"
+        },
+        {
+          "property": "frame.width",
+          "value": "64"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "address.brand",
+      "stable_id": "address.brand",
+      "properties": [
+        {
+          "property": "text",
+          "value": "Food AI"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "353.7188"
+        },
+        {
+          "property": "frame.y",
+          "value": "80"
+        },
+        {
+          "property": "frame.width",
+          "value": "54.2813"
+        },
+        {
+          "property": "frame.height",
+          "value": "22"
+        }
+      ]
+    },
+    {
+      "node_id": "address.title",
+      "stable_id": "address.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "配送地址选择"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "26"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "131"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "36"
+        }
+      ]
+    }
+  ],
+  "mapping_gaps": [],
+  "comparison_policy": {
+    "pixel_scope": "expected_alpha",
+    "text_ink_verification": "ink_geometry",
+    "text_ink_stable_ids": [
+      "address.description",
+      "address.option.home",
+      "address.option.company",
+      "address.detail.tag",
+      "address.detail.address",
+      "address.detail.room",
+      "address.detail.contact",
+      "address.notice",
+      "address.summary",
+      "address.confirm",
+      "address.back",
+      "address.brand",
+      "address.title"
+    ],
+    "max_text_ink_width_delta_ratio": 0.02,
+    "max_text_ink_height_delta_ratio": 0.06,
+    "max_text_ink_area_delta_ratio": 0.09,
+    "flat_color_geometry_verification": "component_bounds",
+    "flat_color_geometry_targets": [
+      {
+        "stable_id": "address.option.company",
+        "color": "#F7D7B5"
+      },
+      {
+        "stable_id": "address.confirm",
+        "color": "#E6472F"
+      }
+    ],
+    "max_flat_color_bounds_delta_px": 1
+  },
+  "comparison_mask": {
+    "mode": "flat_color_interiors",
+    "strategy": "design_owned_stable_regions",
+    "input_domain": "design_reference_only",
+    "include_colors": [
+      "#FFF8EF",
+      "#FFFFFF",
+      "#F7D7B5",
+      "#E6472F"
+    ],
+    "included_classes": [
+      "solid_backgrounds",
+      "component_interiors",
+      "stable_fill_regions"
+    ],
+    "excluded_classes": [
+      "undeclared_colors",
+      "text_glyph_edges",
+      "thin_stroke_edges",
+      "platform_symbol_edges",
+      "declared_color_edges"
+    ],
+    "edge_inset_px": 12,
+    "minimum_content_coverage_ratio": 0.12,
+    "selected_pixels": 2725036,
+    "content_pixels": 3235320,
+    "content_coverage_ratio": 0.84227712,
+    "review_reference": "review-reference.png"
+  }
+}

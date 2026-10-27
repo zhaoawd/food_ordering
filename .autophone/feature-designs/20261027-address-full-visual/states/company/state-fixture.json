@@ -1,0 +1,34 @@
+{
+  "schema_version": "ui-prototype-fixture/v1",
+  "state_id": "address.company.fixture-v1",
+  "data_sources": {
+    "option": [
+      {
+        "value": "home",
+        "label": "家 · 望京"
+      },
+      {
+        "value": "company",
+        "label": "公司 · 中关村"
+      }
+    ]
+  },
+  "values": {
+    "committed_address": "home",
+    "draft_address": "company",
+    "option": "company"
+  },
+  "view": {
+    "description": "选择本次配送地点，确认后更新首页。",
+    "detail_tag": "公司",
+    "detail_address": "北京市海淀区中关村东路 8 号",
+    "detail_room": "B 座 6 层前台",
+    "detail_contact": "测试用户 · 138****0000",
+    "notice": "仅配送至已保存地址。",
+    "summary": "已选择：公司 · 中关村",
+    "confirm": "确认配送地址",
+    "back": "返回",
+    "brand": "Food AI",
+    "title": "配送地址选择"
+  }
+}
