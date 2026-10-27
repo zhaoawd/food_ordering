@@ -1,4 +1,4 @@
-"""从 v1 菜品规格草稿派生 full_visual 草稿：只追加验收声明。
+"""从 v1 菜品规格草稿派生 full_visual 草稿：只调整验收声明。
 
 布局、Token、Fixture 数据、文案与状态 ID 保持不变。验收方法与配送地址、饮食偏好相同。
 """
@@ -15,6 +15,9 @@ FILL_TOKENS = ("color.canvas", "color.surface", "color.soft", "color.brand")
 # 三列加料的中间一列两侧边界落在非整数 pt；Chromium 与 iOS 吸附不同（饮食偏好 v3 的结论），
 # 不作为纯色区块目标。份量两列各 189 pt，边界为整数。
 MIDDLE_COLUMN = {"tofu"}
+# v3：减号“−”是一条长横笔，数量“1/2”的 frame 只有约 8.7 pt 宽，笔画游程都超过平台字色派生的
+# 笔画形状闸，字色在像素上测不出，墨迹也随之无法测量。保留 frame、背景、圆角与文本。
+UNMEASURABLE_TEXT = {"dish.quantity.decrease", "dish.quantity.value"}
 
 
 def text_ids(ui: dict) -> set[str]:
@@ -54,12 +57,16 @@ def derive(source: Path, target: Path) -> None:
     stable_ids = []
     for screen in ui["acceptance"]:
         for item in screen["targets"]:
-            props = list(item["properties"])
+            props = [
+                name for name in item["properties"]
+                if not (item["stable_id"] in UNMEASURABLE_TEXT and name == "resolved_style.color")
+            ]
             if item["stable_id"] in texts and "resolved_style.fontSize" not in props:
                 props.append("resolved_style.fontSize")
             props += [name for name in FRAME if name not in props]
             item["properties"] = props
-            stable_ids.append(item["stable_id"])
+            if item["stable_id"] not in UNMEASURABLE_TEXT:
+                stable_ids.append(item["stable_id"])
     spec["comparison_mask"] = {
         "mode": "flat_color_interiors",
         "include_colors": [tokens[name]["value"] for name in FILL_TOKENS],

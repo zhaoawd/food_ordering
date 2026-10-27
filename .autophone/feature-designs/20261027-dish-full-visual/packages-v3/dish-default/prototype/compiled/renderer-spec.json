@@ -1,0 +1,213 @@
+{
+  "schema_version": "prototype-render-spec/v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "entry": "index.html",
+  "node_scope": [
+    "dish.name",
+    "dish.description",
+    "dish.base_price",
+    "dish.portion.standard",
+    "dish.portion.large",
+    "dish.extras.egg",
+    "dish.extras.tofu",
+    "dish.extras.vegetables",
+    "dish.quantity.label",
+    "dish.quantity.decrease",
+    "dish.quantity.value",
+    "dish.quantity.increase",
+    "dish.selection",
+    "dish.total.label",
+    "dish.total",
+    "dish.add",
+    "dish.back",
+    "dish.brand",
+    "dish.title"
+  ],
+  "locale": "zh-CN",
+  "color_scheme": "light",
+  "packer_version": "autophone-prototype-packager/v2",
+  "property_scope": {
+    "dish.name": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.description": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.base_price": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.portion.standard": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.portion.large": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.extras.egg": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.extras.tofu": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.extras.vegetables": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.quantity.label": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.quantity.decrease": [
+      "text",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.quantity.value": [
+      "text",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.quantity.increase": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.selection": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.total.label": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.total": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.add": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.back": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.brand": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "dish.title": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ]
+  }
+}

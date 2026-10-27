@@ -19,3 +19,11 @@
 ```sh
 python3 make_full_visual_draft.py ../20261024-v1/dish/states/default /path/to/new/default
 ```
+
+## v3（同日修订）
+
+设备上 `dish.quantity.decrease`（“−”）与 `dish.quantity.value`（“1/2”）的字色测不出：减号是一条长横笔，数量的 frame 只有约 8.7 pt 宽，笔画游程都超过 autophone 像素字色派生的笔画形状闸。字色缺失后墨迹也无法测量。按用户决定以 v3 移除这两个元素的字色断言，并把它们移出墨迹几何清单（19 → 17）；frame、背景、圆角、文本与字号保留。参考图与 v2 逐字节相同，阈值不变。
+
+禁用减号的背景 `#F3ECE6` 仍由像素比较验证，禁用状态由设备原生验证经 AX 读取；禁用文字色 `#77655F` 不再做视觉验证。
+
+`states-v3/` 与 `packages-v3/` 由当前 `make_full_visual_draft.py` 生成；`states/` 与 `packages/` 是 v2，由该脚本的上一版生成。
