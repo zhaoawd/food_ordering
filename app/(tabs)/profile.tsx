@@ -16,10 +16,13 @@ const Profile = () => {
     </View>
     <View style={styles.content}>
       <ObservedText stableId="profile.title" sourceRef={sourceRef} observationRole="text" style={styles.title}>我的</ObservedText>
-      <ObservedPressable stableId="profile.preferences" sourceRef={sourceRef} observationRole="button" accessibilityRole="button" accessibilityLabel="饮食偏好" onPress={() => router.push('/preferences')} style={styles.entry}>
-        <Text style={styles.entryLabel}>饮食偏好</Text>
+      {/* 摘要不能放进 Pressable：iOS 把可点击区域合成一个无障碍元素，摘要就无法单独回读。 */}
+      <View style={styles.entry}>
+        <ObservedPressable stableId="profile.preferences" sourceRef={sourceRef} observationRole="button" accessibilityRole="button" accessibilityLabel="饮食偏好" onPress={() => router.push('/preferences')}>
+          <Text style={styles.entryLabel}>饮食偏好</Text>
+        </ObservedPressable>
         <ObservedText stableId="profile.preferences.summary" sourceRef={sourceRef} observationRole="text" style={styles.entrySummary}>{preferenceSummary(committed)}</ObservedText>
-      </ObservedPressable>
+      </View>
     </View>
   </SafeAreaView>;
 };
