@@ -1,0 +1,447 @@
+{
+  "schema_version": "ui-prototype-compiled-scene/v1",
+  "compiler": "autophone-ui-prototype-compiler/v2",
+  "source_schema_version": "ui-prototype-document/v1",
+  "screen_id": "coupons",
+  "state_id": "coupons.selected.fixture-v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "viewport_profile": {
+    "profile_id": "vphone-ios26-430x932",
+    "safe_area": {
+      "top": 59,
+      "right": 0,
+      "bottom": 37,
+      "left": 0
+    },
+    "safe_area_application": [
+      "top",
+      "bottom"
+    ],
+    "system_ui": "separate_region"
+  },
+  "inputs": [
+    {
+      "role": "plan",
+      "path": "screen-plan.json",
+      "sha256": "aee54cd73e1db3a74f7c79a86181a64f3e46d98ca63306007211f39332d71a48"
+    },
+    {
+      "role": "source",
+      "path": "ui-document.json",
+      "sha256": "9656ba3bd058f9de3287d8bf01d9a3ffa32164f0fcf7c46b5a9bb94e11be783b"
+    },
+    {
+      "role": "fixture",
+      "path": "state-fixture.json",
+      "sha256": "6242ccf8e689d257bfa135219a3be0ed20b987a6dd25d35a1723bb901292a233"
+    }
+  ],
+  "component_registry": [
+    "Button",
+    "ChoiceGroup",
+    "Decoration",
+    "Frame",
+    "Screen",
+    "Text"
+  ],
+  "node_scope": [
+    {
+      "node_id": "coupons.description",
+      "stable_id": "coupons.description",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.option.none",
+      "stable_id": "coupons.option.none",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.option.save6",
+      "stable_id": "coupons.option.save6",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.option.save10",
+      "stable_id": "coupons.option.save10",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.unavailable.save20.title",
+      "stable_id": "coupons.unavailable.save20.title",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.unavailable.save20.reason",
+      "stable_id": "coupons.unavailable.save20.reason",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.bill.goods.label",
+      "stable_id": "coupons.bill.goods.label",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.bill.goods",
+      "stable_id": "coupons.bill.goods",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.bill.fees.label",
+      "stable_id": "coupons.bill.fees.label",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.bill.fees",
+      "stable_id": "coupons.bill.fees",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.bill.discount.label",
+      "stable_id": "coupons.bill.discount.label",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.bill.discount",
+      "stable_id": "coupons.bill.discount",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.payable.label",
+      "stable_id": "coupons.payable.label",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.payable",
+      "stable_id": "coupons.payable",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.confirm",
+      "stable_id": "coupons.confirm",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.back",
+      "stable_id": "coupons.back",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.brand",
+      "stable_id": "coupons.brand",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "coupons.title",
+      "stable_id": "coupons.title",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    }
+  ],
+  "emitted_nodes": [
+    {
+      "source_node_id": "coupons.back",
+      "node_id": "coupons.back",
+      "stable_id": "coupons.back",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "coupons.brand",
+      "node_id": "coupons.brand",
+      "stable_id": "coupons.brand",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "coupons.title",
+      "node_id": "coupons.title",
+      "stable_id": "coupons.title",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "coupons.description",
+      "node_id": "coupons.description",
+      "stable_id": "coupons.description",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "coupons.option",
+      "node_id": "coupons.option.none",
+      "stable_id": "coupons.option.none",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "coupons.option",
+      "node_id": "coupons.option.save6",
+      "stable_id": "coupons.option.save6",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "coupons.option",
+      "node_id": "coupons.option.save10",
+      "stable_id": "coupons.option.save10",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "coupons.unavailable.save20.title",
+      "node_id": "coupons.unavailable.save20.title",
+      "stable_id": "coupons.unavailable.save20.title",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "coupons.unavailable.save20.reason",
+      "node_id": "coupons.unavailable.save20.reason",
+      "stable_id": "coupons.unavailable.save20.reason",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "coupons.bill.goods.label",
+      "node_id": "coupons.bill.goods.label",
+      "stable_id": "coupons.bill.goods.label",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "coupons.bill.goods",
+      "node_id": "coupons.bill.goods",
+      "stable_id": "coupons.bill.goods",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "coupons.bill.fees.label",
+      "node_id": "coupons.bill.fees.label",
+      "stable_id": "coupons.bill.fees.label",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "coupons.bill.fees",
+      "node_id": "coupons.bill.fees",
+      "stable_id": "coupons.bill.fees",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "coupons.bill.discount.label",
+      "node_id": "coupons.bill.discount.label",
+      "stable_id": "coupons.bill.discount.label",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "coupons.bill.discount",
+      "node_id": "coupons.bill.discount",
+      "stable_id": "coupons.bill.discount",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "coupons.payable.label",
+      "node_id": "coupons.payable.label",
+      "stable_id": "coupons.payable.label",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "coupons.payable",
+      "node_id": "coupons.payable",
+      "stable_id": "coupons.payable",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "coupons.confirm",
+      "node_id": "coupons.confirm",
+      "stable_id": "coupons.confirm",
+      "component": "Button"
+    }
+  ],
+  "interactions": [
+    {
+      "id": "coupons.option.none.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "coupons.option.none"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.option"
+      }
+    },
+    {
+      "id": "coupons.option.save6.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "coupons.option.save6"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.option"
+      }
+    },
+    {
+      "id": "coupons.option.save10.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "coupons.option.save10"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.option"
+      }
+    },
+    {
+      "id": "coupons.confirm.press",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "coupons.confirm"
+      },
+      "action": {
+        "type": "save"
+      }
+    }
+  ]
+}

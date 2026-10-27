@@ -1,0 +1,787 @@
+{
+  "schema_version": "structured-design-package/v1",
+  "adapter": "ai-prototype-dsl/v2",
+  "toolchain": {
+    "packer": "autophone-prototype-packager/v2",
+    "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+    "browser": "chromium/149.0.7827.55",
+    "compiler": "autophone-ui-prototype-compiler/v2"
+  },
+  "screen_id": "coupons",
+  "state_id": "coupons.selected.fixture-v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "node_scope": [
+    "coupons.description",
+    "coupons.option.none",
+    "coupons.option.save6",
+    "coupons.option.save10",
+    "coupons.unavailable.save20.title",
+    "coupons.unavailable.save20.reason",
+    "coupons.bill.goods.label",
+    "coupons.bill.goods",
+    "coupons.bill.fees.label",
+    "coupons.bill.fees",
+    "coupons.bill.discount.label",
+    "coupons.bill.discount",
+    "coupons.payable.label",
+    "coupons.payable",
+    "coupons.confirm",
+    "coupons.back",
+    "coupons.brand",
+    "coupons.title"
+  ],
+  "artifacts": [
+    {
+      "role": "reference",
+      "path": "reference.png",
+      "sha256": "94c9cbd87be7a74e554abf7ffc71c63572c8194efee67a9d74216fabeb9e80e6"
+    },
+    {
+      "role": "review_reference",
+      "path": "review-reference.png",
+      "sha256": "e78a63470395ff18b3c88a76bb9103455564091ad94566f1ec637df64a40687a"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/compiled-scene.json",
+      "sha256": "93a15bd37aa1ded1e07451cb0c9a4d74017b5fd4ace8c1644ad9512824b1896f"
+    },
+    {
+      "role": "prototype",
+      "path": "prototype/compiled/index.html",
+      "sha256": "26f18fab7b60980172c2ee982e5df06c403a98a399a525094b19c71e9c56415a"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/renderer-spec.json",
+      "sha256": "2f08efcc23ab1784607b461214e9220554db6595edc40cecf153bd26d58c4f69"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/prototype-spec.json",
+      "sha256": "5c168653691a6a4dbe1540fa04dbed24ba56588eb1c5eec83c2948daf95f50a3"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/screen-plan.json",
+      "sha256": "aee54cd73e1db3a74f7c79a86181a64f3e46d98ca63306007211f39332d71a48"
+    },
+    {
+      "role": "fixture",
+      "path": "prototype/state-fixture.json",
+      "sha256": "6242ccf8e689d257bfa135219a3be0ed20b987a6dd25d35a1723bb901292a233"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/ui-document.json",
+      "sha256": "9656ba3bd058f9de3287d8bf01d9a3ffa32164f0fcf7c46b5a9bb94e11be783b"
+    }
+  ],
+  "elements": [
+    {
+      "node_id": "coupons.description",
+      "stable_id": "coupons.description",
+      "properties": [
+        {
+          "property": "text",
+          "value": "按商品金额判断门槛，每单限用 1 张。"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "183"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "23"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.option.none",
+      "stable_id": "coupons.option.none",
+      "properties": [
+        {
+          "property": "text",
+          "value": "不使用优惠券"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "260"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.option.save6",
+      "stable_id": "coupons.option.save6",
+      "properties": [
+        {
+          "property": "text",
+          "value": "满 ¥32 减 ¥6"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "320"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.option.save10",
+      "stable_id": "coupons.option.save10",
+      "properties": [
+        {
+          "property": "text",
+          "value": "满 ¥60 减 ¥10"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "380"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.unavailable.save20.title",
+      "stable_id": "coupons.unavailable.save20.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "满 ¥100 减 ¥20"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "464"
+        },
+        {
+          "property": "frame.width",
+          "value": "354"
+        },
+        {
+          "property": "frame.height",
+          "value": "22"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.unavailable.save20.reason",
+      "stable_id": "coupons.unavailable.save20.reason",
+      "properties": [
+        {
+          "property": "text",
+          "value": "还差 ¥36 可用"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "13"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "494"
+        },
+        {
+          "property": "frame.width",
+          "value": "354"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.bill.goods.label",
+      "stable_id": "coupons.bill.goods.label",
+      "properties": [
+        {
+          "property": "text",
+          "value": "商品金额"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "562"
+        },
+        {
+          "property": "frame.width",
+          "value": "60"
+        },
+        {
+          "property": "frame.height",
+          "value": "23"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.bill.goods",
+      "stable_id": "coupons.bill.goods",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥64"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "364.0469"
+        },
+        {
+          "property": "frame.y",
+          "value": "562"
+        },
+        {
+          "property": "frame.width",
+          "value": "27.9531"
+        },
+        {
+          "property": "frame.height",
+          "value": "23"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.bill.fees.label",
+      "stable_id": "coupons.bill.fees.label",
+      "properties": [
+        {
+          "property": "text",
+          "value": "包装费 ¥4 + 配送费 ¥3"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "13"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "593"
+        },
+        {
+          "property": "frame.width",
+          "value": "133.0313"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.bill.fees",
+      "stable_id": "coupons.bill.fees",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥7"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "13"
+        },
+        {
+          "property": "frame.x",
+          "value": "376.5625"
+        },
+        {
+          "property": "frame.y",
+          "value": "593"
+        },
+        {
+          "property": "frame.width",
+          "value": "15.4375"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.bill.discount.label",
+      "stable_id": "coupons.bill.discount.label",
+      "properties": [
+        {
+          "property": "text",
+          "value": "优惠"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "621"
+        },
+        {
+          "property": "frame.width",
+          "value": "30"
+        },
+        {
+          "property": "frame.height",
+          "value": "22"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.bill.discount",
+      "stable_id": "coupons.bill.discount",
+      "properties": [
+        {
+          "property": "text",
+          "value": "−¥6"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "362.9375"
+        },
+        {
+          "property": "frame.y",
+          "value": "621"
+        },
+        {
+          "property": "frame.width",
+          "value": "29.0625"
+        },
+        {
+          "property": "frame.height",
+          "value": "22"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.payable.label",
+      "stable_id": "coupons.payable.label",
+      "properties": [
+        {
+          "property": "text",
+          "value": "应付金额"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "793"
+        },
+        {
+          "property": "frame.width",
+          "value": "60"
+        },
+        {
+          "property": "frame.height",
+          "value": "22"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.payable",
+      "stable_id": "coupons.payable",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥65"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "28"
+        },
+        {
+          "property": "frame.x",
+          "value": "352.9688"
+        },
+        {
+          "property": "frame.y",
+          "value": "785"
+        },
+        {
+          "property": "frame.width",
+          "value": "55.0313"
+        },
+        {
+          "property": "frame.height",
+          "value": "38"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.confirm",
+      "stable_id": "coupons.confirm",
+      "properties": [
+        {
+          "property": "text",
+          "value": "确认使用"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "831"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.back",
+      "stable_id": "coupons.back",
+      "properties": [
+        {
+          "property": "text",
+          "value": "返回"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "67"
+        },
+        {
+          "property": "frame.width",
+          "value": "64"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.brand",
+      "stable_id": "coupons.brand",
+      "properties": [
+        {
+          "property": "text",
+          "value": "Food AI"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "353.7188"
+        },
+        {
+          "property": "frame.y",
+          "value": "80"
+        },
+        {
+          "property": "frame.width",
+          "value": "54.2813"
+        },
+        {
+          "property": "frame.height",
+          "value": "22"
+        }
+      ]
+    },
+    {
+      "node_id": "coupons.title",
+      "stable_id": "coupons.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "优惠券选择与金额明细"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "26"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "131"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "36"
+        }
+      ]
+    }
+  ],
+  "mapping_gaps": [],
+  "comparison_policy": {
+    "pixel_scope": "expected_alpha",
+    "text_ink_verification": "ink_geometry",
+    "text_ink_stable_ids": [
+      "coupons.description",
+      "coupons.option.none",
+      "coupons.option.save6",
+      "coupons.option.save10",
+      "coupons.unavailable.save20.title",
+      "coupons.unavailable.save20.reason",
+      "coupons.bill.goods.label",
+      "coupons.bill.goods",
+      "coupons.bill.fees.label",
+      "coupons.bill.fees",
+      "coupons.bill.discount.label",
+      "coupons.bill.discount",
+      "coupons.payable.label",
+      "coupons.payable",
+      "coupons.confirm",
+      "coupons.back",
+      "coupons.brand",
+      "coupons.title"
+    ],
+    "max_text_ink_width_delta_ratio": 0.02,
+    "max_text_ink_height_delta_ratio": 0.06,
+    "max_text_ink_area_delta_ratio": 0.09,
+    "flat_color_geometry_verification": "component_bounds",
+    "flat_color_geometry_targets": [
+      {
+        "stable_id": "coupons.option.save6",
+        "color": "#F7D7B5"
+      },
+      {
+        "stable_id": "coupons.confirm",
+        "color": "#E6472F"
+      }
+    ],
+    "max_flat_color_bounds_delta_px": 1
+  },
+  "comparison_mask": {
+    "mode": "flat_color_interiors",
+    "strategy": "design_owned_stable_regions",
+    "input_domain": "design_reference_only",
+    "include_colors": [
+      "#FFF8EF",
+      "#FFFFFF",
+      "#F7D7B5",
+      "#E6472F"
+    ],
+    "included_classes": [
+      "solid_backgrounds",
+      "component_interiors",
+      "stable_fill_regions"
+    ],
+    "excluded_classes": [
+      "undeclared_colors",
+      "text_glyph_edges",
+      "thin_stroke_edges",
+      "platform_symbol_edges",
+      "declared_color_edges"
+    ],
+    "edge_inset_px": 12,
+    "minimum_content_coverage_ratio": 0.12,
+    "selected_pixels": 2618660,
+    "content_pixels": 3235320,
+    "content_coverage_ratio": 0.80939752,
+    "review_reference": "review-reference.png"
+  }
+}

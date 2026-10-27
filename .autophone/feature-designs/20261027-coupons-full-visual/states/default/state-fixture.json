@@ -1,0 +1,46 @@
+{
+  "schema_version": "ui-prototype-fixture/v1",
+  "state_id": "coupons.default.fixture-v1",
+  "data_sources": {
+    "option": [
+      {
+        "value": "none",
+        "label": "不使用优惠券"
+      },
+      {
+        "value": "save6",
+        "label": "满 ¥32 减 ¥6"
+      },
+      {
+        "value": "save10",
+        "label": "满 ¥60 减 ¥10"
+      }
+    ]
+  },
+  "values": {
+    "subtotal_cents": 6400,
+    "packaging_cents": 400,
+    "delivery_cents": 300,
+    "discount_cents": 0,
+    "payable_cents": 7100,
+    "committed_coupon": "none",
+    "option": "none"
+  },
+  "view": {
+    "description": "按商品金额判断门槛，每单限用 1 张。",
+    "unavailable_title": "满 ¥100 减 ¥20",
+    "unavailable_reason": "还差 ¥36 可用",
+    "bill_goods_label": "商品金额",
+    "bill_goods": "¥64",
+    "bill_fees_label": "包装费 ¥4 + 配送费 ¥3",
+    "bill_fees": "¥7",
+    "bill_discount_label": "优惠",
+    "bill_discount": "¥0",
+    "payable_label": "应付金额",
+    "payable": "¥71",
+    "confirm": "确认使用",
+    "back": "返回",
+    "brand": "Food AI",
+    "title": "优惠券选择与金额明细"
+  }
+}
