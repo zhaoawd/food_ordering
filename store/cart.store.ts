@@ -11,6 +11,11 @@ export const EMPTY_CART_STATE_IDS = [
     "dish.customized.fixture-v1",
     "cart.empty.fixture-v1",
 ] as const;
+/** 优惠券状态必须播种真实购物车（两份标准份），不能只写入展示金额。 */
+export const SEEDED_CART_STATE_IDS = [
+    "coupons.default.fixture-v1",
+    "coupons.selected.fixture-v1",
+] as const;
 
 function customizationKey(customizations: CartCustomization[] = []): string {
     return [...customizations].map((c) => c.id).sort().join("+");
@@ -105,10 +110,13 @@ export const useCartStore = create<CartStore>((set, get) => ({
     loadFixture: (stateId, nonce) => {
         if (!nonce) throw new Error("Fixture nonce is required");
         if (get().fixtureNonce === nonce) return;
-        if (!(EMPTY_CART_STATE_IDS as readonly string[]).includes(stateId)) {
+        if ((EMPTY_CART_STATE_IDS as readonly string[]).includes(stateId)) {
+            set({ items: [], fixtureNonce: nonce });
+        } else if ((SEEDED_CART_STATE_IDS as readonly string[]).includes(stateId)) {
+            set({ items: sessionItems(), fixtureNonce: nonce });
+        } else {
             throw new Error(`Unknown cart fixture: ${stateId}`);
         }
-        set({ items: [], fixtureNonce: nonce });
     },
 
     getTotalItems: () =>

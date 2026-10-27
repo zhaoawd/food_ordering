@@ -7,7 +7,8 @@ import {
   ObservedText,
   ObservedView,
 } from "@/verification/observation";
-import { cartLineStableId, useCartStore } from "@/store/cart.store";
+import { cartLineStableId, MAX_LINE_QUANTITY, useCartStore } from "@/store/cart.store";
+import { computeBill, couponLabel, formatDiscount, useCouponStore } from "@/store/coupon.store";
 import { formatYuan, lineSpecSummary } from "@/store/dish.catalog";
 import type { CartItemType } from "@/type";
 
@@ -142,9 +143,18 @@ const lineTotalCents = (item: CartItemType) =>
 
 // 非空购物车没有设计参考图；空态的元素、文案与样式保持上面的原样。
 function CartLines({ items }: { items: CartItemType[] }) {
-  const removeItem = useCartStore((state) => state.removeItem);
-  const quantity = items.reduce((sum, item) => sum + item.quantity, 0);
-  const subtotal = items.reduce((sum, item) => sum + lineTotalCents(item), 0);
+  const { removeItem, increaseQty, decreaseQty } = useCartStore();
+  const applied = useCouponStore((state) => state.applied);
+  const invalidated = useCouponStore((state) => state.invalidated);
+  const bill = computeBill(items, applied);
+  const text = (stableId: string, value: string, style: object) => (
+    <ObservedText stableId={stableId} sourceRef={sourceRef} observationRole="text" style={style}>{value}</ObservedText>
+  );
+  const stepper = (stableId: string, label: string, accessibilityLabel: string, disabled: boolean, onPress: () => void) => (
+    <ObservedPressable stableId={stableId} sourceRef={sourceRef} observationRole="button" accessibilityRole="button" accessibilityLabel={accessibilityLabel} accessibilityState={{ disabled }} aria-disabled={disabled} disabled={disabled} onPress={onPress} style={[lineStyles.stepper, disabled && lineStyles.stepperDisabled]}>
+      <Text style={[lineStyles.stepperLabel, disabled && lineStyles.stepperLabelDisabled]}>{label}</Text>
+    </ObservedPressable>
+  );
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.header} testID="cart.header">
@@ -155,30 +165,58 @@ function CartLines({ items }: { items: CartItemType[] }) {
       <ScrollView contentContainerStyle={lineStyles.list}>
         {items.map((item) => {
           const id = cartLineStableId(item);
+          const customizations = item.customizations ?? [];
           return (
             <ObservedView key={id} stableId={id} sourceRef={sourceRef} observationRole="group" style={lineStyles.line}>
               <View style={lineStyles.lineText}>
-                <ObservedText stableId={`${id}.name`} sourceRef={sourceRef} observationRole="text" style={lineStyles.name}>{item.name}</ObservedText>
-                <ObservedText stableId={`${id}.spec`} sourceRef={sourceRef} observationRole="text" style={lineStyles.meta}>{lineSpecSummary(item)}</ObservedText>
-                <ObservedText stableId={`${id}.quantity`} sourceRef={sourceRef} observationRole="text" style={lineStyles.meta}>{`${item.quantity} 份`}</ObservedText>
+                {text(`${id}.name`, item.name, lineStyles.name)}
+                {text(`${id}.spec`, lineSpecSummary(item), lineStyles.meta)}
+                <View style={lineStyles.quantityRow}>
+                  {stepper(`${id}.decrease`, "−", `减少${item.name}`, false, () => decreaseQty(item.id, customizations))}
+                  {text(`${id}.quantity`, `${item.quantity} 份`, lineStyles.meta)}
+                  {stepper(`${id}.increase`, "+", `增加${item.name}`, item.quantity >= MAX_LINE_QUANTITY, () => increaseQty(item.id, customizations))}
+                </View>
               </View>
               <View style={lineStyles.lineSide}>
-                <ObservedText stableId={`${id}.subtotal`} sourceRef={sourceRef} observationRole="text" style={lineStyles.price}>{formatYuan(lineTotalCents(item))}</ObservedText>
-                <ObservedPressable stableId={`${id}.remove`} sourceRef={sourceRef} observationRole="button" accessibilityRole="button" accessibilityLabel={`删除${item.name}`} onPress={() => removeItem(item.id, item.customizations ?? [])} style={lineStyles.remove}>
+                {text(`${id}.subtotal`, formatYuan(lineTotalCents(item)), lineStyles.price)}
+                <ObservedPressable stableId={`${id}.remove`} sourceRef={sourceRef} observationRole="button" accessibilityRole="button" accessibilityLabel={`删除${item.name}`} onPress={() => removeItem(item.id, customizations)} style={lineStyles.remove}>
                   <Text style={lineStyles.removeLabel}>删除</Text>
                 </ObservedPressable>
               </View>
             </ObservedView>
           );
         })}
+        <View style={lineStyles.bill}>
+          <ObservedPressable stableId="cart.coupon.entry" sourceRef={sourceRef} observationRole="button" accessibilityRole="button" accessibilityLabel={`优惠券，${couponLabel(applied)}`} onPress={() => router.push("/coupons")} style={lineStyles.billRow}>
+            <Text style={lineStyles.name}>优惠券</Text>
+            <Text style={lineStyles.meta}>{`${couponLabel(applied)} ›`}</Text>
+          </ObservedPressable>
+          {invalidated && text("cart.coupon.notice", "优惠券已失效，请重新选择", lineStyles.notice)}
+          <View style={lineStyles.billRow}>
+            <Text style={lineStyles.meta}>商品金额</Text>
+            {text("cart.summary.subtotal", formatYuan(bill.subtotalCents), lineStyles.amount)}
+          </View>
+          <View style={lineStyles.billRow}>
+            <Text style={lineStyles.meta}>包装费</Text>
+            {text("cart.summary.packaging", formatYuan(bill.packagingCents), lineStyles.amount)}
+          </View>
+          <View style={lineStyles.billRow}>
+            <Text style={lineStyles.meta}>配送费</Text>
+            {text("cart.summary.delivery", formatYuan(bill.deliveryCents), lineStyles.amount)}
+          </View>
+          <View style={lineStyles.billRow}>
+            <Text style={lineStyles.meta}>优惠</Text>
+            {text("cart.summary.discount", formatDiscount(bill.discountCents), lineStyles.discount)}
+          </View>
+        </View>
       </ScrollView>
       <View style={lineStyles.footer}>
         <View style={lineStyles.summaryRow}>
           <Text style={lineStyles.name}>共</Text>
-          <ObservedText stableId="cart.summary.quantity" sourceRef={sourceRef} observationRole="text" style={lineStyles.name}>{String(quantity)}</ObservedText>
-          <Text style={lineStyles.name}>件</Text>
+          {text("cart.summary.quantity", String(bill.quantity), lineStyles.name)}
+          <Text style={lineStyles.name}>件 · 应付</Text>
           <View style={lineStyles.spacer} />
-          <ObservedText stableId="cart.summary.subtotal" sourceRef={sourceRef} observationRole="text" style={lineStyles.price}>{formatYuan(subtotal)}</ObservedText>
+          {text("cart.summary.payable", formatYuan(bill.payableCents), lineStyles.price)}
         </View>
         <ObservedPressable stableId="cart.continue" sourceRef={sourceRef} observationRole="button" accessibilityRole="button" accessibilityLabel="继续选购" onPress={() => router.navigate("/")} style={lineStyles.continue}>
           <Text style={lineStyles.continueLabel}>继续选购</Text>
@@ -203,4 +241,14 @@ const lineStyles = StyleSheet.create({
   spacer: { flex: 1 },
   continue: { alignItems: "center", backgroundColor: "#E6472F", borderRadius: 16, height: 48, justifyContent: "center" },
   continueLabel: { color: "#FFFFFF", fontSize: 15, fontWeight: "600", lineHeight: 22 },
+  quantityRow: { alignItems: "center", flexDirection: "row", gap: 10 },
+  stepper: { alignItems: "center", backgroundColor: "#FFFFFF", borderColor: "#E8DCD3", borderRadius: 10, borderWidth: 1, height: 32, justifyContent: "center", width: 32 },
+  stepperDisabled: { backgroundColor: "#F3ECE6" },
+  stepperLabel: { color: "#E6472F", fontSize: 15, fontWeight: "600", lineHeight: 22 },
+  stepperLabelDisabled: { color: "#77655F" },
+  bill: { backgroundColor: "#FFFFFF", borderRadius: 16, gap: 8, padding: 16 },
+  billRow: { alignItems: "center", flexDirection: "row", justifyContent: "space-between" },
+  amount: { color: "#241713", fontSize: 15, lineHeight: 22 },
+  discount: { color: "#E6472F", fontSize: 15, fontWeight: "600", lineHeight: 22 },
+  notice: { color: "#E6472F", fontSize: 13, lineHeight: 20 },
 });
