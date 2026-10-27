@@ -1,0 +1,107 @@
+{
+  "schema_version": "delivery-visual-noise-baseline/v1",
+  "screen_id": "address",
+  "state_id": "address.company.fixture-v1",
+  "build": {
+    "app": "food_ordering_v2",
+    "slot": "001",
+    "build_id": "bld-4aa46f993ec379559b9e32ad0e3e418f53a5a43da91be4754efa9e36230f4563",
+    "sha256": "1315ff92655a1f03e9494e9c0751b5e9c82cfeb71560679fc623024609dfe74d",
+    "source_revision": "deb5526f56e7416098d2fa42e480d6eb119f4595"
+  },
+  "environment": {
+    "theme": "light",
+    "locale": "en-US",
+    "device_profile": "vphone-ios26-default",
+    "frame_size": {
+      "width": 430,
+      "height": 932
+    },
+    "scale": 3
+  },
+  "pixel_scope": "full_image",
+  "measurement_version": "native-rgb-pairwise/v1",
+  "captures": [
+    {
+      "run_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-01",
+      "capture_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-01",
+      "source": {
+        "kind": "registered_visual_calibration",
+        "assignment_id": "A-157393b62ede433e8b1576ff18df25a0",
+        "capture_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-01"
+      },
+      "actual_dir": "runs/calibration/CAL-d8ff74b1d06949aab464169d5cec481c/CAL-d8ff74b1d06949aab464169d5cec481c.capture-01/actual",
+      "image": {
+        "path": "runs/calibration/CAL-d8ff74b1d06949aab464169d5cec481c/CAL-d8ff74b1d06949aab464169d5cec481c.capture-01/actual/actual-full.png",
+        "sha256": "a5a5a86765b420eebe7fc4bb13dec968276b5e1b6285fdda9e1a6c4335c1aabe"
+      },
+      "artifact_manifest": {
+        "path": "runs/calibration/CAL-d8ff74b1d06949aab464169d5cec481c/CAL-d8ff74b1d06949aab464169d5cec481c.capture-01/actual/artifact-manifest.json",
+        "sha256": "6aa4597e96c4e50f6cfb3e4a08ddad7295a56dab629a9fb99643d032088dbfc2"
+      }
+    },
+    {
+      "run_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-02",
+      "capture_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-02",
+      "source": {
+        "kind": "registered_visual_calibration",
+        "assignment_id": "A-157393b62ede433e8b1576ff18df25a0",
+        "capture_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-02"
+      },
+      "actual_dir": "runs/calibration/CAL-d8ff74b1d06949aab464169d5cec481c/CAL-d8ff74b1d06949aab464169d5cec481c.capture-02/actual",
+      "image": {
+        "path": "runs/calibration/CAL-d8ff74b1d06949aab464169d5cec481c/CAL-d8ff74b1d06949aab464169d5cec481c.capture-02/actual/actual-full.png",
+        "sha256": "a5a5a86765b420eebe7fc4bb13dec968276b5e1b6285fdda9e1a6c4335c1aabe"
+      },
+      "artifact_manifest": {
+        "path": "runs/calibration/CAL-d8ff74b1d06949aab464169d5cec481c/CAL-d8ff74b1d06949aab464169d5cec481c.capture-02/actual/artifact-manifest.json",
+        "sha256": "af276d4bb65ab1bf2cb9d33df0a255d341d8f4fbd856d979b7fdba08e08c1f94"
+      }
+    },
+    {
+      "run_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-03",
+      "capture_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-03",
+      "source": {
+        "kind": "registered_visual_calibration",
+        "assignment_id": "A-157393b62ede433e8b1576ff18df25a0",
+        "capture_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-03"
+      },
+      "actual_dir": "runs/calibration/CAL-d8ff74b1d06949aab464169d5cec481c/CAL-d8ff74b1d06949aab464169d5cec481c.capture-03/actual",
+      "image": {
+        "path": "runs/calibration/CAL-d8ff74b1d06949aab464169d5cec481c/CAL-d8ff74b1d06949aab464169d5cec481c.capture-03/actual/actual-full.png",
+        "sha256": "a5a5a86765b420eebe7fc4bb13dec968276b5e1b6285fdda9e1a6c4335c1aabe"
+      },
+      "artifact_manifest": {
+        "path": "runs/calibration/CAL-d8ff74b1d06949aab464169d5cec481c/CAL-d8ff74b1d06949aab464169d5cec481c.capture-03/actual/artifact-manifest.json",
+        "sha256": "91ba39c9f3c72117ecbef7e1f2da060e2a905768e6c6d5e2738b7e7c95edf07f"
+      }
+    }
+  ],
+  "pairwise_results": [
+    {
+      "left_run_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-01",
+      "right_run_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-02",
+      "changed_pixels": 0,
+      "changed_pixel_ratio": 0.0,
+      "max_channel_delta": 0
+    },
+    {
+      "left_run_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-01",
+      "right_run_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-03",
+      "changed_pixels": 0,
+      "changed_pixel_ratio": 0.0,
+      "max_channel_delta": 0
+    },
+    {
+      "left_run_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-02",
+      "right_run_id": "CAL-d8ff74b1d06949aab464169d5cec481c.capture-03",
+      "changed_pixels": 0,
+      "changed_pixel_ratio": 0.0,
+      "max_channel_delta": 0
+    }
+  ],
+  "noise_envelope": {
+    "pixel_channel_tolerance": 0,
+    "max_changed_pixel_ratio": 0.0
+  }
+}

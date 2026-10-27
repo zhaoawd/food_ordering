@@ -1,0 +1,351 @@
+{
+  "app": "food_ordering_v2",
+  "baseline": null,
+  "branch": "autophone/req-food-address-company-r3",
+  "design_package": {
+    "adapter": "ai-prototype-dsl/v2",
+    "element_count": 13,
+    "frame_size": {
+      "height": 932,
+      "width": 430
+    },
+    "manifest_sha256": "5953e55155b6e581c0ac245f713cb9db58b7aa4be0fde8c938189b20d55b03d3",
+    "origin": {
+      "path": "evidence/inputs/food-address-20261027-full-visual/address-company",
+      "repo": "autophone"
+    },
+    "role": "design_source",
+    "root": "design",
+    "scale": 3,
+    "schema_version": "structured-design-package/v1",
+    "stable_ids": [
+      "address.back",
+      "address.brand",
+      "address.confirm",
+      "address.description",
+      "address.detail.address",
+      "address.detail.contact",
+      "address.detail.room",
+      "address.detail.tag",
+      "address.notice",
+      "address.option.company",
+      "address.option.home",
+      "address.summary",
+      "address.title"
+    ]
+  },
+  "expectation": {
+    "clauses": [],
+    "comparison_policy": {
+      "covered_pixel_ratio": 0.84227712,
+      "flat_color_geometry_targets": [
+        {
+          "color": "#F7D7B5",
+          "stable_id": "address.option.company"
+        },
+        {
+          "color": "#E6472F",
+          "stable_id": "address.confirm"
+        }
+      ],
+      "flat_color_geometry_verification": "component_bounds",
+      "frame_tolerance_pt": 0.5,
+      "max_changed_pixel_ratio": 0.002,
+      "max_flat_color_bounds_delta_px": 1,
+      "max_local_changed_pixel_ratio": 0.008,
+      "max_text_ink_area_delta_ratio": 0.09,
+      "max_text_ink_height_delta_ratio": 0.06,
+      "max_text_ink_width_delta_ratio": 0.02,
+      "pixel_channel_tolerance": 0,
+      "pixel_scope": "expected_alpha",
+      "text_ink_reference": {
+        "artifact_sha256": "1315ff92655a1f03e9494e9c0751b5e9c82cfeb71560679fc623024609dfe74d",
+        "build_id": "bld-4aa46f993ec379559b9e32ad0e3e418f53a5a43da91be4754efa9e36230f4563",
+        "captures": [
+          {
+            "actual_snapshot_sha256": "0795c4772727098953af296538a21beb1f3abf3c4617bf5babf7181cac053a6b",
+            "capture_ref": "food-address-company-r3-ink-01",
+            "image_sha256": "f26724aa9a16b60ddb67aebfc894cae3dc266fc26ae95abf0946631524f7011c"
+          },
+          {
+            "actual_snapshot_sha256": "0795c4772727098953af296538a21beb1f3abf3c4617bf5babf7181cac053a6b",
+            "capture_ref": "food-address-company-r3-ink-02",
+            "image_sha256": "f26724aa9a16b60ddb67aebfc894cae3dc266fc26ae95abf0946631524f7011c"
+          },
+          {
+            "actual_snapshot_sha256": "67a20f9f29cd69070ea4ecdd55c48a825e92869935a827b2f31784952e5ab415",
+            "capture_ref": "food-address-company-r3-ink-03",
+            "image_sha256": "f26724aa9a16b60ddb67aebfc894cae3dc266fc26ae95abf0946631524f7011c"
+          }
+        ],
+        "elements": {
+          "address.back": {
+            "color": "#E6472F",
+            "ink_area_px": 1532,
+            "ink_height_px": 41,
+            "ink_width_px": 83,
+            "text": "返回"
+          },
+          "address.brand": {
+            "color": "#E6472F",
+            "ink_area_px": 1759,
+            "ink_height_px": 33,
+            "ink_width_px": 154,
+            "text": "Food AI"
+          },
+          "address.confirm": {
+            "color": "#FFFFFF",
+            "ink_area_px": 6551,
+            "ink_height_px": 144,
+            "ink_width_px": 1158,
+            "text": "确认配送地址"
+          },
+          "address.description": {
+            "color": "#77655F",
+            "ink_area_px": 8393,
+            "ink_height_px": 44,
+            "ink_width_px": 735,
+            "text": "选择本次配送地点，确认后更新首页。"
+          },
+          "address.detail.address": {
+            "color": "#241713",
+            "ink_area_px": 12938,
+            "ink_height_px": 51,
+            "ink_width_px": 702,
+            "text": "北京市海淀区中关村东路 8 号"
+          },
+          "address.detail.contact": {
+            "color": "#77655F",
+            "ink_area_px": 3181,
+            "ink_height_px": 36,
+            "ink_width_px": 428,
+            "text": "测试用户 · 138****0000"
+          },
+          "address.detail.room": {
+            "color": "#241713",
+            "ink_area_px": 2748,
+            "ink_height_px": 41,
+            "ink_width_px": 265,
+            "text": "B 座 6 层前台"
+          },
+          "address.detail.tag": {
+            "color": "#E6472F",
+            "ink_area_px": 577,
+            "ink_height_px": 34,
+            "ink_width_px": 71,
+            "text": "公司"
+          },
+          "address.notice": {
+            "color": "#77655F",
+            "ink_area_px": 3622,
+            "ink_height_px": 36,
+            "ink_width_px": 364,
+            "text": "仅配送至已保存地址。"
+          },
+          "address.option.company": {
+            "color": "#E6472F",
+            "ink_area_px": 11286,
+            "ink_height_px": 156,
+            "ink_width_px": 1158,
+            "text": "公司 · 中关村"
+          },
+          "address.option.home": {
+            "color": "#77655F",
+            "ink_area_px": 2612,
+            "ink_height_px": 42,
+            "ink_width_px": 174,
+            "text": "家 · 望京"
+          },
+          "address.summary": {
+            "color": "#241713",
+            "ink_area_px": 5322,
+            "ink_height_px": 42,
+            "ink_width_px": 443,
+            "text": "已选择：公司 · 中关村"
+          },
+          "address.title": {
+            "color": "#241713",
+            "ink_area_px": 14758,
+            "ink_height_px": 72,
+            "ink_width_px": 461,
+            "text": "配送地址选择"
+          }
+        },
+        "scale": 3.0,
+        "source": "runtime_capture"
+      },
+      "text_ink_stable_ids": [
+        "address.description",
+        "address.option.home",
+        "address.option.company",
+        "address.detail.tag",
+        "address.detail.address",
+        "address.detail.room",
+        "address.detail.contact",
+        "address.notice",
+        "address.summary",
+        "address.confirm",
+        "address.back",
+        "address.brand",
+        "address.title"
+      ],
+      "text_ink_verification": "ink_geometry"
+    },
+    "design_package_sha256": "5953e55155b6e581c0ac245f713cb9db58b7aa4be0fde8c938189b20d55b03d3",
+    "kind": "structured",
+    "noise_baseline": {
+      "path": "expectation/noise-baseline-v1.json",
+      "sha256": "9fbeaed8ef0f31431e891fb91e4d69765820ad1b9480344af6aa1fbb58aca484"
+    },
+    "property_channels": "sha256:21e0fac5cd4a0093d41a780c9ece36efae8b4b3b5cbc7d85bea3af586e350b80",
+    "reference": {
+      "path": "expectation/expected-full.png",
+      "sha256": "cbae8806a6b19cdee59264fc122f5c436c3e6156a367fe9addd9b127407b69d4"
+    },
+    "region_mappings": {
+      "screen": {
+        "coordinate_space": "screen_points",
+        "frame": {
+          "height": 932,
+          "width": 430,
+          "x": 0,
+          "y": 0
+        },
+        "scale": 3,
+        "stable_ids": [
+          "$screen"
+        ]
+      }
+    },
+    "regions": [
+      "screen"
+    ],
+    "required_property_policy": "production-v1",
+    "role": "executable_expectation",
+    "unverifiable_clauses": []
+  },
+  "files": [
+    {
+      "bytes": 4087,
+      "kind": "requirement_document",
+      "origin": "authored",
+      "path": "requirement.md",
+      "purpose": "需求原文。页面上传的就是这个文件，建单时冻结成需求单的原始输入快照。",
+      "sha256": "4e68e35100909396f2f72330a61e76a9c9c2e3bb726b94a3547db7f512ae702f"
+    },
+    {
+      "bytes": 14047,
+      "kind": "design_package_manifest",
+      "origin": "compiled",
+      "path": "design/design-package.json",
+      "purpose": "设计源包身份与清单：屏/状态、frame、scale、逐元素属性和比较策略。它用于设计追溯，不作为本轮机器可执行期望。",
+      "sha256": "5953e55155b6e581c0ac245f713cb9db58b7aa4be0fde8c938189b20d55b03d3"
+    },
+    {
+      "bytes": 8005,
+      "kind": "design_compiled_scene",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/compiled-scene.json",
+      "purpose": "编译后的场景节点与测量值。stable_id → 属性期望的映射来源。",
+      "sha256": "4a39d75997efdfce32e63f27706f02d8b8fc65b7b939115d38084a49b2769391"
+    },
+    {
+      "bytes": 4707,
+      "kind": "design_compiled_prototype",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/index.html",
+      "purpose": "编译器生成的可执行原型 HTML。参考图由它渲染，不手工编辑。",
+      "sha256": "1be35e1bdb057f9aba839ae6b166059d9fd9225895db4defb2cf0c236fd4b373"
+    },
+    {
+      "bytes": 3236,
+      "kind": "design_renderer_spec",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/renderer-spec.json",
+      "purpose": "渲染器输入参数。参考图能否复现取决于它。",
+      "sha256": "01b9ceafd1349d1ba1a5b65c806973218afa62971a5fe7cc89c4b557d60a48ed"
+    },
+    {
+      "bytes": 1678,
+      "kind": "design_prototype_spec",
+      "origin": "authored",
+      "path": "design/prototype/prototype-spec.json",
+      "purpose": "设计原始内容：草稿装配说明——viewport profile、safe area、系统 UI 策略与逐元素验收范围。",
+      "sha256": "2da3328d855117c90089c5ff03b5f737aa635bf2478de1b8362c05488117948a"
+    },
+    {
+      "bytes": 297,
+      "kind": "design_screen_plan",
+      "origin": "authored",
+      "path": "design/prototype/screen-plan.json",
+      "purpose": "设计原始内容：页面目的、区块划分与页面流。不含设计节点。",
+      "sha256": "d2cf91a1461a7f98050ffe9283e4f318333487fab77b2d512d710a2fd5323bca"
+    },
+    {
+      "bytes": 899,
+      "kind": "design_state_fixture",
+      "origin": "authored",
+      "path": "design/prototype/state-fixture.json",
+      "purpose": "设计原始内容：Fixture Spec，业务状态的独立真源（选项、列表、文案样例）。",
+      "sha256": "2d2b502c318fd8f79651742ae145fe561932d7c575b82ce01f79b2936839080f"
+    },
+    {
+      "bytes": 16132,
+      "kind": "design_ui_document",
+      "origin": "authored",
+      "path": "design/prototype/ui-document.json",
+      "purpose": "设计原始内容：UI DSL 节点树，设计的唯一真源。布局、Token 引用和 stable_id 都在这里。",
+      "sha256": "9a3c8d1da2dab06e9449c5bf767014e93db70e027ce9592c2877ce042d07a2f9"
+    },
+    {
+      "bytes": 144958,
+      "kind": "design_reference_image",
+      "origin": "rendered",
+      "path": "design/reference.png",
+      "purpose": "设计参考图：由编译原型渲染，尺寸由设计包的 frame_size 与 scale 决定。声明 comparison_mask 时，它应用遮罩，评审使用遮罩前的 review-reference.png；未声明遮罩时，它也用于设计评审。本轮比较使用 expectation 声明的参考图。",
+      "sha256": "cbae8806a6b19cdee59264fc122f5c436c3e6156a367fe9addd9b127407b69d4"
+    },
+    {
+      "bytes": 138138,
+      "kind": "design_review_reference_image",
+      "origin": "rendered",
+      "path": "design/review-reference.png",
+      "purpose": "评审参考图：viewport scope 之后、遮罩之前的那一帧。遮罩覆盖率的分母只能从它复算。",
+      "sha256": "057a92381a231d501afabd084389660585495616448a1b81061757365dbac4c8"
+    },
+    {
+      "bytes": 144958,
+      "kind": "expectation_reference_image",
+      "origin": "rendered",
+      "path": "expectation/expected-full.png",
+      "purpose": "机器可执行期望的参考图。structured 类型必须与设计参考图逐字节一致；prd 类型使用已冻结的运行时参考图。",
+      "sha256": "cbae8806a6b19cdee59264fc122f5c436c3e6156a367fe9addd9b127407b69d4"
+    },
+    {
+      "bytes": 4667,
+      "kind": "expectation_noise_baseline",
+      "origin": "compiled",
+      "path": "expectation/noise-baseline-v1.json",
+      "purpose": "机器可执行期望的噪声基线。由同一干净构建的重复采样计算，限定允许的视觉残差。",
+      "sha256": "9fbeaed8ef0f31431e891fb91e4d69765820ad1b9480344af6aa1fbb58aca484"
+    }
+  ],
+  "packed_at": "2026-10-27T09:32:53Z",
+  "packed_by": "claude",
+  "requirement_document": {
+    "media_type": "text/markdown",
+    "path": "requirement.md",
+    "sha256": "4e68e35100909396f2f72330a61e76a9c9c2e3bb726b94a3547db7f512ae702f"
+  },
+  "requirement_key": "food-address-company-r3",
+  "round_role": "delivery",
+  "schema_version": "requirement-input-package/v1",
+  "screen_id": "address",
+  "sequence": 3,
+  "state_id": "address.company.fixture-v1",
+  "title": "配送地址选择：公司草稿态",
+  "upstream": {
+    "commit_sha": "881b8832f9fa7d4f8b60ea73f63a5d202db5bed5",
+    "source_url": "https://github.com/adrianhajdin/food_ordering"
+  }
+}

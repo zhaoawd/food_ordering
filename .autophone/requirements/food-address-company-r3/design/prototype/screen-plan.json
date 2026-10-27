@@ -1,0 +1,17 @@
+{
+  "schema_version": "ui-prototype-plan/v1",
+  "product_type": "food-ordering",
+  "platform": "mobile",
+  "screens": [
+    {
+      "id": "address",
+      "purpose": "配送地址选择",
+      "sections": [
+        "header",
+        "content",
+        "footer"
+      ]
+    }
+  ],
+  "flows": []
+}
