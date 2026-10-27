@@ -1,4 +1,4 @@
-"""从 v1 偏好草稿派生 full_visual 草稿：改用 fixture-v2 状态 ID，只追加验收声明。
+"""从 v1 偏好草稿派生 full_visual 草稿：改用 fixture-v2 状态 ID，只调整验收声明。
 
 布局、Token、Fixture 数据与文案保持不变。v1 的 state_id 与 autophone 中 9 月的旧偏好
 流程同名但元素集合不同，因此改名为 fixture-v2，避免同一状态 ID 指向两套界面。
@@ -17,6 +17,12 @@ STATE_IDS = {
 }
 # 设计 Token 中的实心填充色；描边色只出现在 1px 边框上，不进入遮罩。
 FILL_TOKENS = ("color.canvas", "color.surface", "color.soft", "color.brand")
+# v3：三列选项中间一列的两侧边界都落在非整数 pt（153.33 / 276.67）。Chromium 把参考图上
+# 这一列吸附得比几何宽 2 px，iOS 按几何精确绘制，纯色区块边界因此无法对齐；这一列
+# 只保留遮罩像素与 frame 比较。
+MIDDLE_COLUMN = {"mild", "onion", "under40"}
+# v3：重置按钮与页脚同为 #FFFFFF，圆角在像素上不可见，不能作为验收属性。
+INVISIBLE_PROPERTIES = {"preferences.reset": {"resolved_style.borderRadius"}}
 
 
 def text_ids(ui: dict) -> set[str]:
@@ -38,11 +44,12 @@ def text_ids(ui: dict) -> set[str]:
 
 def selected_options(fixture: dict) -> list[str]:
     values = fixture["values"]
-    return [
-        f"preferences.spice.{values['spice']}",
-        *(f"preferences.avoid.{item}" for item in values["avoid"]),
-        f"preferences.budget.{values['budget']}",
+    selected = [
+        ("spice", values["spice"]),
+        *(("avoid", item) for item in values["avoid"]),
+        ("budget", values["budget"]),
     ]
+    return [f"preferences.{group}.{value}" for group, value in selected if value not in MIDDLE_COLUMN]
 
 
 def derive(source: Path, target: Path) -> None:
@@ -62,7 +69,10 @@ def derive(source: Path, target: Path) -> None:
     stable_ids = []
     for screen in ui["acceptance"]:
         for item in screen["targets"]:
-            props = list(item["properties"])
+            props = [
+                name for name in item["properties"]
+                if name not in INVISIBLE_PROPERTIES.get(item["stable_id"], set())
+            ]
             if item["stable_id"] in texts and "resolved_style.fontSize" not in props:
                 props.append("resolved_style.fontSize")
             props += [name for name in FRAME if name not in props]

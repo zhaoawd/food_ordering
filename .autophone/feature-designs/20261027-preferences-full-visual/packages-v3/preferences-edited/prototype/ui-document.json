@@ -1,0 +1,834 @@
+{
+  "schema_version": "ui-prototype-document/v1",
+  "name": "饮食偏好设置 · edited",
+  "tokens": {
+    "color.canvas": {
+      "type": "color",
+      "value": "#FFF8EF"
+    },
+    "color.surface": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "color.text": {
+      "type": "color",
+      "value": "#241713"
+    },
+    "color.muted": {
+      "type": "color",
+      "value": "#77655F"
+    },
+    "color.brand": {
+      "type": "color",
+      "value": "#E6472F"
+    },
+    "color.soft": {
+      "type": "color",
+      "value": "#F7D7B5"
+    },
+    "color.border": {
+      "type": "color",
+      "value": "#E8DCD3"
+    },
+    "color.success": {
+      "type": "color",
+      "value": "#2D7046"
+    },
+    "color.successSoft": {
+      "type": "color",
+      "value": "#E8F3EA"
+    },
+    "space.page": {
+      "type": "dimension",
+      "value": 22
+    },
+    "space.gap": {
+      "type": "dimension",
+      "value": 16
+    },
+    "space.small": {
+      "type": "dimension",
+      "value": 8
+    },
+    "space.radius": {
+      "type": "dimension",
+      "value": 16
+    },
+    "space.control": {
+      "type": "dimension",
+      "value": 48
+    },
+    "space.option": {
+      "type": "dimension",
+      "value": 52
+    },
+    "space.header": {
+      "type": "dimension",
+      "value": 64
+    },
+    "type.title": {
+      "type": "typography",
+      "value": {
+        "fontSize": 26,
+        "fontWeight": 700,
+        "lineHeight": 36
+      }
+    },
+    "type.heading": {
+      "type": "typography",
+      "value": {
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 26
+      }
+    },
+    "type.body": {
+      "type": "typography",
+      "value": {
+        "fontSize": 15,
+        "fontWeight": 400,
+        "lineHeight": 23
+      }
+    },
+    "type.label": {
+      "type": "typography",
+      "value": {
+        "fontSize": 15,
+        "fontWeight": 600,
+        "lineHeight": 22
+      }
+    },
+    "type.caption": {
+      "type": "typography",
+      "value": {
+        "fontSize": 13,
+        "fontWeight": 400,
+        "lineHeight": 20
+      }
+    },
+    "type.price": {
+      "type": "typography",
+      "value": {
+        "fontSize": 28,
+        "fontWeight": 700,
+        "lineHeight": 38
+      }
+    }
+  },
+  "screens": [
+    {
+      "id": "preferences",
+      "name": "饮食偏好设置",
+      "root": {
+        "id": "preferences.root",
+        "component": "Screen",
+        "style": {
+          "backgroundColor": "$color.canvas",
+          "color": "$color.text"
+        },
+        "children": [
+          {
+            "id": "preferences.header",
+            "component": "Frame",
+            "layout": {
+              "direction": "row",
+              "width": "fill",
+              "gap": "$space.small",
+              "height": "$space.header",
+              "align": "center",
+              "justify": "between",
+              "padding": [
+                0,
+                "$space.page",
+                0,
+                "$space.page"
+              ]
+            },
+            "children": [
+              {
+                "id": "preferences.back",
+                "component": "Button",
+                "stable_id": "preferences.back",
+                "layout": {
+                  "width": 64,
+                  "height": "$space.control"
+                },
+                "style": {
+                  "typography": "$type.label",
+                  "color": "$color.brand",
+                  "backgroundColor": "$color.surface",
+                  "borderRadius": "$space.radius"
+                },
+                "props": {
+                  "label_path": "view.back"
+                }
+              },
+              {
+                "id": "preferences.brand",
+                "component": "Text",
+                "stable_id": "preferences.brand",
+                "style": {
+                  "typography": "$type.label",
+                  "color": "$color.brand"
+                },
+                "props": {
+                  "text_path": "view.brand"
+                }
+              }
+            ]
+          },
+          {
+            "id": "preferences.content",
+            "component": "Frame",
+            "layout": {
+              "direction": "column",
+              "width": "fill",
+              "gap": "$space.gap",
+              "flex": 1,
+              "padding": [
+                "$space.small",
+                "$space.page",
+                "$space.gap",
+                "$space.page"
+              ],
+              "overflow": "auto"
+            },
+            "children": [
+              {
+                "id": "preferences.title",
+                "component": "Text",
+                "stable_id": "preferences.title",
+                "style": {
+                  "typography": "$type.title",
+                  "color": "$color.text"
+                },
+                "props": {
+                  "text_path": "view.title"
+                }
+              },
+              {
+                "id": "preferences.description",
+                "component": "Text",
+                "stable_id": "preferences.description",
+                "style": {
+                  "typography": "$type.body",
+                  "color": "$color.muted"
+                },
+                "props": {
+                  "text_path": "view.description"
+                }
+              },
+              {
+                "id": "preferences.spice",
+                "component": "ChoiceGroup",
+                "layout": {
+                  "width": "fill",
+                  "columns": 3,
+                  "gap": "$space.small"
+                },
+                "props": {
+                  "title": "辣度",
+                  "mode": "single",
+                  "options_source": "spice",
+                  "selected_path": "values.spice",
+                  "stable_id_prefix": "preferences.spice",
+                  "header_gap": 12
+                },
+                "slot_styles": {
+                  "title": {
+                    "typography": "$type.heading",
+                    "color": "$color.text"
+                  },
+                  "option": {
+                    "minHeight": "$space.option",
+                    "typography": "$type.label",
+                    "backgroundColor": "$color.surface",
+                    "color": "$color.muted",
+                    "borderColor": "$color.border",
+                    "borderWidth": 1,
+                    "borderRadius": 12
+                  },
+                  "option_selected": {
+                    "color": "$color.brand",
+                    "backgroundColor": "$color.soft",
+                    "borderColor": "$color.brand"
+                  }
+                }
+              },
+              {
+                "id": "preferences.avoid",
+                "component": "ChoiceGroup",
+                "layout": {
+                  "width": "fill",
+                  "columns": 3,
+                  "gap": "$space.small"
+                },
+                "props": {
+                  "title": "忌口（最多 2 项）",
+                  "mode": "multiple",
+                  "options_source": "avoid",
+                  "selected_path": "values.avoid",
+                  "stable_id_prefix": "preferences.avoid",
+                  "header_gap": 12
+                },
+                "slot_styles": {
+                  "title": {
+                    "typography": "$type.heading",
+                    "color": "$color.text"
+                  },
+                  "option": {
+                    "minHeight": "$space.option",
+                    "typography": "$type.label",
+                    "backgroundColor": "$color.surface",
+                    "color": "$color.muted",
+                    "borderColor": "$color.border",
+                    "borderWidth": 1,
+                    "borderRadius": 12
+                  },
+                  "option_selected": {
+                    "color": "$color.brand",
+                    "backgroundColor": "$color.soft",
+                    "borderColor": "$color.brand"
+                  }
+                }
+              },
+              {
+                "id": "preferences.budget",
+                "component": "ChoiceGroup",
+                "layout": {
+                  "width": "fill",
+                  "columns": 3,
+                  "gap": "$space.small"
+                },
+                "props": {
+                  "title": "单餐预算",
+                  "mode": "single",
+                  "options_source": "budget",
+                  "selected_path": "values.budget",
+                  "stable_id_prefix": "preferences.budget",
+                  "header_gap": 12
+                },
+                "slot_styles": {
+                  "title": {
+                    "typography": "$type.heading",
+                    "color": "$color.text"
+                  },
+                  "option": {
+                    "minHeight": "$space.option",
+                    "typography": "$type.label",
+                    "backgroundColor": "$color.surface",
+                    "color": "$color.muted",
+                    "borderColor": "$color.border",
+                    "borderWidth": 1,
+                    "borderRadius": 12
+                  },
+                  "option_selected": {
+                    "color": "$color.brand",
+                    "backgroundColor": "$color.soft",
+                    "borderColor": "$color.brand"
+                  }
+                }
+              },
+              {
+                "id": "preferences.summary.card",
+                "component": "Frame",
+                "layout": {
+                  "direction": "column",
+                  "width": "fill",
+                  "gap": "$space.small",
+                  "padding": [
+                    "$space.gap",
+                    "$space.gap",
+                    "$space.gap",
+                    "$space.gap"
+                  ]
+                },
+                "children": [
+                  {
+                    "id": "preferences.summary.title",
+                    "component": "Text",
+                    "stable_id": "preferences.summary.title",
+                    "style": {
+                      "typography": "$type.caption",
+                      "color": "$color.muted"
+                    },
+                    "props": {
+                      "text_path": "view.summary_title"
+                    }
+                  },
+                  {
+                    "id": "preferences.summary",
+                    "component": "Text",
+                    "stable_id": "preferences.summary",
+                    "style": {
+                      "typography": "$type.label",
+                      "color": "$color.text"
+                    },
+                    "props": {
+                      "text_path": "view.summary"
+                    }
+                  },
+                  {
+                    "id": "preferences.disclaimer",
+                    "component": "Text",
+                    "stable_id": "preferences.disclaimer",
+                    "style": {
+                      "typography": "$type.caption",
+                      "color": "$color.muted"
+                    },
+                    "props": {
+                      "text_path": "view.disclaimer"
+                    }
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "$color.surface",
+                  "borderRadius": "$space.radius"
+                }
+              }
+            ]
+          },
+          {
+            "id": "preferences.footer",
+            "component": "Frame",
+            "layout": {
+              "direction": "column",
+              "width": "fill",
+              "gap": "$space.small",
+              "padding": [
+                "$space.gap",
+                "$space.page",
+                "$space.gap",
+                "$space.page"
+              ]
+            },
+            "children": [
+              {
+                "id": "preferences.actions",
+                "component": "Frame",
+                "layout": {
+                  "direction": "row",
+                  "width": "fill",
+                  "gap": 12
+                },
+                "children": [
+                  {
+                    "id": "preferences.reset",
+                    "component": "Button",
+                    "stable_id": "preferences.reset",
+                    "layout": {
+                      "width": 120,
+                      "height": "$space.control"
+                    },
+                    "style": {
+                      "typography": "$type.label",
+                      "color": "$color.brand",
+                      "backgroundColor": "$color.surface",
+                      "borderRadius": "$space.radius"
+                    },
+                    "props": {
+                      "label_path": "view.reset"
+                    }
+                  },
+                  {
+                    "id": "preferences.save.wrapper",
+                    "component": "Frame",
+                    "layout": {
+                      "direction": "column",
+                      "width": "fill",
+                      "gap": "$space.small",
+                      "flex": 1
+                    },
+                    "children": [
+                      {
+                        "id": "preferences.save",
+                        "component": "Button",
+                        "stable_id": "preferences.save",
+                        "layout": {
+                          "width": "fill",
+                          "height": "$space.control"
+                        },
+                        "style": {
+                          "typography": "$type.label",
+                          "color": "$color.surface",
+                          "backgroundColor": "$color.brand",
+                          "borderRadius": "$space.radius"
+                        },
+                        "props": {
+                          "label_path": "view.save"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "style": {
+              "backgroundColor": "$color.surface",
+              "borderTopColor": "$color.border",
+              "borderTopWidth": 1
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "interactions": [
+    {
+      "id": "preferences.spice.none.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.spice.none"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.spice"
+      }
+    },
+    {
+      "id": "preferences.spice.mild.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.spice.mild"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.spice"
+      }
+    },
+    {
+      "id": "preferences.spice.hot.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.spice.hot"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.spice"
+      }
+    },
+    {
+      "id": "preferences.avoid.coriander.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.avoid.coriander"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.avoid"
+      }
+    },
+    {
+      "id": "preferences.avoid.onion.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.avoid.onion"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.avoid"
+      }
+    },
+    {
+      "id": "preferences.avoid.peanut.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.avoid.peanut"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.avoid"
+      }
+    },
+    {
+      "id": "preferences.budget.under30.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.budget.under30"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.budget"
+      }
+    },
+    {
+      "id": "preferences.budget.under40.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.budget.under40"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.budget"
+      }
+    },
+    {
+      "id": "preferences.budget.any.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.budget.any"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.budget"
+      }
+    },
+    {
+      "id": "preferences.reset.press",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.reset"
+      },
+      "action": {
+        "type": "reset"
+      }
+    },
+    {
+      "id": "preferences.save.press",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.save"
+      },
+      "action": {
+        "type": "save"
+      }
+    }
+  ],
+  "prototype": {
+    "start_screen_id": "preferences"
+  },
+  "acceptance": [
+    {
+      "screen_id": "preferences",
+      "targets": [
+        {
+          "stable_id": "preferences.description",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.fontSize",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.spice.none",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.spice.mild",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.spice.hot",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.avoid.coriander",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.avoid.onion",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.avoid.peanut",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.budget.under30",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.budget.under40",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.budget.any",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.summary.title",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.fontSize",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.summary",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.fontSize",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.disclaimer",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.fontSize",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.reset",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.save",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.back",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.brand",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.fontSize",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        },
+        {
+          "stable_id": "preferences.title",
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "resolved_style.fontSize",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
+          ]
+        }
+      ]
+    }
+  ]
+}

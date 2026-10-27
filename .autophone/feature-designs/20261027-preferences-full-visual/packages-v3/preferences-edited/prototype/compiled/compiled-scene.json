@@ -1,0 +1,529 @@
+{
+  "schema_version": "ui-prototype-compiled-scene/v1",
+  "compiler": "autophone-ui-prototype-compiler/v2",
+  "source_schema_version": "ui-prototype-document/v1",
+  "screen_id": "preferences",
+  "state_id": "preferences.edited.fixture-v2",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "viewport_profile": {
+    "profile_id": "vphone-ios26-430x932",
+    "safe_area": {
+      "top": 59,
+      "right": 0,
+      "bottom": 37,
+      "left": 0
+    },
+    "safe_area_application": [
+      "top",
+      "bottom"
+    ],
+    "system_ui": "separate_region"
+  },
+  "inputs": [
+    {
+      "role": "plan",
+      "path": "screen-plan.json",
+      "sha256": "54babf6d74fadeea620967c404123c6404116fe7ba1966747a4557322c089018"
+    },
+    {
+      "role": "source",
+      "path": "ui-document.json",
+      "sha256": "f21e0ea70ca824e127e22791506df88f6353f86dbfc930f4bdda7fd4773198b2"
+    },
+    {
+      "role": "fixture",
+      "path": "state-fixture.json",
+      "sha256": "e2f5190288506a28b7d4789ac2a34cf6eda80eafb52f939ea7fbd2d2600c4f18"
+    }
+  ],
+  "component_registry": [
+    "Button",
+    "ChoiceGroup",
+    "Decoration",
+    "Frame",
+    "Screen",
+    "Text"
+  ],
+  "node_scope": [
+    {
+      "node_id": "preferences.description",
+      "stable_id": "preferences.description",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.spice.none",
+      "stable_id": "preferences.spice.none",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.spice.mild",
+      "stable_id": "preferences.spice.mild",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.spice.hot",
+      "stable_id": "preferences.spice.hot",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.avoid.coriander",
+      "stable_id": "preferences.avoid.coriander",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.avoid.onion",
+      "stable_id": "preferences.avoid.onion",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.avoid.peanut",
+      "stable_id": "preferences.avoid.peanut",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.budget.under30",
+      "stable_id": "preferences.budget.under30",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.budget.under40",
+      "stable_id": "preferences.budget.under40",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.budget.any",
+      "stable_id": "preferences.budget.any",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.summary.title",
+      "stable_id": "preferences.summary.title",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.summary",
+      "stable_id": "preferences.summary",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.disclaimer",
+      "stable_id": "preferences.disclaimer",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.reset",
+      "stable_id": "preferences.reset",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.save",
+      "stable_id": "preferences.save",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.back",
+      "stable_id": "preferences.back",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.brand",
+      "stable_id": "preferences.brand",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "preferences.title",
+      "stable_id": "preferences.title",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    }
+  ],
+  "emitted_nodes": [
+    {
+      "source_node_id": "preferences.back",
+      "node_id": "preferences.back",
+      "stable_id": "preferences.back",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "preferences.brand",
+      "node_id": "preferences.brand",
+      "stable_id": "preferences.brand",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "preferences.title",
+      "node_id": "preferences.title",
+      "stable_id": "preferences.title",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "preferences.description",
+      "node_id": "preferences.description",
+      "stable_id": "preferences.description",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "preferences.spice",
+      "node_id": "preferences.spice.none",
+      "stable_id": "preferences.spice.none",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "preferences.spice",
+      "node_id": "preferences.spice.mild",
+      "stable_id": "preferences.spice.mild",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "preferences.spice",
+      "node_id": "preferences.spice.hot",
+      "stable_id": "preferences.spice.hot",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "preferences.avoid",
+      "node_id": "preferences.avoid.coriander",
+      "stable_id": "preferences.avoid.coriander",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "preferences.avoid",
+      "node_id": "preferences.avoid.onion",
+      "stable_id": "preferences.avoid.onion",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "preferences.avoid",
+      "node_id": "preferences.avoid.peanut",
+      "stable_id": "preferences.avoid.peanut",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "preferences.budget",
+      "node_id": "preferences.budget.under30",
+      "stable_id": "preferences.budget.under30",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "preferences.budget",
+      "node_id": "preferences.budget.under40",
+      "stable_id": "preferences.budget.under40",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "preferences.budget",
+      "node_id": "preferences.budget.any",
+      "stable_id": "preferences.budget.any",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "preferences.summary.title",
+      "node_id": "preferences.summary.title",
+      "stable_id": "preferences.summary.title",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "preferences.summary",
+      "node_id": "preferences.summary",
+      "stable_id": "preferences.summary",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "preferences.disclaimer",
+      "node_id": "preferences.disclaimer",
+      "stable_id": "preferences.disclaimer",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "preferences.reset",
+      "node_id": "preferences.reset",
+      "stable_id": "preferences.reset",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "preferences.save",
+      "node_id": "preferences.save",
+      "stable_id": "preferences.save",
+      "component": "Button"
+    }
+  ],
+  "interactions": [
+    {
+      "id": "preferences.spice.none.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.spice.none"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.spice"
+      }
+    },
+    {
+      "id": "preferences.spice.mild.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.spice.mild"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.spice"
+      }
+    },
+    {
+      "id": "preferences.spice.hot.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.spice.hot"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.spice"
+      }
+    },
+    {
+      "id": "preferences.avoid.coriander.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.avoid.coriander"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.avoid"
+      }
+    },
+    {
+      "id": "preferences.avoid.onion.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.avoid.onion"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.avoid"
+      }
+    },
+    {
+      "id": "preferences.avoid.peanut.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.avoid.peanut"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.avoid"
+      }
+    },
+    {
+      "id": "preferences.budget.under30.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.budget.under30"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.budget"
+      }
+    },
+    {
+      "id": "preferences.budget.under40.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.budget.under40"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.budget"
+      }
+    },
+    {
+      "id": "preferences.budget.any.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.budget.any"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.budget"
+      }
+    },
+    {
+      "id": "preferences.reset.press",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.reset"
+      },
+      "action": {
+        "type": "reset"
+      }
+    },
+    {
+      "id": "preferences.save.press",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "preferences.save"
+      },
+      "action": {
+        "type": "save"
+      }
+    }
+  ]
+}

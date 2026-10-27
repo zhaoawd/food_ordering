@@ -1,0 +1,807 @@
+{
+  "schema_version": "structured-design-package/v1",
+  "adapter": "ai-prototype-dsl/v2",
+  "toolchain": {
+    "packer": "autophone-prototype-packager/v2",
+    "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+    "browser": "chromium/149.0.7827.55",
+    "compiler": "autophone-ui-prototype-compiler/v2"
+  },
+  "screen_id": "preferences",
+  "state_id": "preferences.default.fixture-v2",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "node_scope": [
+    "preferences.description",
+    "preferences.spice.none",
+    "preferences.spice.mild",
+    "preferences.spice.hot",
+    "preferences.avoid.coriander",
+    "preferences.avoid.onion",
+    "preferences.avoid.peanut",
+    "preferences.budget.under30",
+    "preferences.budget.under40",
+    "preferences.budget.any",
+    "preferences.summary.title",
+    "preferences.summary",
+    "preferences.disclaimer",
+    "preferences.reset",
+    "preferences.save",
+    "preferences.back",
+    "preferences.brand",
+    "preferences.title"
+  ],
+  "artifacts": [
+    {
+      "role": "reference",
+      "path": "reference.png",
+      "sha256": "9e0f1367e7a568db4aae14da65f24fe154ff5225e2fe74d1906762158dc92bfa"
+    },
+    {
+      "role": "review_reference",
+      "path": "review-reference.png",
+      "sha256": "18e130c9bba811af1d83e25c4405f1019643d8d5d4e0278345e755fc64afd4da"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/compiled-scene.json",
+      "sha256": "3f45744fbb2a2f7e0f635372815370b9ff02bfede7be7bde5e09b27918a9063a"
+    },
+    {
+      "role": "prototype",
+      "path": "prototype/compiled/index.html",
+      "sha256": "dd9b490665dfd50b0603e1496f6f906f9ca481229b0101ca355bff67b93370fd"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/renderer-spec.json",
+      "sha256": "788749d0a8ad7f54bad50aacc0b09277d1188fbd742a8e9450ca3777b5bd2356"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/prototype-spec.json",
+      "sha256": "1216f11d6ea476b062e707c01c7f6fdfdadfd7f13c4ea7ed3bc358e5099e2aa5"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/screen-plan.json",
+      "sha256": "54babf6d74fadeea620967c404123c6404116fe7ba1966747a4557322c089018"
+    },
+    {
+      "role": "fixture",
+      "path": "prototype/state-fixture.json",
+      "sha256": "8b7e5327b7517564705047f5b00f519b8c3c488e73b0e8f6a86b973a3c5f278b"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/ui-document.json",
+      "sha256": "5cc67258adbefb0e4bfcd1341a9d395e7f8f07705f512080498883f5f36c5593"
+    }
+  ],
+  "elements": [
+    {
+      "node_id": "preferences.description",
+      "stable_id": "preferences.description",
+      "properties": [
+        {
+          "property": "text",
+          "value": "设置口味、忌口与单餐预算。"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "183"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "23"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.spice.none",
+      "stable_id": "preferences.spice.none",
+      "properties": [
+        {
+          "property": "text",
+          "value": "不辣"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "260"
+        },
+        {
+          "property": "frame.width",
+          "value": "123.3281"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.spice.mild",
+      "stable_id": "preferences.spice.mild",
+      "properties": [
+        {
+          "property": "text",
+          "value": "微辣"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "153.3281"
+        },
+        {
+          "property": "frame.y",
+          "value": "260"
+        },
+        {
+          "property": "frame.width",
+          "value": "123.3281"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.spice.hot",
+      "stable_id": "preferences.spice.hot",
+      "properties": [
+        {
+          "property": "text",
+          "value": "中辣"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "284.6563"
+        },
+        {
+          "property": "frame.y",
+          "value": "260"
+        },
+        {
+          "property": "frame.width",
+          "value": "123.3438"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.avoid.coriander",
+      "stable_id": "preferences.avoid.coriander",
+      "properties": [
+        {
+          "property": "text",
+          "value": "香菜"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "366"
+        },
+        {
+          "property": "frame.width",
+          "value": "123.3281"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.avoid.onion",
+      "stable_id": "preferences.avoid.onion",
+      "properties": [
+        {
+          "property": "text",
+          "value": "洋葱"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "153.3281"
+        },
+        {
+          "property": "frame.y",
+          "value": "366"
+        },
+        {
+          "property": "frame.width",
+          "value": "123.3281"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.avoid.peanut",
+      "stable_id": "preferences.avoid.peanut",
+      "properties": [
+        {
+          "property": "text",
+          "value": "花生"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "284.6563"
+        },
+        {
+          "property": "frame.y",
+          "value": "366"
+        },
+        {
+          "property": "frame.width",
+          "value": "123.3438"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.budget.under30",
+      "stable_id": "preferences.budget.under30",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥30 内"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "472"
+        },
+        {
+          "property": "frame.width",
+          "value": "123.3281"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.budget.under40",
+      "stable_id": "preferences.budget.under40",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥40 内"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#F7D7B5"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "153.3281"
+        },
+        {
+          "property": "frame.y",
+          "value": "472"
+        },
+        {
+          "property": "frame.width",
+          "value": "123.3281"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.budget.any",
+      "stable_id": "preferences.budget.any",
+      "properties": [
+        {
+          "property": "text",
+          "value": "不限"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "12"
+        },
+        {
+          "property": "frame.x",
+          "value": "284.6563"
+        },
+        {
+          "property": "frame.y",
+          "value": "472"
+        },
+        {
+          "property": "frame.width",
+          "value": "123.3438"
+        },
+        {
+          "property": "frame.height",
+          "value": "52"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.summary.title",
+      "stable_id": "preferences.summary.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "当前偏好"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "13"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "556"
+        },
+        {
+          "property": "frame.width",
+          "value": "354"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.summary",
+      "stable_id": "preferences.summary",
+      "properties": [
+        {
+          "property": "text",
+          "value": "微辣 · 无忌口 · ¥40 内"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "584"
+        },
+        {
+          "property": "frame.width",
+          "value": "354"
+        },
+        {
+          "property": "frame.height",
+          "value": "22"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.disclaimer",
+      "stable_id": "preferences.disclaimer",
+      "properties": [
+        {
+          "property": "text",
+          "value": "保存后可在“我的”查看和修改。"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#77655F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "13"
+        },
+        {
+          "property": "frame.x",
+          "value": "38"
+        },
+        {
+          "property": "frame.y",
+          "value": "614"
+        },
+        {
+          "property": "frame.width",
+          "value": "354"
+        },
+        {
+          "property": "frame.height",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.reset",
+      "stable_id": "preferences.reset",
+      "properties": [
+        {
+          "property": "text",
+          "value": "恢复默认"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "831"
+        },
+        {
+          "property": "frame.width",
+          "value": "120"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.save",
+      "stable_id": "preferences.save",
+      "properties": [
+        {
+          "property": "text",
+          "value": "保存偏好"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "154"
+        },
+        {
+          "property": "frame.y",
+          "value": "831"
+        },
+        {
+          "property": "frame.width",
+          "value": "254"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.back",
+      "stable_id": "preferences.back",
+      "properties": [
+        {
+          "property": "text",
+          "value": "返回"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "16"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "67"
+        },
+        {
+          "property": "frame.width",
+          "value": "64"
+        },
+        {
+          "property": "frame.height",
+          "value": "48"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.brand",
+      "stable_id": "preferences.brand",
+      "properties": [
+        {
+          "property": "text",
+          "value": "Food AI"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#E6472F"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "15"
+        },
+        {
+          "property": "frame.x",
+          "value": "353.7188"
+        },
+        {
+          "property": "frame.y",
+          "value": "80"
+        },
+        {
+          "property": "frame.width",
+          "value": "54.2813"
+        },
+        {
+          "property": "frame.height",
+          "value": "22"
+        }
+      ]
+    },
+    {
+      "node_id": "preferences.title",
+      "stable_id": "preferences.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "饮食偏好设置"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#241713"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "26"
+        },
+        {
+          "property": "frame.x",
+          "value": "22"
+        },
+        {
+          "property": "frame.y",
+          "value": "131"
+        },
+        {
+          "property": "frame.width",
+          "value": "386"
+        },
+        {
+          "property": "frame.height",
+          "value": "36"
+        }
+      ]
+    }
+  ],
+  "mapping_gaps": [],
+  "comparison_policy": {
+    "pixel_scope": "expected_alpha",
+    "text_ink_verification": "ink_geometry",
+    "text_ink_stable_ids": [
+      "preferences.description",
+      "preferences.spice.none",
+      "preferences.spice.mild",
+      "preferences.spice.hot",
+      "preferences.avoid.coriander",
+      "preferences.avoid.onion",
+      "preferences.avoid.peanut",
+      "preferences.budget.under30",
+      "preferences.budget.under40",
+      "preferences.budget.any",
+      "preferences.summary.title",
+      "preferences.summary",
+      "preferences.disclaimer",
+      "preferences.reset",
+      "preferences.save",
+      "preferences.back",
+      "preferences.brand",
+      "preferences.title"
+    ],
+    "max_text_ink_width_delta_ratio": 0.02,
+    "max_text_ink_height_delta_ratio": 0.06,
+    "max_text_ink_area_delta_ratio": 0.09,
+    "flat_color_geometry_verification": "component_bounds",
+    "flat_color_geometry_targets": [
+      {
+        "stable_id": "preferences.save",
+        "color": "#E6472F"
+      }
+    ],
+    "max_flat_color_bounds_delta_px": 1
+  },
+  "comparison_mask": {
+    "mode": "flat_color_interiors",
+    "strategy": "design_owned_stable_regions",
+    "input_domain": "design_reference_only",
+    "include_colors": [
+      "#FFF8EF",
+      "#FFFFFF",
+      "#F7D7B5",
+      "#E6472F"
+    ],
+    "included_classes": [
+      "solid_backgrounds",
+      "component_interiors",
+      "stable_fill_regions"
+    ],
+    "excluded_classes": [
+      "undeclared_colors",
+      "text_glyph_edges",
+      "thin_stroke_edges",
+      "platform_symbol_edges",
+      "declared_color_edges"
+    ],
+    "edge_inset_px": 12,
+    "minimum_content_coverage_ratio": 0.12,
+    "selected_pixels": 2595448,
+    "content_pixels": 3235320,
+    "content_coverage_ratio": 0.80222296,
+    "review_reference": "review-reference.png"
+  }
+}

@@ -28,3 +28,14 @@ full_visual 的原因与配送地址第三轮相同：参考图文字由 Chromiu
 ```sh
 python3 make_full_visual_draft.py ../20261024-v1/preferences/states/default /path/to/new/default
 ```
+
+## v3（同日修订）
+
+ITER-002 在设备上仍有 3 条 Finding，经像素核对均不是产品缺陷，按用户决定以 v3 移除两项像素上不可见的断言。参考图与 v2 逐字节相同，阈值不变。
+
+| 断言 | v2 | v3 | 依据 |
+| --- | --- | --- | --- |
+| 中间列选项（微辣、洋葱、¥40 内）的纯色区块几何 | 选中时比较 | 不比较，保留遮罩像素与 frame 比较 | 该列两侧边界为 153.33 / 276.67 pt；iOS 按几何精确绘制为 460–829 px，Chromium 参考图吸附为 459–830 px |
+| `preferences.reset` 的 `resolved_style.borderRadius` | 断言 16 | 不断言 | 按钮与页脚同为 `#FFFFFF`，圆角在参考图和设备截图上都不可见，像素派生只能得到 0 |
+
+`states-v3/` 与 `packages-v3/` 由当前 `make_full_visual_draft.py` 生成；`states/` 与 `packages/` 是 v2，由该脚本的上一版生成，保留不改。
