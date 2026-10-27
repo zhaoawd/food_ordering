@@ -56,7 +56,7 @@ const tabs = [
     stableId: "home.navigation.profile",
     label: "我的",
     icon: "person-outline",
-    route: null,
+    route: "/profile",
   },
 ] as const;
 

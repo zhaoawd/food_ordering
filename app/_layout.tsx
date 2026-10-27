@@ -73,6 +73,11 @@ function RootLayout() {
       fullScreenGestureEnabled: true,
       gestureResponseDistance: { start: 0, end: 32 },
     }} />
+    <Stack.Screen name="preferences" options={{
+      gestureEnabled: true,
+      fullScreenGestureEnabled: true,
+      gestureResponseDistance: { start: 0, end: 32 },
+    }} />
   </Stack>;
 }
 

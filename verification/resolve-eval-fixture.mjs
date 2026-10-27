@@ -173,6 +173,14 @@ export function resolveEvalFixture({ selectionJson, registry, baselineFixture })
     addressStateId = selection.state_id;
   }
 
+  let preferencesStateId = null;
+  if (typeof selection.state_id === "string" && selection.state_id.startsWith("preferences.")) {
+    if (!["preferences.default.fixture-v2", "preferences.edited.fixture-v2"].includes(selection.state_id)) {
+      throw new Error(`unknown preferences state_id: ${selection.state_id}`);
+    }
+    preferencesStateId = selection.state_id;
+  }
+
   let fixture = baselineFixture;
   let mutationEpoch = 0;
   if (selection.mutation_id !== baselineMutationId) {
@@ -198,5 +206,6 @@ export function resolveEvalFixture({ selectionJson, registry, baselineFixture })
     selectionNonce: selection.nonce,
     registrySha256: registry.projection_sha256,
     addressStateId,
+    preferencesStateId,
   };
 }
