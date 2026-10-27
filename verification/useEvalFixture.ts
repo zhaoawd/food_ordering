@@ -5,6 +5,7 @@ import registryJson from "./generated-registry.json";
 import { baselineFixture, type FoodOrderingEvalFixture } from "./fixture";
 import { beginEvalObservationSession } from "./observation";
 import { resolveEvalFixture } from "./resolve-eval-fixture.mjs";
+import { setTestCommandSession } from "./useTestCommandChannel";
 
 import { addressStore } from "@/store/address.store";
 import { preferencesStore } from "@/store/preferences.store";
@@ -61,6 +62,7 @@ export function useFoodOrderingEvalFixture(): EvalFixtureState {
           couponStore.getState().loadFixture(resolved.couponStateId, resolved.selectionNonce);
         }
         await beginEvalObservationSession(resolved);
+        setTestCommandSession(resolved.selectionNonce);
         if (active) setState({ status: "ready", ...resolved });
       } catch (error) {
         if (active) {

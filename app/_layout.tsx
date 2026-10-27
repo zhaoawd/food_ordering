@@ -7,6 +7,7 @@ import * as Sentry from '@sentry/react-native';
 import useAuthStore from "@/store/auth.store";
 import { isVerificationBuild } from "@/verification/runtime";
 import { resetObservationExport } from "@/verification/observation";
+import { useTestCommandChannel } from "@/verification/useTestCommandChannel";
 
 if (!isVerificationBuild) {
   Sentry.init({
@@ -28,6 +29,7 @@ if (!isVerificationBuild) {
 
 function RootLayout() {
   const { isLoading, fetchAuthenticatedUser } = useAuthStore();
+  useTestCommandChannel();
 
   const [fontsLoaded, error] = useFonts({
     "QuickSand-Bold": require('../assets/fonts/Quicksand-Bold.ttf'),

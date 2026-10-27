@@ -18,7 +18,8 @@
     "test:dish": "node --test tests/dish-cart.test.cjs tests/dish-fixture.test.cjs",
     "test:dish-browser": "playwright test --config tests/dish.playwright.config.cjs",
     "test:coupons": "node --test tests/coupons.test.cjs",
-    "test:coupons-browser": "playwright test --config tests/coupons.playwright.config.cjs"
+    "test:coupons-browser": "playwright test --config tests/coupons.playwright.config.cjs",
+    "test:test-command": "node --test tests/test-command.test.cjs"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
