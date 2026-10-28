@@ -1,0 +1,79 @@
+{
+  "schema_version": "prototype-design-draft/v2",
+  "adapter": "ai-prototype-dsl/v2",
+  "screen_id": "dish",
+  "state_id": "dish.default.fixture-v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "plan": "screen-plan.json",
+  "source": "ui-document.json",
+  "fixture": "state-fixture.json",
+  "viewport_profile": {
+    "profile_id": "vphone-ios26-430x932",
+    "safe_area": {
+      "top": 59,
+      "right": 0,
+      "bottom": 37,
+      "left": 0
+    },
+    "safe_area_application": [
+      "top",
+      "bottom"
+    ],
+    "system_ui": "separate_region"
+  },
+  "comparison_mask": {
+    "mode": "flat_color_interiors",
+    "include_colors": [
+      "#FFF8EF",
+      "#FFFFFF",
+      "#F7D7B5",
+      "#E6472F"
+    ],
+    "edge_inset_px": 12,
+    "minimum_content_coverage_ratio": 0.12
+  },
+  "typography_verification": {
+    "mode": "ink_geometry",
+    "stable_ids": [
+      "dish.name",
+      "dish.description",
+      "dish.base_price",
+      "dish.portion.standard",
+      "dish.portion.large",
+      "dish.extras.egg",
+      "dish.extras.tofu",
+      "dish.extras.vegetables",
+      "dish.quantity.label",
+      "dish.quantity.value",
+      "dish.quantity.increase",
+      "dish.selection",
+      "dish.total.label",
+      "dish.total",
+      "dish.add",
+      "dish.back",
+      "dish.brand",
+      "dish.title"
+    ],
+    "max_width_delta_ratio": 0.02,
+    "max_height_delta_ratio": 0.06,
+    "max_area_delta_ratio": 0.09
+  },
+  "flat_color_geometry_verification": {
+    "mode": "component_bounds",
+    "targets": [
+      {
+        "stable_id": "dish.portion.standard",
+        "color": "#F7D7B5"
+      },
+      {
+        "stable_id": "dish.add",
+        "color": "#E6472F"
+      }
+    ],
+    "max_bounds_delta_px": 1
+  }
+}

@@ -27,3 +27,9 @@ python3 make_full_visual_draft.py ../20261024-v1/dish/states/default /path/to/ne
 禁用减号的背景 `#F3ECE6` 仍由像素比较验证，禁用状态由设备原生验证经 AX 读取；禁用文字色 `#77655F` 不再做视觉验证。
 
 `states-v3/` 与 `packages-v3/` 由当前 `make_full_visual_draft.py` 生成；`states/` 与 `packages/` 是 v2，由该脚本的上一版生成。
+
+## v4（2026-10-28）
+
+autophone `1863b2a41` 起，像素字色派生的笔画上界取帧宽 8% 与帧高 10% 的较大者，按内容定宽的 1–2 个字符可以派生字色（实测数量“1/2”为 `#241713`）。v4 恢复 `dish.quantity.value` 的字色断言并放回墨迹几何清单（17 → 18）。减号“−”整帧只有一条横线，与分隔线无法区分，仍不派生字色，保持 v3 的处理。参考图与 v3 逐字节相同，阈值不变。
+
+`states-v4/` 与 `packages-v4/` 由当前 `make_full_visual_draft.py` 生成。

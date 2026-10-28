@@ -17,7 +17,9 @@ FILL_TOKENS = ("color.canvas", "color.surface", "color.soft", "color.brand")
 MIDDLE_COLUMN = {"tofu"}
 # v3：减号“−”是一条长横笔，数量“1/2”的 frame 只有约 8.7 pt 宽，笔画游程都超过平台字色派生的
 # 笔画形状闸，字色在像素上测不出，墨迹也随之无法测量。保留 frame、背景、圆角与文本。
-UNMEASURABLE_TEXT = {"dish.quantity.decrease", "dish.quantity.value"}
+# v4：autophone 1863b2a41 起笔画上界取帧宽 8% 与帧高 10% 的较大者，数量“1/2”可派生字色，恢复其
+# 字色与墨迹断言；整帧只有一条横线的“−”与分隔线无法区分，仍不派生。
+UNMEASURABLE_TEXT = {"dish.quantity.decrease"}
 
 
 def text_ids(ui: dict) -> set[str]:

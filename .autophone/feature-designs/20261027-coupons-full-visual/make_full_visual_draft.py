@@ -17,7 +17,8 @@ FILL_TOKENS = ("color.canvas", "color.surface", "color.soft", "color.brand")
 UNAVAILABLE_COUPON = "save20"
 # v3：默认态的优惠金额是“¥0”，frame 约 19 pt 宽，笔画游程超过平台像素字色派生的笔画形状闸，
 # 字色测不出，墨迹也随之无法测量。只在该状态移除字色断言并移出墨迹清单；选中态“−¥6”可测，不变。
-UNMEASURABLE_TEXT = {"coupons.default.fixture-v1": {"coupons.bill.discount"}}
+# v4：autophone 1863b2a41 起窄帧短文本可派生字色（实测“¥0”为 #E6472F），恢复默认态该元素的字色与墨迹断言。
+UNMEASURABLE_TEXT: dict[str, set[str]] = {}
 RENAMED = {
     "coupons.unavailable.title": f"coupons.unavailable.{UNAVAILABLE_COUPON}.title",
     "coupons.unavailable.reason": f"coupons.unavailable.{UNAVAILABLE_COUPON}.reason",

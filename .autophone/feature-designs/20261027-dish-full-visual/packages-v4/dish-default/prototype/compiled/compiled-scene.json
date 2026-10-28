@@ -1,0 +1,491 @@
+{
+  "schema_version": "ui-prototype-compiled-scene/v1",
+  "compiler": "autophone-ui-prototype-compiler/v2",
+  "source_schema_version": "ui-prototype-document/v1",
+  "screen_id": "dish",
+  "state_id": "dish.default.fixture-v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "viewport_profile": {
+    "profile_id": "vphone-ios26-430x932",
+    "safe_area": {
+      "top": 59,
+      "right": 0,
+      "bottom": 37,
+      "left": 0
+    },
+    "safe_area_application": [
+      "top",
+      "bottom"
+    ],
+    "system_ui": "separate_region"
+  },
+  "inputs": [
+    {
+      "role": "plan",
+      "path": "screen-plan.json",
+      "sha256": "b64e23092b7e848dbbc8237126e54baae5ea5493374578624b3142d9582eb4cd"
+    },
+    {
+      "role": "source",
+      "path": "ui-document.json",
+      "sha256": "4578d57af0955f6e6f6843578ab1ee3059438cba27db2137b4f359fb8e70140a"
+    },
+    {
+      "role": "fixture",
+      "path": "state-fixture.json",
+      "sha256": "40d98c069bbf99e6fb03c24a5864bce505d0d587dabffed78d68d8e14868fde5"
+    }
+  ],
+  "component_registry": [
+    "Button",
+    "ChoiceGroup",
+    "Decoration",
+    "Frame",
+    "Screen",
+    "Text"
+  ],
+  "node_scope": [
+    {
+      "node_id": "dish.name",
+      "stable_id": "dish.name",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.description",
+      "stable_id": "dish.description",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.base_price",
+      "stable_id": "dish.base_price",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.portion.standard",
+      "stable_id": "dish.portion.standard",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.portion.large",
+      "stable_id": "dish.portion.large",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.extras.egg",
+      "stable_id": "dish.extras.egg",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.extras.tofu",
+      "stable_id": "dish.extras.tofu",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.extras.vegetables",
+      "stable_id": "dish.extras.vegetables",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.quantity.label",
+      "stable_id": "dish.quantity.label",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.quantity.decrease",
+      "stable_id": "dish.quantity.decrease",
+      "properties": [
+        "text",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.quantity.value",
+      "stable_id": "dish.quantity.value",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.quantity.increase",
+      "stable_id": "dish.quantity.increase",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.selection",
+      "stable_id": "dish.selection",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.total.label",
+      "stable_id": "dish.total.label",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.total",
+      "stable_id": "dish.total",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.add",
+      "stable_id": "dish.add",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.back",
+      "stable_id": "dish.back",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.brand",
+      "stable_id": "dish.brand",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "dish.title",
+      "stable_id": "dish.title",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    }
+  ],
+  "emitted_nodes": [
+    {
+      "source_node_id": "dish.back",
+      "node_id": "dish.back",
+      "stable_id": "dish.back",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "dish.brand",
+      "node_id": "dish.brand",
+      "stable_id": "dish.brand",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "dish.title",
+      "node_id": "dish.title",
+      "stable_id": "dish.title",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "dish.name",
+      "node_id": "dish.name",
+      "stable_id": "dish.name",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "dish.description",
+      "node_id": "dish.description",
+      "stable_id": "dish.description",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "dish.base_price",
+      "node_id": "dish.base_price",
+      "stable_id": "dish.base_price",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "dish.portion",
+      "node_id": "dish.portion.standard",
+      "stable_id": "dish.portion.standard",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "dish.portion",
+      "node_id": "dish.portion.large",
+      "stable_id": "dish.portion.large",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "dish.extras",
+      "node_id": "dish.extras.egg",
+      "stable_id": "dish.extras.egg",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "dish.extras",
+      "node_id": "dish.extras.tofu",
+      "stable_id": "dish.extras.tofu",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "dish.extras",
+      "node_id": "dish.extras.vegetables",
+      "stable_id": "dish.extras.vegetables",
+      "component": "ChoiceGroup.Option"
+    },
+    {
+      "source_node_id": "dish.quantity.label",
+      "node_id": "dish.quantity.label",
+      "stable_id": "dish.quantity.label",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "dish.quantity.decrease",
+      "node_id": "dish.quantity.decrease",
+      "stable_id": "dish.quantity.decrease",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "dish.quantity.value",
+      "node_id": "dish.quantity.value",
+      "stable_id": "dish.quantity.value",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "dish.quantity.increase",
+      "node_id": "dish.quantity.increase",
+      "stable_id": "dish.quantity.increase",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "dish.selection",
+      "node_id": "dish.selection",
+      "stable_id": "dish.selection",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "dish.total.label",
+      "node_id": "dish.total.label",
+      "stable_id": "dish.total.label",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "dish.total",
+      "node_id": "dish.total",
+      "stable_id": "dish.total",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "dish.add",
+      "node_id": "dish.add",
+      "stable_id": "dish.add",
+      "component": "Button"
+    }
+  ],
+  "interactions": [
+    {
+      "id": "dish.portion.standard.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "dish.portion.standard"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.portion"
+      }
+    },
+    {
+      "id": "dish.portion.large.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "dish.portion.large"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.portion"
+      }
+    },
+    {
+      "id": "dish.extras.egg.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "dish.extras.egg"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.extras"
+      }
+    },
+    {
+      "id": "dish.extras.tofu.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "dish.extras.tofu"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.extras"
+      }
+    },
+    {
+      "id": "dish.extras.vegetables.change",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "dish.extras.vegetables"
+      },
+      "action": {
+        "type": "set_value",
+        "path": "values.extras"
+      }
+    },
+    {
+      "id": "dish.add.press",
+      "trigger": {
+        "type": "press",
+        "target_stable_id": "dish.add"
+      },
+      "action": {
+        "type": "save"
+      }
+    }
+  ]
+}

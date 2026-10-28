@@ -1,0 +1,17 @@
+{
+  "schema_version": "ui-prototype-plan/v1",
+  "product_type": "food-ordering",
+  "platform": "mobile",
+  "screens": [
+    {
+      "id": "coupons",
+      "purpose": "优惠券选择与金额明细",
+      "sections": [
+        "header",
+        "content",
+        "footer"
+      ]
+    }
+  ],
+  "flows": []
+}
