@@ -1,11 +1,13 @@
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
+import { useEffect, useRef } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { colors } from '@/components/commerce/theme';
 import { COMMERCE_FIXTURE, formatCents, memberStripAction, useCommerceStore } from '@/store/commerce.fixture';
 import { ObservedPressable, ObservedText } from '@/verification/observation';
+import { useFoodOrderingEvalFixture } from '@/verification/useEvalFixture';
 
 /** commerce-v1 首页（home.default.v1 / home.guest.v1），设计包 .autophone/feature-designs/commerce-v1-a01。 */
 const sourceRef = { file: 'app/(tabs)/index.tsx', symbol: 'Home' } as const;
@@ -21,7 +23,17 @@ const art = {
 };
 
 export default function Home() {
+  // 读取评测选择（state_id 决定配方）、写选择回执并开启观测会话；就绪前不渲染，观测只含本状态的元素。
+  const evaluation = useFoodOrderingEvalFixture();
+  const navigatedSelection = useRef<string | null>(null);
+  useEffect(() => {
+    if (evaluation.status === 'ready' && evaluation.addressStateId && navigatedSelection.current !== evaluation.selectionNonce) {
+      navigatedSelection.current = evaluation.selectionNonce;
+      router.push('/delivery-address');
+    }
+  }, [evaluation]);
   const account = useCommerceStore(state => state.account);
+  if (evaluation.status !== 'ready') return null;
   const f = COMMERCE_FIXTURE;
   return (
     <SafeAreaView edges={['top']} style={styles.screen}>
