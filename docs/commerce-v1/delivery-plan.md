@@ -19,7 +19,7 @@
 
 | 编号 | 决策 | 结论 |
 | --- | --- | --- |
-| D1 | 产品代码基线 | `food_ordering` 的 `main`，当前为 `c9df2cb` |
+| D1 | 产品代码基线 | `food_ordering` 的 `main`；决策时为 `c9df2cb`，实际基线 SHA 由 B1 记录 |
 | D2 | 首个发布目标 | 包含模拟支付的内部测试版本；真实支付与公开分发列为后续范围 |
 | D3 | 设计包位置 | 原始包放 `design/commerce-v1/`；平台输入放 `.autophone/requirements/<key>/` |
 
@@ -99,7 +99,7 @@ device_profile 'vphone-ios26-default' does not match guest iOS 27.0.1
 | --- | --- | --- |
 | A1 | 追踪设备画像从工作流到修复执行器、再到采集请求的传递；修复并补回归测试 | 修复前回归测试失败、修复后通过；相关 contract/unit 层测试通过 |
 | A2 | 确认服务与源码版本一致，按既有恢复机制复验该文案样本 | 新构建上比较为正向、Finding 关闭、出口闸通过并生成报告；本次失败保留在记录中 |
-| A3 | 固定首批交付环境 | 环境清单写入本仓库 `docs/commerce-v1/environment.md`：VM、协议、设备画像、vphone-cli 与 autophone 的 SHA、工具版本、输入格式版本 |
+| A3 | 固定首批交付环境 | 环境清单写入本仓库 `docs/commerce-v1/environment.md`：VM、协议、设备画像、vphone-cli 与 autophone 的 SHA、工具版本、输入格式版本；2026-11-06 已完成，见 [environment.md](environment.md) |
 
 ### 5.2 P0b：基线与输入准备（food_ordering，对应 A00）
 
