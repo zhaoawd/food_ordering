@@ -105,7 +105,7 @@ device_profile 'vphone-ios26-default' does not match guest iOS 27.0.1
 
 | 步骤 | 内容 | 完成判据 |
 | --- | --- | --- |
-| B1 | 记录 `main` SHA，运行现有脚本与测试，区分已有失败；补 `AGENTS.md`，写明冻结输入、禁止项和产品约束 | `docs/commerce-v1/baseline.md` 记录 SHA、命令与结果；不改 UI |
+| B1 | 记录 `main` SHA，运行现有脚本与测试，区分已有失败；补 `AGENTS.md`，写明冻结输入、禁止项和产品约束 | `docs/commerce-v1/baseline.md` 记录 SHA、命令与结果；不改 UI；2026-11-06 已完成，见 [baseline.md](baseline.md) |
 | B2 | 原始设计包迁入 `design/commerce-v1/` | 重算 54 个文件的哈希全部一致；之后的变更只能以新版本出现 |
 | B3 | 建设计转换：设计包 → `structured-design-package/v1`，按 430×932 重排渲染 | 转换器版本、源哈希与产物哈希写入转换回执；映射缺口登记为清单 |
 | B4 | 首批（A01）验收合同：用例转为已注册动作、确定性断言、观测来源、比较策略、超时与恢复条件；固定 fixture、时钟、账号与命名空间 | `workflow input verify` 重算全部命中；阈值在此冻结 |

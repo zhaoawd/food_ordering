@@ -66,13 +66,16 @@ commerce-v1 原始设计包（`food-ordering-design/1.0.0`，390×844）须按�
 
 | 编号 | 差异 | 影响 | 处理 |
 | --- | --- | --- | --- |
-| E1 | 样本源码是 `eba2cc658ac8d7528be1ef4c56ea07bf25eb317b`（分支 `autophone/req-upstream-d0-dish-default`），不在 `main`。`main` 使用另一实现 `99a9995` 适配 iOS 27 场景生命周期，两者有 3 个文件不同 | commerce-v1 基线 `main` 尚未在本环境构建和现采 | P0b-B1 在本环境构建 `main`，完成一次无修改现采后再开始批次 A01 |
+| E1 | 样本源码是 `eba2cc658ac8d7528be1ef4c56ea07bf25eb317b`（分支 `autophone/req-upstream-d0-dish-default`），不在 `main`。`main` 使用另一实现 `99a9995` 适配 iOS 27 场景生命周期，两者有 3 个文件不同 | commerce-v1 基线 `main` 尚未在本环境构建和现采 | 2026-11-06 已在本环境构建 `main`（`bld-51fed719…`），菜品默认态无修改现采 0 Finding、accepted（`REQ-20261106-006`），对该状态关闭，见 [baseline.md](baseline.md) |
 | E2 | 验证只覆盖单元素 text 修复 | 布局、样式、多页面与交易流程的闭环能力未证实 | 由 P1 校准与各批次验证 |
 | E3 | 只验证一台 Rig、同一宿主 | 不能推断多 Rig 或跨主机 | 首阶段不扩展 |
 | E4 | 运行时主工作目录有未跟踪文件，源码身份标记为 dirty | 身份记录精确到 commit，但不是干净树 | 正式批次前清理主工作目录，或在批次记录中注明 |
+| E5 | 宿主并行运行 Release 构建与重型检查时，曾出现两台 VM 健康探测同时超时并被隔离（2026-11-06，原因未查证） | 批次中途 Rig 可能被隔离，任务排队 | Rig 有任务或需保持可用时，本机构建与重型检查不并行；隔离后按授权执行 `control recovery resume --retry` |
 
 ## 6. 变更规则
 
 - 第 2、3 节任一项变化（Rig、协议、iOS、画像、autophone、vphone-cli、Xcode、Expo、Codex CLI 或模型）都视为环境变更。
 - 环境变更后先重做最小修改闭环，通过后更新本文并保留旧记录。
 - 批次运行中不得切换环境；需要切换时结束当前批次并在记录中说明。
+- 已排定：`vphone-vm` SIGTERM 有序关机修复放在首阶段结束后进行；修复后按本节重新认定环境。
+- 资源准入的真实业务负载测试与 commerce-v1 批次错开使用 `isolation-peer`。
