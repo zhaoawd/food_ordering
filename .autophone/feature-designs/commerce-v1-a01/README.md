@@ -2,7 +2,7 @@
 
 本目录把冻结设计包 `design/commerce-v1/` 中 A01 批次的页面状态转换为 autophone 结构化设计包（`structured-design-package/v1`）。设计版本为 `commerce-v1-a01-430/r4`：画布从原包的 390×844 重排到 430×932，作为新设计版本处理，不改写原包。
 
-状态：2026-11-06 第 7 轮（策略 v5），A01 三个状态均通过批次准入、校准 0 失败。首页默认态与游客态走 HTML 路线（D4，`tools/html_adapter.py`，需 autophone ≥ `1ad4866b1`）：29/28 通过，3/4 项已登记偏差均来自设计决定（D1、D3、D5）；订单空态走 DSL 路线：9 通过、1 项已登记偏差（P3）。本目录不执行 design lock，也不包含需求输入包。
+状态：2026-11-06 第 9 轮（策略 v5），A01 三个状态均通过批次准入（含期望可实现性）、校准 0 失败。首页默认态与游客态走 HTML 路线：29/28 通过，3/4 项已登记偏差来自设计决定（D1、D3、D5），13 处图形均已交付；订单空态走 DSL 路线：9 通过、1 项已登记偏差（P3）。80 个文本节点均判为可实现，所用映射证据为“假设”，待设备证据。本目录不执行 design lock，也不包含需求输入包。
 
 ## 1. 流程
 
@@ -47,8 +47,9 @@ BASELINE_VIEWPORT=390x844 node tools/render_baseline.mjs ../../../design/commerc
 node tools/render_baseline.mjs ../../../design/commerce-v1/ui/prototype.html baseline home orders
 python3 -I tools/derive.py            # 写 derived/（含批次合同）与 drafts/
 python3 -I tools/derive.py --check    # 只核对产物是否过期，不判设计有效性
-python3 -I -B -m unittest discover -s tools -p 'test_*.py'   # 批次定义回归测试
-python3 tools/build.py --autophone-root <autophone> --round <n> --policy policy/calibration-policy.v5.json
+python3 -I -B -m unittest discover -s tools -p 'test_*.py'   # 批次定义回归、可实现性判定与度量受控样本（后者需上面两个环境变量）
+node tools/extract_assets.mjs ../../../design/commerce-v1/ui/prototype.html assets home orders   # SVG 资源与独立渲染对照
+python3 tools/build.py --autophone-root <autophone> --round <n> --policy policy/calibration-policy.v5.json   # 另读 autophone apps/food_ordering_v2/target_stack/target-stack-profile.v1.json
 python3 -I tools/admission.py         # 单独执行批次准入
 python3 tools/calibration_selftest.py --autophone-root <autophone> --policy policy/calibration-policy.v5.json --route html
 python3 tools/calibration_selftest.py --autophone-root <autophone> --policy policy/calibration-policy.v4.json --route dsl
@@ -68,6 +69,31 @@ python3 -I tools/check_render_determinism.py --runs 5
 - 规则含义有意改变时才更新摘要，并在提交说明中写明原因。
 
 未迁出（保持产物一致所需）：`tools/html_adapter.py` 中的注入内容（查询参数、R4 外壳样式与选择器）。草稿的 `adapter-provenance.json` 记录该文件的哈希，修改它会改变产物；按 `docs/design-input-pipeline.md` §7.5，迁入 autophone 时改为批次定义中的注入声明。`tools/render_baseline.mjs`（L3）的查询参数同样留到那时处理。
+
+### 期望可实现性（2026-11-06）
+
+按 `docs/design-input-pipeline.md`（autophone）§7.2，在 L5 之后检查目标技术栈能否做到参考图，结果并入准入。
+
+| 部分 | 实现 | 第 9 轮结果 |
+| --- | --- | --- |
+| 文本字面 | `tools/measure_text_faces.mjs`：在设计包冻结页面上，把每个渲染文本按字符类别（空白、中日韩、其他）切段，逐段读取实际字面；切段前后元素盒子与逐行范围变化须 ≤0.1pt（实测最大 0.04pt） | 80 个文本节点，切段均未改变布局 |
+| 判定 | `tools/achievability.py` 对照 autophone `apps/food_ordering_v2/target_stack/target-stack-profile.v1.json`（PR #346）：逐段字面映射为可用的 React Native 字重，节点内取交集；空白不判 | 80 个均可实现，证据为 `assumed`；无不可实现与不可判定 |
+| 图标与插画 | `tools/extract_assets.mjs`：原型内联 SVG 写入外部 CSS 的描边、填充与按实例解析的颜色，检查外部引用，独立渲染与原型内渲染逐像素比较；负对照为不写入样式的原始标记 | 22 个资源全部已交付（差 0 像素）；其中 17 个依赖原型 CSS（负对照差 355–2513 像素）；`build.py` 每轮重新提取并比对，已提交资源过期时拒绝。首版截图在插入后立即进行，同一图形两次运行可差 2 像素，曾把两个商品插画误判为依赖 CSS（19 个）；改为等待两帧并连续两次截图一致后采用，连续 6 次提取逐字节一致 |
+| 度量受控样本 | `tools/check_render_metrics.mjs`：几何已知的固定页面（可见比例、遮挡、行数、截断、视口外） | 8 个样本通过；删去裁剪祖先逻辑后报 2 处错误 |
+
+原型 CSS 字重不在可实现集合内、实现须改用的字重（首页默认态；一个 RN Text 只能取一个字重）：
+
+| 归属 | 文本 | CSS 字重 | 实现可取 |
+| --- | --- | --- | --- |
+| home.brand | 食刻 | 850 | 600、700、800、900、bold |
+| （无归属） | FRESH MOMENTS | 850 | 700、bold |
+| home.hero.eyebrow | FRESHLY MADE · 现点现做 | 600 | 700、bold |
+| home.hero.headline | 今天，来点热乎的。 | 850 | 600、700、800、900、bold |
+| home.shelf.title | 人气好滋味 | 750 | 600、700、800、900、bold |
+| home.shelf.combo-chicken-001.price | ¥ | 800 | 700、bold |
+| home.shelf.combo-beef-002.price | ¥ | 800 | 700、bold |
+
+此前认为“拉丁字符取 850 不可实现”：逐段测量显示首页取 SF 可变字体 wght 850 的只有品牌名后的一个空格，“FRESH MOMENTS”实际为 `.SFNS-Bold`，该结论不成立。所有判定依赖“React Native 字重 → iOS 字面”的假设映射，须由设备证据确认（BL-213 资格验证或设备采集）。
 
 ## 3. 批次准入与校准
 

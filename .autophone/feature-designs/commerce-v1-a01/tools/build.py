@@ -5,9 +5,12 @@ Each run is one round. Outputs go to new directories and are never overwritten:
   calibration/<state>/round-<n>.json       element-by-element comparison (tools/calibrate.mjs)
   calibration/<state>/round-<n>.png        baseline (left) next to the package reference (right)
   calibration/<state>/round-<n>-inputs/    the authored files, drafts and policy this round used
+  calibration/<state>/round-<n>-faces.json resolved faces per text run of the packaged page
+  admission/achievability/<state>.json     text achievability against the App's target-stack profile
   calibration/round-<n>-summary.json       per-state outcome plus the admission report digest
   admission/admission-report.json          batch admission (tools/admission.py), rewritten each round
 
+Before packaging, assets/ is re-extracted into a scratch directory and must be identical.
 Exit status 1 when a calibration fails or any required state is not admitted.
 
 Usage: python3 tools/build.py --autophone-root ../autophone --round 3 --policy policy/calibration-policy.v2.json
@@ -21,9 +24,23 @@ import os
 import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
+
+
+def check_assets_current(env: dict) -> None:
+    """Re-extract the SVG assets into a scratch directory; the committed assets/ must be identical."""
+    with tempfile.TemporaryDirectory(prefix='assets-check-') as scratch:
+        subprocess.run(['node', 'tools/extract_assets.mjs', '../../../design/commerce-v1/ui/prototype.html', scratch,
+                        'home', 'orders'], cwd=HERE, env=env, check=True, capture_output=True)
+        fresh = {p.relative_to(scratch).as_posix(): p.read_bytes() for p in Path(scratch).rglob('*') if p.is_file()}
+        kept = {p.relative_to(HERE / 'assets').as_posix(): p.read_bytes()
+                for p in (HERE / 'assets').rglob('*') if p.is_file()}
+        if fresh != kept:
+            changed = sorted(set(fresh) ^ set(kept) | {k for k in set(fresh) & set(kept) if fresh[k] != kept[k]})
+            sys.exit('assets/ is stale; re-run tools/extract_assets.mjs: ' + ', '.join(changed[:10]))
 
 
 def main() -> None:
@@ -33,9 +50,15 @@ def main() -> None:
     parser.add_argument('--policy', required=True, type=Path)
     parser.add_argument('--playwright-module', type=Path,
                         help='defaults to <autophone-root>/node_modules/playwright/index.mjs')
+    parser.add_argument('--stack-profile', type=Path,
+                        help='defaults to <autophone-root>/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json')
     args = parser.parse_args()
     autophone = args.autophone_root.resolve()
     playwright = (args.playwright_module or autophone / 'node_modules/playwright/index.mjs').resolve()
+    stack_profile = (args.stack_profile or autophone / 'apps/food_ordering_v2/target_stack/target-stack-profile.v1.json').resolve()
+    node_env = {**os.environ, 'PLAYWRIGHT_MODULE': str(playwright),
+                'COMPOSITOR_PROFILES': str(autophone / 'autophone/workflow/requirement/prototype_compositor.json')}
+    check_assets_current(node_env)
     policy = (HERE / args.policy).resolve() if not args.policy.is_absolute() else args.policy
     if not policy.is_file() or policy.parent != HERE / 'policy':
         parser.error('--policy must name a file under policy/')
@@ -73,12 +96,19 @@ def main() -> None:
              policy.relative_to(HERE).as_posix(),
              record.relative_to(HERE).as_posix(), record.with_suffix('.png').relative_to(HERE).as_posix()],
             cwd=HERE, capture_output=True, text=True,
-            env={**os.environ, 'PLAYWRIGHT_MODULE': str(playwright),
-                 'EXPECT_BASELINE_SHA256': provenance['baselines'][f'{page}@430']['sha256']})
+            env={**node_env, 'EXPECT_BASELINE_SHA256': provenance['baselines'][f'{page}@430']['sha256']})
         print(calibration.stdout, end='')
         if not record.is_file():
             sys.exit(f'{state_id}: calibration did not run\n{calibration.stderr}')
         calibrated = json.loads(record.read_text(encoding='utf-8'))['summary']
+        faces = record.with_name(f'round-{args.round}-faces.json')
+        subprocess.run(['node', 'tools/measure_text_faces.mjs', package.relative_to(HERE).as_posix(),
+                        faces.relative_to(HERE).as_posix()], cwd=HERE, env=node_env, check=True,
+                       capture_output=True)
+        achievability = subprocess.run(
+            [sys.executable, '-I', 'tools/achievability.py', faces.relative_to(HERE).as_posix(), str(stack_profile),
+             f'admission/achievability/{state_id}.json'], cwd=HERE, capture_output=True, text=True)
+        print(f'achievability {state_id}: {achievability.stdout.strip()}')
         summary[state_id] = {
             'status': 'calibrated' if calibration.returncode == 0 else 'calibration_failed',
             'package': package.relative_to(HERE).as_posix(),

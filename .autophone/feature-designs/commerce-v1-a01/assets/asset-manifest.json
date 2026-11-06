@@ -1,0 +1,717 @@
+{
+ "schema_version": "commerce-v1-asset-manifest/v1",
+ "source": {
+  "path": "design/commerce-v1/ui/prototype.html",
+  "sha256": "3ea5f13392adb678ab7eb5e962a9cbbe77f259cfff6246a35ec2c9099d7131b1"
+ },
+ "compositor_args": [
+  "--disable-gpu",
+  "--disable-gpu-compositing"
+ ],
+ "assets": [
+  {
+   "page": "home",
+   "file": "home/unowned.iconbutton-1.svg",
+   "sha256": "1ad8f68d79c9f3ca6f5d4e56eec65b950cf5e8892bb0c48f99852243878552e2",
+   "owner": null,
+   "host_class": "iconbutton",
+   "host_tag": "button",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(37, 29, 25)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 2309
+   },
+   "delivered": true
+  },
+  {
+   "page": "home",
+   "file": "home/home.store.select.row-1.svg",
+   "sha256": "0b5a27b89c017046485de114d580e331a9c82cb03a62a30e9d945bd4d95b0349",
+   "owner": "home.store.select",
+   "host_class": "row small",
+   "host_tag": "button",
+   "svg_class": "icon small",
+   "size": {
+    "width": 17,
+    "height": 17
+   },
+   "color": "rgb(37, 29, 25)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 1049
+   },
+   "delivered": true
+  },
+  {
+   "page": "home",
+   "file": "home/home.store.select.row-2.svg",
+   "sha256": "026e3630b56594a1e680081378d539ec157a84d93263dd3695e6665e87818bfe",
+   "owner": "home.store.select",
+   "host_class": "row small",
+   "host_tag": "button",
+   "svg_class": "icon small",
+   "size": {
+    "width": 17,
+    "height": 17
+   },
+   "color": "rgb(37, 29, 25)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 355
+   },
+   "delivered": true
+  },
+  {
+   "page": "home",
+   "file": "home/unowned.art-1.svg",
+   "sha256": "04ffe87c4dddf725a13995382f5dc6dc2a62c0ecf444f9937e1e85711bb6f7ab",
+   "owner": null,
+   "host_class": "art",
+   "host_tag": "div",
+   "svg_class": "productart",
+   "size": {
+    "width": 228,
+    "height": 194
+   },
+   "color": "rgb(37, 29, 25)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": false,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0
+   },
+   "delivered": true
+  },
+  {
+   "page": "home",
+   "file": "home/home.mode.pickup.modeicon-1.svg",
+   "sha256": "d807f44db27b41af105ea64cd0efa0c9123eab95ed3015a972b608bb8cd00f72",
+   "owner": "home.mode.pickup",
+   "host_class": "modeicon",
+   "host_tag": "span",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(201, 60, 37)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 2513
+   },
+   "delivered": true
+  },
+  {
+   "page": "home",
+   "file": "home/home.mode.delivery.modeicon-1.svg",
+   "sha256": "e200931e8549b813fa648ade3001ddd3bd04ebee428220fbf5609d3afba0a9e3",
+   "owner": "home.mode.delivery",
+   "host_class": "modeicon",
+   "host_tag": "span",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(201, 60, 37)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 2178
+   },
+   "delivered": true
+  },
+  {
+   "page": "home",
+   "file": "home/unowned.art-2.svg",
+   "sha256": "d682d771b7dc736f64e1861f2f865a598631107d44bb49a84e1cd2d9f0f7e86a",
+   "owner": null,
+   "host_class": "art",
+   "host_tag": "div",
+   "svg_class": "productart",
+   "size": {
+    "width": 177,
+    "height": 104
+   },
+   "color": "rgb(37, 29, 25)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": false,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0
+   },
+   "delivered": true
+  },
+  {
+   "page": "home",
+   "file": "home/unowned.art-3.svg",
+   "sha256": "d682d771b7dc736f64e1861f2f865a598631107d44bb49a84e1cd2d9f0f7e86a",
+   "owner": null,
+   "host_class": "art",
+   "host_tag": "div",
+   "svg_class": "productart",
+   "size": {
+    "width": 177,
+    "height": 104
+   },
+   "color": "rgb(37, 29, 25)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": false,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0
+   },
+   "delivered": true
+  },
+  {
+   "page": "home",
+   "file": "home/home.ai.open.span-1.svg",
+   "sha256": "d5b1457208dc08654f42dda2ebc486c983cdfbde83985195e63a468bc1f8843a",
+   "owner": "home.ai.open",
+   "host_class": null,
+   "host_tag": "span",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(37, 29, 25)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 1428
+   },
+   "delivered": true
+  },
+  {
+   "page": "home",
+   "file": "home/nav.home.active-1.svg",
+   "sha256": "7b8c52220d4ef4b70d14d4a8d14f550065034ac04e6135d2b9855ec3993486a5",
+   "owner": "nav.home",
+   "host_class": "active",
+   "host_tag": "button",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(201, 60, 37)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 1842
+   },
+   "delivered": true
+  },
+  {
+   "page": "home",
+   "file": "home/nav.menu.button-1.svg",
+   "sha256": "8891fb61a20172b20fad4dcc3eb2d6d83dfc5d5e514bc555825965dfe5c4b7bb",
+   "owner": "nav.menu",
+   "host_class": null,
+   "host_tag": "button",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(113, 101, 93)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 1912
+   },
+   "delivered": true
+  },
+  {
+   "page": "home",
+   "file": "home/nav.coupons.button-1.svg",
+   "sha256": "715b242bfc0cbebf1dbbd9f619e01316505f3e8ad606c11c4cf26bf3eb467f77",
+   "owner": "nav.coupons",
+   "host_class": null,
+   "host_tag": "button",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(113, 101, 93)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 2380
+   },
+   "delivered": true
+  },
+  {
+   "page": "home",
+   "file": "home/nav.orders.button-1.svg",
+   "sha256": "ce398ad75ea1ba63e88785b07cfd8bcd62500acfade514503bac82c404aef373",
+   "owner": "nav.orders",
+   "host_class": null,
+   "host_tag": "button",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(113, 101, 93)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 2309
+   },
+   "delivered": true
+  },
+  {
+   "page": "home",
+   "file": "home/nav.member.button-1.svg",
+   "sha256": "a56ce674c5826863a605ac7e5fea28b075bd52d02c227e2c7650d8a96d1b8757",
+   "owner": "nav.member",
+   "host_class": null,
+   "host_tag": "button",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(113, 101, 93)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 1613
+   },
+   "delivered": true
+  },
+  {
+   "page": "orders",
+   "file": "orders/unowned.iconbutton-1.svg",
+   "sha256": "666472c75231fd107cbdf693c7dede707399735f9fb2dee885fff4b9109211f1",
+   "owner": null,
+   "host_class": "iconbutton",
+   "host_tag": "button",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(37, 29, 25)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 608
+   },
+   "delivered": true
+  },
+  {
+   "page": "orders",
+   "file": "orders/unowned.div-1.svg",
+   "sha256": "5c1d76df9f2c6fb56fe0dd36b470a9152bf4a63507393bba855427c2dee3602e",
+   "owner": null,
+   "host_class": null,
+   "host_tag": "div",
+   "svg_class": "productart",
+   "size": {
+    "width": 76,
+    "height": 76
+   },
+   "color": "rgb(37, 29, 25)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": false,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0
+   },
+   "delivered": true
+  },
+  {
+   "page": "orders",
+   "file": "orders/unowned.div-2.svg",
+   "sha256": "f39db31098e3a67e880c7fdb7a9ba00fb3acc0e1edcde61d468e7861cdb74b4d",
+   "owner": null,
+   "host_class": null,
+   "host_tag": "div",
+   "svg_class": "productart",
+   "size": {
+    "width": 76,
+    "height": 76
+   },
+   "color": "rgb(37, 29, 25)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": false,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0
+   },
+   "delivered": true
+  },
+  {
+   "page": "orders",
+   "file": "orders/nav.home.button-1.svg",
+   "sha256": "1bd1ddc5908853628b0d3da53d3d8ecb1602e691b38b95ffe217e889b93c8fe5",
+   "owner": "nav.home",
+   "host_class": null,
+   "host_tag": "button",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(113, 101, 93)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 1842
+   },
+   "delivered": true
+  },
+  {
+   "page": "orders",
+   "file": "orders/nav.menu.button-1.svg",
+   "sha256": "8891fb61a20172b20fad4dcc3eb2d6d83dfc5d5e514bc555825965dfe5c4b7bb",
+   "owner": "nav.menu",
+   "host_class": null,
+   "host_tag": "button",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(113, 101, 93)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 1912
+   },
+   "delivered": true
+  },
+  {
+   "page": "orders",
+   "file": "orders/nav.coupons.button-1.svg",
+   "sha256": "715b242bfc0cbebf1dbbd9f619e01316505f3e8ad606c11c4cf26bf3eb467f77",
+   "owner": "nav.coupons",
+   "host_class": null,
+   "host_tag": "button",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(113, 101, 93)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 2380
+   },
+   "delivered": true
+  },
+  {
+   "page": "orders",
+   "file": "orders/nav.orders.active-1.svg",
+   "sha256": "6e0a706500a56bda2ab25d21e4c19f814a70b96ea261a4be98747f1fb0bccb09",
+   "owner": "nav.orders",
+   "host_class": "active",
+   "host_tag": "button",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(201, 60, 37)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 2309
+   },
+   "delivered": true
+  },
+  {
+   "page": "orders",
+   "file": "orders/nav.member.button-1.svg",
+   "sha256": "a56ce674c5826863a605ac7e5fea28b075bd52d02c227e2c7650d8a96d1b8757",
+   "owner": "nav.member",
+   "host_class": null,
+   "host_tag": "button",
+   "svg_class": "icon ",
+   "size": {
+    "width": 22,
+    "height": 22
+   },
+   "color": "rgb(113, 101, 93)",
+   "dependencies": [],
+   "standalone_check": {
+    "same_size": true,
+    "max_channel_diff": 0,
+    "differing_pixels": 0,
+    "ok": true,
+    "stable_after": {
+     "in_prototype": 2,
+     "standalone": 2
+    }
+   },
+   "css_dependent": true,
+   "raw_render": {
+    "same_size": true,
+    "max_channel_diff": 255,
+    "differing_pixels": 1613
+   },
+   "delivered": true
+  }
+ ]
+}

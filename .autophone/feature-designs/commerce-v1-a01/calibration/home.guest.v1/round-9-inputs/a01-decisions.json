@@ -1,0 +1,45 @@
+{
+  "schema_version": "commerce-v1-design-decisions/v1",
+  "note": "Design decisions recorded on top of the frozen package. Each entry names who decided and when; derive.py applies them and records which output each one changed. AI-chosen wording inside a decision is marked authored_copy.",
+  "decisions": [
+    {"id": "D1", "date": "2026-11-06", "decided_by": "user (accepted the proposal)", "gap": "G1",
+     "summary": "游客首页与默认态布局相同；会员条显示登录引导，不显示券数量"},
+    {"id": "D2", "date": "2026-11-06", "decided_by": "user (accepted the proposal)", "gap": "G2",
+     "summary": "订单空态：文案“还没有订单”，主操作“去点餐”（orders.empty.primary_action，跳转点餐）"},
+    {"id": "D3", "date": "2026-11-06", "decided_by": "user (accepted the proposal)", "gap": "G4",
+     "summary": "金额统一两位小数；Fixture 增加门店简称，首页显示简称"},
+    {"id": "D4", "date": "2026-11-06", "decided_by": "user (accepted the proposal)", "gap": "P1-P5",
+     "summary": "先验证 v1 HTML 草稿路径，再决定扩展 DSL 或采用 HTML 适配器"},
+    {"id": "D5", "date": "2026-11-06", "decided_by": "user (accepted the proposal)", "gap": "G8",
+     "summary": "接受 home.ai.open 首屏部分可见；B4 以滚动后可达断言"},
+    {"id": "D6", "date": "2026-11-06", "decided_by": "user (accepted the proposal)", "gap": "contract_unresolved",
+     "summary": "订单筛选 ID：all、active、completed、after_sale"}
+  ],
+  "display_rules": {
+    "money": {"decision": "D3", "format": "¥{yuan}.{fen:02d}", "input": "integer fen"},
+    "store_short_name": {"decision": "D3", "input": "fixture_additions.stores.<id>.short_name"}
+  },
+  "fixture_additions": {
+    "decision": "D3",
+    "stores": {"store-demo-001": {"short_name": "科创园店"}}
+  },
+  "view_overrides": {
+    "home.guest.v1": {
+      "member_coupons": {"text": "登录 ›", "decision": "D1", "authored_copy": true,
+                         "replaces": "3 张券 ›（游客没有可用券）"}
+    }
+  },
+  "view_additions": {
+    "orders.empty.v1": {
+      "empty_title": {"text": "还没有订单", "decision": "D2"},
+      "empty_action": {"text": "去点餐", "decision": "D2"}
+    }
+  },
+  "template_values": {
+    "orders.filter.{filter}": {"decision": "D6", "values": ["all", "active", "completed", "after_sale"],
+                               "prototype_labels": ["全部", "进行中", "已完成", "售后"]}
+  },
+  "accepted_partial_visibility": [
+    {"stable_id": "home.ai.open", "decision": "D5", "b4_assertion": "reachable_after_scroll"}
+  ]
+}

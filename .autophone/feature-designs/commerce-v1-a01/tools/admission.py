@@ -11,10 +11,12 @@ ends in exactly one class:
   platform_unsupported  an icon or illustration in the prototype render the DSL cannot draw (reported,
                         never counted as covered; does not block admission on its own)
   excluded              listed in the contract with a reason and a source
-  asset_preserved       an icon or illustration kept by the HTML route (reported, does not block)
+  asset_delivered       an icon or illustration in the HTML-route reference with a delivered asset file
+  asset_without_delivery  such a graphic without a delivered file (blocks)
+  text_not_achievable / text_undecidable  from tools/achievability.py (block)
 
 Template IDs the package does not resolve are reported as incomplete for the state that needs them.
-A state is admitted only when it has no incomplete entry. Exit status 1 when any state is blocked.
+A state is admitted only when it has no blocking entry (see BLOCKING). Exit status 1 when any state is blocked.
 
 Usage: python3 -I tools/admission.py [--out admission/admission-report.json]
 """
@@ -27,6 +29,8 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
+# Classes that keep a state out of execution.
+BLOCKING = ('incomplete', 'asset_without_delivery', 'text_not_achievable', 'text_undecidable')
 
 
 def load(path: Path):
@@ -103,18 +107,64 @@ def admit_state(state_id: str, spec: dict) -> dict:
     for item in spec['excluded']:
         entries.append({'stable_id': item['stable_id'], 'class': 'excluded', 'reason': item['reason'],
                         'source': item['source']})
-    # The HTML route renders the prototype itself, so its icons and illustrations are in the reference.
-    asset_class, asset_reason = (('asset_preserved', 'rendered_from_prototype') if html_spec is not None
-                                 else ('platform_unsupported', 'asset_not_representable'))
-    entries += [{'owner': asset['owner'], 'element_class': asset['class'], 'box': asset['box'],
-                 'class': asset_class, 'reason': asset_reason}
-                for asset in baseline_assets(spec['screen_id'])]
+    entries += asset_entries(spec['screen_id'], html_route=html_spec is not None)
+    achievability = achievability_summary(state_id)
+    entries += achievability.pop('entries')
     counts = {}
     for entry in entries:
         counts[entry['class']] = counts.get(entry['class'], 0) + 1
     return {'route': 'html' if html_spec is not None else 'dsl',
-            'admitted': counts.get('incomplete', 0) == 0, 'counts': dict(sorted(counts.items())),
-            'entries': entries}
+            'admitted': not any(counts.get(c, 0) for c in BLOCKING),
+            'counts': dict(sorted(counts.items())), 'achievability': achievability, 'entries': entries}
+
+
+def asset_entries(screen_id: str, *, html_route: bool) -> list[dict]:
+    """Each icon or illustration in the prototype render, matched to the delivered asset files.
+
+    HTML route: the reference shows the graphic, so the App must be able to draw it: a host without
+    a delivered file (present, self-contained, standalone render identical) blocks. DSL route: the
+    reference has a placeholder, so the graphic stays platform_unsupported; delivery is noted.
+    """
+    manifest_path = HERE / 'assets' / 'asset-manifest.json'
+    manifest = load(manifest_path) if manifest_path.is_file() else {'assets': []}
+    groups: dict[tuple, list[dict]] = {}
+    for asset in manifest['assets']:
+        if asset['page'] == screen_id:
+            groups.setdefault((asset['owner'], asset['host_class']), []).append(asset)
+    entries = []
+    for host in baseline_assets(screen_id):
+        files = groups.get((host['owner'], host['class']), [])
+        delivered = bool(files) and all(f['delivered'] for f in files)
+        base = {'owner': host['owner'], 'element_class': host['class'], 'box': host['box'],
+                'asset_files': [f['file'] for f in files]}
+        if html_route:
+            entries.append({**base, 'class': 'asset_delivered' if delivered else 'asset_without_delivery',
+                            'reason': 'rendered_from_prototype'})
+        else:
+            entries.append({**base, 'class': 'platform_unsupported', 'reason': 'asset_not_representable',
+                            'delivered': delivered})
+    return entries
+
+
+def achievability_summary(state_id: str) -> dict:
+    """Text achievability from tools/achievability.py; a missing report blocks like a failed one."""
+    path = HERE / 'admission' / 'achievability' / f'{state_id}.json'
+    if not path.is_file():
+        return {'report': None, 'entries': [{'class': 'incomplete', 'reason': 'achievability_not_run',
+                                             'stable_id': None, 'sources': []}]}
+    report = load(path)
+    entries = [{'class': 'text_not_achievable' if r['outcome'] == 'not_achievable' else 'text_undecidable',
+                'owner': r['owner'], 'stable_id': r['stable_id'], 'text': r['text'],
+                'reason': r.get('reason', r['outcome'])} for r in report['blocking']]
+    return {
+        'report': {'path': path.relative_to(HERE).as_posix(), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+                   'design_package_sha256': report['faces']['design_package_sha256'], 'profile': report['profile'],
+                   'counts': report['counts']},
+        'css_weight_differs': [{'owner': r['owner'], 'text': r['text'], 'css_weight': r['css_weight'],
+                                'implement_with': r['implement_with']}
+                               for r in report['results'] if r.get('css_weight_differs')],
+        'entries': entries,
+    }
 
 
 def main() -> None:

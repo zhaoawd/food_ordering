@@ -1,0 +1,362 @@
+{
+ "schema_version": "commerce-v1-text-achievability/v1",
+ "faces": {
+  "path": "calibration/orders.empty.v1/round-9-faces.json",
+  "sha256": "929d201ffd69e30f7d4d887061a0f04957accaf23e217a2ccc62fa3be9d5741a",
+  "design_package_sha256": "95b9826dff4d2466f66b3c824df3d0eb4254f34236d8e4c5197959c9b146e0f3"
+ },
+ "profile": {
+  "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
+  "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
+  "app": "food_ordering_v2",
+  "version": 1
+ },
+ "counts": {
+  "achievable/assumed": 12
+ },
+ "blocking": [],
+ "results": [
+  {
+   "owner": "orders.title",
+   "stable_id": "orders.title",
+   "text": "我的订单",
+   "css_weight": "700",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "我的订单",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "orders.filter.all",
+   "stable_id": "orders.filter.all",
+   "text": "全部",
+   "css_weight": "700",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "全部",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "orders.filter.active",
+   "stable_id": "orders.filter.active",
+   "text": "进行中",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "进行中",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "orders.filter.completed",
+   "stable_id": "orders.filter.completed",
+   "text": "已完成",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "已完成",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "orders.filter.after_sale",
+   "stable_id": "orders.filter.after_sale",
+   "text": "售后",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "售后",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "orders.empty.title",
+   "stable_id": "orders.empty.title",
+   "text": "还没有订单",
+   "css_weight": "700",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "还没有订单",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "orders.empty.primary_action",
+   "stable_id": "orders.empty.primary_action",
+   "text": "去点餐",
+   "css_weight": "600",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "去点餐",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "nav.home",
+   "stable_id": "nav.home",
+   "text": "首页",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "首页",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "nav.menu",
+   "stable_id": "nav.menu",
+   "text": "点餐",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "点餐",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "nav.coupons",
+   "stable_id": "nav.coupons",
+   "text": "优惠",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "优惠",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "nav.orders",
+   "stable_id": "nav.orders",
+   "text": "订单",
+   "css_weight": "700",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "订单",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "nav.member",
+   "stable_id": "nav.member",
+   "text": "我的",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "我的",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  }
+ ]
+}

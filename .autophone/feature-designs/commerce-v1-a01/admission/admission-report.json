@@ -13,8 +13,98 @@
       "route": "html",
       "admitted": true,
       "counts": {
-        "asset_preserved": 13,
+        "asset_delivered": 13,
         "covered": 13
+      },
+      "achievability": {
+        "report": {
+          "path": "admission/achievability/home.default.v1.json",
+          "sha256": "a021fa30d5aac2a11ce23c62710521fb32b647b24d7ea5574fa23a73382a177f",
+          "design_package_sha256": "a91d27611555968e92c91081e9ca1cb797719fb6862228d6c995e8563b7fa339",
+          "profile": {
+            "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
+            "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
+            "app": "food_ordering_v2",
+            "version": 1
+          },
+          "counts": {
+            "achievable/assumed": 34
+          }
+        },
+        "css_weight_differs": [
+          {
+            "owner": "home.brand",
+            "text": "食刻",
+            "css_weight": "850",
+            "implement_with": [
+              "600",
+              "700",
+              "800",
+              "900",
+              "bold"
+            ]
+          },
+          {
+            "owner": null,
+            "text": "FRESH MOMENTS",
+            "css_weight": "850",
+            "implement_with": [
+              "700",
+              "bold"
+            ]
+          },
+          {
+            "owner": "home.hero.eyebrow",
+            "text": "FRESHLY MADE · 现点现做",
+            "css_weight": "600",
+            "implement_with": [
+              "700",
+              "bold"
+            ]
+          },
+          {
+            "owner": "home.hero.headline",
+            "text": "今天，来点热乎的。",
+            "css_weight": "850",
+            "implement_with": [
+              "600",
+              "700",
+              "800",
+              "900",
+              "bold"
+            ]
+          },
+          {
+            "owner": "home.shelf.title",
+            "text": "人气好滋味",
+            "css_weight": "750",
+            "implement_with": [
+              "600",
+              "700",
+              "800",
+              "900",
+              "bold"
+            ]
+          },
+          {
+            "owner": "home.shelf.combo-chicken-001.price",
+            "text": "¥",
+            "css_weight": "800",
+            "implement_with": [
+              "700",
+              "bold"
+            ]
+          },
+          {
+            "owner": "home.shelf.combo-beef-002.price",
+            "text": "¥",
+            "css_weight": "800",
+            "implement_with": [
+              "700",
+              "bold"
+            ]
+          }
+        ]
       },
       "entries": [
         {
@@ -191,7 +281,10 @@
             44,
             44
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/unowned.iconbutton-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -203,7 +296,11 @@
             201.42,
             21.8
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/home.store.select.row-1.svg",
+            "home/home.store.select.row-2.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -215,7 +312,12 @@
             249.94,
             220.34
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/unowned.art-1.svg",
+            "home/unowned.art-2.svg",
+            "home/unowned.art-3.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -227,7 +329,10 @@
             42,
             42
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/home.mode.pickup.modeicon-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -239,7 +344,10 @@
             42,
             42
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/home.mode.delivery.modeicon-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -251,7 +359,12 @@
             177,
             104
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/unowned.art-1.svg",
+            "home/unowned.art-2.svg",
+            "home/unowned.art-3.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -263,7 +376,12 @@
             177,
             104
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/unowned.art-1.svg",
+            "home/unowned.art-2.svg",
+            "home/unowned.art-3.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -275,7 +393,10 @@
             193.8,
             27
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/home.ai.open.span-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -287,7 +408,10 @@
             65,
             50
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/nav.home.active-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -299,7 +423,10 @@
             65,
             50
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/nav.menu.button-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -311,7 +438,10 @@
             65,
             50
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/nav.coupons.button-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -323,7 +453,10 @@
             65,
             50
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/nav.orders.button-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -335,7 +468,10 @@
             65,
             50
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/nav.member.button-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         }
       ]
@@ -344,8 +480,98 @@
       "route": "html",
       "admitted": true,
       "counts": {
-        "asset_preserved": 13,
+        "asset_delivered": 13,
         "covered": 13
+      },
+      "achievability": {
+        "report": {
+          "path": "admission/achievability/home.guest.v1.json",
+          "sha256": "b395cf8087b8b7ae7ea06825f2abf63b97829217d425fb34cd4af6a6b96c1cd4",
+          "design_package_sha256": "b42bb0c670010f825a4d032be6b01caba3c7fee5aa53943d09a44736e8941e0a",
+          "profile": {
+            "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
+            "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
+            "app": "food_ordering_v2",
+            "version": 1
+          },
+          "counts": {
+            "achievable/assumed": 34
+          }
+        },
+        "css_weight_differs": [
+          {
+            "owner": "home.brand",
+            "text": "食刻",
+            "css_weight": "850",
+            "implement_with": [
+              "600",
+              "700",
+              "800",
+              "900",
+              "bold"
+            ]
+          },
+          {
+            "owner": null,
+            "text": "FRESH MOMENTS",
+            "css_weight": "850",
+            "implement_with": [
+              "700",
+              "bold"
+            ]
+          },
+          {
+            "owner": "home.hero.eyebrow",
+            "text": "FRESHLY MADE · 现点现做",
+            "css_weight": "600",
+            "implement_with": [
+              "700",
+              "bold"
+            ]
+          },
+          {
+            "owner": "home.hero.headline",
+            "text": "今天，来点热乎的。",
+            "css_weight": "850",
+            "implement_with": [
+              "600",
+              "700",
+              "800",
+              "900",
+              "bold"
+            ]
+          },
+          {
+            "owner": "home.shelf.title",
+            "text": "人气好滋味",
+            "css_weight": "750",
+            "implement_with": [
+              "600",
+              "700",
+              "800",
+              "900",
+              "bold"
+            ]
+          },
+          {
+            "owner": "home.shelf.combo-chicken-001.price",
+            "text": "¥",
+            "css_weight": "800",
+            "implement_with": [
+              "700",
+              "bold"
+            ]
+          },
+          {
+            "owner": "home.shelf.combo-beef-002.price",
+            "text": "¥",
+            "css_weight": "800",
+            "implement_with": [
+              "700",
+              "bold"
+            ]
+          }
+        ]
       },
       "entries": [
         {
@@ -522,7 +748,10 @@
             44,
             44
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/unowned.iconbutton-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -534,7 +763,11 @@
             201.42,
             21.8
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/home.store.select.row-1.svg",
+            "home/home.store.select.row-2.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -546,7 +779,12 @@
             249.94,
             220.34
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/unowned.art-1.svg",
+            "home/unowned.art-2.svg",
+            "home/unowned.art-3.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -558,7 +796,10 @@
             42,
             42
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/home.mode.pickup.modeicon-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -570,7 +811,10 @@
             42,
             42
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/home.mode.delivery.modeicon-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -582,7 +826,12 @@
             177,
             104
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/unowned.art-1.svg",
+            "home/unowned.art-2.svg",
+            "home/unowned.art-3.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -594,7 +843,12 @@
             177,
             104
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/unowned.art-1.svg",
+            "home/unowned.art-2.svg",
+            "home/unowned.art-3.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -606,7 +860,10 @@
             193.8,
             27
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/home.ai.open.span-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -618,7 +875,10 @@
             65,
             50
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/nav.home.active-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -630,7 +890,10 @@
             65,
             50
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/nav.menu.button-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -642,7 +905,10 @@
             65,
             50
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/nav.coupons.button-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -654,7 +920,10 @@
             65,
             50
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/nav.orders.button-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         },
         {
@@ -666,7 +935,10 @@
             65,
             50
           ],
-          "class": "asset_preserved",
+          "asset_files": [
+            "home/nav.member.button-1.svg"
+          ],
+          "class": "asset_delivered",
           "reason": "rendered_from_prototype"
         }
       ]
@@ -679,6 +951,23 @@
         "covered_by_decision": 1,
         "excluded": 1,
         "platform_unsupported": 8
+      },
+      "achievability": {
+        "report": {
+          "path": "admission/achievability/orders.empty.v1.json",
+          "sha256": "3ad60fec8e3e97a9e050787c5184a0fba57694b2ec9e2bfac8087c4325abb9d6",
+          "design_package_sha256": "95b9826dff4d2466f66b3c824df3d0eb4254f34236d8e4c5197959c9b146e0f3",
+          "profile": {
+            "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
+            "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
+            "app": "food_ordering_v2",
+            "version": 1
+          },
+          "counts": {
+            "achievable/assumed": 12
+          }
+        },
+        "css_weight_differs": []
       },
       "entries": [
         {
@@ -823,8 +1112,12 @@
             44,
             44
           ],
+          "asset_files": [
+            "orders/unowned.iconbutton-1.svg"
+          ],
           "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "reason": "asset_not_representable",
+          "delivered": true
         },
         {
           "owner": null,
@@ -835,8 +1128,13 @@
             76,
             76
           ],
+          "asset_files": [
+            "orders/unowned.div-1.svg",
+            "orders/unowned.div-2.svg"
+          ],
           "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "reason": "asset_not_representable",
+          "delivered": true
         },
         {
           "owner": null,
@@ -847,8 +1145,13 @@
             76,
             76
           ],
+          "asset_files": [
+            "orders/unowned.div-1.svg",
+            "orders/unowned.div-2.svg"
+          ],
           "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "reason": "asset_not_representable",
+          "delivered": true
         },
         {
           "owner": "nav.home",
@@ -859,8 +1162,12 @@
             65,
             50
           ],
+          "asset_files": [
+            "orders/nav.home.button-1.svg"
+          ],
           "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "reason": "asset_not_representable",
+          "delivered": true
         },
         {
           "owner": "nav.menu",
@@ -871,8 +1178,12 @@
             65,
             50
           ],
+          "asset_files": [
+            "orders/nav.menu.button-1.svg"
+          ],
           "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "reason": "asset_not_representable",
+          "delivered": true
         },
         {
           "owner": "nav.coupons",
@@ -883,8 +1194,12 @@
             65,
             50
           ],
+          "asset_files": [
+            "orders/nav.coupons.button-1.svg"
+          ],
           "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "reason": "asset_not_representable",
+          "delivered": true
         },
         {
           "owner": "nav.orders",
@@ -895,8 +1210,12 @@
             65,
             50
           ],
+          "asset_files": [
+            "orders/nav.orders.active-1.svg"
+          ],
           "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "reason": "asset_not_representable",
+          "delivered": true
         },
         {
           "owner": "nav.member",
@@ -907,8 +1226,12 @@
             65,
             50
           ],
+          "asset_files": [
+            "orders/nav.member.button-1.svg"
+          ],
           "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "reason": "asset_not_representable",
+          "delivered": true
         }
       ]
     }

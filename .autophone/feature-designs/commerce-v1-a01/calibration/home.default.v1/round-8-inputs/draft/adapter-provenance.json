@@ -1,0 +1,8 @@
+{
+ "schema_version": "commerce-v1-html-draft-provenance/v1",
+ "prototype_sha256": "3ea5f13392adb678ab7eb5e962a9cbbe77f259cfff6246a35ec2c9099d7131b1",
+ "adapter_sha256": "b72a6f223a8c7f0d81ffe4e2eccf1c1ce2dfae33c6dc454bf00d3f3a0250f238",
+ "decision_texts": {
+  "home.hero.price": "¥32.90"
+ }
+}
