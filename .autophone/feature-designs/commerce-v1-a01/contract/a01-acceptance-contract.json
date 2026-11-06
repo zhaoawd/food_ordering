@@ -133,8 +133,6 @@
     }
   },
   "fixture": {
-    "selection_schema": "contract/fixture-selection.v1.json",
-    "receipt_schema": "contract/fixture-receipt.v1.json",
     "clock": "2026-11-05T12:00:00+08:00",
     "timezone": "Asia/Shanghai",
     "locale": "zh-CN",
@@ -149,7 +147,7 @@
         "sha256": "7ab38afbc309d2528fdb2d693adaf59f3766e7a8df29945e214c030485fbe6d6"
       }
     ],
-    "isolation": "每次准备新 run_id、由 run_id 派生的 backend_namespace 与新 nonce（state-registry isolation）",
+    "isolation": "每次准备使用新的 nonce（按需求单、轮次、运行与状态派生）与冷启动进程；App 无后端，backend namespace 不适用（2026-11-06 修订）",
     "accounts": {
       "home.default.v1": {
         "kind": "member",
@@ -164,7 +162,19 @@
       }
     },
     "accounts_basis": "state_recipe（default/guest/empty）与 fixtures/commerce.json user_id；default 与 empty 取会员是推断（R10 订单需登录），待验证",
-    "entry": "冷启动落在首页 Tab；订单页经点击 nav.orders 到达，不以直接改路由或 Store 代替被测动作（R21、state-registry note）"
+    "entry": "冷启动落在首页 Tab；订单页经点击 nav.orders 到达，不以直接改路由或 Store 代替被测动作（R21、state-registry note）",
+    "channel": {
+      "selection_document": "Documents/autophone-ui-eval-selection.json，由 autophone 状态运行时在冷启动前经 vphoned file_put 写入：{state_id, mutation_id: baseline, nonce}",
+      "state_id": "StateSpec.selection（autophone PR feat/commerce-v1-a01-states）；App 在 verification/resolve-eval-fixture.mjs 按 state_id 选择配方",
+      "nonce": "sha256(req_id, iteration_id, run_id, state_id, env_fingerprint) 前 32 位，每次运行不同",
+      "receipt": "Documents/autophone-ui-eval-selection-receipt.json（ui-eval-selection-receipt/v1，nonce 与 registry_sha256）",
+      "observation": "Documents/autophone-ui-observation.json（ui-actual-observation/v1）；AX 独立交叉核对",
+      "schema": "contract/fixture-selection.v1.json"
+    },
+    "revision": {
+      "date": "2026-11-06",
+      "reason": "接入平台既有选择通道，不另设选择文档与回执；冻结值（时钟、时区、语言、随机种子、种子文件、账号）不变，由 App 按 state_id 取冻结 L0 数据"
+    }
   },
   "observation_sources": {
     "ax": "AX identifier = React Native testID = stable_id（ui-contract mapping.react_native）；独立于产品内部观测",

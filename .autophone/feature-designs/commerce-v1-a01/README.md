@@ -103,7 +103,7 @@ $D b4-entry $B --round <n> [--write]
 | 产物 | 内容 |
 | --- | --- |
 | `contract/a01-acceptance-contract.json` | 三张需求单（键、上游、屏与状态、设计包与哈希、E3 条款数、人审项、改前证据）；冻结比较策略（通道容差 0、`expected_alpha` 加 D9 遮罩、变化像素比例 ≤ 0.002、frame 0.5 pt、`production-v1`、整屏 region）；fixture（时钟、时区、语言、随机种子、种子文件哈希、账号、隔离方式、入口）；观测来源；超时与恢复；T001、T003、T004 转换后的步骤；待交付能力 |
-| `contract/fixture-selection.v1.json`、`contract/fixture-receipt.v1.json` | verification 构建的 fixture 选择文档与回执 Schema（nonce、run_id、backend_namespace、冻结的时钟与种子、guest/member 账号、业务事件日志） |
+| `contract/fixture-selection.v1.json` | 平台选择文档中 commerce-v1 的字段（`state_id`、`mutation_id`、`nonce`）；2026-11-06 修订为接入既有选择通道，不另设文档与回执，冻结的时钟、种子与账号不变 |
 | `contract/requirements/*.md` | 三张需求单原文 |
 
 设计锁定已在隔离状态目录中对第 14 轮的包验证：首页默认态与游客态各 75 条 E3 条款（`home.hero.headline` 字号、`home.store.name` 字重进入人审清单），订单空态 44 条；遮罩与整屏 region 均冻结。
