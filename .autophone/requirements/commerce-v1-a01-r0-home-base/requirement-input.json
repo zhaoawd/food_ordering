@@ -1,0 +1,193 @@
+{
+  "app": "food_ordering_v2",
+  "baseline": null,
+  "branch": "autophone/req-commerce-v1-a01-r0-home-base",
+  "design_package": {
+    "adapter": "design-batch-html-adapter/v1",
+    "element_count": 27,
+    "frame_size": {
+      "height": 932,
+      "width": 430
+    },
+    "manifest_sha256": "25d149dbcb3af437e5472fadb4463de1d4ba36e1efe21c47b47332f42784fffd",
+    "origin": {
+      "path": "test-results/commerce-v1-a01-b4/packages/home.default.v1",
+      "repo": "autophone"
+    },
+    "role": "design_source",
+    "root": "design",
+    "scale": 3,
+    "schema_version": "structured-design-package/v1",
+    "stable_ids": [
+      "home.ai.open",
+      "home.brand",
+      "home.greeting",
+      "home.hero.headline",
+      "home.hero.price",
+      "home.member.coupons",
+      "home.mode.delivery",
+      "home.mode.delivery.title",
+      "home.mode.pickup",
+      "home.mode.pickup.title",
+      "home.shelf.combo-beef-002.name",
+      "home.shelf.combo-beef-002.price",
+      "home.shelf.combo-chicken-001.name",
+      "home.shelf.combo-chicken-001.price",
+      "home.shelf.title",
+      "home.start_order",
+      "home.store.distance",
+      "home.store.name",
+      "home.store.select",
+      "member.points.open",
+      "menu.product.combo-beef-002.open",
+      "menu.product.combo-chicken-001.open",
+      "nav.coupons",
+      "nav.home",
+      "nav.member",
+      "nav.menu",
+      "nav.orders"
+    ]
+  },
+  "expectation": {
+    "clauses": [],
+    "comparison_policy": {
+      "frame_tolerance_pt": 0.5,
+      "max_changed_pixel_ratio": 0.002,
+      "pixel_channel_tolerance": 0,
+      "pixel_scope": "expected_alpha"
+    },
+    "design_package_sha256": "25d149dbcb3af437e5472fadb4463de1d4ba36e1efe21c47b47332f42784fffd",
+    "kind": "structured",
+    "noise_baseline": {
+      "path": "expectation/noise-baseline-v1.json",
+      "sha256": "d0b11927ede48ba8dcb81114d61e60808dd209ecd76be04dddb96f3b2a2ba5b5"
+    },
+    "property_channels": "sha256:21e0fac5cd4a0093d41a780c9ece36efae8b4b3b5cbc7d85bea3af586e350b80",
+    "reference": {
+      "path": "expectation/expected-full.png",
+      "sha256": "74bd0bc4339de98902e3590256488b57a8df6265d7e0b445a879c307c3a4ca68"
+    },
+    "region_mappings": {
+      "screen": {
+        "coordinate_space": "screen_points",
+        "frame": {
+          "height": 932,
+          "width": 430,
+          "x": 0,
+          "y": 0
+        },
+        "scale": 3,
+        "stable_ids": [
+          "$screen"
+        ]
+      }
+    },
+    "regions": [
+      "screen"
+    ],
+    "required_property_policy": "production-v1",
+    "role": "executable_expectation",
+    "unverifiable_clauses": []
+  },
+  "files": [
+    {
+      "bytes": 1422,
+      "kind": "requirement_document",
+      "origin": "authored",
+      "path": "commerce-v1-a01-r0-home-base.md",
+      "purpose": "需求原文。页面上传的就是这个文件，建单时冻结成需求单的原始输入快照。",
+      "sha256": "403f671283cfaf1e1789d0d8aa067fbd89803852bb6534fc9c071886cdf7cada"
+    },
+    {
+      "bytes": 14022,
+      "kind": "design_package_manifest",
+      "origin": "compiled",
+      "path": "design/design-package.json",
+      "purpose": "设计源包身份与清单：屏/状态、frame、scale、逐元素属性和比较策略。它用于设计追溯，不作为本轮机器可执行期望。",
+      "sha256": "25d149dbcb3af437e5472fadb4463de1d4ba36e1efe21c47b47332f42784fffd"
+    },
+    {
+      "bytes": 494,
+      "kind": "design_adapter_provenance",
+      "origin": "compiled",
+      "path": "design/prototype/adapter-provenance.json",
+      "purpose": "HTML 路线的注入来源记录：原型、注入引擎与布局锚定值的哈希，以及由设计决定改写的文本。",
+      "sha256": "b33d580ca0a23835efb09a227f979b17f5e121c5c21ae5b4e15e866aebdbe2c9"
+    },
+    {
+      "bytes": 96069,
+      "kind": "design_html_prototype",
+      "origin": "compiled",
+      "path": "design/prototype/index.html",
+      "purpose": "HTML 路线的可执行原型：冻结的原型 HTML 加确定性注入（查询参数、外壳样式、布局锚定值与 stable_id 标注），参考图由它渲染。由设计批次派生生成，不手工编辑。",
+      "sha256": "c2473261f3f6d381fe30a9fc98b423f1a314df04b6fe2a0bc6358158380b0502"
+    },
+    {
+      "bytes": 5244,
+      "kind": "design_prototype_spec",
+      "origin": "authored",
+      "path": "design/prototype/prototype-spec.json",
+      "purpose": "设计原始内容：草稿装配说明——viewport profile、safe area、系统 UI 策略与逐元素验收范围。",
+      "sha256": "cf3b553594615e9cd901c1e020777861a6a84a267f5db6e8fb1c39fdba8255ee"
+    },
+    {
+      "bytes": 1754,
+      "kind": "design_state_fixture",
+      "origin": "authored",
+      "path": "design/prototype/state-fixture.json",
+      "purpose": "设计原始内容：Fixture Spec，业务状态的独立真源（选项、列表、文案样例）。",
+      "sha256": "54e1299342f9d34a7bc6aad74ba6070b8d34a2ead07c40a738b3167444e1c72a"
+    },
+    {
+      "bytes": 282854,
+      "kind": "design_reference_image",
+      "origin": "rendered",
+      "path": "design/reference.png",
+      "purpose": "设计参考图：由编译原型渲染，尺寸由设计包的 frame_size 与 scale 决定。声明 comparison_mask 时，它应用遮罩，评审使用遮罩前的 review-reference.png；未声明遮罩时，它也用于设计评审。本轮比较使用 expectation 声明的参考图。",
+      "sha256": "74bd0bc4339de98902e3590256488b57a8df6265d7e0b445a879c307c3a4ca68"
+    },
+    {
+      "bytes": 269135,
+      "kind": "design_review_reference_image",
+      "origin": "rendered",
+      "path": "design/review-reference.png",
+      "purpose": "评审参考图：viewport scope 之后、遮罩之前的那一帧。遮罩覆盖率的分母只能从它复算。",
+      "sha256": "368e8e6481a36ad1a396e43c4e1ea17069d04fff4c76eedf98edf6d0f69de700"
+    },
+    {
+      "bytes": 282854,
+      "kind": "expectation_reference_image",
+      "origin": "rendered",
+      "path": "expectation/expected-full.png",
+      "purpose": "机器可执行期望的参考图。structured 类型必须与设计参考图逐字节一致；prd 类型使用已冻结的运行时参考图。",
+      "sha256": "74bd0bc4339de98902e3590256488b57a8df6265d7e0b445a879c307c3a4ca68"
+    },
+    {
+      "bytes": 4711,
+      "kind": "expectation_noise_baseline",
+      "origin": "compiled",
+      "path": "expectation/noise-baseline-v1.json",
+      "purpose": "机器可执行期望的噪声基线。由同一干净构建的重复采样计算，限定允许的视觉残差。",
+      "sha256": "d0b11927ede48ba8dcb81114d61e60808dd209ecd76be04dddb96f3b2a2ba5b5"
+    }
+  ],
+  "packed_at": "2026-11-06T16:23:34Z",
+  "packed_by": "claude",
+  "requirement_document": {
+    "media_type": "text/markdown",
+    "path": "commerce-v1-a01-r0-home-base.md",
+    "sha256": "403f671283cfaf1e1789d0d8aa067fbd89803852bb6534fc9c071886cdf7cada"
+  },
+  "requirement_key": "commerce-v1-a01-r0-home-base",
+  "round_role": "baseline",
+  "schema_version": "requirement-input-package/v1",
+  "screen_id": "home",
+  "sequence": 0,
+  "state_id": "home.default.v1",
+  "summary": "A01 三个状态的结构基线，供噪声基线采集；不走修复闭环",
+  "title": "commerce-v1 A01 r0：基线轮（结构基线）",
+  "upstream": {
+    "commit_sha": "881b8832f9fa7d4f8b60ea73f63a5d202db5bed5",
+    "source_url": "https://github.com/adrianhajdin/food_ordering"
+  }
+}
