@@ -28,7 +28,7 @@ REPO = HERE.parent.parent.parent
 DECISIONS = HERE / 'decisions' / 'a01-decisions.json'
 BATCH_DEFINITION = HERE / 'batch' / 'a01-batch.json'
 # Sections of the batch definition whose entries must cite a source in L0 or a recorded decision.
-PROVENANCE_SECTIONS = ('design_version', 'design_package', 'frame', 'viewport_profile', 'injection', 'states',
+PROVENANCE_SECTIONS = ('design_version', 'design_package', 'frame', 'viewport_profile', 'injection', 'device_reference', 'states',
                        'shell_sections', 'tab_bar', 'featured_products', 'current_store', 'template_sources',
                        'display_bindings', 'contract_exclusions')
 

@@ -1,0 +1,68 @@
+{
+  "schema_version": "commerce-v1-final-package/v1",
+  "state_id": "home.guest.v1",
+  "round": 12,
+  "status": "final_candidate",
+  "package": {
+    "path": "packages/home.guest.v1/round-12-device",
+    "design_package_sha256": "8457192779fc6d9f9a5967f4f4944fd563b006588c3623e43651074fed1803a3",
+    "reference_sha256": "92f051d605b4d1aca352aad74e201c33ef8708902948799b4df14483fb8474b9",
+    "reference_renderer": {
+      "renderer": "ios-wkwebview",
+      "capture": "vphone-open-url-safari-band-capture/v1",
+      "env_fingerprint": "isolation-peer/vphone-ios27-default/zh-CN/light",
+      "device_profile": "vphone-ios27-default",
+      "locale": "zh-CN",
+      "theme": "light",
+      "dynamic_type": "L",
+      "self_check": {
+        "mode": "measurement_layout",
+        "baseline_sha256": "3fb0af3ff32dc83df23fcd86b156c9e5772548ccbeb472ae45d25f578152d1bd",
+        "tolerance": 8,
+        "max_changed_ratio": 0.0,
+        "include_colors": [
+          "#FAF7F2",
+          "#FFFFFF",
+          "#F0D8B8",
+          "#30271F",
+          "#FFF0E7"
+        ],
+        "edge_inset_px": 12,
+        "minimum_coverage_ratio": 0.2,
+        "compared_pixels": 2328719,
+        "changed_pixels": 0,
+        "max_delta": 0
+      }
+    }
+  },
+  "host_package": {
+    "path": "packages/home.guest.v1/round-12",
+    "design_package_sha256": "bd3cc8921a3575f9afdcece3577ffbfe3a0d92575d4ba71aa7654b70d45d421b"
+  },
+  "checks": {
+    "calibration": {
+      "record": "calibration/home.guest.v1/round-12-device.json",
+      "sha256": "3aa2ded661c19246fd548ad4954a45915c73a4f90e04ef178b49391d6a9b4ca7",
+      "summary": {
+        "elements": 32,
+        "passed": 28,
+        "deviations": 4,
+        "failed": 0,
+        "stale_deviations": 0
+      },
+      "policy_sha256": "768088afdd9c8e85c1cc03f1ae9c1e9354caad30e858c626ff65a8431985b196"
+    },
+    "achievability": {
+      "report": "admission/achievability/home.guest.v1.final.json",
+      "sha256": "f39000a56c7ea4063bf09ecb886d5e9b92ecb954a0338995400fb769bde73eb8",
+      "counts": {
+        "achievable/assumed": 34
+      }
+    },
+    "admission": {
+      "report": "admission/admission-report.json",
+      "sha256": "26aa7704a2e681042b66f4392a354256cc6ef6181471770b588fcd8a053163e5",
+      "admitted": true
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "schema_version": "commerce-v1-calibration-policy/v1",
+  "version": 5,
+  "note": "Fixed before calibration. Changing any value creates a new version file; known deviations must cite a gap recorded in README.md §5.",
+  "regions": {
+    "home": {
+      "top": {
+        "baseline_origin_y": 44,
+        "draft_origin_y": 59,
+        "reason": "顶部安全区 59pt 取代原型 44pt 模拟状态栏"
+      },
+      "bottom": {
+        "baseline_origin_y": 856,
+        "draft_origin_y": 836,
+        "reason": "导航按钮区保持 59pt，底部 17pt 内边距由 37pt 安全区取代"
+      }
+    },
+    "orders": {
+      "top": {
+        "baseline_origin_y": 44,
+        "draft_origin_y": 59,
+        "reason": "顶部安全区 59pt 取代原型 44pt 模拟状态栏"
+      },
+      "bottom": {
+        "baseline_origin_y": 856,
+        "draft_origin_y": 836,
+        "reason": "导航按钮区保持 59pt，底部 17pt 内边距由 37pt 安全区取代"
+      }
+    }
+  },
+  "tolerance_pt": {
+    "box": 2.0,
+    "text": 3.0,
+    "visible_fraction": 0.1
+  },
+  "checks": {
+    "geometry": true,
+    "text": true,
+    "style": true,
+    "lines": true,
+    "visibility": true
+  },
+  "known_deviations": [
+    {
+      "state_id": "home.default.v1",
+      "stable_id": "home.ai.open",
+      "check": "visibility",
+      "gap": "G8",
+      "note": "R4 安全区重排；D5 接受部分可见，B4 以滚动后可达断言",
+      "pin": 0.22
+    },
+    {
+      "state_id": "home.default.v1",
+      "stable_id": "home.hero.price",
+      "check": "text",
+      "gap": "D3",
+      "note": "金额统一两位小数：原型 ¥32.9，按 base_price_cents=3290 显示 ¥32.90",
+      "pin": "¥32.90"
+    },
+    {
+      "state_id": "home.default.v1",
+      "stable_id": "home.hero.product",
+      "check": "geometry",
+      "gap": "D3",
+      "note": "价格文本变宽，同行商品名右移",
+      "pin": {
+        "x": 14.45,
+        "center_y": 0.03
+      }
+    },
+    {
+      "state_id": "home.guest.v1",
+      "stable_id": "home.hero.price",
+      "check": "text",
+      "gap": "D3",
+      "note": "金额统一两位小数：原型 ¥32.9，按 base_price_cents=3290 显示 ¥32.90",
+      "pin": "¥32.90"
+    },
+    {
+      "state_id": "home.guest.v1",
+      "stable_id": "home.hero.product",
+      "check": "geometry",
+      "gap": "D3",
+      "note": "价格文本变宽，同行商品名右移",
+      "pin": {
+        "x": 14.45,
+        "center_y": 0.03
+      }
+    },
+    {
+      "state_id": "home.guest.v1",
+      "stable_id": "home.ai.open",
+      "check": "visibility",
+      "gap": "G8",
+      "note": "R4 安全区重排；D5 接受部分可见，B4 以滚动后可达断言",
+      "pin": 0.22
+    },
+    {
+      "state_id": "home.guest.v1",
+      "stable_id": "home.member.coupons",
+      "check": "text",
+      "gap": "D1",
+      "note": "游客会员条显示登录引导“登录 ›”，不显示券数量",
+      "pin": "登录 ›"
+    },
+    {
+      "state_id": "home.guest.v1",
+      "stable_id": "home.member.coupons",
+      "check": "geometry",
+      "gap": "D1",
+      "note": "文案变短，右对齐文本起点右移",
+      "pin": {
+        "x": 11.65,
+        "center_y": 0
+      }
+    },
+    {
+      "state_id": "orders.empty.v1",
+      "stable_id": "orders.title",
+      "check": "fontWeight",
+      "gap": "P3",
+      "note": "原型 750，DSL 只允许 100 的整数倍",
+      "pin": "700"
+    }
+  ],
+  "revision": {
+    "from_version": 4,
+    "reason": "首页两个状态改走 HTML 路线（D4）：原型字重原样保留，P3 字重偏差不再出现，从这两个状态移除（保留会被判为失效偏差）。订单空态仍走 DSL，保留其 P3 偏差；其余偏差与锁定值不变。"
+  }
+}

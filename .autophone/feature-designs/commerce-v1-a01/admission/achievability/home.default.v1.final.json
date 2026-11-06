@@ -1,0 +1,1177 @@
+{
+ "schema_version": "commerce-v1-text-achievability/v1",
+ "faces": {
+  "path": "calibration/home.default.v1/round-12-device-faces.json",
+  "sha256": "aa0e3b7c680f5280c08734e348a4e0cbdefd81a4376703c98591c52553b3b844",
+  "design_package_sha256": "bacaae681c3ec32e3bc2a9d69cbb8b474e940e5e957a1740f5d9e68577b06512"
+ },
+ "profile": {
+  "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
+  "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
+  "app": "food_ordering_v2",
+  "version": 1
+ },
+ "counts": {
+  "achievable/assumed": 34
+ },
+ "blocking": [],
+ "results": [
+  {
+   "owner": "home.brand",
+   "stable_id": "home.brand",
+   "text": "食刻",
+   "css_weight": "850",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": true,
+   "runs": [
+    {
+     "text": "食刻",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    },
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    }
+   ]
+  },
+  {
+   "owner": null,
+   "stable_id": null,
+   "text": "FRESH MOMENTS",
+   "css_weight": "850",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "700",
+    "bold"
+   ],
+   "css_weight_differs": true,
+   "runs": [
+    {
+     "text": "FRESH",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Bold"
+     ],
+     "rn_weights": [
+      "700",
+      "bold"
+     ]
+    },
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    },
+    {
+     "text": "MOMENTS",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Bold"
+     ],
+     "rn_weights": [
+      "700",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.store.name",
+   "stable_id": "home.store.name",
+   "text": "科创园店",
+   "css_weight": "700",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "科创园店",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.store.distance",
+   "stable_id": "home.store.distance",
+   "text": "步行约5分钟",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "步行约",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    },
+    {
+     "text": "5",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    },
+    {
+     "text": "分钟",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.greeting",
+   "stable_id": "home.greeting",
+   "text": "午餐时间，把好心情吃回来。",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "午餐时间，把好心情吃回来。",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.hero.eyebrow",
+   "stable_id": "home.hero.eyebrow",
+   "text": "FRESHLY MADE · 现点现做",
+   "css_weight": "600",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "700",
+    "bold"
+   ],
+   "css_weight_differs": true,
+   "runs": [
+    {
+     "text": "FRESHLY",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Bold"
+     ],
+     "rn_weights": [
+      "700",
+      "bold"
+     ]
+    },
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    },
+    {
+     "text": "MADE",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Bold"
+     ],
+     "rn_weights": [
+      "700",
+      "bold"
+     ]
+    },
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    },
+    {
+     "text": "·",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Bold"
+     ],
+     "rn_weights": [
+      "700",
+      "bold"
+     ]
+    },
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    },
+    {
+     "text": "现点现做",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.hero.headline",
+   "stable_id": "home.hero.headline",
+   "text": "今天，来点热乎的。",
+   "css_weight": "850",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": true,
+   "runs": [
+    {
+     "text": "今天，",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    },
+    {
+     "text": "来点热乎的。",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.hero.price",
+   "stable_id": "home.hero.price",
+   "text": "¥32.90",
+   "css_weight": "800",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "800"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "¥32.90",
+     "class": "other",
+     "faces": [
+      ".SFNS wght 800"
+     ],
+     "rn_weights": [
+      "800"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.hero.product",
+   "stable_id": "home.hero.product",
+   "text": "香脆鸡腿堡套餐",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "香脆鸡腿堡套餐",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": null,
+   "stable_id": null,
+   "text": "套餐推荐 · 演示活动",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "套餐推荐",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    },
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    },
+    {
+     "text": "·",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    },
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    },
+    {
+     "text": "演示活动",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.mode.pickup.title",
+   "stable_id": "home.mode.pickup.title",
+   "text": "到店自取",
+   "css_weight": "700",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "到店自取",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.mode.pickup.subtitle",
+   "stable_id": "home.mode.pickup.subtitle",
+   "text": "提前点，到店拿",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "提前点，到店拿",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.mode.delivery.title",
+   "stable_id": "home.mode.delivery.title",
+   "text": "外送到家",
+   "css_weight": "700",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "外送到家",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.mode.delivery.subtitle",
+   "stable_id": "home.mode.delivery.subtitle",
+   "text": "热乎美味送到家",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "热乎美味送到家",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.member.title",
+   "stable_id": "home.member.title",
+   "text": "食刻会员",
+   "css_weight": "700",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "食刻会员",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "member.points.open",
+   "stable_id": null,
+   "text": "· 让每一餐都有回馈",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    },
+    {
+     "text": "·",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    },
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    },
+    {
+     "text": "让每一餐都有回馈",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.member.coupons",
+   "stable_id": "home.member.coupons",
+   "text": "3 张券 ›",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "3",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    },
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    },
+    {
+     "text": "张券",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    },
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    },
+    {
+     "text": "›",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.shelf.title",
+   "stable_id": "home.shelf.title",
+   "text": "人气好滋味",
+   "css_weight": "750",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": true,
+   "runs": [
+    {
+     "text": "人气好滋味",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    },
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    }
+   ]
+  },
+  {
+   "owner": "home.start_order",
+   "stable_id": "home.start_order",
+   "text": "开始点餐 ›",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "开始点餐",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    },
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    },
+    {
+     "text": "›",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.shelf.combo-chicken-001.name",
+   "stable_id": "home.shelf.combo-chicken-001.name",
+   "text": "香脆鸡腿堡套餐",
+   "css_weight": "700",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "香脆鸡腿堡套餐",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.shelf.combo-chicken-001.price",
+   "stable_id": "home.shelf.combo-chicken-001.price",
+   "text": "¥32.90",
+   "css_weight": "800",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "800"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "32.90",
+     "class": "other",
+     "faces": [
+      ".SFNS wght 800"
+     ],
+     "rn_weights": [
+      "800"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.shelf.combo-chicken-001.price",
+   "stable_id": null,
+   "text": "¥",
+   "css_weight": "800",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "700",
+    "bold"
+   ],
+   "css_weight_differs": true,
+   "runs": [
+    {
+     "text": "¥",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Bold"
+     ],
+     "rn_weights": [
+      "700",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "menu.product.combo-chicken-001.open",
+   "stable_id": null,
+   "text": "＋",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "＋",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.shelf.combo-beef-002.name",
+   "stable_id": "home.shelf.combo-beef-002.name",
+   "text": "炙烤牛肉堡套餐",
+   "css_weight": "700",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "炙烤牛肉堡套餐",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.shelf.combo-beef-002.price",
+   "stable_id": "home.shelf.combo-beef-002.price",
+   "text": "¥38.90",
+   "css_weight": "800",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "800"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "38.90",
+     "class": "other",
+     "faces": [
+      ".SFNS wght 800"
+     ],
+     "rn_weights": [
+      "800"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.shelf.combo-beef-002.price",
+   "stable_id": null,
+   "text": "¥",
+   "css_weight": "800",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "700",
+    "bold"
+   ],
+   "css_weight_differs": true,
+   "runs": [
+    {
+     "text": "¥",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Bold"
+     ],
+     "rn_weights": [
+      "700",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "menu.product.combo-beef-002.open",
+   "stable_id": null,
+   "text": "＋",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "＋",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.ai.open",
+   "stable_id": "home.ai.open",
+   "text": "不知道吃什么？帮我搭一餐›",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "›",
+     "class": "other",
+     "faces": [
+      "postscript .SFNS-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "home.ai.open",
+   "stable_id": null,
+   "text": "不知道吃什么？帮我搭一餐",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": " ",
+     "class": "space",
+     "judged": false
+    },
+    {
+     "text": "不知道吃什么？帮我搭一餐",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "nav.home",
+   "stable_id": "nav.home",
+   "text": "首页",
+   "css_weight": "700",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "600",
+    "700",
+    "800",
+    "900",
+    "bold"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "首页",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Semibold"
+     ],
+     "rn_weights": [
+      "600",
+      "700",
+      "800",
+      "900",
+      "bold"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "nav.menu",
+   "stable_id": "nav.menu",
+   "text": "点餐",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "点餐",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "nav.coupons",
+   "stable_id": "nav.coupons",
+   "text": "优惠",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "优惠",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "nav.orders",
+   "stable_id": "nav.orders",
+   "text": "订单",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "订单",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  },
+  {
+   "owner": "nav.member",
+   "stable_id": "nav.member",
+   "text": "我的",
+   "css_weight": "400",
+   "outcome": "achievable",
+   "evidence": "assumed",
+   "implement_with": [
+    "400",
+    "normal"
+   ],
+   "css_weight_differs": false,
+   "runs": [
+    {
+     "text": "我的",
+     "class": "cjk",
+     "faces": [
+      "postscript PingFangSC-Regular"
+     ],
+     "rn_weights": [
+      "400",
+      "normal"
+     ]
+    }
+   ]
+  }
+ ]
+}

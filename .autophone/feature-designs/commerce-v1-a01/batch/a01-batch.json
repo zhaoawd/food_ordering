@@ -155,5 +155,24 @@
     "query": "embed&width=430&page={screen}",
     "css": ".statusbar{height:59px!important;padding:0!important;visibility:hidden}\n.phoneapp{height:calc(100% - 59px)!important}\n.nav{height:96px!important;padding-bottom:37px!important}",
     "source": "R4 视口重排（food_ordering docs/commerce-v1/delivery-plan.md R4；viewport_profile 安全区 59/37）；ui/prototype.html 读取 embed、width、page 查询参数，.statusbar/.phoneapp/.nav 为原型外壳选择器"
+  },
+  "device_reference": {
+    "rig_id": "isolation-peer",
+    "env_fingerprint": "isolation-peer/vphone-ios27-default/zh-CN/light",
+    "device_profile": "vphone-ios27-default",
+    "locale": "zh-CN",
+    "theme": "light",
+    "dynamic_type": "L",
+    "self_check": "measurement_layout",
+    "include_colors": {
+      "home": [
+        "#FAF7F2",
+        "#FFFFFF",
+        "#F0D8B8",
+        "#30271F",
+        "#FFF0E7"
+      ]
+    },
+    "source": "food_ordering docs/commerce-v1/environment.md §2（Rig、画像、zh-CN、light，字号档位为平台默认 L）；平涂颜色取首页原型页面背景、卡片、主推卡、会员条与 AI 入口底色（autophone evidence/outputs/bl213-isolation-peer-20261106）"
   }
 }

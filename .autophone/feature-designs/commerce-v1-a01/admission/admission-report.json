@@ -19,7 +19,7 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/home.default.v1.json",
-          "sha256": "1afa97613788720c1c770aabc9d2f495371123f0e3c48640fa1098e90327c5a7",
+          "sha256": "e0780c3fdb0429846f806bca787b3eb4b2f3dab084d5aef3717db7e82b79a6cb",
           "design_package_sha256": "c9c49d234a7e36b64edf01014d4ca11b6d008319ad14bc4681013dc927275dcb",
           "profile": {
             "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
@@ -486,7 +486,7 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/home.guest.v1.json",
-          "sha256": "80c829925891da710744f6fe87592aafb2acab04d2ffa08372e16ad41346f46c",
+          "sha256": "d0f046feb59387dcf20aa88d7801a17f294efec3c84c746ddec495a107ae7772",
           "design_package_sha256": "bd3cc8921a3575f9afdcece3577ffbfe3a0d92575d4ba71aa7654b70d45d421b",
           "profile": {
             "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
@@ -955,7 +955,7 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/orders.empty.v1.json",
-          "sha256": "6a8e53962243e629a8e07d756586cffc107d9ed9ef8d6e84065f3b8652ea762c",
+          "sha256": "af15ca41f115051ec19d76ec0265892359df101e7ace32e4e1e97040676fe9d0",
           "design_package_sha256": "95b9826dff4d2466f66b3c824df3d0eb4254f34236d8e4c5197959c9b146e0f3",
           "profile": {
             "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",

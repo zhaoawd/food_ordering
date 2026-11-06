@@ -1,0 +1,1663 @@
+{
+ "schema_version": "commerce-v1-text-faces/v1",
+ "package": {
+  "design_package_sha256": "8457192779fc6d9f9a5967f4f4944fd563b006588c3623e43651074fed1803a3",
+  "entry": "prototype/index.html"
+ },
+ "browser": "chromium/149.0.7827.55",
+ "host": {
+  "platform": "darwin",
+  "arch": "arm64"
+ },
+ "compositor_args": [
+  "--disable-gpu",
+  "--disable-gpu-compositing"
+ ],
+ "wrap_tolerance_pt": 0.1,
+ "nodes": [
+  {
+   "index": 0,
+   "owner": "home.brand",
+   "stable_id": "home.brand",
+   "tag": "span",
+   "text": "食刻",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "26px",
+    "fontWeight": "850",
+    "fontStyle": "normal"
+   },
+   "box": [
+    20,
+    73.5,
+    54.39,
+    30
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 0,
+     "text": "食刻",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 2
+      }
+     ]
+    },
+    {
+     "run": 1,
+     "text": " ",
+     "class": "space",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular_wdth_opsz1A0000_GRAD_wght3520000",
+       "glyphs": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "owner": null,
+   "stable_id": null,
+   "tag": "span",
+   "text": "FRESH MOMENTS",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "850",
+    "fontStyle": "normal"
+   },
+   "box": [
+    74.39,
+    88.5,
+    118.8,
+    12
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 2,
+     "text": "FRESH",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Bold",
+       "glyphs": 5
+      }
+     ]
+    },
+    {
+     "run": 3,
+     "text": " ",
+     "class": "space",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Bold",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 4,
+     "text": "MOMENTS",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Bold",
+       "glyphs": 7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "owner": "home.store.name",
+   "stable_id": "home.store.name",
+   "tag": "b",
+   "text": "科创园店",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "13px",
+    "fontWeight": "700",
+    "fontStyle": "normal"
+   },
+   "box": [
+    55,
+    125,
+    52,
+    18
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 5,
+     "text": "科创园店",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "owner": "home.store.distance",
+   "stable_id": "home.store.distance",
+   "tag": "span",
+   "text": "步行约5分钟",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "12px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    119,
+    124,
+    67.42,
+    20
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 6,
+     "text": "步行约",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 3
+      }
+     ]
+    },
+    {
+     "run": 7,
+     "text": "5",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 8,
+     "text": "分钟",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "owner": "home.greeting",
+   "stable_id": "home.greeting",
+   "tag": "div",
+   "text": "午餐时间，把好心情吃回来。",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "13px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    20,
+    151,
+    390,
+    18
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 9,
+     "text": "午餐时间，把好心情吃回来。",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 13
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "owner": "home.hero.eyebrow",
+   "stable_id": "home.hero.eyebrow",
+   "tag": "span",
+   "text": "FRESHLY MADE · 现点现做",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "600",
+    "fontStyle": "normal"
+   },
+   "box": [
+    42,
+    209,
+    165.63,
+    12
+   ],
+   "wrap_max_delta_pt": 0.04,
+   "wrap_unchanged": true,
+   "wrap_before": {
+    "box": [
+     42,
+     209,
+     165.63,
+     12
+    ],
+    "lines": [
+     [
+      42,
+      209,
+      207.63,
+      221
+     ]
+    ]
+   },
+   "wrap_after": {
+    "box": [
+     42,
+     209,
+     165.67,
+     12
+    ],
+    "lines": [
+     [
+      42,
+      209,
+      207.67,
+      221
+     ]
+    ]
+   },
+   "runs": [
+    {
+     "run": 10,
+     "text": "FRESHLY",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Bold",
+       "glyphs": 7
+      }
+     ]
+    },
+    {
+     "run": 11,
+     "text": " ",
+     "class": "space",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Bold",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 12,
+     "text": "MADE",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Bold",
+       "glyphs": 4
+      }
+     ]
+    },
+    {
+     "run": 13,
+     "text": " ",
+     "class": "space",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Bold",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 14,
+     "text": "·",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Bold",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 15,
+     "text": " ",
+     "class": "space",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Bold",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 16,
+     "text": "现点现做",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "owner": "home.hero.headline",
+   "stable_id": "home.hero.headline",
+   "tag": "h2",
+   "text": "今天，来点热乎的。",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "29px",
+    "fontWeight": "850",
+    "fontStyle": "normal"
+   },
+   "box": [
+    42,
+    232,
+    346,
+    75
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 17,
+     "text": "今天，",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 3
+      }
+     ]
+    },
+    {
+     "run": 18,
+     "text": "来点热乎的。",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "owner": "home.hero.price",
+   "stable_id": "home.hero.price",
+   "tag": "span",
+   "text": "¥32.90",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "22px",
+    "fontWeight": "800",
+    "fontStyle": "normal"
+   },
+   "box": [
+    42,
+    319,
+    75.53,
+    26
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 19,
+     "text": "¥32.90",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular_wdth_opsz160000_GRAD_wght3200000",
+       "glyphs": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "owner": "home.hero.product",
+   "stable_id": "home.hero.product",
+   "tag": "span",
+   "text": "香脆鸡腿堡套餐",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    124.53,
+    325,
+    70,
+    14
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 20,
+     "text": "香脆鸡腿堡套餐",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "owner": null,
+   "stable_id": null,
+   "tag": "span",
+   "text": "套餐推荐 · 演示活动",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    42,
+    357,
+    105,
+    22
+   ],
+   "wrap_max_delta_pt": 0.02,
+   "wrap_unchanged": true,
+   "wrap_before": {
+    "box": [
+     42,
+     357,
+     105,
+     22
+    ],
+    "lines": [
+     [
+      50,
+      362,
+      138.95,
+      374
+     ]
+    ]
+   },
+   "wrap_after": {
+    "box": [
+     42,
+     357,
+     105,
+     22
+    ],
+    "lines": [
+     [
+      50,
+      362,
+      138.97,
+      374
+     ]
+    ]
+   },
+   "runs": [
+    {
+     "run": 21,
+     "text": "套餐推荐",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 4
+      }
+     ]
+    },
+    {
+     "run": 22,
+     "text": " ",
+     "class": "space",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 23,
+     "text": "·",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 24,
+     "text": " ",
+     "class": "space",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 25,
+     "text": "演示活动",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "owner": "home.mode.pickup.title",
+   "stable_id": "home.mode.pickup.title",
+   "tag": "strong",
+   "text": "到店自取",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "700",
+    "fontStyle": "normal"
+   },
+   "box": [
+    85,
+    431,
+    77,
+    24
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 26,
+     "text": "到店自取",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "owner": "home.mode.pickup.subtitle",
+   "stable_id": "home.mode.pickup.subtitle",
+   "tag": "span",
+   "text": "提前点，到店拿",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "11px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    85,
+    462,
+    77,
+    13
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 27,
+     "text": "提前点，到店拿",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "owner": "home.mode.delivery.title",
+   "stable_id": "home.mode.delivery.title",
+   "tag": "strong",
+   "text": "外送到家",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "700",
+    "fontStyle": "normal"
+   },
+   "box": [
+    286,
+    431,
+    77,
+    24
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 28,
+     "text": "外送到家",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "owner": "home.mode.delivery.subtitle",
+   "stable_id": "home.mode.delivery.subtitle",
+   "tag": "span",
+   "text": "热乎美味送到家",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "11px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    286,
+    462,
+    77,
+    13
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 29,
+     "text": "热乎美味送到家",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "owner": "home.member.title",
+   "stable_id": "home.member.title",
+   "tag": "strong",
+   "text": "食刻会员",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "13px",
+    "fontWeight": "700",
+    "fontStyle": "normal"
+   },
+   "box": [
+    35,
+    527,
+    52,
+    16
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 30,
+     "text": "食刻会员",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "owner": "member.points.open",
+   "stable_id": null,
+   "tag": "span",
+   "text": "· 让每一餐都有回馈",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "11px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    87,
+    529,
+    97.66,
+    13
+   ],
+   "wrap_max_delta_pt": 0.03,
+   "wrap_unchanged": true,
+   "wrap_before": {
+    "box": [
+     87,
+     529,
+     97.66,
+     13
+    ],
+    "lines": [
+     [
+      87,
+      529,
+      184.66,
+      542
+     ]
+    ]
+   },
+   "wrap_after": {
+    "box": [
+     87,
+     529,
+     97.69,
+     13
+    ],
+    "lines": [
+     [
+      87,
+      529,
+      184.69,
+      542
+     ]
+    ]
+   },
+   "runs": [
+    {
+     "run": 31,
+     "text": " ",
+     "class": "space",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 32,
+     "text": "·",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 33,
+     "text": " ",
+     "class": "space",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 34,
+     "text": "让每一餐都有回馈",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 8
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "owner": "home.member.coupons",
+   "stable_id": "home.member.coupons",
+   "tag": "span",
+   "text": "登录 ›",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "13px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    359.7,
+    526.5,
+    35.3,
+    18
+   ],
+   "wrap_max_delta_pt": 0.01,
+   "wrap_unchanged": true,
+   "wrap_before": {
+    "box": [
+     359.7,
+     526.5,
+     35.3,
+     18
+    ],
+    "lines": [
+     [
+      359.7,
+      527.5,
+      395,
+      543.5
+     ]
+    ]
+   },
+   "wrap_after": {
+    "box": [
+     359.69,
+     526.5,
+     35.31,
+     18
+    ],
+    "lines": [
+     [
+      359.69,
+      527.5,
+      395,
+      543.5
+     ]
+    ]
+   },
+   "runs": [
+    {
+     "run": 35,
+     "text": "登录",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 2
+      }
+     ]
+    },
+    {
+     "run": 36,
+     "text": " ",
+     "class": "space",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 37,
+     "text": "›",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular",
+       "glyphs": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "owner": "home.shelf.title",
+   "stable_id": "home.shelf.title",
+   "tag": "span",
+   "text": "人气好滋味",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "750",
+    "fontStyle": "normal"
+   },
+   "box": [
+    20,
+    587.5,
+    90,
+    25
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 38,
+     "text": "人气好滋味",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 5
+      }
+     ]
+    },
+    {
+     "run": 39,
+     "text": " ",
+     "class": "space",
+     "faces": []
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "owner": "home.start_order",
+   "stable_id": "home.start_order",
+   "tag": "button",
+   "text": "开始点餐 ›",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "13px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    348.7,
+    578,
+    61.3,
+    44
+   ],
+   "wrap_max_delta_pt": 0.01,
+   "wrap_unchanged": true,
+   "wrap_before": {
+    "box": [
+     348.7,
+     578,
+     61.3,
+     44
+    ],
+    "lines": [
+     [
+      348.7,
+      592,
+      410,
+      608
+     ]
+    ]
+   },
+   "wrap_after": {
+    "box": [
+     348.69,
+     578,
+     61.31,
+     44
+    ],
+    "lines": [
+     [
+      348.69,
+      592,
+      410,
+      608
+     ]
+    ]
+   },
+   "runs": [
+    {
+     "run": 40,
+     "text": "开始点餐",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 4
+      }
+     ]
+    },
+    {
+     "run": 41,
+     "text": " ",
+     "class": "space",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 42,
+     "text": "›",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular",
+       "glyphs": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "owner": "home.shelf.combo-chicken-001.name",
+   "stable_id": "home.shelf.combo-chicken-001.name",
+   "tag": "strong",
+   "text": "香脆鸡腿堡套餐",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "13px",
+    "fontWeight": "700",
+    "fontStyle": "normal"
+   },
+   "box": [
+    38,
+    750,
+    91,
+    16
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 43,
+     "text": "香脆鸡腿堡套餐",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "owner": "home.shelf.combo-chicken-001.price",
+   "stable_id": "home.shelf.combo-chicken-001.price",
+   "tag": "span",
+   "text": "¥32.90",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "800",
+    "fontStyle": "normal"
+   },
+   "box": [
+    38,
+    775,
+    59.5,
+    21
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 44,
+     "text": "32.90",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular_wdth_opsz120000_GRAD_wght3200000",
+       "glyphs": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "owner": "home.shelf.combo-chicken-001.price",
+   "stable_id": null,
+   "tag": "small",
+   "text": "¥",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "12px",
+    "fontWeight": "800",
+    "fontStyle": "normal"
+   },
+   "box": [
+    38,
+    780,
+    7.83,
+    15
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 45,
+     "text": "¥",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Bold",
+       "glyphs": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "owner": "menu.product.combo-chicken-001.open",
+   "stable_id": null,
+   "tag": "span",
+   "text": "＋",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    177,
+    775.5,
+    14,
+    20
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 46,
+     "text": "＋",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "owner": "home.shelf.combo-beef-002.name",
+   "stable_id": "home.shelf.combo-beef-002.name",
+   "tag": "strong",
+   "text": "炙烤牛肉堡套餐",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "13px",
+    "fontWeight": "700",
+    "fontStyle": "normal"
+   },
+   "box": [
+    239,
+    750,
+    91,
+    16
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 47,
+     "text": "炙烤牛肉堡套餐",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "owner": "home.shelf.combo-beef-002.price",
+   "stable_id": "home.shelf.combo-beef-002.price",
+   "tag": "span",
+   "text": "¥38.90",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "18px",
+    "fontWeight": "800",
+    "fontStyle": "normal"
+   },
+   "box": [
+    239,
+    775,
+    59.89,
+    21
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 48,
+     "text": "38.90",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular_wdth_opsz120000_GRAD_wght3200000",
+       "glyphs": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "owner": "home.shelf.combo-beef-002.price",
+   "stable_id": null,
+   "tag": "small",
+   "text": "¥",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "12px",
+    "fontWeight": "800",
+    "fontStyle": "normal"
+   },
+   "box": [
+    239,
+    780,
+    7.83,
+    15
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 49,
+     "text": "¥",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Bold",
+       "glyphs": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "owner": "menu.product.combo-beef-002.open",
+   "stable_id": null,
+   "tag": "span",
+   "text": "＋",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    378,
+    775.5,
+    14,
+    20
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 50,
+     "text": "＋",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "owner": "home.ai.open",
+   "stable_id": "home.ai.open",
+   "tag": "button",
+   "text": "不知道吃什么？帮我搭一餐›",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    20,
+    823,
+    390,
+    59
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 51,
+     "text": "›",
+     "class": "other",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular",
+       "glyphs": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "owner": "home.ai.open",
+   "stable_id": null,
+   "tag": "span",
+   "text": "不知道吃什么？帮我搭一餐",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    36,
+    839,
+    193.8,
+    27
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 52,
+     "text": " ",
+     "class": "space",
+     "faces": [
+      {
+       "family": ".SF NS",
+       "postscript": ".SFNS-Regular",
+       "glyphs": 1
+      }
+     ]
+    },
+    {
+     "run": 53,
+     "text": "不知道吃什么？帮我搭一餐",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 12
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "owner": "nav.home",
+   "stable_id": "nav.home",
+   "tag": "button",
+   "text": "首页",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "700",
+    "fontStyle": "normal"
+   },
+   "box": [
+    16.89,
+    845,
+    65,
+    50
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 54,
+     "text": "首页",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "owner": "nav.menu",
+   "stable_id": "nav.menu",
+   "tag": "button",
+   "text": "点餐",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    99.69,
+    845,
+    65,
+    50
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 55,
+     "text": "点餐",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "owner": "nav.coupons",
+   "stable_id": "nav.coupons",
+   "tag": "button",
+   "text": "优惠",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    182.48,
+    845,
+    65,
+    50
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 56,
+     "text": "优惠",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "owner": "nav.orders",
+   "stable_id": "nav.orders",
+   "tag": "button",
+   "text": "订单",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    265.3,
+    845,
+    65,
+    50
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 57,
+     "text": "订单",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "owner": "nav.member",
+   "stable_id": "nav.member",
+   "tag": "button",
+   "text": "我的",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    348.09,
+    845,
+    65,
+    50
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 58,
+     "text": "我的",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 2
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
