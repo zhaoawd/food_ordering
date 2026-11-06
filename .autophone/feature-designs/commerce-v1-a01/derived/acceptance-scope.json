@@ -68,7 +68,9 @@
           "reason": "新路由为真实订单；旧cart入口保留迁移测试。"
         }
       ],
-      "draft": "drafts/home.default.v1",
+      "draft": "drafts-html/home.default.v1",
+      "route": "html",
+      "dsl_draft": "drafts/home.default.v1",
       "local_tokens": [
         "proto.color.artBg",
         "proto.color.cardBorder",
@@ -159,7 +161,9 @@
           "reason": "新路由为真实订单；旧cart入口保留迁移测试。"
         }
       ],
-      "draft": "drafts/home.guest.v1",
+      "draft": "drafts-html/home.guest.v1",
+      "route": "html",
+      "dsl_draft": "drafts/home.guest.v1",
       "local_tokens": [
         "proto.color.artBg",
         "proto.color.cardBorder",
@@ -210,6 +214,7 @@
         }
       ],
       "draft": "drafts/orders.empty.v1",
+      "route": "dsl",
       "local_tokens": [
         "proto.color.cardLine",
         "proto.color.segmentBg",

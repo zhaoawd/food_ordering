@@ -10,10 +10,11 @@
   "blocked_states": [],
   "states": {
     "home.default.v1": {
+      "route": "html",
       "admitted": true,
       "counts": {
-        "covered": 13,
-        "platform_unsupported": 13
+        "asset_preserved": 13,
+        "covered": 13
       },
       "entries": [
         {
@@ -70,7 +71,7 @@
             "view-models.json StoreHeader"
           ],
           "properties": [
-            "resolved_style.backgroundColor"
+            "text"
           ]
         },
         {
@@ -190,8 +191,8 @@
             44,
             44
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "home.store.select",
@@ -202,8 +203,8 @@
             201.42,
             21.8
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": null,
@@ -214,8 +215,8 @@
             249.94,
             220.34
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "home.mode.pickup",
@@ -226,8 +227,8 @@
             42,
             42
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "home.mode.delivery",
@@ -238,8 +239,8 @@
             42,
             42
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": null,
@@ -250,8 +251,8 @@
             177,
             104
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": null,
@@ -262,8 +263,8 @@
             177,
             104
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "home.ai.open",
@@ -274,8 +275,8 @@
             193.8,
             27
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "nav.home",
@@ -286,8 +287,8 @@
             65,
             50
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "nav.menu",
@@ -298,8 +299,8 @@
             65,
             50
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "nav.coupons",
@@ -310,8 +311,8 @@
             65,
             50
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "nav.orders",
@@ -322,8 +323,8 @@
             65,
             50
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "nav.member",
@@ -334,16 +335,17 @@
             65,
             50
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         }
       ]
     },
     "home.guest.v1": {
+      "route": "html",
       "admitted": true,
       "counts": {
-        "covered": 13,
-        "platform_unsupported": 13
+        "asset_preserved": 13,
+        "covered": 13
       },
       "entries": [
         {
@@ -400,7 +402,7 @@
             "view-models.json StoreHeader"
           ],
           "properties": [
-            "resolved_style.backgroundColor"
+            "text"
           ]
         },
         {
@@ -520,8 +522,8 @@
             44,
             44
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "home.store.select",
@@ -532,8 +534,8 @@
             201.42,
             21.8
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": null,
@@ -544,8 +546,8 @@
             249.94,
             220.34
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "home.mode.pickup",
@@ -556,8 +558,8 @@
             42,
             42
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "home.mode.delivery",
@@ -568,8 +570,8 @@
             42,
             42
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": null,
@@ -580,8 +582,8 @@
             177,
             104
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": null,
@@ -592,8 +594,8 @@
             177,
             104
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "home.ai.open",
@@ -604,8 +606,8 @@
             193.8,
             27
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "nav.home",
@@ -616,8 +618,8 @@
             65,
             50
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "nav.menu",
@@ -628,8 +630,8 @@
             65,
             50
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "nav.coupons",
@@ -640,8 +642,8 @@
             65,
             50
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "nav.orders",
@@ -652,8 +654,8 @@
             65,
             50
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         },
         {
           "owner": "nav.member",
@@ -664,12 +666,13 @@
             65,
             50
           ],
-          "class": "platform_unsupported",
-          "reason": "asset_not_representable"
+          "class": "asset_preserved",
+          "reason": "rendered_from_prototype"
         }
       ]
     },
     "orders.empty.v1": {
+      "route": "dsl",
       "admitted": true,
       "counts": {
         "covered": 9,

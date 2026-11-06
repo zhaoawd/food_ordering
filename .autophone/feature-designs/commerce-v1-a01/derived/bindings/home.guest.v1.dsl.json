@@ -1,0 +1,457 @@
+{
+  "view": {
+    "brand": {
+      "class": "brandname",
+      "own": true
+    },
+    "brand_tagline": {
+      "tag": "span",
+      "within": {
+        "class": "brandname"
+      }
+    },
+    "store_name": {
+      "tag": "b",
+      "within": {
+        "testid": "home.store.select"
+      }
+    },
+    "store_distance": {
+      "class": "subtle",
+      "within": {
+        "testid": "home.store.select"
+      }
+    },
+    "greeting": {
+      "class": "homegreeting"
+    },
+    "hero_eyebrow": {
+      "class": "eyebrow"
+    },
+    "hero_line_1": {
+      "tag": "h2",
+      "line": 0
+    },
+    "hero_line_2": {
+      "tag": "h2",
+      "line": 1
+    },
+    "hero_price": {
+      "class": "price",
+      "within": {
+        "class": "offer"
+      }
+    },
+    "hero_product": {
+      "class": "micro"
+    },
+    "hero_tag": {
+      "class": "tag"
+    },
+    "mode_pickup_title": {
+      "tag": "strong",
+      "within": {
+        "testid": "home.mode.pickup"
+      }
+    },
+    "mode_pickup_subtitle": {
+      "class": "subtle",
+      "within": {
+        "testid": "home.mode.pickup"
+      }
+    },
+    "mode_delivery_title": {
+      "tag": "strong",
+      "within": {
+        "testid": "home.mode.delivery"
+      }
+    },
+    "mode_delivery_subtitle": {
+      "class": "subtle",
+      "within": {
+        "testid": "home.mode.delivery"
+      }
+    },
+    "member_title": {
+      "tag": "strong",
+      "within": {
+        "class": "memberstrip"
+      }
+    },
+    "member_subtitle": {
+      "class": "subtle",
+      "within": {
+        "class": "memberstrip"
+      }
+    },
+    "member_coupons": {
+      "tag": "span",
+      "within": {
+        "class": "memberstrip"
+      },
+      "nth": 1
+    },
+    "shelf_title": {
+      "class": "sectiontitle",
+      "own": true
+    },
+    "start_order": {
+      "testid": "home.start_order"
+    },
+    "product_1_name": {
+      "tag": "strong",
+      "within": {
+        "class": "miniproduct",
+        "nth": 0
+      }
+    },
+    "product_1_price": {
+      "class": "price",
+      "within": {
+        "class": "miniproduct",
+        "nth": 0
+      }
+    },
+    "product_1_add": {
+      "tag": "span",
+      "full_text": "＋",
+      "nth": 0
+    },
+    "product_2_name": {
+      "tag": "strong",
+      "within": {
+        "class": "miniproduct",
+        "nth": 1
+      }
+    },
+    "product_2_price": {
+      "class": "price",
+      "within": {
+        "class": "miniproduct",
+        "nth": 1
+      }
+    },
+    "product_2_add": {
+      "tag": "span",
+      "full_text": "＋",
+      "nth": 1
+    },
+    "ai_prompt": {
+      "tag": "span",
+      "within": {
+        "testid": "home.ai.open"
+      }
+    },
+    "ai_chevron": {
+      "testid": "home.ai.open",
+      "own": true
+    },
+    "nav_home": {
+      "testid": "nav.home",
+      "own": true
+    },
+    "nav_menu": {
+      "testid": "nav.menu",
+      "own": true
+    },
+    "nav_coupons": {
+      "testid": "nav.coupons",
+      "own": true
+    },
+    "nav_orders": {
+      "testid": "nav.orders",
+      "own": true
+    },
+    "nav_member": {
+      "testid": "nav.member",
+      "own": true
+    }
+  },
+  "calibration": {
+    "elements": {
+      "home.brand": {
+        "locator": {
+          "class": "brandname",
+          "own": true
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.store.select": {
+        "locator": {
+          "testid": "home.store.select"
+        },
+        "mode": "box",
+        "region": "top"
+      },
+      "home.store.name": {
+        "locator": {
+          "tag": "b",
+          "within": {
+            "testid": "home.store.select"
+          }
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.store.distance": {
+        "locator": {
+          "class": "subtle",
+          "within": {
+            "testid": "home.store.select"
+          }
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.greeting": {
+        "locator": {
+          "class": "homegreeting"
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.hero.eyebrow": {
+        "locator": {
+          "class": "eyebrow"
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.hero.price": {
+        "locator": {
+          "class": "price",
+          "within": {
+            "class": "offer"
+          }
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.hero.product": {
+        "locator": {
+          "class": "micro"
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.mode.pickup": {
+        "locator": {
+          "testid": "home.mode.pickup"
+        },
+        "mode": "box",
+        "region": "top"
+      },
+      "home.mode.delivery": {
+        "locator": {
+          "testid": "home.mode.delivery"
+        },
+        "mode": "box",
+        "region": "top"
+      },
+      "home.mode.pickup.title": {
+        "locator": {
+          "tag": "strong",
+          "within": {
+            "testid": "home.mode.pickup"
+          }
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.mode.pickup.subtitle": {
+        "locator": {
+          "class": "subtle",
+          "within": {
+            "testid": "home.mode.pickup"
+          }
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.mode.delivery.title": {
+        "locator": {
+          "tag": "strong",
+          "within": {
+            "testid": "home.mode.delivery"
+          }
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.mode.delivery.subtitle": {
+        "locator": {
+          "class": "subtle",
+          "within": {
+            "testid": "home.mode.delivery"
+          }
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "member.points.open": {
+        "locator": {
+          "class": "memberstrip"
+        },
+        "mode": "box",
+        "region": "top"
+      },
+      "home.member.title": {
+        "locator": {
+          "tag": "strong",
+          "within": {
+            "class": "memberstrip"
+          }
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.member.coupons": {
+        "locator": {
+          "tag": "span",
+          "within": {
+            "class": "memberstrip"
+          },
+          "nth": 1
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.start_order": {
+        "locator": {
+          "testid": "home.start_order"
+        },
+        "mode": "box",
+        "region": "top"
+      },
+      "menu.product.combo-chicken-001.open": {
+        "locator": {
+          "class": "miniproduct",
+          "nth": 0
+        },
+        "mode": "box",
+        "region": "top"
+      },
+      "home.shelf.combo-chicken-001.name": {
+        "locator": {
+          "tag": "strong",
+          "within": {
+            "class": "miniproduct",
+            "nth": 0
+          }
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.shelf.combo-chicken-001.price": {
+        "locator": {
+          "class": "price",
+          "within": {
+            "class": "miniproduct",
+            "nth": 0
+          }
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "menu.product.combo-beef-002.open": {
+        "locator": {
+          "class": "miniproduct",
+          "nth": 1
+        },
+        "mode": "box",
+        "region": "top"
+      },
+      "home.shelf.combo-beef-002.name": {
+        "locator": {
+          "tag": "strong",
+          "within": {
+            "class": "miniproduct",
+            "nth": 1
+          }
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.shelf.combo-beef-002.price": {
+        "locator": {
+          "class": "price",
+          "within": {
+            "class": "miniproduct",
+            "nth": 1
+          }
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "home.ai.open": {
+        "locator": {
+          "testid": "home.ai.open"
+        },
+        "mode": "box",
+        "region": "top"
+      },
+      "nav.home": {
+        "locator": {
+          "testid": "nav.home"
+        },
+        "mode": "box",
+        "region": "bottom"
+      },
+      "nav.menu": {
+        "locator": {
+          "testid": "nav.menu"
+        },
+        "mode": "box",
+        "region": "bottom"
+      },
+      "nav.coupons": {
+        "locator": {
+          "testid": "nav.coupons"
+        },
+        "mode": "box",
+        "region": "bottom"
+      },
+      "nav.orders": {
+        "locator": {
+          "testid": "nav.orders"
+        },
+        "mode": "box",
+        "region": "bottom"
+      },
+      "nav.member": {
+        "locator": {
+          "testid": "nav.member"
+        },
+        "mode": "box",
+        "region": "bottom"
+      },
+      "home.hero.headline.line1": {
+        "locator": {
+          "tag": "h2",
+          "line": 0
+        },
+        "mode": "content",
+        "region": "top"
+      },
+      "home.hero.headline.line2": {
+        "locator": {
+          "tag": "h2",
+          "line": 1
+        },
+        "mode": "content",
+        "region": "top"
+      },
+      "home.shelf.title": {
+        "locator": {
+          "class": "sectiontitle",
+          "own": true
+        },
+        "mode": "content",
+        "region": "top"
+      }
+    },
+    "screen_id": "home",
+    "state_id": "home.guest.v1"
+  }
+}

@@ -2,7 +2,7 @@
 
 本目录把冻结设计包 `design/commerce-v1/` 中 A01 批次的页面状态转换为 autophone 结构化设计包（`structured-design-package/v1`）。设计版本为 `commerce-v1-a01-430/r4`：画布从原包的 390×844 重排到 430×932，作为新设计版本处理，不改写原包。
 
-状态：2026-11-06 第 6 轮（策略 v4），A01 三个状态均通过批次准入；校准 0 失败：`home.default.v1` 26 通过、7 已登记偏差，`home.guest.v1` 25 通过、8 已登记偏差，`orders.empty.v1` 9 通过、1 已登记偏差（§3）。游客首页与订单空态按设计决定 D1、D2 起草；显示规则按 D3 生效。本目录不执行 design lock，也不包含需求输入包。
+状态：2026-11-06 第 7 轮（策略 v5），A01 三个状态均通过批次准入、校准 0 失败。首页默认态与游客态走 HTML 路线（D4，`tools/html_adapter.py`，需 autophone ≥ `1ad4866b1`）：29/28 通过，3/4 项已登记偏差均来自设计决定（D1、D3、D5）；订单空态走 DSL 路线：9 通过、1 项已登记偏差（P3）。本目录不执行 design lock，也不包含需求输入包。
 
 ## 1. 流程
 
@@ -28,7 +28,8 @@ flowchart LR
 | 设计决定 | 用户确认的决定 D1–D6：显示规则、Fixture 补充、文案覆盖与新增、模板取值 | `decisions/a01-decisions.json` |
 | 批次合同 | 确定性：冻结设计包加设计决定，不读草稿 | `derived/batch-contract.json` |
 | 解析后的映射 | 确定性：`authored/<state>/bindings.json` 展开 `extends` 后的结果，供校准与准入使用 | `derived/bindings/<state>.json` |
-| 布局树 | AI 起草（`claude-opus-5-5`），依据 [authored/AUTHORING.md](authored/AUTHORING.md) | `authored/<state>/layout.json` |
+| 布局树（DSL 路线） | AI 起草（`claude-opus-5-5`），依据 [authored/AUTHORING.md](authored/AUTHORING.md) | `authored/<state>/layout.json` |
+| HTML 路线草稿 | 确定性：冻结原型加注入（查询参数、R4 外壳样式、`data-stable-id` 与决定文本），声明视口画像与验收 targets；验收 targets 与映射差异由 AI 起草 | `authored/<state>/html.json` → `drafts-html/<state>/` |
 | 文本与校准定位器 | AI 起草，提取结果由脚本校验唯一性 | `authored/<state>/bindings.json` |
 | 设计包 | 确定性：autophone `ui-design package` | `packages/<state>/round-<n>/` |
 | 校准记录 | 确定性：编译结果与 430 基准逐元素比较 | `calibration/<state>/round-<n>.{json,png}` |
@@ -45,9 +46,10 @@ BASELINE_VIEWPORT=390x844 node tools/render_baseline.mjs ../../../design/commerc
 node tools/render_baseline.mjs ../../../design/commerce-v1/ui/prototype.html baseline home orders
 python3 -I tools/derive.py            # 写 derived/（含批次合同）与 drafts/
 python3 -I tools/derive.py --check    # 只核对产物是否过期，不判设计有效性
-python3 tools/build.py --autophone-root <autophone> --round <n> --policy policy/calibration-policy.v2.json
+python3 tools/build.py --autophone-root <autophone> --round <n> --policy policy/calibration-policy.v5.json
 python3 -I tools/admission.py         # 单独执行批次准入
-python3 tools/calibration_selftest.py --autophone-root <autophone> --policy policy/calibration-policy.v2.json
+python3 tools/calibration_selftest.py --autophone-root <autophone> --policy policy/calibration-policy.v5.json --route html
+python3 tools/calibration_selftest.py --autophone-root <autophone> --policy policy/calibration-policy.v4.json --route dsl
 python3 -I tools/check_render_determinism.py --runs 5
 ```
 
@@ -92,6 +94,7 @@ python3 -I tools/check_render_determinism.py --runs 5
 | v2 | 登记 v1 首次运行发现的 5 项：4 处字重（P3）、`home.ai.open` 可见比例（G8） |
 | v3 | 加入订单页区域；登记 D1、D3 带来的与原型差异与订单标题字重（P3）；共 17 项 |
 | v4 | 每项偏差锁定登记时的实测值（文本与样式须相同，几何与可见比例在容差内），同一检查项的其他失败不再被豁免；缺锁定值的策略被拒绝 |
+| v5 | 首页两个状态改走 HTML 路线，原型字重保留，移除这两个状态的 P3 偏差（保留会被判为失效偏差）；订单空态的 P3 保留；共 9 项 |
 
 ### 3.3 轮次（home.default.v1）
 
@@ -103,12 +106,13 @@ python3 -I tools/check_render_determinism.py --runs 5
 | 4 | v2 | 同上 | `home.store.select` 以背景色存在性断言进入验收 targets（内容撑开的盒子不声明 `frame.*`）；设计包 `79471d8c…` |
 | 5 | v3 | 默认 26/7/0，游客 25/8/0，订单空态 9/1/0（通过/已登记偏差/失败） | 按 D5 接受 `home.ai.open`；按 D3 价格两位小数；新增游客首页与订单空态 |
 | 6 | v4 | 同第 5 轮 | 偏差锁定实测值后的首轮 |
+| 7 | v5 | 默认 29/3/0，游客 28/4/0，订单空态 9/1/0 | 首页两个状态走 HTML 路线：设计包 `a91d2761…`、`b42bb0c6…`，`pixel_scope: expected_alpha`，各 27 个元素、75 个属性，图标与插画保留在参考图中；DSL 草稿继续生成作对照 |
 
 用 v1 对第 2 轮设计包运行扩展校准器的结果（28 通过、4 失败：3 处字重、`home.ai.open` 可见比例；当时人气区标题尚无校准映射，补上后为 4 处字重）是登记 v2 偏差的依据。第 1 轮草稿没有保存；从第 3 轮起每轮输入保存在 `calibration/home.default.v1/round-<n>-inputs/`。
 
 ### 3.4 校准器自检
 
-`calibration_selftest.py` 从当前草稿出发各做一处受控改动，打包后校准。2026-11-06 分别用策略 v2、v3、v4 运行，结果全部符合预期；当前记录为 v4（`admission/calibration-selftest.json`）：
+`calibration_selftest.py` 从当前草稿出发各做一处受控改动，打包后校准。2026-11-06 DSL 路线分别用策略 v2、v3、v4 运行，HTML 路线用 v5 运行（改原型 HTML 本身：文本与 Fixture 同改、删标签、注入位移与遮挡样式、改决定文本），结果全部符合预期；记录在 `admission/calibration-selftest.<route>.json`。HTML 路线删除元素的样本在打包阶段被拒（target 无法映射）。DSL 路线样本：
 
 | 样本 | 改动 | 判定 | 命中的检查 |
 | --- | --- | --- | --- |
@@ -153,7 +157,7 @@ python3 -I tools/check_render_determinism.py --runs 5
 | D1（G1） | 游客首页与默认态布局相同；会员条显示登录引导，不显示券数量 |
 | D2（G2） | 订单空态：文案“还没有订单”，主操作“去点餐”（`orders.empty.primary_action`，跳转点餐） |
 | D3（G4） | 金额统一显示两位小数（`¥32.90`）；Fixture 增加门店简称字段，首页显示简称“科创园店” |
-| D4（P1–P5） | 先用 `home.default.v1` 验证平台已有的 v1 HTML 草稿路径（直接打包原型 HTML，加 `data-stable-id` 注入适配器），与当前 DSL 产物并排比较后，再决定扩展 DSL 还是采用 HTML 适配器。2026-11-06 验证结果见 [spike/README.md](spike/README.md) |
+| D4（P1–P5） | 先用 `home.default.v1` 验证平台已有的 v1 HTML 草稿路径（直接打包原型 HTML，加 `data-stable-id` 注入适配器），与当前 DSL 产物并排比较后，再决定扩展 DSL 还是采用 HTML 适配器。2026-11-06 验证结果见 [spike/README.md](spike/README.md)；同日确认采用 HTML 适配器路线，autophone PR #342 补齐 v1 草稿的视口画像与验收范围，适配器转正为 `tools/html_adapter.py` |
 | D5（G8） | 接受 `home.ai.open` 在首屏部分可见；B4 验收以“滚动后可达”断言，不压缩上方间距 |
 | D6（合同未解析） | 订单筛选 ID：`orders.filter.all`、`orders.filter.active`、`orders.filter.completed`、`orders.filter.after_sale`，对应原型“全部 / 进行中 / 已完成 / 售后” |
 
@@ -161,11 +165,11 @@ python3 -I tools/check_render_determinism.py --runs 5
 
 | 编号 | 内容 | 当前处理 |
 | --- | --- | --- |
-| P1 | 注册组件不能表达图标与插画（定位、箭头、消息、模式图标、导航图标、主推插画、商品插画、AI 图标） | 以无样式 Decoration 保持尺寸，不进入验收；参考图中这些区域为空，像素比较须在 P1 校准时处理 |
-| P2 | Text 不支持强制换行 | 主推标题拆成 `home.hero.headline.line1`、`line2` 两个文本 |
-| P3 | 字重只允许 100 的整数倍 | 原型 850、750 分别取 800、700 |
-| P4 | 单个 Text 只有一种样式 | 商品价格中 12pt 的 `¥` 与 18pt 数字合并为 18pt |
-| P5 | 导航图标无法表达，标签垂直位置按 24pt 上内边距近似，未校准 | 导航只校准按钮盒子 |
+| P1 | 注册组件不能表达图标与插画（定位、箭头、消息、模式图标、导航图标、主推插画、商品插画、AI 图标） | 以无样式 Decoration 保持尺寸，不进入验收；参考图中这些区域为空，像素比较须在 P1 校准时处理。2026-11-06：首页两个状态改走 HTML 路线后图标与插画保留；订单空态（DSL）仍为无样式占位 |
+| P2 | Text 不支持强制换行 | 主推标题拆成 `home.hero.headline.line1`、`line2` 两个文本。2026-11-06：HTML 路线以整体 `home.hero.headline` 断言；DSL 对照草稿仍拆两行 |
+| P3 | 字重只允许 100 的整数倍 | 原型 850、750 分别取 800、700。2026-11-06：HTML 路线保留原型字重；订单空态标题（DSL）仍取 700 |
+| P4 | 单个 Text 只有一种样式 | 商品价格中 12pt 的 `¥` 与 18pt 数字合并为 18pt。2026-11-06：HTML 路线保留价格混排字号；DSL 对照草稿仍合并 |
+| P5 | 导航图标无法表达，标签垂直位置按 24pt 上内边距近似，未校准 | 导航只校准按钮盒子。2026-11-06：HTML 路线导航含图标，标签位置随原型 |
 
 其他说明：
 

@@ -20,6 +20,8 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(HERE / 'tools'))
+from html_adapter import build_html_draft  # noqa: E402
 REPO = HERE.parent.parent.parent
 DESIGN = REPO / 'design' / 'commerce-v1'
 DECISIONS = HERE / 'decisions' / 'a01-decisions.json'
@@ -389,6 +391,15 @@ def main() -> None:
         extracted = {key: text_of(find(tree, loc), loc) for key, loc in bindings['view'].items()}
         view, checks[state_id] = apply_decisions(state_id, extracted, catalog, commerce, decisions)
         fixture = derive_fixture(state_id, registry, catalog, commerce, view, decisions)
+        html_spec = resolve_authored(state_id, 'html') if (authored / 'html.json').exists() else None
+        if html_spec is not None:
+            # The DSL draft stays as a cross-check; its bindings are kept for the calibrator self-test.
+            outputs[HERE / 'derived' / 'bindings' / f'{state_id}.dsl.json'] = dump(bindings)
+            bindings = json.loads(json.dumps(bindings))
+            elements = bindings['calibration']['elements']
+            for stable_id in html_spec['calibration'].get('remove', []):
+                del elements[stable_id]
+            elements.update(html_spec['calibration'].get('add', {}))
         outputs[HERE / 'derived' / 'bindings' / f'{state_id}.json'] = dump(bindings)
         local = layout.get('local_tokens', {})
         clash = sorted(set(local) & set(tokens))
@@ -425,6 +436,16 @@ def main() -> None:
         outputs[draft / 'ui-document.json'] = dump(document)
         outputs[draft / 'prototype-spec.json'] = dump(prototype_spec)
         scope['states'][state_id]['draft'] = f'drafts/{state_id}'
+        scope['states'][state_id]['route'] = 'dsl'
+        if html_spec is not None:
+            html_files = build_html_draft(
+                prototype=DESIGN / 'ui' / 'prototype.html', state_id=state_id, screen_id=screen,
+                html_spec=html_spec, bindings=bindings, fixture=fixture, checks=checks[state_id],
+                viewport_profile=VIEWPORT_PROFILE, adapter_source=HERE / 'tools' / 'html_adapter.py')
+            for name, text in html_files.items():
+                outputs[HERE / 'drafts-html' / state_id / name] = text
+            scope['states'][state_id].update({'draft': f'drafts-html/{state_id}', 'route': 'html',
+                                              'dsl_draft': f'drafts/{state_id}'})
         relayout[state_id] = relayout_diff(originals[spec['baseline']]['tree'], tree, bindings['calibration'])
         scope['states'][state_id]['local_tokens'] = sorted(local)
 

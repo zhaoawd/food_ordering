@@ -5,8 +5,8 @@ Every sample starts from the current drafts/<state> copy, applies one change, pa
 autophone and calibrates it with the given policy. A sample counts as detected when calibration
 exits non-zero; the failing checks are recorded so a detection for the wrong reason is visible.
 
-Usage: python3 tools/calibration_selftest.py --autophone-root <autophone> --policy policy/calibration-policy.v2.json
-Writes admission/calibration-selftest.json; exit status 1 when a sample is not detected.
+Usage: python3 tools/calibration_selftest.py --autophone-root <autophone> --policy <policy> [--route dsl|html]
+Writes admission/calibration-selftest.<route>.json; exit status 1 when a sample is not detected.
 """
 from __future__ import annotations
 
@@ -96,6 +96,62 @@ def stale_evidence(draft: Path, work: Path) -> str:
     return 'baseline file differs from the digest recorded by derive.py'
 
 
+def _html(draft: Path) -> str:
+    return (draft / 'index.html').read_text(encoding='utf-8')
+
+
+def _write_html(draft: Path, html: str) -> None:
+    (draft / 'index.html').write_text(html, encoding='utf-8')
+
+
+def _inject_style(draft: Path, css: str) -> None:
+    html = _html(draft)
+    _write_html(draft, html.replace('</head>', f'<style>{css}</style></head>', 1))
+
+
+def html_text_changed(draft: Path, work: Path) -> str:
+    _write_html(draft, _html(draft).replace('午餐时间，把好心情吃回来。', '晚餐时间，把好心情吃回来。'))
+    text_changed(draft, work)
+    return 'greeting changed in the prototype and the fixture alike'
+
+
+def html_element_missing(draft: Path, work: Path) -> str:
+    html = _html(draft)
+    assert '<strong>到店自取</strong>' in html
+    _write_html(draft, html.replace('<strong>到店自取</strong>', '', 1))
+    return 'pickup title removed from the prototype markup'
+
+
+def html_shifted(draft: Path, work: Path) -> str:
+    _inject_style(draft, '.modegrid{margin-top:19px!important}')
+    return 'mode cards and everything below moved down 5pt'
+
+
+def html_occluded(draft: Path, work: Path) -> str:
+    _inject_style(draft, '[data-testid="home.mode.pickup"]{position:relative}'
+                         '[data-testid="home.mode.pickup"]::after{content:"";position:absolute;inset:0;background:#fff}')
+    return 'an opaque layer covers the pickup card content'
+
+
+def html_deviation_masking(draft: Path, work: Path) -> str:
+    html = _html(draft)
+    assert '"home.hero.price": "¥32.90"' in html
+    _write_html(draft, html.replace('"home.hero.price": "¥32.90"', '"home.hero.price": "¥99.90"', 1))
+    deviation_masking(draft, work)
+    return 'hero price changed although its text check carries a recorded deviation (D3)'
+
+
+HTML_SAMPLES = {
+    'control': (lambda draft, work: 'unchanged draft', False),
+    'text_changed': (html_text_changed, True),
+    'element_missing': (html_element_missing, True),
+    'shifted': (html_shifted, True),
+    'occluded': (html_occluded, True),
+    'deviation_masking': (html_deviation_masking, True),
+    'wrong_state': (wrong_state, True),
+    'stale_evidence': (stale_evidence, True),
+}
+
 SAMPLES = {
     'control': (lambda draft, work: 'unchanged draft', False),
     'text_changed': (text_changed, True),
@@ -112,7 +168,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--autophone-root', required=True, type=Path)
     parser.add_argument('--policy', required=True, type=Path)
+    parser.add_argument('--route', choices=('dsl', 'html'), default='dsl')
     args = parser.parse_args()
+    samples = HTML_SAMPLES if args.route == 'html' else SAMPLES
+    source = HERE / ('drafts-html' if args.route == 'html' else 'drafts') / STATE
+    bindings_path = HERE / 'derived' / 'bindings' / f'{STATE}.json'
+    if args.route == 'dsl' and (HERE / 'derived' / 'bindings' / f'{STATE}.dsl.json').is_file():
+        bindings_path = HERE / 'derived' / 'bindings' / f'{STATE}.dsl.json'
     autophone = args.autophone_root.resolve()
     policy = (HERE / args.policy).resolve()
     provenance = load(HERE / 'derived' / 'provenance.json')
@@ -120,10 +182,10 @@ def main() -> None:
     results = {}
     with tempfile.TemporaryDirectory(prefix='calibration-selftest-') as temporary:
         root = Path(temporary)
-        for name, (mutate, must_fail) in SAMPLES.items():
+        for name, (mutate, must_fail) in samples.items():
             work = root / name
             draft = work / 'draft'
-            shutil.copytree(HERE / 'drafts' / STATE, draft)
+            shutil.copytree(source, draft)
             description = mutate(draft, work)
             package = work / 'package'
             packaged = subprocess.run(
@@ -144,7 +206,7 @@ def main() -> None:
             out = work / 'calibration.json'
             run = subprocess.run(
                 ['node', str(HERE / 'tools' / 'calibrate.mjs'), str(package), str(baseline),
-                 str(HERE / 'derived' / 'bindings' / f'{STATE}.json'), str(policy), str(out)],
+                 str(bindings_path), str(policy), str(out)],
                 capture_output=True, text=True, env={**env, 'EXPECT_BASELINE_SHA256': expected_sha})
             failing = []
             if out.is_file():
@@ -160,11 +222,12 @@ def main() -> None:
     report = {
         'schema_version': 'commerce-v1-calibration-selftest/v1',
         'state_id': STATE,
+        'route': args.route,
         'policy': {'path': policy.relative_to(HERE).as_posix(), 'sha256': hashlib.sha256(policy.read_bytes()).hexdigest()},
         'all_as_expected': ok,
         'samples': results,
     }
-    out = HERE / 'admission' / 'calibration-selftest.json'
+    out = HERE / 'admission' / f'calibration-selftest.{args.route}.json'
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     for name, result in results.items():

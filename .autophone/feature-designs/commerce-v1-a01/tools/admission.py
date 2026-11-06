@@ -11,6 +11,7 @@ ends in exactly one class:
   platform_unsupported  an icon or illustration in the prototype render the DSL cannot draw (reported,
                         never counted as covered; does not block admission on its own)
   excluded              listed in the contract with a reason and a source
+  asset_preserved       an icon or illustration kept by the HTML route (reported, does not block)
 
 Template IDs the package does not resolve are reported as incomplete for the state that needs them.
 A state is admitted only when it has no incomplete entry. Exit status 1 when any state is blocked.
@@ -56,18 +57,25 @@ def baseline_assets(screen_id: str) -> list[dict]:
 
 
 def admit_state(state_id: str, spec: dict) -> dict:
+    route_draft = HERE / 'drafts-html' / state_id
+    html_spec = load(route_draft / 'prototype-spec.json') if (route_draft / 'prototype-spec.json').is_file() else None
     draft = HERE / 'drafts' / state_id
     entries = []
-    if not (draft / 'ui-document.json').is_file():
+    if not (draft / 'ui-document.json').is_file() and html_spec is None:
         for stable_id, need in spec['required'].items():
             entries.append({'stable_id': stable_id, 'class': 'incomplete', 'reason': 'state_not_authored',
                             'sources': need['sources']})
     else:
-        document = load(draft / 'ui-document.json')
-        emitted = {n['stable_id'] for screen in document['screens'] for n in walk(screen['root'])
-                   if n.get('stable_id')}
-        accepted = {t['stable_id']: t['properties'] for entry in document['acceptance']
-                    for t in entry.get('targets', [])}
+        if html_spec is not None:
+            # HTML route: the adapter tags exactly node_scope; packaging refuses a target it cannot map.
+            emitted = set(html_spec['node_scope'])
+            accepted = {t['stable_id']: t['properties'] for t in html_spec['acceptance']['targets']}
+        else:
+            document = load(draft / 'ui-document.json')
+            emitted = {n['stable_id'] for screen in document['screens'] for n in walk(screen['root'])
+                       if n.get('stable_id')}
+            accepted = {t['stable_id']: t['properties'] for entry in document['acceptance']
+                        for t in entry.get('targets', [])}
         bindings_path = HERE / 'derived' / 'bindings' / f'{state_id}.json'
         calibration = load(bindings_path)['calibration'] if bindings_path.is_file() else {}
         calibrated = set(calibration.get('elements', {}))
@@ -95,13 +103,17 @@ def admit_state(state_id: str, spec: dict) -> dict:
     for item in spec['excluded']:
         entries.append({'stable_id': item['stable_id'], 'class': 'excluded', 'reason': item['reason'],
                         'source': item['source']})
+    # The HTML route renders the prototype itself, so its icons and illustrations are in the reference.
+    asset_class, asset_reason = (('asset_preserved', 'rendered_from_prototype') if html_spec is not None
+                                 else ('platform_unsupported', 'asset_not_representable'))
     entries += [{'owner': asset['owner'], 'element_class': asset['class'], 'box': asset['box'],
-                 'class': 'platform_unsupported', 'reason': 'asset_not_representable'}
+                 'class': asset_class, 'reason': asset_reason}
                 for asset in baseline_assets(spec['screen_id'])]
     counts = {}
     for entry in entries:
         counts[entry['class']] = counts.get(entry['class'], 0) + 1
-    return {'admitted': counts.get('incomplete', 0) == 0, 'counts': dict(sorted(counts.items())),
+    return {'route': 'html' if html_spec is not None else 'dsl',
+            'admitted': counts.get('incomplete', 0) == 0, 'counts': dict(sorted(counts.items())),
             'entries': entries}
 
 

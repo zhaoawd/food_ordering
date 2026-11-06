@@ -13,7 +13,7 @@
 //   visibility  visible fraction inside the viewport and clipping ancestors
 //   font        primary resolved font family on both sides (recorded only)
 import { createHash } from 'node:crypto';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
@@ -66,7 +66,9 @@ const primaryFont = (fonts) => (fonts && fonts.length
 const browser = await chromium.launch({ args: baseline.compositor.chromium_args });
 const page = await browser.newPage({ viewport: { width: baseline.viewport.width, height: baseline.viewport.height } });
 const cdp = await page.context().newCDPSession(page);
-await page.goto(pathToFileURL(resolve(join(pkgDir, 'prototype/compiled/index.html'))).href);
+// DSL packages render prototype/compiled/index.html; HTML-route (v1) packages render prototype/index.html.
+const compiled = join(pkgDir, 'prototype/compiled/index.html');
+await page.goto(pathToFileURL(resolve(existsSync(compiled) ? compiled : join(pkgDir, 'prototype/index.html'))).href);
 await page.evaluate(() => document.fonts.ready);
 const drafted = await page.evaluate(({ ids, metricsSource }) => {
   const metrics = new Function(`return (${metricsSource})`)();

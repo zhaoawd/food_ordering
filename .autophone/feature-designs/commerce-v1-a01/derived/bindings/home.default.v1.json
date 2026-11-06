@@ -426,26 +426,17 @@
         "mode": "box",
         "region": "bottom"
       },
-      "home.hero.headline.line1": {
-        "locator": {
-          "tag": "h2",
-          "line": 0
-        },
-        "mode": "content",
-        "region": "top"
-      },
-      "home.hero.headline.line2": {
-        "locator": {
-          "tag": "h2",
-          "line": 1
-        },
-        "mode": "content",
-        "region": "top"
-      },
       "home.shelf.title": {
         "locator": {
           "class": "sectiontitle",
           "own": true
+        },
+        "mode": "content",
+        "region": "top"
+      },
+      "home.hero.headline": {
+        "locator": {
+          "tag": "h2"
         },
         "mode": "content",
         "region": "top"

@@ -60,4 +60,4 @@ uv run --group platform python3 -m autophone.cli ui-design package <out>/draft -
 - DSL 的图片、换行与混排扩展暂缓，等项目自己产出设计时再按需求做。
 - 现有 DSL 第 6 轮设计包保留为历史版本；切换路线后按新设计版本重新打包，两条路线的共有属性对照作为切换依据。
 
-以上为建议，需要确认后实施。
+2026-11-06 用户确认采用。autophone PR #342（`1ad4866b1`）为 v1 草稿补齐 `viewport_profile` 与 `acceptance.targets`；适配器转正为 `tools/html_adapter.py`，首页两个状态自第 7 轮起走 HTML 路线。本目录的 `html_adapter.py` 保留为验证时的版本。

@@ -1,9 +1,10 @@
 {
   "schema_version": "commerce-v1-calibration-selftest/v1",
   "state_id": "home.default.v1",
+  "route": "html",
   "policy": {
-    "path": "policy/calibration-policy.v4.json",
-    "sha256": "cb63c66170780df8d81dc404582d66ac50bfc60f1718007d410fd79f70e9c493"
+    "path": "policy/calibration-policy.v5.json",
+    "sha256": "768088afdd9c8e85c1cc03f1ae9c1e9354caad30e858c626ff65a8431985b196"
   },
   "all_as_expected": true,
   "samples": {
@@ -16,7 +17,7 @@
       "failing_checks": []
     },
     "text_changed": {
-      "description": "home.greeting text differs from the prototype",
+      "description": "greeting changed in the prototype and the fixture alike",
       "must_fail": true,
       "exit_code": 1,
       "detected": true,
@@ -26,15 +27,11 @@
       ]
     },
     "element_missing": {
-      "description": "home.mode.pickup.title removed from the layout",
+      "description": "pickup title removed from the prototype markup",
       "must_fail": true,
-      "exit_code": 1,
       "detected": true,
-      "stage": "calibration",
-      "failing_checks": [
-        "home.mode.pickup.subtitle:geometry",
-        "home.mode.pickup.title:presence"
-      ]
+      "stage": "packaging",
+      "detail": "oupons, home.mode.delivery, home.mode.delivery.title, home.mode.pickup.title, home.shelf.combo-beef-002.name, home.shelf.combo-beef-002.price, home.shelf.combo-chicken-001.name, home.shelf.combo-chicken-001.price, home.shelf.title, home.start_order, member.points.open, menu.product.combo-beef-002.open, menu.product.combo-chicken-001.open, nav.coupons, nav.home, nav.member, nav.menu, nav.orders\"\n}\n"
     },
     "shifted": {
       "description": "mode cards and everything below moved down 5pt",
@@ -89,14 +86,14 @@
         "home.brand:locator",
         "home.greeting:locator",
         "home.hero.eyebrow:locator",
-        "home.hero.headline.line1:locator",
-        "home.hero.headline.line2:locator",
+        "home.hero.headline:locator",
         "home.hero.price:locator",
         "home.hero.product:locator",
         "home.member.coupons:locator",
         "home.member.title:locator",
         "home.mode.delivery.subtitle:locator",
-        "home.mode.delivery.title:locator"
+        "home.mode.delivery.title:locator",
+        "home.mode.delivery:locator"
       ]
     },
     "stale_evidence": {
@@ -106,7 +103,7 @@
       "detected": true,
       "stage": "calibration",
       "failing_checks": [],
-      "refusal": "baseline /var/folders/kb/fl4_kf695qz76pxnqq14n_zh0000gn/T/calibration-selftest-afn37g5h/stale_evidence/prototype-430.json differs from the derived baseline; re-run derive.py"
+      "refusal": "baseline /var/folders/kb/fl4_kf695qz76pxnqq14n_zh0000gn/T/calibration-selftest-3krrh0vg/stale_evidence/prototype-430.json differs from the derived baseline; re-run derive.py"
     }
   }
 }

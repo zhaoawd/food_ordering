@@ -1,0 +1,113 @@
+{
+  "schema_version": "commerce-v1-calibration-selftest/v1",
+  "state_id": "home.default.v1",
+  "route": "dsl",
+  "policy": {
+    "path": "policy/calibration-policy.v4.json",
+    "sha256": "cb63c66170780df8d81dc404582d66ac50bfc60f1718007d410fd79f70e9c493"
+  },
+  "all_as_expected": true,
+  "samples": {
+    "control": {
+      "description": "unchanged draft",
+      "must_fail": false,
+      "exit_code": 0,
+      "detected": false,
+      "stage": "calibration",
+      "failing_checks": []
+    },
+    "text_changed": {
+      "description": "home.greeting text differs from the prototype",
+      "must_fail": true,
+      "exit_code": 1,
+      "detected": true,
+      "stage": "calibration",
+      "failing_checks": [
+        "home.greeting:text"
+      ]
+    },
+    "element_missing": {
+      "description": "home.mode.pickup.title removed from the layout",
+      "must_fail": true,
+      "exit_code": 1,
+      "detected": true,
+      "stage": "calibration",
+      "failing_checks": [
+        "home.mode.pickup.subtitle:geometry",
+        "home.mode.pickup.title:presence"
+      ]
+    },
+    "shifted": {
+      "description": "mode cards and everything below moved down 5pt",
+      "must_fail": true,
+      "exit_code": 1,
+      "detected": true,
+      "stage": "calibration",
+      "failing_checks": [
+        "home.ai.open:geometry",
+        "home.member.coupons:geometry",
+        "home.member.title:geometry",
+        "home.mode.delivery.subtitle:geometry",
+        "home.mode.delivery.title:geometry",
+        "home.mode.delivery:geometry",
+        "home.mode.pickup.subtitle:geometry",
+        "home.mode.pickup.title:geometry",
+        "home.mode.pickup:geometry",
+        "home.shelf.combo-beef-002.name:geometry",
+        "home.shelf.combo-beef-002.price:geometry",
+        "home.shelf.combo-chicken-001.name:geometry"
+      ]
+    },
+    "occluded": {
+      "description": "an opaque layer covers the pickup card content",
+      "must_fail": true,
+      "exit_code": 1,
+      "detected": true,
+      "stage": "calibration",
+      "failing_checks": [
+        "home.mode.pickup.subtitle:occluded",
+        "home.mode.pickup.title:occluded"
+      ]
+    },
+    "deviation_masking": {
+      "description": "hero price changed although its text check carries a recorded deviation (D3)",
+      "must_fail": true,
+      "exit_code": 1,
+      "detected": true,
+      "stage": "calibration",
+      "failing_checks": [
+        "home.hero.price:text"
+      ]
+    },
+    "wrong_state": {
+      "description": "home draft calibrated against the orders baseline",
+      "must_fail": true,
+      "exit_code": 1,
+      "detected": true,
+      "stage": "calibration",
+      "failing_checks": [
+        "home.ai.open:locator",
+        "home.brand:locator",
+        "home.greeting:locator",
+        "home.hero.eyebrow:locator",
+        "home.hero.headline.line1:locator",
+        "home.hero.headline.line2:locator",
+        "home.hero.price:locator",
+        "home.hero.product:locator",
+        "home.member.coupons:locator",
+        "home.member.title:locator",
+        "home.mode.delivery.subtitle:locator",
+        "home.mode.delivery.title:locator"
+      ]
+    },
+    "stale_evidence": {
+      "description": "baseline file differs from the digest recorded by derive.py",
+      "must_fail": true,
+      "exit_code": 2,
+      "detected": true,
+      "stage": "calibration",
+      "failing_checks": [],
+      "refusal": "baseline /var/folders/kb/fl4_kf695qz76pxnqq14n_zh0000gn/T/calibration-selftest-m9hwq55b/stale_evidence/prototype-430.json differs from the derived baseline; re-run derive.py"
+    }
+  }
+}

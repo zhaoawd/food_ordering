@@ -671,50 +671,6 @@
         }
       },
       {
-        "stable_id": "home.hero.headline.line1",
-        "region": "top",
-        "box_390": [
-          42,
-          216.8,
-          306,
-          75.38
-        ],
-        "box_430": [
-          42,
-          216.8,
-          346,
-          75.38
-        ],
-        "delta": {
-          "x": 0,
-          "y": 0.0,
-          "width": 40,
-          "height": 0.0
-        }
-      },
-      {
-        "stable_id": "home.hero.headline.line2",
-        "region": "top",
-        "box_390": [
-          42,
-          216.8,
-          306,
-          75.38
-        ],
-        "box_430": [
-          42,
-          216.8,
-          346,
-          75.38
-        ],
-        "delta": {
-          "x": 0,
-          "y": 0.0,
-          "width": 40,
-          "height": 0.0
-        }
-      },
-      {
         "stable_id": "home.shelf.title",
         "region": "top",
         "box_390": [
@@ -734,6 +690,28 @@
           "y": 0.0,
           "width": 40,
           "height": 0
+        }
+      },
+      {
+        "stable_id": "home.hero.headline",
+        "region": "top",
+        "box_390": [
+          42,
+          216.8,
+          306,
+          75.38
+        ],
+        "box_430": [
+          42,
+          216.8,
+          346,
+          75.38
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 40,
+          "height": 0.0
         }
       }
     ],
@@ -1399,50 +1377,6 @@
         }
       },
       {
-        "stable_id": "home.hero.headline.line1",
-        "region": "top",
-        "box_390": [
-          42,
-          216.8,
-          306,
-          75.38
-        ],
-        "box_430": [
-          42,
-          216.8,
-          346,
-          75.38
-        ],
-        "delta": {
-          "x": 0,
-          "y": 0.0,
-          "width": 40,
-          "height": 0.0
-        }
-      },
-      {
-        "stable_id": "home.hero.headline.line2",
-        "region": "top",
-        "box_390": [
-          42,
-          216.8,
-          306,
-          75.38
-        ],
-        "box_430": [
-          42,
-          216.8,
-          346,
-          75.38
-        ],
-        "delta": {
-          "x": 0,
-          "y": 0.0,
-          "width": 40,
-          "height": 0.0
-        }
-      },
-      {
         "stable_id": "home.shelf.title",
         "region": "top",
         "box_390": [
@@ -1462,6 +1396,28 @@
           "y": 0.0,
           "width": 40,
           "height": 0
+        }
+      },
+      {
+        "stable_id": "home.hero.headline",
+        "region": "top",
+        "box_390": [
+          42,
+          216.8,
+          306,
+          75.38
+        ],
+        "box_430": [
+          42,
+          216.8,
+          346,
+          75.38
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 40,
+          "height": 0.0
         }
       }
     ],
