@@ -1,29 +1,31 @@
 {
   "schema_version": "commerce-v1-batch-admission/v1",
   "batch": "A01",
-  "contract_sha256": "a71b9b03ea41101172fb17c26e09fb1546ee7159aca1f91666f00ccf723fd567",
-  "admitted_states": [],
-  "blocked_states": [
+  "contract_sha256": "9f057d4d7e71b6b59dd75795e1e544510ea772d643930d67ffd2b7e5ee58cac1",
+  "admitted_states": [
     "home.default.v1",
     "home.guest.v1",
     "orders.empty.v1"
   ],
+  "blocked_states": [],
   "states": {
     "home.default.v1": {
-      "admitted": false,
+      "admitted": true,
       "counts": {
-        "covered": 12,
-        "incomplete": 1,
+        "covered": 13,
         "platform_unsupported": 13
       },
       "entries": [
         {
           "stable_id": "home.ai.open",
-          "class": "incomplete",
+          "class": "covered",
           "sources": [
             "ui-contract.json controls"
           ],
-          "reason": "emitted_not_accepted"
+          "properties": [
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
+          ]
         },
         {
           "stable_id": "home.mode.delivery",
@@ -338,117 +340,175 @@
       ]
     },
     "home.guest.v1": {
-      "admitted": false,
+      "admitted": true,
       "counts": {
-        "incomplete": 13,
+        "covered": 13,
         "platform_unsupported": 13
       },
       "entries": [
         {
           "stable_id": "home.ai.open",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "ui-contract.json controls"
+          ],
+          "properties": [
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
           ]
         },
         {
           "stable_id": "home.mode.delivery",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "ui-contract.json controls"
+          ],
+          "properties": [
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
           ]
         },
         {
           "stable_id": "home.mode.pickup",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "ui-contract.json controls",
             "view-models.json FulfillmentEntry"
+          ],
+          "properties": [
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
           ]
         },
         {
           "stable_id": "home.start_order",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "ui-contract.json controls",
             "view-models.json CampaignHero"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color"
           ]
         },
         {
           "stable_id": "home.store.select",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "ui-contract.json controls",
             "view-models.json StoreHeader"
+          ],
+          "properties": [
+            "resolved_style.backgroundColor"
           ]
         },
         {
           "stable_id": "member.points.open",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "view-models.json MemberStrip"
+          ],
+          "properties": [
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
           ]
         },
         {
           "stable_id": "menu.product.combo-beef-002.open",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "view-models.json ProductShelf"
+          ],
+          "properties": [
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
           ]
         },
         {
           "stable_id": "menu.product.combo-chicken-001.open",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "view-models.json ProductShelf"
+          ],
+          "properties": [
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
           ]
         },
         {
           "stable_id": "nav.coupons",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "PRODUCT_DESIGN.md 底部导航"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
           "stable_id": "nav.home",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "PRODUCT_DESIGN.md 底部导航"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
           "stable_id": "nav.member",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "PRODUCT_DESIGN.md 底部导航"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
           "stable_id": "nav.menu",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "PRODUCT_DESIGN.md 底部导航"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
           "stable_id": "nav.orders",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "PRODUCT_DESIGN.md 底部导航"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
@@ -610,68 +670,139 @@
       ]
     },
     "orders.empty.v1": {
-      "admitted": false,
+      "admitted": true,
       "counts": {
+        "covered": 9,
+        "covered_by_decision": 1,
         "excluded": 1,
-        "incomplete": 7,
         "platform_unsupported": 8
       },
       "entries": [
         {
           "stable_id": "nav.coupons",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "PRODUCT_DESIGN.md 底部导航"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
           "stable_id": "nav.home",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "PRODUCT_DESIGN.md 底部导航"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
           "stable_id": "nav.member",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "PRODUCT_DESIGN.md 底部导航"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
           "stable_id": "nav.menu",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "PRODUCT_DESIGN.md 底部导航"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
           "stable_id": "nav.orders",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered",
           "sources": [
             "PRODUCT_DESIGN.md 底部导航"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color",
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
           "stable_id": "orders.empty.primary_action",
-          "class": "incomplete",
-          "reason": "state_not_authored",
+          "class": "covered_by_decision",
           "sources": [
             "view-models.json EmptyState"
+          ],
+          "reason": "D2：原型没有订单空态，无基准可比"
+        },
+        {
+          "stable_id": "orders.filter.active",
+          "class": "covered",
+          "sources": [
+            "view-models.json OrderFilter; values by decision D6"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color"
           ]
         },
         {
-          "stable_id": "orders.filter.{filter}",
-          "class": "incomplete",
-          "reason": "contract_unresolved",
-          "detail": "设计包未给出模板参数的取值",
+          "stable_id": "orders.filter.after_sale",
+          "class": "covered",
           "sources": [
-            "view-models.json OrderFilter"
+            "view-models.json OrderFilter; values by decision D6"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "orders.filter.all",
+          "class": "covered",
+          "sources": [
+            "view-models.json OrderFilter; values by decision D6"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color"
+          ]
+        },
+        {
+          "stable_id": "orders.filter.completed",
+          "class": "covered",
+          "sources": [
+            "view-models.json OrderFilter; values by decision D6"
+          ],
+          "properties": [
+            "text",
+            "resolved_style.color"
           ]
         },
         {

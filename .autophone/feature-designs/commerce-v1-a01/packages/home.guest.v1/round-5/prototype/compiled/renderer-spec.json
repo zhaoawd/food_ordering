@@ -1,0 +1,178 @@
+{
+  "schema_version": "prototype-render-spec/v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "entry": "index.html",
+  "node_scope": [
+    "home.brand",
+    "home.store.select",
+    "home.store.name",
+    "home.store.distance",
+    "home.greeting",
+    "home.hero.headline.line1",
+    "home.hero.headline.line2",
+    "home.hero.price",
+    "home.mode.pickup",
+    "home.mode.pickup.title",
+    "home.mode.delivery",
+    "home.mode.delivery.title",
+    "member.points.open",
+    "home.member.coupons",
+    "home.shelf.title",
+    "home.start_order",
+    "menu.product.combo-chicken-001.open",
+    "home.shelf.combo-chicken-001.name",
+    "home.shelf.combo-chicken-001.price",
+    "menu.product.combo-beef-002.open",
+    "home.shelf.combo-beef-002.name",
+    "home.shelf.combo-beef-002.price",
+    "nav.home",
+    "nav.menu",
+    "nav.coupons",
+    "nav.orders",
+    "nav.member",
+    "home.ai.open"
+  ],
+  "locale": "zh-CN",
+  "color_scheme": "light",
+  "packer_version": "autophone-prototype-packager/v2",
+  "property_scope": {
+    "home.brand": [
+      "text",
+      "resolved_style.color"
+    ],
+    "home.store.select": [
+      "resolved_style.backgroundColor"
+    ],
+    "home.store.name": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontWeight"
+    ],
+    "home.store.distance": [
+      "text",
+      "resolved_style.color"
+    ],
+    "home.greeting": [
+      "text",
+      "resolved_style.color"
+    ],
+    "home.hero.headline.line1": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize"
+    ],
+    "home.hero.headline.line2": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize"
+    ],
+    "home.hero.price": [
+      "text",
+      "resolved_style.color"
+    ],
+    "home.mode.pickup": [
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "home.mode.pickup.title": [
+      "text",
+      "resolved_style.color"
+    ],
+    "home.mode.delivery": [
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "home.mode.delivery.title": [
+      "text",
+      "resolved_style.color"
+    ],
+    "member.points.open": [
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "home.member.coupons": [
+      "text",
+      "resolved_style.color"
+    ],
+    "home.shelf.title": [
+      "text",
+      "resolved_style.color"
+    ],
+    "home.start_order": [
+      "text",
+      "resolved_style.color"
+    ],
+    "menu.product.combo-chicken-001.open": [
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "home.shelf.combo-chicken-001.name": [
+      "text",
+      "resolved_style.color"
+    ],
+    "home.shelf.combo-chicken-001.price": [
+      "text",
+      "resolved_style.color"
+    ],
+    "menu.product.combo-beef-002.open": [
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ],
+    "home.shelf.combo-beef-002.name": [
+      "text",
+      "resolved_style.color"
+    ],
+    "home.shelf.combo-beef-002.price": [
+      "text",
+      "resolved_style.color"
+    ],
+    "nav.home": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "nav.menu": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "nav.coupons": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "nav.orders": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "nav.member": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "home.ai.open": [
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+    ]
+  }
+}

@@ -226,15 +226,33 @@
             "view-models.json EmptyState"
           ],
           "role": null
+        },
+        "orders.filter.active": {
+          "sources": [
+            "view-models.json OrderFilter; values by decision D6"
+          ],
+          "role": null
+        },
+        "orders.filter.after_sale": {
+          "sources": [
+            "view-models.json OrderFilter; values by decision D6"
+          ],
+          "role": null
+        },
+        "orders.filter.all": {
+          "sources": [
+            "view-models.json OrderFilter; values by decision D6"
+          ],
+          "role": null
+        },
+        "orders.filter.completed": {
+          "sources": [
+            "view-models.json OrderFilter; values by decision D6"
+          ],
+          "role": null
         }
       },
-      "unresolved": [
-        {
-          "stable_id": "orders.filter.{filter}",
-          "derived_from": "view-models.json OrderFilter",
-          "reason": "设计包未给出模板参数的取值"
-        }
-      ],
+      "unresolved": [],
       "excluded": [
         {
           "state_id": "orders.empty.v1",

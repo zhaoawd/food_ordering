@@ -1,0 +1,151 @@
+{
+  "view": {
+    "title": {
+      "tag": "h1"
+    },
+    "filter_all": {
+      "tag": "button",
+      "full_text": "全部",
+      "within": {
+        "class": "segmented"
+      }
+    },
+    "filter_active": {
+      "tag": "button",
+      "full_text": "进行中",
+      "within": {
+        "class": "segmented"
+      }
+    },
+    "filter_completed": {
+      "tag": "button",
+      "full_text": "已完成",
+      "within": {
+        "class": "segmented"
+      }
+    },
+    "filter_after_sale": {
+      "tag": "button",
+      "full_text": "售后",
+      "within": {
+        "class": "segmented"
+      }
+    },
+    "nav_home": {
+      "testid": "nav.home",
+      "own": true
+    },
+    "nav_menu": {
+      "testid": "nav.menu",
+      "own": true
+    },
+    "nav_coupons": {
+      "testid": "nav.coupons",
+      "own": true
+    },
+    "nav_orders": {
+      "testid": "nav.orders",
+      "own": true
+    },
+    "nav_member": {
+      "testid": "nav.member",
+      "own": true
+    }
+  },
+  "calibration": {
+    "screen_id": "orders",
+    "state_id": "orders.empty.v1",
+    "elements": {
+      "orders.title": {
+        "locator": {
+          "tag": "h1"
+        },
+        "mode": "text",
+        "region": "top"
+      },
+      "orders.filter.all": {
+        "locator": {
+          "tag": "button",
+          "full_text": "全部",
+          "within": {
+            "class": "segmented"
+          }
+        },
+        "mode": "box",
+        "region": "top"
+      },
+      "orders.filter.active": {
+        "locator": {
+          "tag": "button",
+          "full_text": "进行中",
+          "within": {
+            "class": "segmented"
+          }
+        },
+        "mode": "box",
+        "region": "top"
+      },
+      "orders.filter.completed": {
+        "locator": {
+          "tag": "button",
+          "full_text": "已完成",
+          "within": {
+            "class": "segmented"
+          }
+        },
+        "mode": "box",
+        "region": "top"
+      },
+      "orders.filter.after_sale": {
+        "locator": {
+          "tag": "button",
+          "full_text": "售后",
+          "within": {
+            "class": "segmented"
+          }
+        },
+        "mode": "box",
+        "region": "top"
+      },
+      "nav.home": {
+        "locator": {
+          "testid": "nav.home"
+        },
+        "mode": "box",
+        "region": "bottom"
+      },
+      "nav.menu": {
+        "locator": {
+          "testid": "nav.menu"
+        },
+        "mode": "box",
+        "region": "bottom"
+      },
+      "nav.coupons": {
+        "locator": {
+          "testid": "nav.coupons"
+        },
+        "mode": "box",
+        "region": "bottom"
+      },
+      "nav.orders": {
+        "locator": {
+          "testid": "nav.orders"
+        },
+        "mode": "box",
+        "region": "bottom"
+      },
+      "nav.member": {
+        "locator": {
+          "testid": "nav.member"
+        },
+        "mode": "box",
+        "region": "bottom"
+      }
+    },
+    "uncalibrated": {
+      "orders.empty.title": "D2：原型没有订单空态，无基准可比",
+      "orders.empty.primary_action": "D2：原型没有订单空态，无基准可比"
+    }
+  }
+}

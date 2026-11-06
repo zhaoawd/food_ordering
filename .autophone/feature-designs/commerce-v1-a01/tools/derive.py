@@ -22,6 +22,15 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent.parent
 REPO = HERE.parent.parent.parent
 DESIGN = REPO / 'design' / 'commerce-v1'
+DECISIONS = HERE / 'decisions' / 'a01-decisions.json'
+# View keys whose text follows a display rule from the decisions file instead of the prototype.
+# Value: (rule, business value source). Everything else is extracted from the 430 baseline.
+DISPLAY_BINDINGS = {
+    'hero_price': ('money', ('product', 0)),
+    'product_1_price': ('money', ('product', 0)),
+    'product_2_price': ('money', ('product', 1)),
+    'store_name': ('store_short_name', ('store', 0)),
+}
 MANIFEST_SHA256 = 'ec6bed1c5fbae3eb4d7cca23dbb1a78c573906b08b52a062e93812f604c174ee'
 DESIGN_VERSION = 'commerce-v1-a01-430/r4'
 FRAME = {'width': 430, 'height': 932}
@@ -172,8 +181,8 @@ def relayout_diff(original: dict, target: dict, calibration: dict) -> list[dict]
     return rows
 
 
-def batch_contract(view_models: dict, contract: dict, catalog: dict) -> dict:
-    """Required elements per A01 state, derived without reading any authored draft."""
+def batch_contract(view_models: dict, contract: dict, catalog: dict, decisions: dict) -> dict:
+    """Required elements per A01 state from the frozen package and recorded decisions, never from a draft."""
     roles = {c['stable_id']: c for c in contract['controls']}
     featured = [p['id'] for p in catalog['products'][:FEATURED_PRODUCT_COUNT]]
     states = {}
@@ -197,8 +206,13 @@ def batch_contract(view_models: dict, contract: dict, catalog: dict) -> dict:
                 elif source not in known['derived_from']:
                     known['derived_from'].append(source)
                 continue
+            decided = decisions['template_values'].get(stable_id)
             if '{productId}' in stable_id and screen == 'home':
                 ids = [stable_id.replace('{productId}', pid) for pid in featured]
+            elif decided:
+                name = stable_id[stable_id.index('{'):stable_id.index('}') + 1]
+                ids = [stable_id.replace(name, value) for value in decided['values']]
+                source = f"{source}; values by decision {decided['decision']}"
             elif '{' in stable_id:
                 unresolved.append({'stable_id': stable_id, 'derived_from': source,
                                    'reason': '设计包未给出模板参数的取值'})
@@ -222,7 +236,8 @@ def yuan(cents: int) -> str:
     return f'¥{cents // 100}.{cents % 100:02d}'
 
 
-def derive_fixture(state_id: str, registry: dict, catalog: dict, commerce: dict, view: dict) -> dict:
+def derive_fixture(state_id: str, registry: dict, catalog: dict, commerce: dict, view: dict,
+                   decisions: dict) -> dict:
     entry = next(f for f in registry['fixtures'] if f['id'] == state_id)
     store = commerce['stores'][0]
     return {
@@ -236,6 +251,7 @@ def derive_fixture(state_id: str, registry: dict, catalog: dict, commerce: dict,
             'state_recipe': entry['state_recipe'],
             'menu_revision': catalog['menu_revision'],
             'store_id': store['id'],
+            'store_short_name': decisions['fixture_additions']['stores'][store['id']]['short_name'],
             'featured_product_ids': [p['id'] for p in catalog['products'][:2]],
             **{f'featured_{i}_price_cents': p['base_price_cents'] for i, p in enumerate(catalog['products'][:2], 1)},
             'available_coupon_count': len(commerce['coupons']),
@@ -244,27 +260,55 @@ def derive_fixture(state_id: str, registry: dict, catalog: dict, commerce: dict,
     }
 
 
-def input_checks(view: dict, catalog: dict, commerce: dict) -> list[dict]:
-    """Compare text shown by the prototype with the synthetic fixture data it should be bound to."""
-    checks = []
-    products = catalog['products'][:2]
-    store = commerce['stores'][0]
-    expected = {
-        'product_1_name': products[0]['name'],
-        'product_1_price': yuan(products[0]['base_price_cents']),
-        'product_2_name': products[1]['name'],
-        'product_2_price': yuan(products[1]['base_price_cents']),
-        'hero_price': yuan(products[0]['base_price_cents']),
-        'hero_product': products[0]['name'],
-        'store_name': store['name'],
-        'store_distance': store['distance_label'],
-        'member_coupons': f"{len(commerce['coupons'])} 张券 ›",
-    }
-    for key, want in expected.items():
-        if key in view:
-            checks.append({'view_key': key, 'prototype_text': view[key], 'fixture_text': want,
-                           'consistent': view[key] == want})
-    return checks
+def apply_decisions(state_id: str, extracted: dict, catalog: dict, commerce: dict,
+                    decisions: dict) -> tuple[dict, list[dict]]:
+    """Final view text: display rules for bound keys, recorded overrides and additions, otherwise the
+    prototype text. Every key gets a record of where its text came from and how it relates to the prototype."""
+    products = catalog['products']
+    stores = commerce['stores']
+    rules = decisions['display_rules']
+    view, records = {}, []
+    for key, prototype_text in extracted.items():
+        if key in DISPLAY_BINDINGS:
+            rule, (kind, index) = DISPLAY_BINDINGS[key]
+            if rule == 'money':
+                value = products[index]['base_price_cents']
+                text = yuan(value)
+                business = {'base_price_cents': value, 'product_id': products[index]['id']}
+            else:
+                store = stores[index]
+                text = decisions['fixture_additions']['stores'][store['id']]['short_name']
+                business = {'store_id': store['id'], 'store_name': store['name']}
+            source = f"display_rule:{rule} ({rules[rule]['decision']})"
+        else:
+            text, business, source = prototype_text, None, 'prototype'
+        override = decisions['view_overrides'].get(state_id, {}).get(key)
+        if override:
+            text, source = override['text'], f"override ({override['decision']})"
+        view[key] = text
+        records.append({'view_key': key, 'prototype_text': prototype_text, 'display_text': text,
+                        'source': source, **({'business_value': business} if business else {}),
+                        'relation': 'same_as_prototype' if text == prototype_text else 'decision_differs_from_prototype'})
+    for key, addition in decisions['view_additions'].get(state_id, {}).items():
+        view[key] = addition['text']
+        records.append({'view_key': key, 'prototype_text': None, 'display_text': addition['text'],
+                        'source': f"addition ({addition['decision']})", 'relation': 'no_prototype'})
+    return view, records
+
+
+def resolve_authored(state_id: str, name: str) -> dict:
+    """Load authored/<state>/<name>.json; a file with `extends` starts from another state's file."""
+    data = load(HERE / 'authored' / state_id / f'{name}.json')
+    base_state = data.pop('extends', None)
+    if base_state is None:
+        return data
+    base = resolve_authored(base_state, name)
+    for key, value in data.items():
+        if isinstance(value, dict) and isinstance(base.get(key), dict):
+            base[key] = {**base[key], **value}
+        else:
+            base[key] = value
+    return base
 
 
 def main() -> None:
@@ -273,6 +317,8 @@ def main() -> None:
     args = parser.parse_args()
 
     provenance = verify_design_package()
+    decisions = load(DECISIONS)
+    provenance['decisions'] = {'path': DECISIONS.relative_to(HERE).as_posix(), 'sha256': sha256(DECISIONS)}
     design_tokens = load(DESIGN / 'spec' / 'design-tokens.json')
     view_models = {v['screen_id']: v for v in load(DESIGN / 'spec' / 'view-models.json')['views']}
     contract = load(DESIGN / 'spec' / 'ui-contract.json')
@@ -336,12 +382,14 @@ def main() -> None:
         if not (authored / 'layout.json').exists():
             scope['states'][state_id]['draft'] = 'not_authored'
             continue
-        layout = load(authored / 'layout.json')
-        bindings = load(authored / 'bindings.json')
+        layout = resolve_authored(state_id, 'layout')
+        bindings = resolve_authored(state_id, 'bindings')
+        bindings['calibration']['state_id'] = state_id
         tree = baselines[spec['baseline']]['tree']
-        view = {key: text_of(find(tree, loc), loc) for key, loc in bindings['view'].items()}
-        fixture = derive_fixture(state_id, registry, catalog, commerce, view)
-        checks[state_id] = input_checks(view, catalog, commerce)
+        extracted = {key: text_of(find(tree, loc), loc) for key, loc in bindings['view'].items()}
+        view, checks[state_id] = apply_decisions(state_id, extracted, catalog, commerce, decisions)
+        fixture = derive_fixture(state_id, registry, catalog, commerce, view, decisions)
+        outputs[HERE / 'derived' / 'bindings' / f'{state_id}.json'] = dump(bindings)
         local = layout.get('local_tokens', {})
         clash = sorted(set(local) & set(tokens))
         if clash:
@@ -381,7 +429,7 @@ def main() -> None:
         scope['states'][state_id]['local_tokens'] = sorted(local)
 
     outputs[HERE / 'derived' / 'acceptance-scope.json'] = dump(scope)
-    outputs[HERE / 'derived' / 'batch-contract.json'] = dump(batch_contract(view_models, contract, catalog))
+    outputs[HERE / 'derived' / 'batch-contract.json'] = dump(batch_contract(view_models, contract, catalog, decisions))
     outputs[HERE / 'derived' / 'input-checks.json'] = dump(checks)
     outputs[HERE / 'derived' / 'relayout-r4.json'] = dump({
         'from': {'viewport': '390x844', 'source': 'baseline/<page>/prototype-390.json'},

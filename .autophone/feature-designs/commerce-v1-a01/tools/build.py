@@ -55,6 +55,8 @@ def main() -> None:
             parser.error(f'round {args.round} already exists for {state_id}; use a new round number')
         shutil.copytree(HERE / 'authored' / state_id, inputs / 'authored')
         shutil.copytree(HERE / state['draft'], inputs / 'draft')
+        shutil.copy2(HERE / 'derived' / 'bindings' / f'{state_id}.json', inputs / 'bindings.resolved.json')
+        shutil.copy2(HERE / 'decisions' / 'a01-decisions.json', inputs / 'a01-decisions.json')
         shutil.copy2(policy, inputs / policy.name)
         package.parent.mkdir(parents=True, exist_ok=True)
         result = subprocess.run(
@@ -67,7 +69,7 @@ def main() -> None:
         page = state['screen_id']
         calibration = subprocess.run(
             ['node', 'tools/calibrate.mjs', package.relative_to(HERE).as_posix(),
-             f'baseline/{page}/prototype-430.json', f'authored/{state_id}/bindings.json',
+             f'baseline/{page}/prototype-430.json', f'derived/bindings/{state_id}.json',
              policy.relative_to(HERE).as_posix(),
              record.relative_to(HERE).as_posix(), record.with_suffix('.png').relative_to(HERE).as_posix()],
             cwd=HERE, capture_output=True, text=True,

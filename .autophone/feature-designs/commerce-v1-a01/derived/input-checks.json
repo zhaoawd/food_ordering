@@ -1,58 +1,586 @@
 {
   "home.default.v1": [
     {
-      "view_key": "product_1_name",
-      "prototype_text": "香脆鸡腿堡套餐",
-      "fixture_text": "香脆鸡腿堡套餐",
-      "consistent": true
+      "view_key": "brand",
+      "prototype_text": "食刻",
+      "display_text": "食刻",
+      "source": "prototype",
+      "relation": "same_as_prototype"
     },
     {
-      "view_key": "product_1_price",
-      "prototype_text": "¥32.90",
-      "fixture_text": "¥32.90",
-      "consistent": true
-    },
-    {
-      "view_key": "product_2_name",
-      "prototype_text": "炙烤牛肉堡套餐",
-      "fixture_text": "炙烤牛肉堡套餐",
-      "consistent": true
-    },
-    {
-      "view_key": "product_2_price",
-      "prototype_text": "¥38.90",
-      "fixture_text": "¥38.90",
-      "consistent": true
-    },
-    {
-      "view_key": "hero_price",
-      "prototype_text": "¥32.9",
-      "fixture_text": "¥32.90",
-      "consistent": false
-    },
-    {
-      "view_key": "hero_product",
-      "prototype_text": "香脆鸡腿堡套餐",
-      "fixture_text": "香脆鸡腿堡套餐",
-      "consistent": true
+      "view_key": "brand_tagline",
+      "prototype_text": "FRESH MOMENTS",
+      "display_text": "FRESH MOMENTS",
+      "source": "prototype",
+      "relation": "same_as_prototype"
     },
     {
       "view_key": "store_name",
       "prototype_text": "科创园店",
-      "fixture_text": "食刻 · 科创园店（演示）",
-      "consistent": false
+      "display_text": "科创园店",
+      "source": "display_rule:store_short_name (D3)",
+      "business_value": {
+        "store_id": "store-demo-001",
+        "store_name": "食刻 · 科创园店（演示）"
+      },
+      "relation": "same_as_prototype"
     },
     {
       "view_key": "store_distance",
       "prototype_text": "步行约5分钟",
-      "fixture_text": "步行约5分钟",
-      "consistent": true
+      "display_text": "步行约5分钟",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "greeting",
+      "prototype_text": "午餐时间，把好心情吃回来。",
+      "display_text": "午餐时间，把好心情吃回来。",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "hero_eyebrow",
+      "prototype_text": "FRESHLY MADE · 现点现做",
+      "display_text": "FRESHLY MADE · 现点现做",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "hero_line_1",
+      "prototype_text": "今天，",
+      "display_text": "今天，",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "hero_line_2",
+      "prototype_text": "来点热乎的。",
+      "display_text": "来点热乎的。",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "hero_price",
+      "prototype_text": "¥32.9",
+      "display_text": "¥32.90",
+      "source": "display_rule:money (D3)",
+      "business_value": {
+        "base_price_cents": 3290,
+        "product_id": "combo-chicken-001"
+      },
+      "relation": "decision_differs_from_prototype"
+    },
+    {
+      "view_key": "hero_product",
+      "prototype_text": "香脆鸡腿堡套餐",
+      "display_text": "香脆鸡腿堡套餐",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "hero_tag",
+      "prototype_text": "套餐推荐 · 演示活动",
+      "display_text": "套餐推荐 · 演示活动",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "mode_pickup_title",
+      "prototype_text": "到店自取",
+      "display_text": "到店自取",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "mode_pickup_subtitle",
+      "prototype_text": "提前点，到店拿",
+      "display_text": "提前点，到店拿",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "mode_delivery_title",
+      "prototype_text": "外送到家",
+      "display_text": "外送到家",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "mode_delivery_subtitle",
+      "prototype_text": "热乎美味送到家",
+      "display_text": "热乎美味送到家",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "member_title",
+      "prototype_text": "食刻会员",
+      "display_text": "食刻会员",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "member_subtitle",
+      "prototype_text": "· 让每一餐都有回馈",
+      "display_text": "· 让每一餐都有回馈",
+      "source": "prototype",
+      "relation": "same_as_prototype"
     },
     {
       "view_key": "member_coupons",
       "prototype_text": "3 张券 ›",
-      "fixture_text": "3 张券 ›",
-      "consistent": true
+      "display_text": "3 张券 ›",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "shelf_title",
+      "prototype_text": "人气好滋味",
+      "display_text": "人气好滋味",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "start_order",
+      "prototype_text": "开始点餐 ›",
+      "display_text": "开始点餐 ›",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "product_1_name",
+      "prototype_text": "香脆鸡腿堡套餐",
+      "display_text": "香脆鸡腿堡套餐",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "product_1_price",
+      "prototype_text": "¥32.90",
+      "display_text": "¥32.90",
+      "source": "display_rule:money (D3)",
+      "business_value": {
+        "base_price_cents": 3290,
+        "product_id": "combo-chicken-001"
+      },
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "product_1_add",
+      "prototype_text": "＋",
+      "display_text": "＋",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "product_2_name",
+      "prototype_text": "炙烤牛肉堡套餐",
+      "display_text": "炙烤牛肉堡套餐",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "product_2_price",
+      "prototype_text": "¥38.90",
+      "display_text": "¥38.90",
+      "source": "display_rule:money (D3)",
+      "business_value": {
+        "base_price_cents": 3890,
+        "product_id": "combo-beef-002"
+      },
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "product_2_add",
+      "prototype_text": "＋",
+      "display_text": "＋",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "ai_prompt",
+      "prototype_text": "不知道吃什么？帮我搭一餐",
+      "display_text": "不知道吃什么？帮我搭一餐",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "ai_chevron",
+      "prototype_text": "›",
+      "display_text": "›",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_home",
+      "prototype_text": "首页",
+      "display_text": "首页",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_menu",
+      "prototype_text": "点餐",
+      "display_text": "点餐",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_coupons",
+      "prototype_text": "优惠",
+      "display_text": "优惠",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_orders",
+      "prototype_text": "订单",
+      "display_text": "订单",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_member",
+      "prototype_text": "我的",
+      "display_text": "我的",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    }
+  ],
+  "home.guest.v1": [
+    {
+      "view_key": "brand",
+      "prototype_text": "食刻",
+      "display_text": "食刻",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "brand_tagline",
+      "prototype_text": "FRESH MOMENTS",
+      "display_text": "FRESH MOMENTS",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "store_name",
+      "prototype_text": "科创园店",
+      "display_text": "科创园店",
+      "source": "display_rule:store_short_name (D3)",
+      "business_value": {
+        "store_id": "store-demo-001",
+        "store_name": "食刻 · 科创园店（演示）"
+      },
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "store_distance",
+      "prototype_text": "步行约5分钟",
+      "display_text": "步行约5分钟",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "greeting",
+      "prototype_text": "午餐时间，把好心情吃回来。",
+      "display_text": "午餐时间，把好心情吃回来。",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "hero_eyebrow",
+      "prototype_text": "FRESHLY MADE · 现点现做",
+      "display_text": "FRESHLY MADE · 现点现做",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "hero_line_1",
+      "prototype_text": "今天，",
+      "display_text": "今天，",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "hero_line_2",
+      "prototype_text": "来点热乎的。",
+      "display_text": "来点热乎的。",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "hero_price",
+      "prototype_text": "¥32.9",
+      "display_text": "¥32.90",
+      "source": "display_rule:money (D3)",
+      "business_value": {
+        "base_price_cents": 3290,
+        "product_id": "combo-chicken-001"
+      },
+      "relation": "decision_differs_from_prototype"
+    },
+    {
+      "view_key": "hero_product",
+      "prototype_text": "香脆鸡腿堡套餐",
+      "display_text": "香脆鸡腿堡套餐",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "hero_tag",
+      "prototype_text": "套餐推荐 · 演示活动",
+      "display_text": "套餐推荐 · 演示活动",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "mode_pickup_title",
+      "prototype_text": "到店自取",
+      "display_text": "到店自取",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "mode_pickup_subtitle",
+      "prototype_text": "提前点，到店拿",
+      "display_text": "提前点，到店拿",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "mode_delivery_title",
+      "prototype_text": "外送到家",
+      "display_text": "外送到家",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "mode_delivery_subtitle",
+      "prototype_text": "热乎美味送到家",
+      "display_text": "热乎美味送到家",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "member_title",
+      "prototype_text": "食刻会员",
+      "display_text": "食刻会员",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "member_subtitle",
+      "prototype_text": "· 让每一餐都有回馈",
+      "display_text": "· 让每一餐都有回馈",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "member_coupons",
+      "prototype_text": "3 张券 ›",
+      "display_text": "登录 ›",
+      "source": "override (D1)",
+      "relation": "decision_differs_from_prototype"
+    },
+    {
+      "view_key": "shelf_title",
+      "prototype_text": "人气好滋味",
+      "display_text": "人气好滋味",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "start_order",
+      "prototype_text": "开始点餐 ›",
+      "display_text": "开始点餐 ›",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "product_1_name",
+      "prototype_text": "香脆鸡腿堡套餐",
+      "display_text": "香脆鸡腿堡套餐",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "product_1_price",
+      "prototype_text": "¥32.90",
+      "display_text": "¥32.90",
+      "source": "display_rule:money (D3)",
+      "business_value": {
+        "base_price_cents": 3290,
+        "product_id": "combo-chicken-001"
+      },
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "product_1_add",
+      "prototype_text": "＋",
+      "display_text": "＋",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "product_2_name",
+      "prototype_text": "炙烤牛肉堡套餐",
+      "display_text": "炙烤牛肉堡套餐",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "product_2_price",
+      "prototype_text": "¥38.90",
+      "display_text": "¥38.90",
+      "source": "display_rule:money (D3)",
+      "business_value": {
+        "base_price_cents": 3890,
+        "product_id": "combo-beef-002"
+      },
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "product_2_add",
+      "prototype_text": "＋",
+      "display_text": "＋",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "ai_prompt",
+      "prototype_text": "不知道吃什么？帮我搭一餐",
+      "display_text": "不知道吃什么？帮我搭一餐",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "ai_chevron",
+      "prototype_text": "›",
+      "display_text": "›",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_home",
+      "prototype_text": "首页",
+      "display_text": "首页",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_menu",
+      "prototype_text": "点餐",
+      "display_text": "点餐",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_coupons",
+      "prototype_text": "优惠",
+      "display_text": "优惠",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_orders",
+      "prototype_text": "订单",
+      "display_text": "订单",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_member",
+      "prototype_text": "我的",
+      "display_text": "我的",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    }
+  ],
+  "orders.empty.v1": [
+    {
+      "view_key": "title",
+      "prototype_text": "我的订单",
+      "display_text": "我的订单",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "filter_all",
+      "prototype_text": "全部",
+      "display_text": "全部",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "filter_active",
+      "prototype_text": "进行中",
+      "display_text": "进行中",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "filter_completed",
+      "prototype_text": "已完成",
+      "display_text": "已完成",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "filter_after_sale",
+      "prototype_text": "售后",
+      "display_text": "售后",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_home",
+      "prototype_text": "首页",
+      "display_text": "首页",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_menu",
+      "prototype_text": "点餐",
+      "display_text": "点餐",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_coupons",
+      "prototype_text": "优惠",
+      "display_text": "优惠",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_orders",
+      "prototype_text": "订单",
+      "display_text": "订单",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "nav_member",
+      "prototype_text": "我的",
+      "display_text": "我的",
+      "source": "prototype",
+      "relation": "same_as_prototype"
+    },
+    {
+      "view_key": "empty_title",
+      "prototype_text": null,
+      "display_text": "还没有订单",
+      "source": "addition (D2)",
+      "relation": "no_prototype"
+    },
+    {
+      "view_key": "empty_action",
+      "prototype_text": null,
+      "display_text": "去点餐",
+      "source": "addition (D2)",
+      "relation": "no_prototype"
     }
   ]
 }

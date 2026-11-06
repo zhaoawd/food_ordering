@@ -81,6 +81,13 @@ def occluded(draft: Path, work: Path) -> str:
     return 'an opaque layer covers the pickup card content'
 
 
+def deviation_masking(draft: Path, work: Path) -> str:
+    fixture = load(draft / 'state-fixture.json')
+    fixture['view']['hero_price'] = '¥99.90'
+    dump(draft / 'state-fixture.json', fixture)
+    return 'hero price changed although its text check carries a recorded deviation (D3)'
+
+
 def wrong_state(draft: Path, work: Path) -> str:
     return 'home draft calibrated against the orders baseline'
 
@@ -95,6 +102,7 @@ SAMPLES = {
     'element_missing': (element_missing, True),
     'shifted': (shifted, True),
     'occluded': (occluded, True),
+    'deviation_masking': (deviation_masking, True),
     'wrong_state': (wrong_state, True),
     'stale_evidence': (stale_evidence, True),
 }
@@ -136,7 +144,7 @@ def main() -> None:
             out = work / 'calibration.json'
             run = subprocess.run(
                 ['node', str(HERE / 'tools' / 'calibrate.mjs'), str(package), str(baseline),
-                 str(HERE / 'authored' / STATE / 'bindings.json'), str(policy), str(out)],
+                 str(HERE / 'derived' / 'bindings' / f'{STATE}.json'), str(policy), str(out)],
                 capture_output=True, text=True, env={**env, 'EXPECT_BASELINE_SHA256': expected_sha})
             failing = []
             if out.is_file():

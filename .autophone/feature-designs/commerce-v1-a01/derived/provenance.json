@@ -1,6 +1,10 @@
 {
   "manifest_sha256": "ec6bed1c5fbae3eb4d7cca23dbb1a78c573906b08b52a062e93812f604c174ee",
   "files_verified": 54,
+  "decisions": {
+    "path": "decisions/a01-decisions.json",
+    "sha256": "d1bf1f3b64ffe1bc0f442e13d346a1c82ac41d12d98cc49bcff885488d4478e3"
+  },
   "baselines": {
     "home@390": {
       "path": "baseline/home/prototype-390.json",

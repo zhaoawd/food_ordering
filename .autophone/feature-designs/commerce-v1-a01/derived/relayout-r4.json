@@ -736,6 +736,956 @@
           "height": 0
         }
       }
+    ],
+    "home.guest.v1": [
+      {
+        "stable_id": "home.brand",
+        "region": "top",
+        "box_390": [
+          20,
+          55.5,
+          173.19,
+          37
+        ],
+        "box_430": [
+          20,
+          55.5,
+          173.19,
+          37
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 0.0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.store.select",
+        "region": "top",
+        "box_390": [
+          20,
+          108,
+          201.42,
+          21.8
+        ],
+        "box_430": [
+          20,
+          108,
+          201.42,
+          21.8
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0,
+          "width": 0.0,
+          "height": 0.0
+        }
+      },
+      {
+        "stable_id": "home.store.name",
+        "region": "top",
+        "box_390": [
+          55,
+          109.89,
+          52,
+          18
+        ],
+        "box_430": [
+          55,
+          109.89,
+          52,
+          18
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.store.distance",
+        "region": "top",
+        "box_390": [
+          119,
+          109,
+          67.42,
+          19.8
+        ],
+        "box_430": [
+          119,
+          109,
+          67.42,
+          19.8
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0,
+          "width": 0.0,
+          "height": 0.0
+        }
+      },
+      {
+        "stable_id": "home.greeting",
+        "region": "top",
+        "box_390": [
+          20,
+          135.8,
+          350,
+          18
+        ],
+        "box_430": [
+          20,
+          135.8,
+          390,
+          18
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 40,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.hero.eyebrow",
+        "region": "top",
+        "box_390": [
+          42,
+          193.8,
+          165.63,
+          12
+        ],
+        "box_430": [
+          42,
+          193.8,
+          165.63,
+          12
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 0.0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.hero.price",
+        "region": "top",
+        "box_390": [
+          42,
+          304.17,
+          61.08,
+          26
+        ],
+        "box_430": [
+          42,
+          304.17,
+          61.08,
+          26
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 0.0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.hero.product",
+        "region": "top",
+        "box_390": [
+          110.08,
+          310.17,
+          70,
+          14
+        ],
+        "box_430": [
+          110.08,
+          310.17,
+          70,
+          14
+        ],
+        "delta": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.mode.pickup",
+        "region": "top",
+        "box_390": [
+          20,
+          395.8,
+          169,
+          88
+        ],
+        "box_430": [
+          20,
+          395.8,
+          189,
+          88
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 20,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.mode.delivery",
+        "region": "top",
+        "box_390": [
+          201,
+          395.8,
+          169,
+          88
+        ],
+        "box_430": [
+          221,
+          395.8,
+          189,
+          88
+        ],
+        "delta": {
+          "x": 20,
+          "y": 0.0,
+          "width": 20,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.mode.pickup.title",
+        "region": "top",
+        "box_390": [
+          85,
+          416.22,
+          77,
+          24
+        ],
+        "box_430": [
+          85,
+          416.22,
+          77,
+          24
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.mode.pickup.subtitle",
+        "region": "top",
+        "box_390": [
+          85,
+          447.22,
+          77,
+          13
+        ],
+        "box_430": [
+          85,
+          447.22,
+          77,
+          13
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.mode.delivery.title",
+        "region": "top",
+        "box_390": [
+          266,
+          416.22,
+          77,
+          24
+        ],
+        "box_430": [
+          286,
+          416.22,
+          77,
+          24
+        ],
+        "delta": {
+          "x": 20,
+          "y": 0.0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.mode.delivery.subtitle",
+        "region": "top",
+        "box_390": [
+          266,
+          447.22,
+          77,
+          13
+        ],
+        "box_430": [
+          286,
+          447.22,
+          77,
+          13
+        ],
+        "delta": {
+          "x": 20,
+          "y": 0.0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "member.points.open",
+        "region": "top",
+        "box_390": [
+          20,
+          497.8,
+          350,
+          45.14
+        ],
+        "box_430": [
+          20,
+          497.8,
+          390,
+          45.14
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 40,
+          "height": 0.0
+        }
+      },
+      {
+        "stable_id": "home.member.title",
+        "region": "top",
+        "box_390": [
+          35,
+          511.8,
+          52,
+          16
+        ],
+        "box_430": [
+          35,
+          511.8,
+          52,
+          16
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.member.coupons",
+        "region": "top",
+        "box_390": [
+          308.05,
+          511.36,
+          46.95,
+          18
+        ],
+        "box_430": [
+          348.05,
+          511.36,
+          46.95,
+          18
+        ],
+        "delta": {
+          "x": 40.0,
+          "y": 0.0,
+          "width": 0.0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.start_order",
+        "region": "top",
+        "box_390": [
+          308.7,
+          562.94,
+          61.3,
+          44
+        ],
+        "box_430": [
+          348.7,
+          562.94,
+          61.3,
+          44
+        ],
+        "delta": {
+          "x": 40.0,
+          "y": 0.0,
+          "width": 0.0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "menu.product.combo-chicken-001.open",
+        "region": "top",
+        "box_390": [
+          20,
+          618.94,
+          169,
+          173
+        ],
+        "box_430": [
+          20,
+          618.94,
+          189,
+          173
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 20,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.shelf.combo-chicken-001.name",
+        "region": "top",
+        "box_390": [
+          38,
+          734.94,
+          91,
+          16
+        ],
+        "box_430": [
+          38,
+          734.94,
+          91,
+          16
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.shelf.combo-chicken-001.price",
+        "region": "top",
+        "box_390": [
+          38,
+          759.94,
+          59.5,
+          21
+        ],
+        "box_430": [
+          38,
+          759.94,
+          59.5,
+          21
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 0.0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "menu.product.combo-beef-002.open",
+        "region": "top",
+        "box_390": [
+          201,
+          618.94,
+          169,
+          173
+        ],
+        "box_430": [
+          221,
+          618.94,
+          189,
+          173
+        ],
+        "delta": {
+          "x": 20,
+          "y": 0.0,
+          "width": 20,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.shelf.combo-beef-002.name",
+        "region": "top",
+        "box_390": [
+          219,
+          734.94,
+          91,
+          16
+        ],
+        "box_430": [
+          239,
+          734.94,
+          91,
+          16
+        ],
+        "delta": {
+          "x": 20,
+          "y": 0.0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.shelf.combo-beef-002.price",
+        "region": "top",
+        "box_390": [
+          219,
+          759.94,
+          59.89,
+          21
+        ],
+        "box_430": [
+          239,
+          759.94,
+          59.89,
+          21
+        ],
+        "delta": {
+          "x": 20,
+          "y": 0.0,
+          "width": 0.0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.ai.open",
+        "region": "top",
+        "box_390": [
+          20,
+          807.94,
+          350,
+          59
+        ],
+        "box_430": [
+          20,
+          807.94,
+          390,
+          59
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 40,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "nav.home",
+        "region": "bottom",
+        "box_390": [
+          12.89,
+          777,
+          65,
+          50
+        ],
+        "box_430": [
+          16.89,
+          865,
+          65,
+          50
+        ],
+        "delta": {
+          "x": 4.0,
+          "y": 88,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "nav.menu",
+        "region": "bottom",
+        "box_390": [
+          87.69,
+          777,
+          65,
+          50
+        ],
+        "box_430": [
+          99.69,
+          865,
+          65,
+          50
+        ],
+        "delta": {
+          "x": 12.0,
+          "y": 88,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "nav.coupons",
+        "region": "bottom",
+        "box_390": [
+          162.48,
+          777,
+          65,
+          50
+        ],
+        "box_430": [
+          182.48,
+          865,
+          65,
+          50
+        ],
+        "delta": {
+          "x": 20.0,
+          "y": 88,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "nav.orders",
+        "region": "bottom",
+        "box_390": [
+          237.3,
+          777,
+          65,
+          50
+        ],
+        "box_430": [
+          265.3,
+          865,
+          65,
+          50
+        ],
+        "delta": {
+          "x": 28.0,
+          "y": 88,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "nav.member",
+        "region": "bottom",
+        "box_390": [
+          312.09,
+          777,
+          65,
+          50
+        ],
+        "box_430": [
+          348.09,
+          865,
+          65,
+          50
+        ],
+        "delta": {
+          "x": 36.0,
+          "y": 88,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "home.hero.headline.line1",
+        "region": "top",
+        "box_390": [
+          42,
+          216.8,
+          306,
+          75.38
+        ],
+        "box_430": [
+          42,
+          216.8,
+          346,
+          75.38
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 40,
+          "height": 0.0
+        }
+      },
+      {
+        "stable_id": "home.hero.headline.line2",
+        "region": "top",
+        "box_390": [
+          42,
+          216.8,
+          306,
+          75.38
+        ],
+        "box_430": [
+          42,
+          216.8,
+          346,
+          75.38
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 40,
+          "height": 0.0
+        }
+      },
+      {
+        "stable_id": "home.shelf.title",
+        "region": "top",
+        "box_390": [
+          20,
+          562.94,
+          350,
+          44
+        ],
+        "box_430": [
+          20,
+          562.94,
+          390,
+          44
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0.0,
+          "width": 40,
+          "height": 0
+        }
+      }
+    ],
+    "orders.empty.v1": [
+      {
+        "stable_id": "orders.title",
+        "region": "top",
+        "box_390": [
+          155,
+          60,
+          80,
+          28
+        ],
+        "box_430": [
+          175,
+          60,
+          80,
+          28
+        ],
+        "delta": {
+          "x": 20,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "orders.filter.all",
+        "region": "top",
+        "box_390": [
+          24,
+          112,
+          82.5,
+          36
+        ],
+        "box_430": [
+          24,
+          112,
+          92.5,
+          36
+        ],
+        "delta": {
+          "x": 0,
+          "y": 0,
+          "width": 10.0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "orders.filter.active",
+        "region": "top",
+        "box_390": [
+          110.5,
+          112,
+          82.5,
+          36
+        ],
+        "box_430": [
+          120.5,
+          112,
+          92.5,
+          36
+        ],
+        "delta": {
+          "x": 10.0,
+          "y": 0,
+          "width": 10.0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "orders.filter.completed",
+        "region": "top",
+        "box_390": [
+          197,
+          112,
+          82.5,
+          36
+        ],
+        "box_430": [
+          217,
+          112,
+          92.5,
+          36
+        ],
+        "delta": {
+          "x": 20,
+          "y": 0,
+          "width": 10.0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "orders.filter.after_sale",
+        "region": "top",
+        "box_390": [
+          283.5,
+          112,
+          82.5,
+          36
+        ],
+        "box_430": [
+          313.5,
+          112,
+          92.5,
+          36
+        ],
+        "delta": {
+          "x": 30.0,
+          "y": 0,
+          "width": 10.0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "nav.home",
+        "region": "bottom",
+        "box_390": [
+          12.89,
+          777,
+          65,
+          50
+        ],
+        "box_430": [
+          16.89,
+          865,
+          65,
+          50
+        ],
+        "delta": {
+          "x": 4.0,
+          "y": 88,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "nav.menu",
+        "region": "bottom",
+        "box_390": [
+          87.69,
+          777,
+          65,
+          50
+        ],
+        "box_430": [
+          99.69,
+          865,
+          65,
+          50
+        ],
+        "delta": {
+          "x": 12.0,
+          "y": 88,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "nav.coupons",
+        "region": "bottom",
+        "box_390": [
+          162.48,
+          777,
+          65,
+          50
+        ],
+        "box_430": [
+          182.48,
+          865,
+          65,
+          50
+        ],
+        "delta": {
+          "x": 20.0,
+          "y": 88,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "nav.orders",
+        "region": "bottom",
+        "box_390": [
+          237.3,
+          777,
+          65,
+          50
+        ],
+        "box_430": [
+          265.3,
+          865,
+          65,
+          50
+        ],
+        "delta": {
+          "x": 28.0,
+          "y": 88,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "stable_id": "nav.member",
+        "region": "bottom",
+        "box_390": [
+          312.09,
+          777,
+          65,
+          50
+        ],
+        "box_430": [
+          348.09,
+          865,
+          65,
+          50
+        ],
+        "delta": {
+          "x": 36.0,
+          "y": 88,
+          "width": 0,
+          "height": 0
+        }
+      }
     ]
   }
 }

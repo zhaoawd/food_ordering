@@ -1584,6 +1584,13 @@
             "frame.width",
             "frame.height"
           ]
+        },
+        {
+          "stable_id": "home.ai.open",
+          "properties": [
+            "resolved_style.backgroundColor",
+            "resolved_style.borderRadius"
+          ]
         }
       ]
     }

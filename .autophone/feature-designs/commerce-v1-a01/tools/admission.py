@@ -4,7 +4,9 @@ The required set comes from derived/batch-contract.json, which derive.py builds 
 design package alone. This script never reads it from an authored file. Every required element
 ends in exactly one class:
 
-  covered               emitted with a stable_id and declared in acceptance targets
+  covered               emitted with a stable_id and declared in acceptance targets, and calibrated
+  covered_by_decision   accepted, but added by a recorded decision with no prototype baseline to calibrate
+                        against (reported; does not block)
   incomplete            state not authored, element missing, or emitted but not accepted
   platform_unsupported  an icon or illustration in the prototype render the DSL cannot draw (reported,
                         never counted as covered; does not block admission on its own)
@@ -66,11 +68,14 @@ def admit_state(state_id: str, spec: dict) -> dict:
                    if n.get('stable_id')}
         accepted = {t['stable_id']: t['properties'] for entry in document['acceptance']
                     for t in entry.get('targets', [])}
-        bindings_path = HERE / 'authored' / state_id / 'bindings.json'
-        calibrated = set(load(bindings_path)['calibration']['elements']) if bindings_path.is_file() else set()
-        # Every accepted target must be calibrated against the baseline, or its draft geometry and
+        bindings_path = HERE / 'derived' / 'bindings' / f'{state_id}.json'
+        calibration = load(bindings_path)['calibration'] if bindings_path.is_file() else {}
+        calibrated = set(calibration.get('elements', {}))
+        # Elements a recorded decision added have no prototype baseline; they are reported, not calibrated.
+        decided = {k: v for k, v in calibration.get('uncalibrated', {}).items()}
+        # Every other accepted target must be calibrated against the baseline, or its draft geometry and
         # style were never checked against the design.
-        for stable_id in sorted(set(accepted) - calibrated):
+        for stable_id in sorted(set(accepted) - calibrated - set(decided)):
             entries.append({'stable_id': stable_id, 'class': 'incomplete', 'reason': 'accepted_not_calibrated',
                             'sources': ['ui-document acceptance targets']})
         for stable_id, need in spec['required'].items():
@@ -78,6 +83,8 @@ def admit_state(state_id: str, spec: dict) -> dict:
                 cls, reason = 'incomplete', 'not_emitted'
             elif stable_id not in accepted:
                 cls, reason = 'incomplete', 'emitted_not_accepted'
+            elif stable_id in decided:
+                cls, reason = 'covered_by_decision', decided[stable_id]
             else:
                 cls, reason = 'covered', None
             entries.append({'stable_id': stable_id, 'class': cls, 'sources': need['sources'],

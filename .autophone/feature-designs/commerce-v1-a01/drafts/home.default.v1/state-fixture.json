@@ -9,6 +9,7 @@
     "state_recipe": "default",
     "menu_revision": "menu-demo-20261105-01",
     "store_id": "store-demo-001",
+    "store_short_name": "科创园店",
     "featured_product_ids": [
       "combo-chicken-001",
       "combo-beef-002"
@@ -26,7 +27,7 @@
     "hero_eyebrow": "FRESHLY MADE · 现点现做",
     "hero_line_1": "今天，",
     "hero_line_2": "来点热乎的。",
-    "hero_price": "¥32.9",
+    "hero_price": "¥32.90",
     "hero_product": "香脆鸡腿堡套餐",
     "hero_tag": "套餐推荐 · 演示活动",
     "mode_pickup_title": "到店自取",

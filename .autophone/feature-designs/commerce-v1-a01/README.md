@@ -2,7 +2,7 @@
 
 本目录把冻结设计包 `design/commerce-v1/` 中 A01 批次的页面状态转换为 autophone 结构化设计包（`structured-design-package/v1`）。设计版本为 `commerce-v1-a01-430/r4`：画布从原包的 390×844 重排到 430×932，作为新设计版本处理，不改写原包。
 
-状态：2026-11-06，`home.default.v1` 第 4 轮校准 28 项通过、5 项已登记偏差、0 项失败（范围见 §3.2）；批次准入未通过：`home.ai.open` 待 G8 设计确认，游客首页与订单空态尚未起草（§3.1）。`home.guest.v1` 与 `orders.empty.v1` 缺少设计决定，暂未起草，见 [§5](#5-映射缺口与待定设计决定)。本目录不执行 design lock，也不包含需求输入包；这两项由 B4 及后续流程完成。
+状态：2026-11-06 第 6 轮（策略 v4），A01 三个状态均通过批次准入；校准 0 失败：`home.default.v1` 26 通过、7 已登记偏差，`home.guest.v1` 25 通过、8 已登记偏差，`orders.empty.v1` 9 通过、1 已登记偏差（§3）。游客首页与订单空态按设计决定 D1、D2 起草；显示规则按 D3 生效。本目录不执行 design lock，也不包含需求输入包。
 
 ## 1. 流程
 
@@ -25,6 +25,9 @@ flowchart LR
 | Fixture | 确定性：`fixtures/*` 取数据值；显示文本由定位器从 430 基准中提取 | `drafts/<state>/state-fixture.json` |
 | 页面计划 | 确定性：`spec/view-models.json` 区块，加原型中的页头与导航外壳 | `derived/screen-plan.<screen>.json` |
 | 验收范围 | 确定性：`ui-contract.json` 控件、`acceptance-cases.json` 用例、导航别名 | `derived/acceptance-scope.json` |
+| 设计决定 | 用户确认的决定 D1–D6：显示规则、Fixture 补充、文案覆盖与新增、模板取值 | `decisions/a01-decisions.json` |
+| 批次合同 | 确定性：冻结设计包加设计决定，不读草稿 | `derived/batch-contract.json` |
+| 解析后的映射 | 确定性：`authored/<state>/bindings.json` 展开 `extends` 后的结果，供校准与准入使用 | `derived/bindings/<state>.json` |
 | 布局树 | AI 起草（`claude-opus-5-5`），依据 [authored/AUTHORING.md](authored/AUTHORING.md) | `authored/<state>/layout.json` |
 | 文本与校准定位器 | AI 起草，提取结果由脚本校验唯一性 | `authored/<state>/bindings.json` |
 | 设计包 | 确定性：autophone `ui-design package` | `packages/<state>/round-<n>/` |
@@ -63,7 +66,7 @@ python3 -I tools/check_render_determinism.py --runs 5
 | platform_unsupported | 原型 430 渲染中的图标与插画（按基准里的 SVG 统计，不看草稿） | 否，单独报告，不计为覆盖 |
 | excluded | 合同排除，附理由与来源 | 否 |
 
-2026-11-06 第 4 轮准入结果（`admission/admission-report.json`）：三个状态都未准入。`home.default.v1` 覆盖 12 项，未完成 1 项（`home.ai.open`，见 G8），图标与插画 13 处；`home.guest.v1` 未起草；`orders.empty.v1` 未起草，订单筛选 `orders.filter.{filter}` 合同未解析，订单行按空态配方排除。
+2026-11-06 第 6 轮准入结果（`admission/admission-report.json`）：三个状态均准入。`home.default.v1`、`home.guest.v1` 各覆盖 13 项；`orders.empty.v1` 覆盖 9 项，`orders.empty.primary_action` 依据 D2 新增、无原型基准（covered_by_decision），订单行按空态配方排除，筛选 ID 按 D6 展开。图标与插画首页 13 处、订单页 8 处，单独报告。第 4 轮时 `home.ai.open` 待 G8、两个状态未起草，三者均未准入。
 
 ### 3.2 校准策略与检查项
 
@@ -83,7 +86,12 @@ python3 -I tools/check_render_determinism.py --runs 5
 | visibility | 视口与裁剪祖先内的可见比例 | 差 ≤0.1 |
 | font | 两侧实际解析出的主字体族 | 只记录 |
 
-策略 v1 不含已知偏差；v2 在 v1 首次运行后登记 5 项：4 处字重（P3）与 `home.ai.open` 可见比例（G8），其余不变。
+| 版本 | 变化 |
+| --- | --- |
+| v1 | 不含已知偏差 |
+| v2 | 登记 v1 首次运行发现的 5 项：4 处字重（P3）、`home.ai.open` 可见比例（G8） |
+| v3 | 加入订单页区域；登记 D1、D3 带来的与原型差异与订单标题字重（P3）；共 17 项 |
+| v4 | 每项偏差锁定登记时的实测值（文本与样式须相同，几何与可见比例在容差内），同一检查项的其他失败不再被豁免；缺锁定值的策略被拒绝 |
 
 ### 3.3 轮次（home.default.v1）
 
@@ -93,12 +101,14 @@ python3 -I tools/check_render_determinism.py --runs 5
 | 2 | 仅几何（旧校准器） | 30/30 | 设计包 SHA-256 `9f1ce285…`，26 个元素、75 个属性 |
 | 3 | v2 | 28 通过、5 已登记偏差、0 失败（33 项） | 扩展检查后首次正式轮；草稿未改，设计包哈希与第 2 轮相同 |
 | 4 | v2 | 同上 | `home.store.select` 以背景色存在性断言进入验收 targets（内容撑开的盒子不声明 `frame.*`）；设计包 `79471d8c…` |
+| 5 | v3 | 默认 26/7/0，游客 25/8/0，订单空态 9/1/0（通过/已登记偏差/失败） | 按 D5 接受 `home.ai.open`；按 D3 价格两位小数；新增游客首页与订单空态 |
+| 6 | v4 | 同第 5 轮 | 偏差锁定实测值后的首轮 |
 
 用 v1 对第 2 轮设计包运行扩展校准器的结果（28 通过、4 失败：3 处字重、`home.ai.open` 可见比例；当时人气区标题尚无校准映射，补上后为 4 处字重）是登记 v2 偏差的依据。第 1 轮草稿没有保存；从第 3 轮起每轮输入保存在 `calibration/home.default.v1/round-<n>-inputs/`。
 
 ### 3.4 校准器自检
 
-`calibration_selftest.py` 从当前草稿出发各做一处受控改动，打包后用策略 v2 校准。2026-11-06 结果（`admission/calibration-selftest.json`）全部符合预期：
+`calibration_selftest.py` 从当前草稿出发各做一处受控改动，打包后校准。2026-11-06 分别用策略 v2、v3、v4 运行，结果全部符合预期；当前记录为 v4（`admission/calibration-selftest.json`）：
 
 | 样本 | 改动 | 判定 | 命中的检查 |
 | --- | --- | --- | --- |
@@ -107,6 +117,7 @@ python3 -I tools/check_render_determinism.py --runs 5
 | element_missing | 删除自取卡标题 | 失败 | presence；同卡副标题 geometry |
 | shifted | 模式卡上移量 +5pt | 失败 | 以下元素 geometry |
 | occluded | 自取卡内容上加不透明层 | 失败 | 标题与副标题 occluded |
+| deviation_masking | 主推价格改为 `¥99.90`（该元素文本检查带 D3 偏差） | 失败 | `home.hero.price` text（锁定值不符，偏差不豁免） |
 | wrong_state | 用订单页基准校准首页 | 失败 | locator |
 | stale_evidence | 基准文件与派生记录摘要不符 | 拒绝（退出码 2） | 基准摘要核对 |
 
@@ -126,14 +137,14 @@ python3 -I tools/check_render_determinism.py --runs 5
 
 | 编号 | 内容 | 影响 | 当前处理 |
 | --- | --- | --- | --- |
-| G1 | 原型首页不区分游客与默认态；`state` 参数不影响首页。游客的会员条（"3 张券"）显示什么未定义 | `home.guest.v1`（T001）无法起草 | 暂停 |
-| G2 | 原型订单页没有空态：`page=orders&state=empty` 与默认态渲染结果相同 | `orders.empty.v1`（T004）无法起草 | 暂停；默认态基准已渲染 |
+| G1 | 原型首页不区分游客与默认态；`state` 参数不影响首页。游客的会员条（"3 张券"）显示什么未定义 | `home.guest.v1`（T001）无法起草 | 已按 D1 处理：游客首页继承默认态布局，会员条文案改为“登录 ›”（措辞由 AI 选择，见决定文件 `authored_copy`） |
+| G2 | 原型订单页没有空态：`page=orders&state=empty` 与默认态渲染结果相同 | `orders.empty.v1`（T004）无法起草 | 已按 D2 处理：订单空态依据原型卡片与次要按钮样式起草，空态内容无原型基准，不做校准 |
 | G3 | 原型大量使用设计令牌以外的字号、颜色、圆角（§4） | 实现应以令牌还是原型为准未定 | 草稿取原型值，写为 `proto.*` 局部令牌 |
-| G4 | 价格与门店名缺显示规则（§4）：需要区分业务值（`base_price_cents`、门店 ID）、显示规则（金额格式、全称或简称）与显示结果 | 实现按不同规则显示时会与参考图不符 | 草稿取原型文本；Fixture 中的显示文本只消除了转抄错误，不证明符合业务数据 |
+| G4 | 价格与门店名缺显示规则（§4）：需要区分业务值（`base_price_cents`、门店 ID）、显示规则（金额格式、全称或简称）与显示结果 | 实现按不同规则显示时会与参考图不符 | 已按 D3 处理：金额与门店简称由显示规则从业务值生成，与原型不同处记入 `derived/input-checks.json` 与策略偏差 |
 | G5 | `home.store.select` 高 21.8pt，`ui-contract.json` 要求最小触控 44pt | 触控目标检查与参考图冲突 | 草稿取原型几何 |
 | G6 | 商品卡保留了按钮默认内边距（上下 1pt、左右 6pt），插画区左右留白，疑似非设计意图 | 实现若去掉留白会与参考图不符 | 草稿按原型保留 |
-| G7 | 最终验收 targets 取自 AI 起草的 `layout.json`，校准元素取自起草的 `bindings.json`，两者都没有与批次合同建立强制覆盖关系：契约控件 `home.store.select`、`home.ai.open` 不在验收 targets 中；`build.py` 对未起草状态只标记跳过、不返回失败。“0 个映射缺口”只说明已声明 targets 的映射完整 | 设计包可能缺少内容而检查仍通过 | 已实现批次合同与准入检查（§3.1）；第 4 轮剩 `home.ai.open` 未进入验收（G8） |
-| G8 | R4 重排以 59pt 顶部安全区与 37pt 底部安全区取代原型的 44pt 模拟状态栏与 17pt 导航底部内边距，首屏内容区少 35pt；`home.ai.open` 的可见比例从原型 430 渲染的 0.81 降到 0.22（几乎被导航遮挡）。由第 3 轮校准的可见比例检查发现 | 首屏底部入口是否需要完整可见未定 | 待设计确认；校准策略 v2 以已知偏差登记，不计为通过 |
+| G7 | 最终验收 targets 取自 AI 起草的 `layout.json`，校准元素取自起草的 `bindings.json`，两者都没有与批次合同建立强制覆盖关系：契约控件 `home.store.select`、`home.ai.open` 不在验收 targets 中；`build.py` 对未起草状态只标记跳过、不返回失败。“0 个映射缺口”只说明已声明 targets 的映射完整 | 设计包可能缺少内容而检查仍通过 | 已实现批次合同与准入检查（§3.1）；第 6 轮三个状态均准入 |
+| G8 | R4 重排以 59pt 顶部安全区与 37pt 底部安全区取代原型的 44pt 模拟状态栏与 17pt 导航底部内边距，首屏内容区少 35pt；`home.ai.open` 的可见比例从原型 430 渲染的 0.81 降到 0.22（几乎被导航遮挡）。由第 3 轮校准的可见比例检查发现 | 首屏底部入口是否需要完整可见未定 | 已按 D5 处理：接受部分可见，B4 以滚动后可达断言；策略以锁定值登记可见比例偏差 |
 
 2026-11-06 设计决定（用户按建议确认；作为新设计版本补入，来源记为本次决定，不改写原包）：
 

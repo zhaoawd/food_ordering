@@ -1,6 +1,7 @@
 // Compare a compiled design package against the 430 prototype baseline, element by element.
 // Usage: node calibrate.mjs <package-dir> <baseline.json> <bindings.json> <policy.json> <out.json> [side-by-side.png]
 // Environment: PLAYWRIGHT_MODULE; EXPECT_BASELINE_SHA256 (refuse a baseline other than the derived one).
+// Every known deviation pins the value it accepts (text, style value, geometry deltas or visible fraction).
 //
 // The policy fixes region shifts, tolerances, which checks are judged, and the known deviations; it is
 // versioned separately from the AI-authored bindings, which only map stable IDs to baseline nodes.
@@ -89,6 +90,22 @@ const indexed = Object.values(drafted).filter(Boolean).sort((a, b) => a.index - 
 indexed.forEach((item, i) => { item.fonts = draftFonts[i]; });
 
 const round = (v) => Math.round(v * 100) / 100;
+for (const d of deviations) {
+  if (d.pin === undefined) {
+    console.error(`policy deviation ${d.stable_id}.${d.check} has no pin; a deviation must record the value it accepts`);
+    process.exit(2);
+  }
+}
+function pinned(deviation, detail) {
+  const pin = deviation.pin;
+  if (deviation.check === 'text') return detail.text.actual === pin;
+  if (['color', 'fontSize', 'fontWeight'].includes(deviation.check)) return String(detail.style.actual[deviation.check]) === String(pin);
+  if (deviation.check === 'visibility') return Math.abs(detail.visibility.actual - pin) <= policy.tolerance_pt.visible_fraction;
+  if (deviation.check === 'geometry') {
+    return Object.entries(pin).every(([k, v]) => Math.abs(detail.geometry[k] - v) <= policy.tolerance_pt.box);
+  }
+  return false;
+}
 const results = [];
 for (const [stableId, spec] of Object.entries(elements)) {
   const actual = drafted[stableId];
@@ -155,7 +172,8 @@ for (const [stableId, spec] of Object.entries(elements)) {
   }
   detail.font = { expected: primaryFont(node.fonts), actual: primaryFont(actual.fonts) };
   for (const deviation of deviations.filter((d) => d.stable_id === stableId)) {
-    if (checks[deviation.check] === 'fail') checks[deviation.check] = `deviation:${deviation.gap}`;
+    // A deviation covers only the value it was recorded with; any other failure of the same check stays a failure.
+    if (checks[deviation.check] === 'fail' && pinned(deviation, detail)) checks[deviation.check] = `deviation:${deviation.gap}`;
   }
   const values = Object.values(checks);
   const outcome = values.includes('fail') ? 'fail' : values.some((v) => v.startsWith('deviation:')) ? 'deviation' : 'pass';
