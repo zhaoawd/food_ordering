@@ -107,7 +107,7 @@ device_profile 'vphone-ios26-default' does not match guest iOS 27.0.1
 | --- | --- | --- |
 | B1 | 记录 `main` SHA，运行现有脚本与测试，区分已有失败；补 `AGENTS.md`，写明冻结输入、禁止项和产品约束 | `docs/commerce-v1/baseline.md` 记录 SHA、命令与结果；不改 UI；2026-11-06 已完成，见 [baseline.md](baseline.md) |
 | B2 | 原始设计包迁入 `design/commerce-v1/` | 重算 54 个文件的哈希全部一致；之后的变更只能以新版本出现；2026-11-06 已完成，见 [design-package.md](design-package.md) |
-| B3 | 建设计转换：设计包 → `structured-design-package/v1`，按 430×932 重排渲染 | 转换器版本、源哈希与产物哈希写入转换回执；映射缺口登记为清单 |
+| B3 | 建设计转换：设计包 → `structured-design-package/v1`，按 430×932 重排渲染 | 转换器版本、源哈希与产物哈希写入转换回执；映射缺口登记为清单。2026-11-06 部分完成：确定性部分（令牌、fixture、计划、验收范围、输入检查）与 AI 起草布局分开，布局按 430 原型基准逐元素校准；`home.default.v1` 第 2 轮校准 30/30 通过，`home.guest.v1`、`orders.empty.v1` 缺设计决定，见 [A01 设计输入](../../.autophone/feature-designs/commerce-v1-a01/README.md) |
 | B4 | 首批（A01）验收合同：用例转为已注册动作、确定性断言、观测来源、比较策略、超时与恢复条件；固定 fixture、时钟、账号与命名空间 | `workflow input verify` 重算全部命中；阈值在此冻结 |
 
 规则：截图、结构化设计与业务规则冲突时，先登记冲突并发布新输入版本，开发 Agent 不得自行选择。
@@ -140,7 +140,7 @@ flowchart LR
 
 | 批次 | 设计任务 | 功能 | 用例 | 需要证明的能力 |
 | --- | --- | --- | --- | --- |
-| 1 | A01 | F01、F02、F12 | T001–T004、T039–T042 | 令牌与导航可依据设计实现，旧评测与别名不受影响 |
+| 1 | A01 | F01、F02、F12 | T001、T003、T004（T002 属结算页，T039–T042 属 cart/ai/checkout 的 native 层，待重新分配批次） | 令牌与导航可依据设计实现，旧评测与别名不受影响 |
 | 2 | A02 | F03、F04、F05 | T005–T015 | 多页面实现，控件、状态与业务动作一一对应 |
 | 3 | A03 | F06、F07 | T016–T022 | fixture 贯通 UI 与计算；legacy-v1 与 commerce-v1 分离；旧功能回归通过 |
 | 4 | A04+A05 | F08、F09、F10 | T023–T035 | 服务端报价、幂等、异步支付结果和独立读回进入验收 |

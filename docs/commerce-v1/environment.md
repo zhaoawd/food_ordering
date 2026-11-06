@@ -29,8 +29,8 @@
 | Guest 系统 | iOS 27.0.1 |
 | 设备画像 | `vphone-ios27-default` |
 | 画布 | 430×932 pt，scale 3，截图 1290×2796 px |
-| 主题 / 语言 | `light` / `en-US` |
-| 采集环境指纹 | `isolation-peer/vphone-ios27-default/en-US/light` |
+| 主题 / 语言 | `light` / `zh-CN`（2026-11-06 由 `en-US` 切换，见 E6） |
+| 采集环境指纹 | 预期 `isolation-peer/vphone-ios27-default/zh-CN/light`，待最小闭环确认；此前为 `…/en-US/light` |
 | 字号档位 | 平台默认档（采集时按 `DEFAULT_TEXT_SIZE_CATEGORY` 核对） |
 
 首阶段只用这一台 Rig。不使用 legacy VM、Duo 或多 VM 业务并发。
@@ -60,7 +60,7 @@
 | 采集环境登记 | `delivery-launch-self-capture-environment/v3` |
 | 出口闸 | 11 项确定性条件；验收不要求人工确认 |
 
-commerce-v1 原始设计包（`food-ordering-design/1.0.0`，390×844）须按交付方案 B3 转换为上述格式后才能进入工作流。
+commerce-v1 原始设计包（`food-ordering-design/1.0.0`，390×844）须按交付方案 B3 转换为上述格式后才能进入工作流。转换产物与缺口清单见 [A01 设计输入](../../.autophone/feature-designs/commerce-v1-a01/README.md)。
 
 ## 5. 尚未覆盖的差异
 
@@ -71,6 +71,7 @@ commerce-v1 原始设计包（`food-ordering-design/1.0.0`，390×844）须按�
 | E3 | 只验证一台 Rig、同一宿主 | 不能推断多 Rig 或跨主机 | 首阶段不扩展 |
 | E4 | 运行时主工作目录有未跟踪文件，源码身份标记为 dirty | 身份记录精确到 commit，但不是干净树 | 正式批次前清理主工作目录，或在批次记录中注明 |
 | E5 | 宿主并行运行 Release 构建与重型检查时，曾出现两台 VM 健康探测同时超时并被隔离（2026-11-06，原因未查证） | 批次中途 Rig 可能被隔离，任务排队 | Rig 有任务或需保持可用时，本机构建与重型检查不并行；隔离后按授权执行 `control recovery resume --retry` |
+| E6 | 设备系统语言于 2026-11-06 由用户手动从 `en-US` 切换为 `zh-CN`，与设计包 fixture 的 `locale` 一致 | 采集环境指纹改变；`REQ-20261106-006` 与 iOS 27 首页校准均在 `en-US` 下取得，不能直接沿用 | 切换后尚未采集。按变更规则在 `zh-CN` 下重跑一次菜品默认态无修改最小闭环，确认采集到的 `AppleLanguages`/`AppleLocale` 与指纹后再进入 P1 |
 
 ## 6. 变更规则
 
