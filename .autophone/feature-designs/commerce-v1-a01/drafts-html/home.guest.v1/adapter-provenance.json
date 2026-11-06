@@ -2,7 +2,7 @@
  "schema_version": "design-batch-html-draft-provenance/v1",
  "prototype_sha256": "3ea5f13392adb678ab7eb5e962a9cbbe77f259cfff6246a35ec2c9099d7131b1",
  "adapter": "design-batch-html-adapter/v1",
- "adapter_sha256": "9f6371fc2253ca73c21dcad062e092a8c6a9ee604a7d51c543c880c59972dc58",
+ "adapter_sha256": "f024b9aabb69f4a67cc2595469ed534c8c11f470919b618ae48cefcf507166a8",
  "decision_texts": {
   "home.hero.price": "¥32.90",
   "home.member.coupons": "登录 ›"

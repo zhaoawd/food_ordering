@@ -1,0 +1,435 @@
+{
+  "schema_version": "commerce-v1-acceptance-contract/v1",
+  "batch": "A01",
+  "design_version": "commerce-v1-a01-430/r4",
+  "round": 14,
+  "decided": {
+    "date": "2026-11-06",
+    "by": "user",
+    "choices": {
+      "text_pixels": "遮罩文字、只比较平涂色（D9）",
+      "before_snapshot": "首页取 A00 构建实拍，订单页 new_surface",
+      "requirements": "三张需求单串行：home.default → home.guest → orders.empty",
+      "fixture_channel": "B4 冻结契约，A01 实现"
+    }
+  },
+  "baseline": {
+    "source_revision": "337ff937a7460106d13e1aee9464d93c41af89f2",
+    "build_id": "bld-51fed7195e59399b5c615b95adf1d81cce92c82366385836b8fa12bcb2b2748b",
+    "source": "docs/commerce-v1/baseline.md"
+  },
+  "requirements": [
+    {
+      "key": "commerce-v1-a01-r1-home-default",
+      "sequence": 1,
+      "screen_id": "home",
+      "state_id": "home.default.v1",
+      "cases": [
+        "T003"
+      ],
+      "design_package": {
+        "path": "packages/home.default.v1/round-14-device",
+        "design_package_sha256": "25d149dbcb3af437e5472fadb4463de1d4ba36e1efe21c47b47332f42784fffd",
+        "reference_sha256": "74bd0bc4339de98902e3590256488b57a8df6265d7e0b445a879c307c3a4ca68"
+      },
+      "route": "html",
+      "e3_clauses": 75,
+      "unverifiable": [
+        {
+          "stable_id": "home.hero.headline",
+          "property": "resolved_style.fontSize",
+          "reason": "required_channel_unavailable"
+        },
+        {
+          "stable_id": "home.store.name",
+          "property": "resolved_style.fontWeight",
+          "reason": "unsupported_property"
+        }
+      ],
+      "before_snapshot": {
+        "applicability": "captured",
+        "source": "A00 构建首页实拍（建单时采集，绑定 build_id）"
+      }
+    },
+    {
+      "key": "commerce-v1-a01-r2-home-guest",
+      "sequence": 2,
+      "upstream": "commerce-v1-a01-r1-home-default",
+      "screen_id": "home",
+      "state_id": "home.guest.v1",
+      "cases": [
+        "T001"
+      ],
+      "design_package": {
+        "path": "packages/home.guest.v1/round-14-device",
+        "design_package_sha256": "2aeb09b2f0eca571e7dd9632b09a31a6e95478d2cbf6f2bb71cbf7222f074f34",
+        "reference_sha256": "328aec16bd7c090f97e2a6e603fb39b06c4bfab1a94500522f5090c18192d9fb"
+      },
+      "route": "html",
+      "e3_clauses": 75,
+      "unverifiable": [
+        {
+          "stable_id": "home.hero.headline",
+          "property": "resolved_style.fontSize",
+          "reason": "required_channel_unavailable"
+        },
+        {
+          "stable_id": "home.store.name",
+          "property": "resolved_style.fontWeight",
+          "reason": "unsupported_property"
+        }
+      ],
+      "before_snapshot": {
+        "applicability": "captured",
+        "source": "上一轮（r1）验收构建的游客首页实拍"
+      }
+    },
+    {
+      "key": "commerce-v1-a01-r3-orders-empty",
+      "sequence": 3,
+      "upstream": "commerce-v1-a01-r2-home-guest",
+      "screen_id": "orders",
+      "state_id": "orders.empty.v1",
+      "cases": [
+        "T004"
+      ],
+      "design_package": {
+        "path": "packages/orders.empty.v1/round-14",
+        "design_package_sha256": "b8fa8a723465d0f13db885a2c4a87fb5b930d0af94954cfa2af7cedb610a900b",
+        "reference_sha256": "263fd81fa32b93cbfa07566eb4b8ec7185d5385f938bf1345cefacaefcf1b022"
+      },
+      "route": "dsl",
+      "e3_clauses": 44,
+      "unverifiable": [],
+      "before_snapshot": {
+        "applicability": "not_applicable",
+        "reason": "new_surface",
+        "source": "A00 构建没有订单页（app/(tabs) 只有 index、search、cart、profile）"
+      }
+    }
+  ],
+  "comparison_policy": {
+    "pixel_channel_tolerance": 0,
+    "pixel_scope": "expected_alpha",
+    "max_changed_pixel_ratio": 0.002,
+    "frame_tolerance_pt": 0.5,
+    "comparison_mask": "设计包声明（D9）",
+    "required_property_policy": "production-v1",
+    "region": {
+      "name": "screen",
+      "mapping": {
+        "coordinate_space": "screen_points",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932
+        },
+        "scale": 3,
+        "stable_ids": [
+          "$screen"
+        ]
+      }
+    }
+  },
+  "fixture": {
+    "selection_schema": "contract/fixture-selection.v1.json",
+    "receipt_schema": "contract/fixture-receipt.v1.json",
+    "clock": "2026-11-05T12:00:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "locale": "zh-CN",
+    "random_seed": 271105,
+    "seed_files": [
+      {
+        "path": "fixtures/catalog.json",
+        "sha256": "d19a648a9acfe987d0d1b61f3ab0a78441524261af9d04907017569b56d630ff"
+      },
+      {
+        "path": "fixtures/commerce.json",
+        "sha256": "7ab38afbc309d2528fdb2d693adaf59f3766e7a8df29945e214c030485fbe6d6"
+      }
+    ],
+    "isolation": "每次准备新 run_id、由 run_id 派生的 backend_namespace 与新 nonce（state-registry isolation）",
+    "accounts": {
+      "home.default.v1": {
+        "kind": "member",
+        "user_id": "user-demo-001"
+      },
+      "home.guest.v1": {
+        "kind": "guest"
+      },
+      "orders.empty.v1": {
+        "kind": "member",
+        "user_id": "user-demo-001"
+      }
+    },
+    "accounts_basis": "state_recipe（default/guest/empty）与 fixtures/commerce.json user_id；default 与 empty 取会员是推断（R10 订单需登录），待验证",
+    "entry": "冷启动落在首页 Tab；订单页经点击 nav.orders 到达，不以直接改路由或 Store 代替被测动作（R21、state-registry note）"
+  },
+  "observation_sources": {
+    "ax": "AX identifier = React Native testID = stable_id（ui-contract mapping.react_native）；独立于产品内部观测",
+    "ocr": "1290×2796 截图 OCR，用于设计决定的中文文案（如 D2「还没有订单」）",
+    "business_events": "命名空间内 autophone-commerce-business-events.jsonl，经 vphoned 拉取；只用于业务读回",
+    "visual": "D0/修复后采集 1290×2796 PNG，按冻结的遮罩与 E3 条款比较"
+  },
+  "timeouts_s": {
+    "prepare_commerce_fixture": 30,
+    "tap_ax": 5,
+    "assert_ax": 3,
+    "ocr_assert": 3,
+    "business_events_readback": 6
+  },
+  "recovery": {
+    "prepare_failure": "按 state_not_reached 失败，不重试为通过；设备/协议故障按 infra 记 not_comparable",
+    "between_cases": "每个用例从 prepare_commerce_fixture 冷启动开始，不复用上一个用例的进程",
+    "device": "经控制面预留与 ScreenLock 串行；不 SIGSTOP vphoned"
+  },
+  "cases": {
+    "T003": {
+      "title": "五个导航入口可达",
+      "state_id": "home.default.v1",
+      "when": "逐一点击首页/点餐/优惠/订单/我的",
+      "then": "五条正确路由，无空点击",
+      "steps": [
+        {
+          "operation": "prepare_commerce_fixture",
+          "args": {
+            "fixture_id": "home.default.v1"
+          },
+          "status": "needs_fixture"
+        },
+        {
+          "action": "assert_ax_present",
+          "args": {
+            "identifier": "home.brand"
+          },
+          "status": "extraction_demand"
+        },
+        {
+          "action": "tap_ax",
+          "args": {
+            "identifier": "nav.menu"
+          },
+          "status": "registered"
+        },
+        {
+          "action": "assert_ax_selected",
+          "args": {
+            "identifier": "nav.menu"
+          },
+          "status": "extraction_demand"
+        },
+        {
+          "action": "assert_ax_present",
+          "args": {
+            "identifier": "menu.search"
+          },
+          "status": "extraction_demand"
+        },
+        {
+          "action": "tap_ax",
+          "args": {
+            "identifier": "nav.coupons"
+          },
+          "status": "registered"
+        },
+        {
+          "action": "assert_ax_selected",
+          "args": {
+            "identifier": "nav.coupons"
+          },
+          "status": "extraction_demand"
+        },
+        {
+          "action": "tap_ax",
+          "args": {
+            "identifier": "nav.orders"
+          },
+          "status": "registered"
+        },
+        {
+          "action": "assert_ax_selected",
+          "args": {
+            "identifier": "nav.orders"
+          },
+          "status": "extraction_demand"
+        },
+        {
+          "action": "assert_ax_present",
+          "args": {
+            "identifier": "orders.filter.all"
+          },
+          "status": "extraction_demand"
+        },
+        {
+          "action": "tap_ax",
+          "args": {
+            "identifier": "nav.member"
+          },
+          "status": "registered"
+        },
+        {
+          "action": "assert_ax_selected",
+          "args": {
+            "identifier": "nav.member"
+          },
+          "status": "extraction_demand"
+        },
+        {
+          "action": "assert_ax_present",
+          "args": {
+            "identifier": "member.card"
+          },
+          "status": "extraction_demand"
+        },
+        {
+          "action": "tap_ax",
+          "args": {
+            "identifier": "nav.home"
+          },
+          "status": "registered"
+        },
+        {
+          "action": "assert_ax_selected",
+          "args": {
+            "identifier": "nav.home"
+          },
+          "status": "extraction_demand"
+        },
+        {
+          "action": "assert_ax_present",
+          "args": {
+            "identifier": "home.brand"
+          },
+          "status": "extraction_demand"
+        }
+      ],
+      "notes": "无空点击＝每次点击后目标 Tab 处于选中态；优惠页在 L0 没有固定的页面标识（只有模板 ID 与 coupons.confirm），只断言 nav.coupons 选中"
+    },
+    "T001": {
+      "title": "游客浏览不被强制登录",
+      "state_id": "home.guest.v1",
+      "when": "打开首页并进入菜单",
+      "then": "显示菜单，未创建账号",
+      "steps": [
+        {
+          "operation": "prepare_commerce_fixture",
+          "args": {
+            "fixture_id": "home.guest.v1"
+          },
+          "status": "needs_fixture"
+        },
+        {
+          "action": "tap_ax",
+          "args": {
+            "identifier": "nav.menu"
+          },
+          "status": "registered"
+        },
+        {
+          "action": "assert_ax_selected",
+          "args": {
+            "identifier": "nav.menu"
+          },
+          "status": "extraction_demand"
+        },
+        {
+          "action": "assert_ax_present",
+          "args": {
+            "identifier": "menu.search"
+          },
+          "status": "extraction_demand"
+        },
+        {
+          "operation": "read_commerce_business_events",
+          "args": {
+            "expect_none": [
+              "account_created"
+            ]
+          },
+          "status": "needs_fixture"
+        }
+      ]
+    },
+    "T004": {
+      "title": "订单不再显示购物车",
+      "state_id": "orders.empty.v1",
+      "when": "点击订单入口",
+      "then": "显示订单空态，不显示购物袋",
+      "steps": [
+        {
+          "operation": "prepare_commerce_fixture",
+          "args": {
+            "fixture_id": "orders.empty.v1"
+          },
+          "status": "needs_fixture"
+        },
+        {
+          "action": "tap_ax",
+          "args": {
+            "identifier": "nav.orders"
+          },
+          "status": "registered"
+        },
+        {
+          "action": "assert_ax_selected",
+          "args": {
+            "identifier": "nav.orders"
+          },
+          "status": "extraction_demand"
+        },
+        {
+          "action": "assert_present",
+          "args": {
+            "queries": [
+              "还没有订单"
+            ]
+          },
+          "status": "registered"
+        },
+        {
+          "action": "assert_ax_present",
+          "args": {
+            "identifier": "orders.empty.primary_action"
+          },
+          "status": "extraction_demand"
+        },
+        {
+          "action": "assert_absent",
+          "args": {
+            "query": "购物袋"
+          },
+          "status": "registered"
+        }
+      ]
+    }
+  },
+  "demands": {
+    "needs_fixture": [
+      {
+        "operation": "prepare_commerce_fixture",
+        "owner": "A01 r1：产品 verification 通道 + autophone apps/food_ordering_v2 执行器"
+      },
+      {
+        "operation": "read_commerce_business_events",
+        "owner": "A01 r2（T001）"
+      }
+    ],
+    "extraction_demand": [
+      {
+        "verb": "assert_ax_present",
+        "reason": "已注册断言只有 OCR；按 stable_id 的独立 AX 断言没有注册动作"
+      },
+      {
+        "verb": "assert_ax_selected",
+        "reason": "Tab 选中态（accessibilityState.selected）没有注册动作"
+      }
+    ]
+  },
+  "open": [
+    {
+      "item": "noise_baseline",
+      "detail": "design lock 预检拒绝：未冻结噪声基线。已有输入包的基线来自实现了目标页面的 golden 构建 3 次采集；A01 页面尚未实现，见 README §B4"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "commerce-v1/fixture-receipt.v1.json",
+  "title": "commerce-v1 fixture receipt",
+  "description": "App 准备完成后写 Documents/autophone-commerce-fixture-receipt.json。回执只证明本进程读到并应用了选择；状态是否达到由 AX 与业务读回独立判定（R21）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "nonce",
+    "fixture_id",
+    "run_id",
+    "backend_namespace",
+    "applied",
+    "business_events"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "commerce-v1-fixture-receipt/v1"
+    },
+    "nonce": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32}$"
+    },
+    "fixture_id": {
+      "enum": [
+        "home.default.v1",
+        "home.guest.v1",
+        "orders.empty.v1"
+      ]
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "backend_namespace": {
+      "type": "string"
+    },
+    "applied": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "clock",
+        "timezone",
+        "locale",
+        "random_seed",
+        "account",
+        "seed_sha256"
+      ],
+      "properties": {
+        "clock": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "random_seed": {
+          "type": "integer"
+        },
+        "account": {
+          "type": "object"
+        },
+        "seed_sha256": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "business_events": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "count"
+      ],
+      "properties": {
+        "path": {
+          "const": "autophone-commerce-business-events.jsonl"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "description": "本命名空间的业务事件日志（账号创建、订单创建等）；用于“未创建账号”等业务读回"
+    }
+  }
+}

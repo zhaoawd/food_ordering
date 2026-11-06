@@ -3,7 +3,7 @@
   "files_verified": 54,
   "decisions": {
     "path": "decisions/a01-decisions.json",
-    "sha256": "3ef022a191d3ad5626da8a5c86807e35081538001c58a30c3258d779add052c3"
+    "sha256": "04656dfe5e7294d143894997943b97af68cc2ced1b32e2d4ca9249acf5b51222"
   },
   "baselines": {
     "home@390": {

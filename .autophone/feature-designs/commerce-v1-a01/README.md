@@ -2,7 +2,7 @@
 
 本目录把冻结设计包 `design/commerce-v1/` 中 A01 批次的页面状态转换为 autophone 结构化设计包（`structured-design-package/v1`）。设计版本为 `commerce-v1-a01-430/r4`：画布从原包的 390×844 重排到 430×932，作为新设计版本处理，不改写原包。
 
-状态：2026-11-06 第 13 轮（策略 v5，autophone `design-batch` 引擎），A01 三个状态均通过批次准入（含期望可实现性）、校准 0 失败。首页默认态与游客态走 HTML 路线：29/28 通过，3/4 项已登记偏差来自设计决定（D1、D3、D5），13 处图形均已交付；订单空态走 DSL 路线：9 通过、1 项已登记偏差（P3）。80 个文本节点均判为可实现，所用映射证据为“假设”，待设备证据。进入 B4 的检查清单以第 13 轮为起点（`final/b4-entry.json`）。本目录不执行 design lock，也不包含需求输入包。
+状态：2026-11-06 第 14 轮（策略 v5，D9 平涂色遮罩，autophone `design-batch` 引擎），A01 三个状态均通过批次准入（含期望可实现性）、校准 0 失败。首页默认态与游客态走 HTML 路线：29/28 通过，3/4 项已登记偏差来自设计决定（D1、D3、D5），13 处图形均已交付；订单空态走 DSL 路线：9 通过、1 项已登记偏差（P3）。80 个文本节点均判为可实现，所用映射证据为“假设”，待设备证据。进入 B4 的检查清单以第 14 轮为起点（`final/b4-entry.json`），B4 验收合同见 §2.2。本目录不执行 design lock，也不包含需求输入包。
 
 本目录只放数据与产物；派生、渲染、校准、准入与检查由 autophone `design-batch` 命令执行（2026-11-06 迁入，见 §2.1）。
 
@@ -95,6 +95,27 @@ $D b4-entry $B --round <n> [--write]
 - DSL 路线用策略 v5 自检时对照样本失败（`fontWeight` 4 项），迁移前工具结果相同：v5 的锚定偏差按 HTML 路线设定，DSL 交叉对照仍用 v4。
 
 下文各节记录当时的工具名（`tools/*.py`、`tools/*.mjs`），对应关系：`derive.py` → `design-batch derive`，`build.py` → `build`，`admission.py` → `admission`，`calibration_selftest.py` → `selftest`，`b4_entry.py` → `b4-entry`，`render_baseline.mjs` → `baseline`，`measure_layout_pins.mjs` → `layout-pins`，`extract_assets.mjs` → `assets`，`check_render_determinism.py` → `determinism`；其余脚本在 autophone `autophone/workflow/design_batch/`。
+
+### 2.2 B4：验收合同（2026-11-06）
+
+用户决定：像素比较遮罩文字、只比较平涂色（D9）；首页改前证据取 A00 构建实拍，订单页登记 `new_surface`；三张需求单串行（默认态 → 游客态 → 订单空态）；fixture 通道在 B4 冻结契约、A01 实现。
+
+| 产物 | 内容 |
+| --- | --- |
+| `contract/a01-acceptance-contract.json` | 三张需求单（键、上游、屏与状态、设计包与哈希、E3 条款数、人审项、改前证据）；冻结比较策略（通道容差 0、`expected_alpha` 加 D9 遮罩、变化像素比例 ≤ 0.002、frame 0.5 pt、`production-v1`、整屏 region）；fixture（时钟、时区、语言、随机种子、种子文件哈希、账号、隔离方式、入口）；观测来源；超时与恢复；T001、T003、T004 转换后的步骤；待交付能力 |
+| `contract/fixture-selection.v1.json`、`contract/fixture-receipt.v1.json` | verification 构建的 fixture 选择文档与回执 Schema（nonce、run_id、backend_namespace、冻结的时钟与种子、guest/member 账号、业务事件日志） |
+| `contract/requirements/*.md` | 三张需求单原文 |
+
+设计锁定已在隔离状态目录中对第 14 轮的包验证：首页默认态与游客态各 75 条 E3 条款（`home.hero.headline` 字号、`home.store.name` 字重进入人审清单），订单空态 44 条；遮罩与整屏 region 均冻结。
+
+用例转换（步骤状态见合同）：
+
+- 已注册动作可以表达的：点击用 `tap_ax`（按 stable_id），D2 文案“还没有订单”与“购物袋”不出现用 OCR 的 `assert_present`、`assert_absent`。
+- 需要 fixture（`needs_fixture`）：`prepare_commerce_fixture`（A01 r1，产品 verification 通道加 autophone 执行器）、`read_commerce_business_events`（A01 r2，T001“未创建账号”）。
+- 需要新增动作（`extraction_demand`）：按 stable_id 的 AX 断言 `assert_ax_present`、Tab 选中态 `assert_ax_selected`。已注册的断言动作只有 OCR。
+- 账号映射中，default 与 empty 取会员 `user-demo-001` 是推断（R10 订单需登录），待验证。优惠页在 L0 没有固定的页面标识，T003 只断言 `nav.coupons` 选中。
+
+未完成：噪声基线。设计预检拒绝“未冻结噪声基线”；已有需求输入包的基线来自实现了目标页面的 golden 构建 3 次采集，A01 页面尚未实现，因此需求输入包尚未打包，`workflow input verify` 尚未执行。
 
 ### 批次定义数据化（2026-11-06）
 

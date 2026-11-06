@@ -1,12 +1,12 @@
 {
   "schema_version": "design-batch-final-package/v1",
   "state_id": "home.guest.v1",
-  "round": 13,
+  "round": 14,
   "status": "final_candidate",
   "package": {
-    "path": "packages/home.guest.v1/round-13-device",
-    "design_package_sha256": "7d34c70beface68b09940706a3445f92097b82aee878648c52cc7ec58ef6dc57",
-    "reference_sha256": "92f051d605b4d1aca352aad74e201c33ef8708902948799b4df14483fb8474b9",
+    "path": "packages/home.guest.v1/round-14-device",
+    "design_package_sha256": "2aeb09b2f0eca571e7dd9632b09a31a6e95478d2cbf6f2bb71cbf7222f074f34",
+    "reference_sha256": "328aec16bd7c090f97e2a6e603fb39b06c4bfab1a94500522f5090c18192d9fb",
     "reference_renderer": {
       "renderer": "ios-wkwebview",
       "capture": "vphone-open-url-safari-band-capture/v1",
@@ -36,13 +36,13 @@
     }
   },
   "host_package": {
-    "path": "packages/home.guest.v1/round-13",
-    "design_package_sha256": "9dadcbd97f1f715286de82bfebf32e7c875fa44a551b7a8f0dedbd980cb56e2c"
+    "path": "packages/home.guest.v1/round-14",
+    "design_package_sha256": "b4de838c5f38af7523c6aeeb98207423ebe62b624b91a0faa83bf7ad08f6dcb6"
   },
   "checks": {
     "calibration": {
-      "record": "calibration/home.guest.v1/round-13-device.json",
-      "sha256": "bf274c4af0af92756ff0c51da4d6f33e0d05661493f60fe591eb85a01e72a9c1",
+      "record": "calibration/home.guest.v1/round-14-device.json",
+      "sha256": "3965609ab19aa67cee969de6b8a1fa2c64feb9ae156ca3af09d60149e7189eb9",
       "summary": {
         "elements": 32,
         "passed": 28,
@@ -54,14 +54,14 @@
     },
     "achievability": {
       "report": "admission/achievability/home.guest.v1.final.json",
-      "sha256": "768958bc73cad8fd14a2e5b65b30af03e508d6070ef79defa5484d6f0c2b14af",
+      "sha256": "e167026210161cc09a9ae18aa0fda04ad859782745a91fe3399b15d78e1acac9",
       "counts": {
         "achievable/assumed": 34
       }
     },
     "admission": {
       "report": "admission/admission-report.json",
-      "sha256": "c363b4d00d25bf6517d102703dcc35129e9aa511bc06d66ece398b7f3a9faa99",
+      "sha256": "11c9886378947d26684f8b176d154ccc2853d7f187bc3b7ad83b5851f7c9e751",
       "admitted": true
     }
   }

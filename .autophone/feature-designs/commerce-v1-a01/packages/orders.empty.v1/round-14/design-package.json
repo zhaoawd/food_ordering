@@ -1,0 +1,360 @@
+{
+  "schema_version": "structured-design-package/v1",
+  "adapter": "ai-prototype-dsl/v2",
+  "toolchain": {
+    "packer": "autophone-prototype-packager/v2",
+    "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+    "browser": "chromium/149.0.7827.55",
+    "compiler": "autophone-ui-prototype-compiler/v2"
+  },
+  "screen_id": "orders",
+  "state_id": "orders.empty.v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "node_scope": [
+    "orders.title",
+    "orders.filter.all",
+    "orders.filter.active",
+    "orders.filter.completed",
+    "orders.filter.after_sale",
+    "orders.empty.title",
+    "orders.empty.primary_action",
+    "nav.home",
+    "nav.menu",
+    "nav.coupons",
+    "nav.orders",
+    "nav.member"
+  ],
+  "artifacts": [
+    {
+      "role": "reference",
+      "path": "reference.png",
+      "sha256": "263fd81fa32b93cbfa07566eb4b8ec7185d5385f938bf1345cefacaefcf1b022"
+    },
+    {
+      "role": "review_reference",
+      "path": "review-reference.png",
+      "sha256": "2f8377dee86e70efff2505ab3349af80bea8bee71aa0d268d478b4fc93757c7b"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/compiled-scene.json",
+      "sha256": "0cf0b2f536f0f3f86d68d7a99b6359b168f9d00d109765562bf303542dbd4d15"
+    },
+    {
+      "role": "prototype",
+      "path": "prototype/compiled/index.html",
+      "sha256": "b8e7d0b6d7ae2e15a8f9f8ffec1828859020498620801d7d0c0f1b59c83a0047"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/renderer-spec.json",
+      "sha256": "a5e8eb9380877d824f4381fdd1f7df3267ddb494945c2630a70142d70cc5302f"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/prototype-spec.json",
+      "sha256": "125df4db65ca5c7314d9508ea753bf0927a4a86a50fa25b7d1309cc607db1a89"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/screen-plan.json",
+      "sha256": "f32b10c0d4d9b11dc915d5ca683651212b0c03e947ef82e69c63e6d2d54f76f5"
+    },
+    {
+      "role": "fixture",
+      "path": "prototype/state-fixture.json",
+      "sha256": "b89c8bf2b296baab77bf6959cdf52c43f86a9b95986358a5f3b14613250896f6"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/ui-document.json",
+      "sha256": "2e0895ee9b1d73cde79b28f62495c516771380aab63fad524464e1102b8a0992"
+    }
+  ],
+  "elements": [
+    {
+      "node_id": "orders.title",
+      "stable_id": "orders.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "我的订单"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#251D19"
+        }
+      ]
+    },
+    {
+      "node_id": "orders.filter.all",
+      "stable_id": "orders.filter.all",
+      "properties": [
+        {
+          "property": "text",
+          "value": "全部"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#251D19"
+        }
+      ]
+    },
+    {
+      "node_id": "orders.filter.active",
+      "stable_id": "orders.filter.active",
+      "properties": [
+        {
+          "property": "text",
+          "value": "进行中"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#251D19"
+        }
+      ]
+    },
+    {
+      "node_id": "orders.filter.completed",
+      "stable_id": "orders.filter.completed",
+      "properties": [
+        {
+          "property": "text",
+          "value": "已完成"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#251D19"
+        }
+      ]
+    },
+    {
+      "node_id": "orders.filter.after_sale",
+      "stable_id": "orders.filter.after_sale",
+      "properties": [
+        {
+          "property": "text",
+          "value": "售后"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#251D19"
+        }
+      ]
+    },
+    {
+      "node_id": "orders.empty.title",
+      "stable_id": "orders.empty.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "还没有订单"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#251D19"
+        }
+      ]
+    },
+    {
+      "node_id": "orders.empty.primary_action",
+      "stable_id": "orders.empty.primary_action",
+      "properties": [
+        {
+          "property": "text",
+          "value": "去点餐"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#251D19"
+        }
+      ]
+    },
+    {
+      "node_id": "nav.home",
+      "stable_id": "nav.home",
+      "properties": [
+        {
+          "property": "text",
+          "value": "首页"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#71655D"
+        },
+        {
+          "property": "frame.x",
+          "value": "16.875"
+        },
+        {
+          "property": "frame.y",
+          "value": "845"
+        },
+        {
+          "property": "frame.width",
+          "value": "65"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "node_id": "nav.menu",
+      "stable_id": "nav.menu",
+      "properties": [
+        {
+          "property": "text",
+          "value": "点餐"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#71655D"
+        },
+        {
+          "property": "frame.x",
+          "value": "99.6875"
+        },
+        {
+          "property": "frame.y",
+          "value": "845"
+        },
+        {
+          "property": "frame.width",
+          "value": "65"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "node_id": "nav.coupons",
+      "stable_id": "nav.coupons",
+      "properties": [
+        {
+          "property": "text",
+          "value": "优惠"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#71655D"
+        },
+        {
+          "property": "frame.x",
+          "value": "182.5"
+        },
+        {
+          "property": "frame.y",
+          "value": "845"
+        },
+        {
+          "property": "frame.width",
+          "value": "65"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "node_id": "nav.orders",
+      "stable_id": "nav.orders",
+      "properties": [
+        {
+          "property": "text",
+          "value": "订单"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#C93C25"
+        },
+        {
+          "property": "frame.x",
+          "value": "265.3125"
+        },
+        {
+          "property": "frame.y",
+          "value": "845"
+        },
+        {
+          "property": "frame.width",
+          "value": "65"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "node_id": "nav.member",
+      "stable_id": "nav.member",
+      "properties": [
+        {
+          "property": "text",
+          "value": "我的"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#71655D"
+        },
+        {
+          "property": "frame.x",
+          "value": "348.125"
+        },
+        {
+          "property": "frame.y",
+          "value": "845"
+        },
+        {
+          "property": "frame.width",
+          "value": "65"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    }
+  ],
+  "mapping_gaps": [],
+  "comparison_policy": {
+    "pixel_scope": "expected_alpha"
+  },
+  "comparison_mask": {
+    "mode": "flat_color_interiors",
+    "strategy": "design_owned_stable_regions",
+    "input_domain": "design_reference_only",
+    "include_colors": [
+      "#FAF7F2",
+      "#FFFFFF",
+      "#EDE6DD"
+    ],
+    "included_classes": [
+      "solid_backgrounds",
+      "component_interiors",
+      "stable_fill_regions"
+    ],
+    "excluded_classes": [
+      "undeclared_colors",
+      "text_glyph_edges",
+      "thin_stroke_edges",
+      "platform_symbol_edges",
+      "declared_color_edges"
+    ],
+    "edge_inset_px": 12,
+    "minimum_content_coverage_ratio": 0.85,
+    "selected_pixels": 2961647,
+    "content_pixels": 3235320,
+    "content_coverage_ratio": 0.91541084,
+    "review_reference": "review-reference.png"
+  }
+}

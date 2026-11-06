@@ -266,5 +266,17 @@
     ]
    }
   ]
+ },
+ "comparison_mask": {
+  "mode": "flat_color_interiors",
+  "include_colors": [
+   "#FAF7F2",
+   "#FFFFFF",
+   "#F0D8B8",
+   "#30271F",
+   "#FFF0E7"
+  ],
+  "edge_inset_px": 12,
+  "minimum_content_coverage_ratio": 0.55
  }
 }

@@ -29,5 +29,17 @@
     "provider": "claude",
     "model": "claude-opus-5-5",
     "prompt_sha256": "350cfb151876e5f8cde5af973dfc6961c6b61a0e7244805f2da5f741a841213e"
+  },
+  "comparison_mask": {
+    "mode": "flat_color_interiors",
+    "include_colors": [
+      "#FAF7F2",
+      "#FFFFFF",
+      "#F0D8B8",
+      "#30271F",
+      "#FFF0E7"
+    ],
+    "edge_inset_px": 12,
+    "minimum_content_coverage_ratio": 0.55
   }
 }

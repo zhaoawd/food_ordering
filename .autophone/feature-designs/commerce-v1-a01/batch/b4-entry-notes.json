@@ -1,6 +1,6 @@
 {
   "schema_version": "design-batch-b4-entry-notes/v1",
-  "rationale": "第 13 轮由迁入 autophone 的 design-batch 引擎生成：所有状态准入、校准 0 失败，HTML 路线状态都有设备最终包且自证超差 0。与第 12 轮（迁移前工具，首个满足上述条件的轮次）相比，校准、可实现性与准入结果一致，宿主与设备参考图逐字节相同；B4 从第 13 轮开始，使后续维护的引擎与锁定起点一致。",
+  "rationale": "第 14 轮在第 13 轮之上按 D9 声明平涂色遮罩（设计包带 comparison_mask 与 review-reference），其余输入不变：所有状态准入、校准 0 失败，HTML 路线状态都有设备最终包且自证超差 0；校准、可实现性与准入结果与第 13 轮相同。B4 的设计锁定取第 14 轮的包，因为需求单冻结的像素比较范围由设计包的遮罩决定。",
   "residual_risks": [
     "可实现性证据为假设级（React Native 字重 → iOS 字面映射），未经设备验证。",
     "设备参考图只覆盖一台 Rig（isolation-peer，vphone-ios27-default，zh-CN，light，字号档位 L）。",

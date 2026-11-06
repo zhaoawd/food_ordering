@@ -1,0 +1,68 @@
+{
+  "round": 14,
+  "policy": {
+    "path": "policy/calibration-policy.v5.json",
+    "sha256": "768088afdd9c8e85c1cc03f1ae9c1e9354caad30e858c626ff65a8431985b196"
+  },
+  "states": {
+    "home.default.v1": {
+      "status": "calibrated",
+      "package": "packages/home.default.v1/round-14",
+      "design_package_sha256": "da2089c6b9418bb5653712df621eea521eaa3e76758df5cb613bc09c42621757",
+      "mapped_nodes": 27,
+      "missing_nodes": 0,
+      "calibration": {
+        "elements": 32,
+        "passed": 29,
+        "deviations": 3,
+        "failed": 0,
+        "stale_deviations": 0
+      },
+      "device_reference": {
+        "status": "final_candidate",
+        "final": "final/home.default.v1.json"
+      }
+    },
+    "home.guest.v1": {
+      "status": "calibrated",
+      "package": "packages/home.guest.v1/round-14",
+      "design_package_sha256": "b4de838c5f38af7523c6aeeb98207423ebe62b624b91a0faa83bf7ad08f6dcb6",
+      "mapped_nodes": 27,
+      "missing_nodes": 0,
+      "calibration": {
+        "elements": 32,
+        "passed": 28,
+        "deviations": 4,
+        "failed": 0,
+        "stale_deviations": 0
+      },
+      "device_reference": {
+        "status": "final_candidate",
+        "final": "final/home.guest.v1.json"
+      }
+    },
+    "orders.empty.v1": {
+      "status": "calibrated",
+      "package": "packages/orders.empty.v1/round-14",
+      "design_package_sha256": "b8fa8a723465d0f13db885a2c4a87fb5b930d0af94954cfa2af7cedb610a900b",
+      "mapped_nodes": 12,
+      "missing_nodes": 0,
+      "calibration": {
+        "elements": 10,
+        "passed": 9,
+        "deviations": 1,
+        "failed": 0,
+        "stale_deviations": 0
+      }
+    }
+  },
+  "admission": {
+    "report_sha256": "11c9886378947d26684f8b176d154ccc2853d7f187bc3b7ad83b5851f7c9e751",
+    "admitted_states": [
+      "home.default.v1",
+      "home.guest.v1",
+      "orders.empty.v1"
+    ],
+    "blocked_states": []
+  }
+}

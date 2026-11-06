@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "commerce-v1/fixture-selection.v1.json",
+  "title": "commerce-v1 fixture selection document",
+  "description": "宿主经 vphoned file_put 写入 App Documents/autophone-commerce-fixture-selection.json，随后冷启动。仅 verification 构建读取（R20）；release 不编译该入口。App 按 fixture_id 的状态配方准备状态，不直接改 Store 冒充被测动作（R21、state-registry note）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "fixture_id",
+    "nonce",
+    "run_id",
+    "backend_namespace",
+    "clock",
+    "timezone",
+    "locale",
+    "random_seed",
+    "account",
+    "seed_files"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "commerce-v1-fixture-selection/v1"
+    },
+    "fixture_id": {
+      "enum": [
+        "home.default.v1",
+        "home.guest.v1",
+        "orders.empty.v1"
+      ]
+    },
+    "nonce": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32}$",
+      "description": "每次准备新生成；回执必须带回同一值"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]{8,80}$",
+      "description": "本次运行的隔离标识（isolation: new run_id）"
+    },
+    "backend_namespace": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]{8,80}$",
+      "description": "模拟后端数据命名空间，由 run_id 派生，不与其他运行共享（isolation: backend namespace）"
+    },
+    "clock": {
+      "const": "2026-11-05T12:00:00+08:00"
+    },
+    "timezone": {
+      "const": "Asia/Shanghai"
+    },
+    "locale": {
+      "const": "zh-CN"
+    },
+    "random_seed": {
+      "const": 271105
+    },
+    "account": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "const": "guest"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "user_id"
+          ],
+          "properties": {
+            "kind": {
+              "const": "member"
+            },
+            "user_id": {
+              "const": "user-demo-001"
+            }
+          }
+        }
+      ]
+    },
+    "seed_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "enum": [
+              "fixtures/catalog.json",
+              "fixtures/commerce.json"
+            ]
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    }
+  }
+}

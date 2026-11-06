@@ -1,0 +1,235 @@
+{
+ "note": "HTML 路线（D4）的验收目标与映射差异：主推标题是一个 <br> 分行的 h2，整体断言；门店入口背景透明，v1 渲染器不输出透明背景，改为断言控件文本。",
+ "targets": [
+  {
+   "stable_id": "home.brand",
+   "properties": [
+    "text",
+    "resolved_style.color"
+   ]
+  },
+  {
+   "stable_id": "home.store.select",
+   "properties": [
+    "text"
+   ]
+  },
+  {
+   "stable_id": "home.store.name",
+   "properties": [
+    "text",
+    "resolved_style.color",
+    "resolved_style.fontWeight"
+   ]
+  },
+  {
+   "stable_id": "home.store.distance",
+   "properties": [
+    "text",
+    "resolved_style.color"
+   ]
+  },
+  {
+   "stable_id": "home.greeting",
+   "properties": [
+    "text",
+    "resolved_style.color"
+   ]
+  },
+  {
+   "stable_id": "home.hero.headline",
+   "properties": [
+    "text",
+    "resolved_style.color",
+    "resolved_style.fontSize"
+   ]
+  },
+  {
+   "stable_id": "home.hero.price",
+   "properties": [
+    "text",
+    "resolved_style.color"
+   ]
+  },
+  {
+   "stable_id": "home.mode.pickup",
+   "properties": [
+    "resolved_style.backgroundColor",
+    "resolved_style.borderRadius"
+   ]
+  },
+  {
+   "stable_id": "home.mode.pickup.title",
+   "properties": [
+    "text",
+    "resolved_style.color"
+   ]
+  },
+  {
+   "stable_id": "home.mode.delivery",
+   "properties": [
+    "resolved_style.backgroundColor",
+    "resolved_style.borderRadius"
+   ]
+  },
+  {
+   "stable_id": "home.mode.delivery.title",
+   "properties": [
+    "text",
+    "resolved_style.color"
+   ]
+  },
+  {
+   "stable_id": "member.points.open",
+   "properties": [
+    "resolved_style.backgroundColor",
+    "resolved_style.borderRadius"
+   ]
+  },
+  {
+   "stable_id": "home.member.coupons",
+   "properties": [
+    "text",
+    "resolved_style.color"
+   ]
+  },
+  {
+   "stable_id": "home.shelf.title",
+   "properties": [
+    "text",
+    "resolved_style.color"
+   ]
+  },
+  {
+   "stable_id": "home.start_order",
+   "properties": [
+    "text",
+    "resolved_style.color"
+   ]
+  },
+  {
+   "stable_id": "menu.product.combo-chicken-001.open",
+   "properties": [
+    "resolved_style.backgroundColor",
+    "resolved_style.borderRadius"
+   ]
+  },
+  {
+   "stable_id": "home.shelf.combo-chicken-001.name",
+   "properties": [
+    "text",
+    "resolved_style.color"
+   ]
+  },
+  {
+   "stable_id": "home.shelf.combo-chicken-001.price",
+   "properties": [
+    "text",
+    "resolved_style.color"
+   ]
+  },
+  {
+   "stable_id": "menu.product.combo-beef-002.open",
+   "properties": [
+    "resolved_style.backgroundColor",
+    "resolved_style.borderRadius"
+   ]
+  },
+  {
+   "stable_id": "home.shelf.combo-beef-002.name",
+   "properties": [
+    "text",
+    "resolved_style.color"
+   ]
+  },
+  {
+   "stable_id": "home.shelf.combo-beef-002.price",
+   "properties": [
+    "text",
+    "resolved_style.color"
+   ]
+  },
+  {
+   "stable_id": "nav.home",
+   "properties": [
+    "text",
+    "resolved_style.color",
+    "frame.x",
+    "frame.y",
+    "frame.width",
+    "frame.height"
+   ]
+  },
+  {
+   "stable_id": "nav.menu",
+   "properties": [
+    "text",
+    "resolved_style.color",
+    "frame.x",
+    "frame.y",
+    "frame.width",
+    "frame.height"
+   ]
+  },
+  {
+   "stable_id": "nav.coupons",
+   "properties": [
+    "text",
+    "resolved_style.color",
+    "frame.x",
+    "frame.y",
+    "frame.width",
+    "frame.height"
+   ]
+  },
+  {
+   "stable_id": "nav.orders",
+   "properties": [
+    "text",
+    "resolved_style.color",
+    "frame.x",
+    "frame.y",
+    "frame.width",
+    "frame.height"
+   ]
+  },
+  {
+   "stable_id": "nav.member",
+   "properties": [
+    "text",
+    "resolved_style.color",
+    "frame.x",
+    "frame.y",
+    "frame.width",
+    "frame.height"
+   ]
+  },
+  {
+   "stable_id": "home.ai.open",
+   "properties": [
+    "resolved_style.backgroundColor",
+    "resolved_style.borderRadius"
+   ]
+  }
+ ],
+ "locators": {
+  "home.hero.headline": {
+   "tag": "h2"
+  }
+ },
+ "calibration": {
+  "remove": [
+   "home.hero.headline.line1",
+   "home.hero.headline.line2"
+  ],
+  "add": {
+   "home.hero.headline": {
+    "locator": {
+     "tag": "h2"
+    },
+    "mode": "content",
+    "region": "top"
+   }
+  }
+ }
+}

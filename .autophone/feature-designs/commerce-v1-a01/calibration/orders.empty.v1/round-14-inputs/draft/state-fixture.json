@@ -1,0 +1,35 @@
+{
+  "schema_version": "ui-prototype-fixture/v1",
+  "state_id": "orders.empty.v1",
+  "data_sources": {},
+  "values": {
+    "clock": "2026-11-05T12:00:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "locale": "zh-CN",
+    "state_recipe": "empty",
+    "menu_revision": "menu-demo-20261105-01",
+    "store_id": "store-demo-001",
+    "store_short_name": "科创园店",
+    "featured_product_ids": [
+      "combo-chicken-001",
+      "combo-beef-002"
+    ],
+    "featured_1_price_cents": 3290,
+    "featured_2_price_cents": 3890,
+    "available_coupon_count": 3
+  },
+  "view": {
+    "title": "我的订单",
+    "filter_all": "全部",
+    "filter_active": "进行中",
+    "filter_completed": "已完成",
+    "filter_after_sale": "售后",
+    "nav_home": "首页",
+    "nav_menu": "点餐",
+    "nav_coupons": "优惠",
+    "nav_orders": "订单",
+    "nav_member": "我的",
+    "empty_title": "还没有订单",
+    "empty_action": "去点餐"
+  }
+}

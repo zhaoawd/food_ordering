@@ -1,0 +1,564 @@
+{
+ "name": "订单 · empty（commerce-v1 A01，430 重排；空态内容依据 D2）",
+ "ai_model": "claude-opus-5-5",
+ "local_tokens": {
+  "proto.color.segmentBg": {
+   "type": "color",
+   "value": "#EDE6DD"
+  },
+  "proto.color.cardLine": {
+   "type": "color",
+   "value": "#F0E8DF"
+  },
+  "proto.font.10": {
+   "type": "dimension",
+   "value": 10
+  },
+  "proto.font.14": {
+   "type": "dimension",
+   "value": 14
+  },
+  "proto.radius.8": {
+   "type": "dimension",
+   "value": 8
+  },
+  "proto.radius.11": {
+   "type": "dimension",
+   "value": 11
+  }
+ },
+ "screens": [
+  {
+   "id": "orders",
+   "name": "我的订单",
+   "root": {
+    "id": "orders.root",
+    "component": "Screen",
+    "style": {
+     "backgroundColor": "$color.background",
+     "color": "$color.text"
+    },
+    "children": [
+     {
+      "id": "orders.header",
+      "component": "Frame",
+      "layout": {
+       "direction": "row",
+       "width": "fill",
+       "height": 64,
+       "padding": [
+        8,
+        20,
+        12,
+        20
+       ],
+       "align": "center",
+       "justify": "between",
+       "gap": 10
+      },
+      "children": [
+       {
+        "id": "orders.header.back",
+        "component": "Frame",
+        "layout": {
+         "direction": "row",
+         "width": 44,
+         "height": 44,
+         "align": "center",
+         "justify": "center"
+        },
+        "children": [
+         {
+          "id": "orders.header.back.icon",
+          "component": "Decoration",
+          "layout": {
+           "width": 22,
+           "height": 22
+          }
+         }
+        ]
+       },
+       {
+        "id": "orders.title",
+        "component": "Text",
+        "props": {
+         "text_path": "view.title"
+        },
+        "style": {
+         "fontSize": "$font.headline",
+         "fontWeight": 700,
+         "lineHeight": 28,
+         "color": "$color.text"
+        },
+        "stable_id": "orders.title"
+       },
+       {
+        "id": "orders.header.spacer",
+        "component": "Frame",
+        "layout": {
+         "direction": "row",
+         "width": 44,
+         "height": 44
+        },
+        "children": []
+       }
+      ]
+     },
+     {
+      "id": "orders.content",
+      "component": "Frame",
+      "layout": {
+       "direction": "column",
+       "width": "fill",
+       "flex": 1,
+       "padding": [
+        0,
+        20,
+        16,
+        20
+       ],
+       "overflow": "hidden"
+      },
+      "children": [
+       {
+        "id": "orders.scroll",
+        "component": "Frame",
+        "layout": {
+         "direction": "column",
+         "width": "fill"
+        },
+        "children": [
+         {
+          "id": "orders.filters",
+          "component": "Frame",
+          "layout": {
+           "direction": "row",
+           "width": "fill",
+           "height": 44,
+           "padding": [
+            4,
+            4,
+            4,
+            4
+           ],
+           "gap": 4,
+           "margin": [
+            0,
+            0,
+            12,
+            0
+           ]
+          },
+          "style": {
+           "backgroundColor": "$proto.color.segmentBg",
+           "borderRadius": "$proto.radius.11"
+          },
+          "children": [
+           {
+            "id": "orders.filter.all",
+            "component": "Button",
+            "stable_id": "orders.filter.all",
+            "layout": {
+             "width": "fill",
+             "height": 36
+            },
+            "style": {
+             "fontSize": "$font.caption",
+             "fontWeight": 700,
+             "lineHeight": 16,
+             "color": "$color.text",
+             "borderRadius": "$proto.radius.8",
+             "backgroundColor": "$color.surface"
+            },
+            "props": {
+             "label_path": "view.filter_all"
+            }
+           },
+           {
+            "id": "orders.filter.active",
+            "component": "Button",
+            "stable_id": "orders.filter.active",
+            "layout": {
+             "width": "fill",
+             "height": 36
+            },
+            "style": {
+             "fontSize": "$font.caption",
+             "fontWeight": 400,
+             "lineHeight": 16,
+             "color": "$color.text",
+             "borderRadius": "$proto.radius.8"
+            },
+            "props": {
+             "label_path": "view.filter_active"
+            }
+           },
+           {
+            "id": "orders.filter.completed",
+            "component": "Button",
+            "stable_id": "orders.filter.completed",
+            "layout": {
+             "width": "fill",
+             "height": 36
+            },
+            "style": {
+             "fontSize": "$font.caption",
+             "fontWeight": 400,
+             "lineHeight": 16,
+             "color": "$color.text",
+             "borderRadius": "$proto.radius.8"
+            },
+            "props": {
+             "label_path": "view.filter_completed"
+            }
+           },
+           {
+            "id": "orders.filter.after_sale",
+            "component": "Button",
+            "stable_id": "orders.filter.after_sale",
+            "layout": {
+             "width": "fill",
+             "height": 36
+            },
+            "style": {
+             "fontSize": "$font.caption",
+             "fontWeight": 400,
+             "lineHeight": 16,
+             "color": "$color.text",
+             "borderRadius": "$proto.radius.8"
+            },
+            "props": {
+             "label_path": "view.filter_after_sale"
+            }
+           }
+          ]
+         },
+         {
+          "id": "orders.empty",
+          "component": "Frame",
+          "layout": {
+           "direction": "column",
+           "width": "fill",
+           "padding": [
+            24,
+            16,
+            24,
+            16
+           ],
+           "gap": 16,
+           "align": "center"
+          },
+          "style": {
+           "backgroundColor": "$color.surface",
+           "borderColor": "$proto.color.cardLine",
+           "borderWidth": 1,
+           "borderRadius": "$radius.card"
+          },
+          "children": [
+           {
+            "id": "orders.empty.title",
+            "component": "Text",
+            "props": {
+             "text_path": "view.empty_title"
+            },
+            "style": {
+             "fontSize": "$font.body",
+             "fontWeight": 700,
+             "lineHeight": 22,
+             "color": "$color.text"
+            },
+            "stable_id": "orders.empty.title"
+           },
+           {
+            "id": "orders.empty.primary_action",
+            "component": "Button",
+            "stable_id": "orders.empty.primary_action",
+            "layout": {
+             "width": "hug",
+             "height": 46,
+             "padding": [
+              0,
+              14,
+              0,
+              14
+             ]
+            },
+            "style": {
+             "fontSize": "$proto.font.14",
+             "fontWeight": 600,
+             "lineHeight": 20,
+             "color": "$color.text",
+             "backgroundColor": "$color.surface",
+             "borderColor": "$color.border",
+             "borderWidth": 1,
+             "borderRadius": "$radius.control"
+            },
+            "props": {
+             "label_path": "view.empty_action"
+            }
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "orders.tabbar",
+      "component": "Frame",
+      "layout": {
+       "direction": "row",
+       "width": "fill",
+       "height": 59,
+       "padding": [
+        8,
+        16.89,
+        0,
+        16.89
+       ],
+       "justify": "between"
+      },
+      "children": [
+       {
+        "id": "nav.home",
+        "component": "Button",
+        "stable_id": "nav.home",
+        "layout": {
+         "width": 65,
+         "height": 50,
+         "padding": [
+          24,
+          0,
+          0,
+          0
+         ]
+        },
+        "style": {
+         "fontSize": "$proto.font.10",
+         "fontWeight": 400,
+         "lineHeight": 14,
+         "color": "$color.muted"
+        },
+        "props": {
+         "label_path": "view.nav_home"
+        }
+       },
+       {
+        "id": "nav.menu",
+        "component": "Button",
+        "stable_id": "nav.menu",
+        "layout": {
+         "width": 65,
+         "height": 50,
+         "padding": [
+          24,
+          0,
+          0,
+          0
+         ]
+        },
+        "style": {
+         "fontSize": "$proto.font.10",
+         "fontWeight": 400,
+         "lineHeight": 14,
+         "color": "$color.muted"
+        },
+        "props": {
+         "label_path": "view.nav_menu"
+        }
+       },
+       {
+        "id": "nav.coupons",
+        "component": "Button",
+        "stable_id": "nav.coupons",
+        "layout": {
+         "width": 65,
+         "height": 50,
+         "padding": [
+          24,
+          0,
+          0,
+          0
+         ]
+        },
+        "style": {
+         "fontSize": "$proto.font.10",
+         "fontWeight": 400,
+         "lineHeight": 14,
+         "color": "$color.muted"
+        },
+        "props": {
+         "label_path": "view.nav_coupons"
+        }
+       },
+       {
+        "id": "nav.orders",
+        "component": "Button",
+        "stable_id": "nav.orders",
+        "layout": {
+         "width": 65,
+         "height": 50,
+         "padding": [
+          24,
+          0,
+          0,
+          0
+         ]
+        },
+        "style": {
+         "fontSize": "$proto.font.10",
+         "fontWeight": 700,
+         "lineHeight": 14,
+         "color": "$color.brand"
+        },
+        "props": {
+         "label_path": "view.nav_orders"
+        }
+       },
+       {
+        "id": "nav.member",
+        "component": "Button",
+        "stable_id": "nav.member",
+        "layout": {
+         "width": 65,
+         "height": 50,
+         "padding": [
+          24,
+          0,
+          0,
+          0
+         ]
+        },
+        "style": {
+         "fontSize": "$proto.font.10",
+         "fontWeight": 400,
+         "lineHeight": 14,
+         "color": "$color.muted"
+        },
+        "props": {
+         "label_path": "view.nav_member"
+        }
+       }
+      ],
+      "style": {
+       "backgroundColor": "$color.surface",
+       "borderTopColor": "$color.border",
+       "borderTopWidth": 1
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "acceptance": [
+  {
+   "screen_id": "orders",
+   "targets": [
+    {
+     "stable_id": "orders.title",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "orders.filter.all",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "orders.filter.active",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "orders.filter.completed",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "orders.filter.after_sale",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "orders.empty.title",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "orders.empty.primary_action",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "nav.home",
+     "properties": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+     ]
+    },
+    {
+     "stable_id": "nav.menu",
+     "properties": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+     ]
+    },
+    {
+     "stable_id": "nav.coupons",
+     "properties": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+     ]
+    },
+    {
+     "stable_id": "nav.orders",
+     "properties": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+     ]
+    },
+    {
+     "stable_id": "nav.member",
+     "properties": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+     ]
+    }
+   ]
+  }
+ ]
+}

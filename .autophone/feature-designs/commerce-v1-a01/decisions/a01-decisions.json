@@ -57,6 +57,13 @@
       "decided_by": "user (chose whole-pt grid and fixed widths)",
       "gap": "BL-213 measurement_layout residual edges",
       "summary": "HTML 路线布局对齐整数 pt 网格：块级元素的上下边缘取整到整数 pt，以显式高度写入；由文字撑开、带可见背景或边框的行内块按宿主 Chromium 宽度向上取整为整数 pt 的固定宽度并禁止折行。App 实现按同一组数值"
+    },
+    {
+      "id": "D9",
+      "date": "2026-11-06",
+      "decided_by": "user (chose masking text and comparing flat colours)",
+      "gap": "B4 pixel acceptance across renderers",
+      "summary": "A01 的像素比较只取声明平涂色的内部（comparison_mask，内缩 12px）：首页取设备自证验证过的 #FAF7F2、#FFFFFF、#F0D8B8、#30271F、#FFF0E7，订单页取 #FAF7F2、#FFFFFF、#EDE6DD。文字的内容、颜色、字号与盒子由 E3 条款逐元素判定。原因：参考图由 WebKit/Chromium 渲染，App 由 React Native/CoreText 渲染，字形必然不同"
     }
   ],
   "display_rules": {
