@@ -26,6 +26,7 @@ flowchart LR
 | 页面计划 | 确定性：`spec/view-models.json` 区块，加原型中的页头与导航外壳 | `derived/screen-plan.<screen>.json` |
 | 验收范围 | 确定性：`ui-contract.json` 控件、`acceptance-cases.json` 用例、导航别名 | `derived/acceptance-scope.json` |
 | 设计决定 | 用户确认的决定 D1–D6：显示规则、Fixture 补充、文案覆盖与新增、模板取值 | `decisions/a01-decisions.json` |
+| 批次定义 | 批次事实与配置：状态与用例、外壳区块、导航、列表取值、当前门店、模板来源、显示绑定、合同排除、画布与视口画像；每项带 L0 出处或决定编号 | `batch/a01-batch.json` |
 | 批次合同 | 确定性：冻结设计包加设计决定，不读草稿 | `derived/batch-contract.json` |
 | 解析后的映射 | 确定性：`authored/<state>/bindings.json` 展开 `extends` 后的结果，供校准与准入使用 | `derived/bindings/<state>.json` |
 | 布局树（DSL 路线） | AI 起草（`claude-opus-5-5`），依据 [authored/AUTHORING.md](authored/AUTHORING.md) | `authored/<state>/layout.json` |
@@ -46,6 +47,7 @@ BASELINE_VIEWPORT=390x844 node tools/render_baseline.mjs ../../../design/commerc
 node tools/render_baseline.mjs ../../../design/commerce-v1/ui/prototype.html baseline home orders
 python3 -I tools/derive.py            # 写 derived/（含批次合同）与 drafts/
 python3 -I tools/derive.py --check    # 只核对产物是否过期，不判设计有效性
+python3 -I -B -m unittest discover -s tools -p 'test_*.py'   # 批次定义回归测试
 python3 tools/build.py --autophone-root <autophone> --round <n> --policy policy/calibration-policy.v5.json
 python3 -I tools/admission.py         # 单独执行批次准入
 python3 tools/calibration_selftest.py --autophone-root <autophone> --policy policy/calibration-policy.v5.json --route html
@@ -54,6 +56,18 @@ python3 -I tools/check_render_determinism.py --runs 5
 ```
 
 `build.py` 每轮写入新目录（设计包、校准记录、对照图、本轮输入快照 `round-<n>-inputs/`），同一轮号已存在时拒绝执行；校准失败或任一必需状态未准入时返回 1。本仓库不依赖 Playwright，渲染与校准使用 autophone 的 Playwright（`playwright/1.61.1`、`chromium/149.0.7827.55`），Chromium 启动参数取 autophone `prototype_compositor.json` 的打包配置（`software/v1`：`--disable-gpu --disable-gpu-compositing`），与平台参考图渲染相同。
+
+### 批次定义数据化（2026-11-06）
+
+`derive.py` 不再含业务常量，改读 `batch/a01-batch.json`。判别规则：能从 L0 读出的事实写 `source`（文件与位置）；改动或补充 L0 的写 `decision`（`decisions/a01-decisions.json` 的编号）。缺少两者、引用不存在的决定或显示规则时，`derive.py` 拒绝运行。
+
+完成条件与验证：
+
+- 相同的 L0、L1 输入，重构后 34 个产物与重构前（`4c39a70`）逐字节一致；摘要保存在 `batch/l2-digest.json`。
+- `tools/test_derive_batch.py`（10 项）：产物与摘要一致、输入身份与摘要一致、每个条目有出处或决定、缺出处或未知决定与规则被拒、迁出的字面量未回到脚本。把导航顺序对调后，测试报 `derived/acceptance-scope.json` 不一致；把商品数改为 1 后，显示绑定越界报错。
+- 规则含义有意改变时才更新摘要，并在提交说明中写明原因。
+
+未迁出（保持产物一致所需）：`tools/html_adapter.py` 中的注入内容（查询参数、R4 外壳样式与选择器）。草稿的 `adapter-provenance.json` 记录该文件的哈希，修改它会改变产物；按 `docs/design-input-pipeline.md` §7.5，迁入 autophone 时改为批次定义中的注入声明。`tools/render_baseline.mjs`（L3）的查询参数同样留到那时处理。
 
 ## 3. 批次准入与校准
 

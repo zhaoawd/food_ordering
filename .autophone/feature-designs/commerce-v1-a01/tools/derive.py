@@ -1,6 +1,8 @@
 """Derive the deterministic parts of the A01 drafts from the frozen commerce-v1 design package.
 
 Inputs (all read-only):
+  batch/a01-batch.json           batch definition: L0 facts with their source, or decision IDs
+  decisions/a01-decisions.json   recorded design decisions (L1)
   design/commerce-v1/            frozen design package, verified against MANIFEST.json
   baseline/<page>/prototype-430.json   430x932 render of the frozen prototype (tools/render_baseline.mjs)
   authored/<state>/layout.json   AI-authored layout tree (screens, interactions, acceptance, local tokens)
@@ -23,43 +25,71 @@ HERE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(HERE / 'tools'))
 from html_adapter import build_html_draft  # noqa: E402
 REPO = HERE.parent.parent.parent
-DESIGN = REPO / 'design' / 'commerce-v1'
 DECISIONS = HERE / 'decisions' / 'a01-decisions.json'
-# View keys whose text follows a display rule from the decisions file instead of the prototype.
-# Value: (rule, business value source). Everything else is extracted from the 430 baseline.
-DISPLAY_BINDINGS = {
-    'hero_price': ('money', ('product', 0)),
-    'product_1_price': ('money', ('product', 0)),
-    'product_2_price': ('money', ('product', 1)),
-    'store_name': ('store_short_name', ('store', 0)),
-}
-MANIFEST_SHA256 = 'ec6bed1c5fbae3eb4d7cca23dbb1a78c573906b08b52a062e93812f604c174ee'
-DESIGN_VERSION = 'commerce-v1-a01-430/r4'
-FRAME = {'width': 430, 'height': 932}
-VIEWPORT_PROFILE = {
-    'profile_id': 'vphone-ios27-430x932',
-    'safe_area': {'top': 59, 'right': 0, 'bottom': 37, 'left': 0},
-    'safe_area_application': ['top', 'bottom'],
-    'system_ui': 'separate_region',
-}
-# A01 scope: state -> (screen, baseline page, acceptance cases). Cases come from tests/acceptance-cases.json.
-STATES = {
-    'home.default.v1': {'screen': 'home', 'baseline': 'home', 'cases': ['T003']},
-    'home.guest.v1': {'screen': 'home', 'baseline': 'home', 'cases': ['T001']},
-    'orders.empty.v1': {'screen': 'orders', 'baseline': 'orders', 'cases': ['T004']},
-}
-# Shell regions present in the prototype but not in view-models.json; PRODUCT_DESIGN.md fixes the tab bar.
-SHELL_SECTIONS = {'home': (['AppHeader'], ['TabBar']), 'orders': (['PageHeader'], ['TabBar'])}
-TAB_BAR = ['nav.home', 'nav.menu', 'nav.coupons', 'nav.orders', 'nav.member']
-# Template IDs from view-models.json resolve only where the frozen package says which items appear.
-# Home ProductShelf renders DATA.catalog.products.slice(0, 2) in ui/prototype.html.
-FEATURED_PRODUCT_COUNT = 2
-# Exclusions must name their source; nothing here may be added to make a check pass.
-CONTRACT_EXCLUSIONS = [
-    {'state_id': 'orders.empty.v1', 'stable_id': 'orders.order.{orderId}.open',
-     'reason': 'state_recipe=empty：订单列表为空，没有订单行可供打开',
-     'source': 'fixtures/state-registry.json orders.empty.v1 state_recipe'},
-]
+BATCH_DEFINITION = HERE / 'batch' / 'a01-batch.json'
+# Sections of the batch definition whose entries must cite a source in L0 or a recorded decision.
+PROVENANCE_SECTIONS = ('design_version', 'design_package', 'frame', 'viewport_profile', 'states',
+                       'shell_sections', 'tab_bar', 'featured_products', 'current_store', 'template_sources',
+                       'display_bindings', 'contract_exclusions')
+
+
+def batch_problems(batch: dict, decisions: dict) -> list[str]:
+    """Entries that cite neither a source in L0 nor a known decision, and unknown display rules."""
+    known = {d['id'] for d in decisions['decisions']}
+    problems = []
+
+    def check(where: str, entry) -> None:
+        if not isinstance(entry, dict):
+            problems.append(f'{where}: not an object')
+            return
+        source, decision = entry.get('source'), entry.get('decision')
+        if decision is not None and decision not in known:
+            problems.append(f'{where}: unknown decision {decision!r}')
+        if not (isinstance(source, str) and source.strip()) and decision is None:
+            problems.append(f'{where}: needs a source or a decision')
+
+    for section in PROVENANCE_SECTIONS:
+        value = batch.get(section)
+        if value is None:
+            problems.append(f'{section}: missing')
+        elif section in ('states', 'shell_sections', 'display_bindings'):
+            for key, entry in value.items():
+                check(f'{section}.{key}', entry)
+        elif section in ('template_sources', 'contract_exclusions'):
+            for index, entry in enumerate(value):
+                check(f'{section}[{index}]', entry)
+        else:
+            check(section, value)
+    for key, binding in batch.get('display_bindings', {}).items():
+        if binding.get('rule') not in decisions['display_rules']:
+            problems.append(f'display_bindings.{key}: unknown rule {binding.get("rule")!r}')
+    return problems
+
+
+def load_batch_definition() -> dict:
+    batch = json.loads(BATCH_DEFINITION.read_text(encoding='utf-8'))
+    problems = batch_problems(batch, json.loads(DECISIONS.read_text(encoding='utf-8')))
+    if problems:
+        sys.exit('batch definition is invalid:\n  ' + '\n  '.join(problems))
+    return batch
+
+
+BATCH = load_batch_definition()
+DESIGN = REPO / BATCH['design_package']['path']
+MANIFEST_SHA256 = BATCH['design_package']['manifest_sha256']
+DESIGN_VERSION = BATCH['design_version']['value']
+FRAME = {'width': BATCH['frame']['width'], 'height': BATCH['frame']['height']}
+VIEWPORT_PROFILE = BATCH['viewport_profile']['value']
+STATES = {state_id: {'screen': v['screen'], 'baseline': v['baseline'], 'cases': v['cases']}
+          for state_id, v in BATCH['states'].items()}
+SHELL_SECTIONS = {screen: (v['head'], v['tail']) for screen, v in BATCH['shell_sections'].items()}
+TAB_BAR = BATCH['tab_bar']['stable_ids']
+FEATURED_PRODUCT_COUNT = BATCH['featured_products']['count']
+CURRENT_STORE_ID = BATCH['current_store']['store_id']
+TEMPLATE_SOURCES = BATCH['template_sources']
+DISPLAY_BINDINGS = BATCH['display_bindings']
+CONTRACT_EXCLUSIONS = [{k: e[k] for k in ('state_id', 'stable_id', 'reason', 'source')}
+                       for e in BATCH['contract_exclusions']]
 
 
 def sha256(path: Path) -> str:
@@ -209,8 +239,11 @@ def batch_contract(view_models: dict, contract: dict, catalog: dict, decisions: 
                     known['derived_from'].append(source)
                 continue
             decided = decisions['template_values'].get(stable_id)
-            if '{productId}' in stable_id and screen == 'home':
-                ids = [stable_id.replace('{productId}', pid) for pid in featured]
+            template = next((t for t in TEMPLATE_SOURCES
+                             if t['template'] == stable_id and t['screen'] == screen), None)
+            if template is not None:
+                values = {'featured_products': featured}[template['values_from']]
+                ids = [stable_id.replace(template['placeholder'], value) for value in values]
             elif decided:
                 name = stable_id[stable_id.index('{'):stable_id.index('}') + 1]
                 ids = [stable_id.replace(name, value) for value in decided['values']]
@@ -234,6 +267,10 @@ def batch_contract(view_models: dict, contract: dict, catalog: dict, decisions: 
             'design_version': DESIGN_VERSION, 'states': states}
 
 
+def current_store(commerce: dict) -> dict:
+    return next(store for store in commerce['stores'] if store['id'] == CURRENT_STORE_ID)
+
+
 def yuan(cents: int) -> str:
     return f'¥{cents // 100}.{cents % 100:02d}'
 
@@ -241,7 +278,8 @@ def yuan(cents: int) -> str:
 def derive_fixture(state_id: str, registry: dict, catalog: dict, commerce: dict, view: dict,
                    decisions: dict) -> dict:
     entry = next(f for f in registry['fixtures'] if f['id'] == state_id)
-    store = commerce['stores'][0]
+    store = current_store(commerce)
+    featured = catalog['products'][:FEATURED_PRODUCT_COUNT]
     return {
         'schema_version': 'ui-prototype-fixture/v1',
         'state_id': state_id,
@@ -254,8 +292,8 @@ def derive_fixture(state_id: str, registry: dict, catalog: dict, commerce: dict,
             'menu_revision': catalog['menu_revision'],
             'store_id': store['id'],
             'store_short_name': decisions['fixture_additions']['stores'][store['id']]['short_name'],
-            'featured_product_ids': [p['id'] for p in catalog['products'][:2]],
-            **{f'featured_{i}_price_cents': p['base_price_cents'] for i, p in enumerate(catalog['products'][:2], 1)},
+            'featured_product_ids': [p['id'] for p in featured],
+            **{f'featured_{i}_price_cents': p['base_price_cents'] for i, p in enumerate(featured, 1)},
             'available_coupon_count': len(commerce['coupons']),
         },
         'view': view,
@@ -266,19 +304,20 @@ def apply_decisions(state_id: str, extracted: dict, catalog: dict, commerce: dic
                     decisions: dict) -> tuple[dict, list[dict]]:
     """Final view text: display rules for bound keys, recorded overrides and additions, otherwise the
     prototype text. Every key gets a record of where its text came from and how it relates to the prototype."""
-    products = catalog['products']
-    stores = commerce['stores']
+    featured = catalog['products'][:FEATURED_PRODUCT_COUNT]
     rules = decisions['display_rules']
     view, records = {}, []
     for key, prototype_text in extracted.items():
         if key in DISPLAY_BINDINGS:
-            rule, (kind, index) = DISPLAY_BINDINGS[key]
+            rule = DISPLAY_BINDINGS[key]['rule']
+            business_value = DISPLAY_BINDINGS[key]['business_value']
             if rule == 'money':
-                value = products[index]['base_price_cents']
+                product = featured[business_value['index']]
+                value = product['base_price_cents']
                 text = yuan(value)
-                business = {'base_price_cents': value, 'product_id': products[index]['id']}
+                business = {'base_price_cents': value, 'product_id': product['id']}
             else:
-                store = stores[index]
+                store = current_store(commerce)
                 text = decisions['fixture_additions']['stores'][store['id']]['short_name']
                 business = {'store_id': store['id'], 'store_name': store['name']}
             source = f"display_rule:{rule} ({rules[rule]['decision']})"
@@ -313,11 +352,8 @@ def resolve_authored(state_id: str, name: str) -> dict:
     return base
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('--check', action='store_true', help='fail when regenerated files differ from the tree')
-    args = parser.parse_args()
-
+def generate() -> dict[Path, str]:
+    """Every output file and its text, computed from L0, L1, the batch definition and authored inputs."""
     provenance = verify_design_package()
     decisions = load(DECISIONS)
     provenance['decisions'] = {'path': DECISIONS.relative_to(HERE).as_posix(), 'sha256': sha256(DECISIONS)}
@@ -458,10 +494,17 @@ def main() -> None:
         'note': 'Same frozen prototype.html at two widths. Bottom-region elements follow the viewport height.',
         'states': relayout,
     })
-    provenance.update({'design_version': DESIGN_VERSION, 'design_package': 'design/commerce-v1',
+    provenance.update({'design_version': DESIGN_VERSION, 'design_package': BATCH['design_package']['path'],
                        'viewport_profile': VIEWPORT_PROFILE, 'frame_size': FRAME})
     outputs[HERE / 'derived' / 'provenance.json'] = dump(provenance)
+    return outputs
 
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('--check', action='store_true', help='fail when regenerated files differ from the tree')
+    args = parser.parse_args()
+    outputs = generate()
     stale = [p for p, text in outputs.items() if not p.exists() or p.read_text(encoding='utf-8') != text]
     if args.check:
         if stale:
