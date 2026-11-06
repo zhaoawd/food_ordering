@@ -115,7 +115,12 @@ $D b4-entry $B --round <n> [--write]
 - 需要新增动作（`extraction_demand`）：按 stable_id 的 AX 断言 `assert_ax_present`、Tab 选中态 `assert_ax_selected`。已注册的断言动作只有 OCR。
 - 账号映射中，default 与 empty 取会员 `user-demo-001` 是推断（R10 订单需登录），待验证。优惠页在 L0 没有固定的页面标识，T003 只断言 `nav.coupons` 选中。
 
-未完成：噪声基线。设计预检拒绝“未冻结噪声基线”；已有需求输入包的基线来自实现了目标页面的 golden 构建 3 次采集，A01 页面尚未实现，因此需求输入包尚未打包，`workflow input verify` 尚未执行。
+噪声基线（2026-11-07，用户选择先加基线轮）：
+
+- r0 基线轮 `commerce-v1-a01-r0-home-base`：产品分支 `autophone/req-commerce-v1-a01-r0-home-base` 实现三个状态的结构（提交 `12301ee`），clean Release 构建 `bld-c9445a0b…`。
+- isolation-peer 上每个状态 3 次独立采集（autophone 视觉校准）：`home.default.v1` 最大变化比例 0.0000951、通道差 1（首页主推插画区域）；`home.guest.v1` 与 `orders.empty.v1` 为 0。这些基线不带 `req_id`、采集不在 Evidence 归档，内容准入为 `legacy`，需求未绑定验收策略时不拦截。
+- 需求单与输入包：r0 `REQ-20261107-001`（`round_role=baseline`，输入提交 `1c65b70`），r1 `REQ-20261107-002`（从 r0 末端开出，输入提交 `5c31e65`）。两者设计预检均无阻断项，`workflow input verify` 通过。
+- r2、r3 的原文、设计包与噪声基线已就绪；按串行链在上一轮验收后从其分支末端开出再打包。
 
 ### 批次定义数据化（2026-11-06）
 

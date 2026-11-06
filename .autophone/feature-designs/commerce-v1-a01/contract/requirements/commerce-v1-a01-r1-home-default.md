@@ -2,19 +2,19 @@
 
 ## 需求目标
 
-把首页改为 commerce-v1 设计版本 `commerce-v1-a01-430/r4` 的默认态（`home.default.v1`），并把底部导航固定为 首页｜点餐｜优惠｜订单｜我的。
+在 r0 的基础上，把首页做到 commerce-v1 设计版本 `commerce-v1-a01-430/r4` 的默认态（`home.default.v1`），并把底部导航固定为 首页｜点餐｜优惠｜订单｜我的。
 
 ## 基线
 
-- 上游：A00 冻结基线 `main` @ `337ff937a7460106d13e1aee9464d93c41af89f2`，Build `bld-51fed7195e59399b5c615b95adf1d81cce92c82366385836b8fa12bcb2b2748b`。
-- 改前证据：A00 构建首页实拍，建单时采集。
+- 上游：r0 基线轮（`commerce-v1-a01-r0-home-base`，提交 `12301eed3df382550ddbb49ba1ecad4cbc8ad0d6`，Build `bld-c9445a0bb2d1ea7eb44926594c724138ad29bacf50e40f0e4024fadc8687d046`）。r0 之前的 A00 基线为 `main` @ `337ff937`。
+- 改前证据：r0 构建默认态的采集（isolation-peer 视觉校准 `CAL-56cf8b94ce4d46e8ba2fd8465f0a769a` 第 1 次采集）。
 
 ## 实现范围
 
 - 首页按冻结设计包呈现：品牌、问候语、主推商品与价格、到店自取与外送入口、会员条、推荐货架、AI 入口、底部导航。
 - 每个设计包 stable_id 以 React Native `testID` 暴露（`ui-contract.json` mapping）。
 - 底部导航 5 个入口各自路由到 `/(tabs)/index`、`/(tabs)/menu`、`/(tabs)/rewards`、`/(tabs)/orders`、`/(tabs)/profile`，当前 Tab 处于选中态。目标页本批只需可达，内容由后续批次交付。
-- verification 构建实现 fixture 选择通道（`contract/fixture-selection.v1.json`、`contract/fixture-receipt.v1.json`）；release 构建不编译该入口（R20）。
+- verification 构建按平台选择文档的 `state_id` 准备状态（`contract/fixture-selection.v1.json`，r0 已实现）；release 构建不编译该入口（R20）。
 
 ## 非目标
 

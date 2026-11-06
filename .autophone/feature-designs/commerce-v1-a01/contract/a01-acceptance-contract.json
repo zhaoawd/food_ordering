@@ -48,8 +48,17 @@
       ],
       "before_snapshot": {
         "applicability": "captured",
-        "source": "A00 构建首页实拍（建单时采集，绑定 build_id）"
-      }
+        "source": "r0 构建 home.default.v1 的视觉校准采集（CAL-56cf8b94ce4d46e8ba2fd8465f0a769a 第 1 次）"
+      },
+      "noise_baseline": {
+        "source": "autophone runs/calibration/CAL-56cf8b94ce4d46e8ba2fd8465f0a769a/noise-baseline.json",
+        "captures": 3,
+        "build_id": "bld-c9445a0bb2d1ea7eb44926594c724138ad29bacf50e40f0e4024fadc8687d046",
+        "max_changed_pixel_ratio": 9.509709330050682e-05,
+        "pixel_channel_tolerance": 1,
+        "admission_tier": "legacy（平台视觉校准产出不带 req_id，采集位于 runs/calibration、不在 Evidence 归档）；需求未绑定验收策略时不拦截"
+      },
+      "upstream": "commerce-v1-a01-r0-home-base"
     },
     {
       "key": "commerce-v1-a01-r2-home-guest",
@@ -81,7 +90,15 @@
       ],
       "before_snapshot": {
         "applicability": "captured",
-        "source": "上一轮（r1）验收构建的游客首页实拍"
+        "source": "r0 构建 home.guest.v1 的视觉校准采集（CAL-f26885c501f54f2ea585422951fe2a84 第 1 次）"
+      },
+      "noise_baseline": {
+        "source": "autophone runs/calibration/CAL-f26885c501f54f2ea585422951fe2a84/noise-baseline.json",
+        "captures": 3,
+        "build_id": "bld-c9445a0bb2d1ea7eb44926594c724138ad29bacf50e40f0e4024fadc8687d046",
+        "max_changed_pixel_ratio": 0.0,
+        "pixel_channel_tolerance": 0,
+        "admission_tier": "legacy（平台视觉校准产出不带 req_id，采集位于 runs/calibration、不在 Evidence 归档）；需求未绑定验收策略时不拦截"
       }
     },
     {
@@ -102,9 +119,16 @@
       "e3_clauses": 44,
       "unverifiable": [],
       "before_snapshot": {
-        "applicability": "not_applicable",
-        "reason": "new_surface",
-        "source": "A00 构建没有订单页（app/(tabs) 只有 index、search、cart、profile）"
+        "applicability": "captured",
+        "source": "r0 构建 orders.empty.v1 的视觉校准采集（CAL-987ab533e45a4a8db640ddf3c06d3cbd 第 1 次）"
+      },
+      "noise_baseline": {
+        "source": "autophone runs/calibration/CAL-987ab533e45a4a8db640ddf3c06d3cbd/noise-baseline.json",
+        "captures": 3,
+        "build_id": "bld-c9445a0bb2d1ea7eb44926594c724138ad29bacf50e40f0e4024fadc8687d046",
+        "max_changed_pixel_ratio": 0.0,
+        "pixel_channel_tolerance": 0,
+        "admission_tier": "legacy（平台视觉校准产出不带 req_id，采集位于 runs/calibration、不在 Evidence 归档）；需求未绑定验收策略时不拦截"
       }
     }
   ],
@@ -436,10 +460,22 @@
       }
     ]
   },
-  "open": [
+  "open": [],
+  "baseline_round": {
+    "key": "commerce-v1-a01-r0-home-base",
+    "sequence": 0,
+    "round_role": "baseline",
+    "start_commit": "e7639509",
+    "product_commit": "12301eed3df382550ddbb49ba1ecad4cbc8ad0d6",
+    "build_id": "bld-c9445a0bb2d1ea7eb44926594c724138ad29bacf50e40f0e4024fadc8687d046",
+    "requirement": "contract/requirements/commerce-v1-a01-r0-home-base.md",
+    "reason": "B4 用户决定：噪声基线须来自实现了目标页面的构建，先加基线轮"
+  },
+  "resolved": [
     {
       "item": "noise_baseline",
-      "detail": "design lock 预检拒绝：未冻结噪声基线。已有输入包的基线来自实现了目标页面的 golden 构建 3 次采集；A01 页面尚未实现，见 README §B4"
+      "date": "2026-11-07",
+      "detail": "r0 基线轮构建在 isolation-peer 上每个状态 3 次采集，见 requirements[].noise_baseline"
     }
   ]
 }
