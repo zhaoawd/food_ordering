@@ -11,6 +11,7 @@ import { addressStore } from "@/store/address.store";
 import { preferencesStore } from "@/store/preferences.store";
 import { useCartStore } from "@/store/cart.store";
 import { couponStore } from "@/store/coupon.store";
+import { commerceStore, type CommerceStateId } from "@/store/commerce.fixture";
 
 const SELECTION_DOCUMENT = "autophone-ui-eval-selection.json";
 
@@ -27,6 +28,7 @@ type EvalFixtureState =
       preferencesStateId: string | null;
       cartStateId: string | null;
       couponStateId: string | null;
+      commerceStateId: string | null;
     }>;
 
 function selectionUri(): string {
@@ -57,6 +59,9 @@ export function useFoodOrderingEvalFixture(): EvalFixtureState {
         }
         if (resolved.cartStateId) {
           useCartStore.getState().loadFixture(resolved.cartStateId, resolved.selectionNonce);
+        }
+        if (resolved.commerceStateId) {
+          commerceStore.getState().loadFixture(resolved.commerceStateId as CommerceStateId);
         }
         if (resolved.couponStateId) {
           couponStore.getState().loadFixture(resolved.couponStateId, resolved.selectionNonce);

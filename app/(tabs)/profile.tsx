@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ObservedPressable, ObservedText } from '@/verification/observation';
+import { ObservedPressable, ObservedText, ObservedView } from '@/verification/observation';
 import { preferenceSummary, usePreferencesStore } from '@/store/preferences.store';
 
 const sourceRef = { file: 'app/(tabs)/profile.tsx', symbol: 'Profile' } as const;
@@ -16,6 +16,10 @@ const Profile = () => {
     </View>
     <View style={styles.content}>
       <ObservedText stableId="profile.title" sourceRef={sourceRef} observationRole="text" style={styles.title}>我的</ObservedText>
+      {/* commerce-v1：会员卡占位，A01 只要求「我的」Tab 可达（member.card，view-models MembershipCard）。 */}
+      <ObservedView stableId="member.card" sourceRef={sourceRef} observationRole="group" style={styles.entry}>
+        <Text style={styles.entryLabel}>食刻会员</Text>
+      </ObservedView>
       {/* 摘要不能放进 Pressable：iOS 把可点击区域合成一个无障碍元素，摘要就无法单独回读。 */}
       <View style={styles.entry}>
         <ObservedPressable stableId="profile.preferences" sourceRef={sourceRef} observationRole="button" accessibilityRole="button" accessibilityLabel="饮食偏好" onPress={() => router.push('/preferences')}>

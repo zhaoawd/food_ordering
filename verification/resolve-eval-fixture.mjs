@@ -192,6 +192,15 @@ export function resolveEvalFixture({ selectionJson, registry, baselineFixture })
     ? selection.state_id
     : null;
 
+  // commerce-v1 A01（design/commerce-v1/fixtures/state-registry.json）：状态配方由 state_id 决定。
+  let commerceStateId = null;
+  if (typeof selection.state_id === "string" && /^(home|orders)\.[a-z]+\.v1$/.test(selection.state_id)) {
+    if (!["home.default.v1", "home.guest.v1", "orders.empty.v1"].includes(selection.state_id)) {
+      throw new Error(`unknown commerce state_id: ${selection.state_id}`);
+    }
+    commerceStateId = selection.state_id;
+  }
+
   let fixture = baselineFixture;
   let mutationEpoch = 0;
   if (selection.mutation_id !== baselineMutationId) {
@@ -219,6 +228,7 @@ export function resolveEvalFixture({ selectionJson, registry, baselineFixture })
     addressStateId,
     preferencesStateId,
     cartStateId,
+    commerceStateId,
     couponStateId: [
       "coupons.default.fixture-v1",
       "coupons.selected.fixture-v1",

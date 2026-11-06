@@ -1,756 +1,161 @@
-import { router } from "expo-router";
-import { useEffect, useMemo, useState, useRef } from "react";
-import { Keyboard, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Image } from 'expo-image';
+import { router } from 'expo-router';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import {
-  ObservedPressable,
-  ObservedText,
-  ObservedView,
-} from "@/verification/observation";
-import { useFoodOrderingEvalFixture } from "@/verification/useEvalFixture";
+import { colors } from '@/components/commerce/theme';
+import { COMMERCE_FIXTURE, formatCents, memberStripAction, useCommerceStore } from '@/store/commerce.fixture';
+import { ObservedPressable, ObservedText } from '@/verification/observation';
 
-import { addresses, useAddressStore } from "@/store/address.store";
-import { useCartStore } from "@/store/cart.store";
-import { cartItemFor, CUSTOMIZABLE_DISH_ID, defaultSelection, type DishId } from "@/store/dish.catalog";
+/** commerce-v1 首页（home.default.v1 / home.guest.v1），设计包 .autophone/feature-designs/commerce-v1-a01。 */
+const sourceRef = { file: 'app/(tabs)/index.tsx', symbol: 'Home' } as const;
+const art = {
+  hero: require('@/assets/commerce/home/unowned.art-1.svg'),
+  products: [require('@/assets/commerce/home/unowned.art-2.svg'), require('@/assets/commerce/home/unowned.art-3.svg')],
+  message: require('@/assets/commerce/home/unowned.iconbutton-1.svg'),
+  pin: require('@/assets/commerce/home/home.store.select.row-1.svg'),
+  chevron: require('@/assets/commerce/home/home.store.select.row-2.svg'),
+  pickup: require('@/assets/commerce/home/home.mode.pickup.modeicon-1.svg'),
+  delivery: require('@/assets/commerce/home/home.mode.delivery.modeicon-1.svg'),
+  spark: require('@/assets/commerce/home/home.ai.open.span-1.svg'),
+};
 
-const recommendations = [
-  {
-    dishId: "beef-bowl-001",
-    title: "炙烤牛肉拌饭",
-    attributes: "热乎、微辣，预计 30 分钟送达",
-    price: 32,
-    savings: 6,
-    eta: "25–35 分钟",
-    match: 96,
-  },
-  {
-    dishId: "chicken-bowl-002",
-    title: "香辣鸡腿拌饭",
-    attributes: "焦香、微辣，预计 28 分钟送达",
-    price: 29,
-    savings: 4,
-    eta: "20–30 分钟",
-    match: 93,
-  },
-] as const;
-
-const tabs = [
-  {
-    id: "home",
-    stableId: "home.navigation.home",
-    label: "首页",
-    icon: "home",
-    route: null,
-  },
-  {
-    id: "discover",
-    stableId: "home.navigation.discover",
-    label: "发现",
-    icon: "compass-outline",
-    route: null,
-  },
-  {
-    id: "orders",
-    stableId: "home.navigation.orders",
-    label: "订单",
-    icon: "receipt-outline",
-    route: "/cart",
-  },
-  {
-    id: "profile",
-    stableId: "home.navigation.profile",
-    label: "我的",
-    icon: "person-outline",
-    route: "/profile",
-  },
-] as const;
-
-type PromptState = "idle" | "submitting" | "ready";
-type CtaState = "idle" | "loading" | "success";
-type TabId = (typeof tabs)[number]["id"];
-
-const sourceRef = {
-  file: "app/(tabs)/index.tsx",
-  symbol: "Index",
-} as const;
-
-const sourceRef_home_header_location = {
-  file: "store/address.store.ts",
-  symbol: "addresses",
-} as const;
-
-const sourceRef_home_recommendation_primary_action = {
-  file: "app/(tabs)/index.tsx",
-  symbol: "Index",
-} as const;
-
-const sourceRef_home_recommendation_title = {
-  file: "app/(tabs)/index.tsx",
-  symbol: "Index",
-} as const;
-
-export default function Index() {
-  const evaluation = useFoodOrderingEvalFixture();
-  const navigatedSelection = useRef<string | null>(null);
-  useEffect(() => {
-    if (evaluation.status === "ready" && evaluation.addressStateId && navigatedSelection.current !== evaluation.selectionNonce) {
-      navigatedSelection.current = evaluation.selectionNonce;
-      router.push("/delivery-address");
-    }
-  }, [evaluation]);
-  const committedAddress = useAddressStore(state => state.committed);
-  const location = addresses[committedAddress].location;
-  const [prompt, setPrompt] = useState("");
-  const [promptState, setPromptState] = useState<PromptState>("idle");
-  const [recommendationIndex, setRecommendationIndex] = useState(0);
-  const [isSwapping, setIsSwapping] = useState(false);
-  const [ctaState, setCtaState] = useState<CtaState>("idle");
-  const cartCount = useCartStore((state) =>
-    state.items.reduce((sum, item) => sum + item.quantity, 0),
-  );
-  const addItems = useCartStore((state) => state.addItems);
-  // 点击时记下要加入的菜品；加入在 loading 结束时执行，换口味不改变已点的菜。
-  const pendingDish = useRef<DishId | null>(null);
-  const [activeTab, setActiveTab] = useState<TabId>("home");
-
-  const recommendation = recommendations[recommendationIndex];
-  const promptButtonLabel =
-    promptState === "submitting"
-      ? "正在生成推荐"
-      : promptState === "ready"
-        ? "推荐已更新"
-        : "提交饮食偏好";
-
-  useEffect(() => {
-    if (promptState !== "submitting") return undefined;
-    const timer = setTimeout(() => setPromptState("ready"), 650);
-    return () => clearTimeout(timer);
-  }, [promptState]);
-
-  useEffect(() => {
-    if (!isSwapping) return undefined;
-    const timer = setTimeout(() => {
-      setRecommendationIndex(
-        (current) => (current + 1) % recommendations.length,
-      );
-      setIsSwapping(false);
-    }, 520);
-    return () => clearTimeout(timer);
-  }, [isSwapping]);
-
-  useEffect(() => {
-    if (ctaState === "loading") {
-      const timer = setTimeout(() => {
-        const dishId = pendingDish.current;
-        pendingDish.current = null;
-        const result = dishId
-          ? addItems(cartItemFor(dishId, defaultSelection), 1)
-          : "invalid_quantity";
-        setCtaState(result === "added" ? "success" : "idle");
-      }, 220);
-      return () => clearTimeout(timer);
-    }
-    if (ctaState === "success") {
-      const timer = setTimeout(() => setCtaState("idle"), 1200);
-      return () => clearTimeout(timer);
-    }
-    return undefined;
-  }, [ctaState, addItems]);
-
-  const paginationLabel = useMemo(
-    () => `${recommendationIndex + 1} / 4`,
-    [recommendationIndex],
-  );
-
-  if (evaluation.status !== "ready") return null;
-  const { home } = evaluation.fixture;
-
-  const submitPrompt = () => {
-    if (promptState === "submitting") return;
-    Keyboard.dismiss();
-    setPromptState("submitting");
-  };
-  const primaryActionLabel =
-    ctaState === "loading"
-      ? "正在加入"
-      : ctaState === "success"
-        ? "已加入购物袋"
-        : "立即下单";
-
+export default function Home() {
+  const account = useCommerceStore(state => state.account);
+  const f = COMMERCE_FIXTURE;
   return (
-    <SafeAreaView edges={["top"]} style={styles.screen} testID="home.root">
-      <View style={styles.intro}>
-        <View style={styles.headerActions}>
-          <ObservedPressable
-            stableId="home.header.location"
-            sourceRef={sourceRef_home_header_location}
-            observationRole="button"
-            accessibilityLabel={location}
-            onPress={() => router.push("/delivery-address")}
-            style={[
-              styles.locationButton,
-              {
-                marginTop: home.headerSpacing,
-                transform: [{ translateY: home.locationTranslateY }],
-              },
-            ]}
-          >
-            <Text
-              style={[
-                styles.locationLabel,
-                { fontSize: home.locationFontSize },
-              ]}
-            >
-              {location}
-            </Text>
-          </ObservedPressable>
-          <ObservedPressable
-            stableId="home.header.cart"
-            sourceRef={sourceRef}
-            observationRole="button"
-            accessibilityLabel={`袋 ${cartCount}`}
-            accessibilityHint={`购物袋，${cartCount} 件商品`}
-            onPress={() => router.push("/cart")}
-            style={styles.cartButton}
-          >
-            <Text style={styles.cartIcon}>袋</Text>
-            <ObservedView
-              stableId="home.header.cart_badge"
-              sourceRef={sourceRef}
-              observationRole="text"
-              accessible
-              style={styles.cartBadge}
-            >
-              <Text style={styles.cartBadgeText}>{cartCount}</Text>
-            </ObservedView>
-          </ObservedPressable>
+    <SafeAreaView edges={['top']} style={styles.screen}>
+      <View style={styles.header}>
+        <ObservedText stableId="home.brand" observationRole="text" sourceRef={sourceRef} style={styles.brand}>
+          食刻 <Text style={styles.brandSub}>FRESH MOMENTS</Text>
+        </ObservedText>
+        <View style={styles.iconButton} accessibilityLabel="消息">
+          <Image source={art.message} style={styles.icon22} />
         </View>
-        <ObservedText
-          stableId="home.brand.wordmark"
-          sourceRef={sourceRef}
-          observationRole="text"
-          accessible
-          observationStyle={styles.brandObservation}
-          style={styles.brand}
-        >
-          Food AI
-        </ObservedText>
-        <ObservedText
-          stableId="home.hero.headline"
-          sourceRef={sourceRef}
-          observationRole="text"
-          accessible
-          observationStyle={styles.headlineObservation}
-          style={styles.headline}
-        >
-          今晚，好好吃一顿
-        </ObservedText>
-        <ObservedView
-          stableId="home.ai_prompt"
-          sourceRef={sourceRef}
-          observationRole="group"
-          style={styles.promptShell}
-        >
-          <ObservedView
-            stableId="home.ai_prompt.input"
-            sourceRef={sourceRef}
-            observationRole="textbox"
-            accessible
-            accessibilityLabel={prompt || "想吃热乎的、微辣、别太油"}
-            accessibilityHint="饮食偏好"
-            style={styles.promptInputObservation}
-          >
-            <Text style={styles.hiddenText}>
-              {prompt || "想吃热乎的、微辣、别太油"}
-            </Text>
-            <TextInput
-              accessibilityLabel="饮食偏好"
-              onChangeText={(value) => {
-                setPrompt(value);
-                if (promptState === "ready") setPromptState("idle");
-              }}
-              onSubmitEditing={submitPrompt}
-              placeholder="想吃热乎的、微辣、别太油"
-              placeholderTextColor="#77655F"
-              returnKeyType="go"
-              style={styles.promptInput}
-              value={prompt}
-            />
-          </ObservedView>
-          <ObservedPressable
-            stableId="home.ai_prompt.submit"
-            sourceRef={sourceRef}
-            observationRole="button"
-            accessibilityLabel={promptState === "ready" ? "✓" : "→"}
-            accessibilityHint={promptButtonLabel}
-            disabled={promptState === "submitting"}
-            onPress={submitPrompt}
-            style={styles.promptSubmit}
-          >
-            <Text style={styles.promptSubmitText}>
-              {promptState === "ready" ? "✓" : "→"}
-            </Text>
-          </ObservedPressable>
-        </ObservedView>
       </View>
-      <ObservedView
-        stableId="home.recommendation.card"
-        sourceRef={sourceRef}
-        observationRole="group"
-        style={styles.recommendation}
-      >
-        <ObservedView
-          stableId="home.recommendation.image"
-          sourceRef={sourceRef}
-          observationRole="image"
-          style={styles.recommendationImage}
-        >
-          <View style={styles.imageHalo} />
-          <View style={styles.imageBowl} />
-          <ObservedView
-            stableId="home.recommendation.scrim"
-            sourceRef={sourceRef}
-            observationRole="decoration"
-            pointerEvents="none"
-            style={StyleSheet.absoluteFillObject}
-          />
-        </ObservedView>
-        <View style={styles.recommendationContent}>
-          <ObservedView
-            stableId="home.recommendation.match_score"
-            sourceRef={sourceRef}
-            observationRole="text"
-            accessible
-            style={styles.matchPill}
-          >
-            <Text style={styles.matchText}>匹配度 {recommendation.match}%</Text>
-          </ObservedView>
-          <View>
-            <ObservedText
-              stableId="home.recommendation.title"
-              sourceRef={sourceRef_home_recommendation_title}
-              observationRole="text"
-              accessible
-              observationStyle={styles.dishTitleObservation}
-              style={[styles.dishTitle, isSwapping && styles.mutedContent]}
-            >
-              {recommendation.title}
-            </ObservedText>
-            {recommendation.dishId === CUSTOMIZABLE_DISH_ID && !isSwapping && (
-              // 透明入口叠在标题上：标题仍是独立的观测与无障碍节点，布局不变；入口不进观测文档。
-              <Pressable
-                testID="home.recommendation.details"
-                accessibilityRole="button"
-                accessibilityLabel={`查看${recommendation.title}规格`}
-                onPress={() => {
-                  Keyboard.dismiss();
-                  router.push(`/dish-detail?dishId=${CUSTOMIZABLE_DISH_ID}`);
-                }}
-                style={StyleSheet.absoluteFill}
-              />
-            )}
+      <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+        <ObservedPressable stableId="home.store.select" observationRole="button" sourceRef={sourceRef} style={styles.storeRow}
+          accessibilityLabel={`${f.store.shortName} ${f.store.distanceLabel}`}>
+          <Image source={art.pin} style={styles.icon17} />
+          <ObservedText stableId="home.store.name" observationRole="text" sourceRef={sourceRef} style={styles.storeName}>{f.store.shortName}</ObservedText>
+          <ObservedText stableId="home.store.distance" observationRole="text" sourceRef={sourceRef} style={styles.storeDistance}>{f.store.distanceLabel}</ObservedText>
+          <Image source={art.chevron} style={styles.icon17} />
+        </ObservedPressable>
+        <ObservedText stableId="home.greeting" observationRole="text" sourceRef={sourceRef} style={styles.greeting}>{f.greeting}</ObservedText>
+
+        <View style={styles.hero}>
+          <View style={styles.heroRing} />
+          <Image source={art.hero} style={styles.heroArt} contentFit="contain" />
+          <Text style={styles.eyebrow}>{f.hero.eyebrow}</Text>
+          <ObservedText stableId="home.hero.headline" observationRole="text" sourceRef={sourceRef} style={styles.headline}>{f.hero.headline}</ObservedText>
+          <View style={styles.offer}>
+            <ObservedText stableId="home.hero.price" observationRole="text" sourceRef={sourceRef} style={styles.heroPrice}>{formatCents(f.hero.priceCents)}</ObservedText>
+            <Text style={styles.micro}>{f.hero.productName}</Text>
           </View>
-          <ObservedView
-            stableId="home.recommendation.attributes"
-            sourceRef={sourceRef}
-            observationRole="text"
-            accessible
-            style={styles.attributesRow}
-          >
-            <Text style={styles.attributesText}>
-              {recommendation.attributes}
-            </Text>
-          </ObservedView>
-          <ObservedView
-            stableId="home.recommendation.pagination"
-            sourceRef={sourceRef}
-            observationRole="text"
-            accessible
-            style={styles.pagination}
-          >
-            <Text style={styles.paginationText}>{paginationLabel}</Text>
-          </ObservedView>
-          <View
-            style={styles.offerRow}
-            testID="home.recommendation.purchase_meta"
-          >
-            <ObservedText
-              stableId="home.recommendation.price"
-              sourceRef={sourceRef}
-              observationRole="text"
-              accessible
-              observationStyle={styles.priceObservation}
-              style={styles.price}
-            >
-              ¥{recommendation.price}
-            </ObservedText>
-            <ObservedView
-              stableId="home.recommendation.savings"
-              sourceRef={sourceRef}
-              observationRole="text"
-              accessible
-              accessibilityLabel={`限时立减 ¥${recommendation.savings}`}
-              style={styles.savingsBadge}
-            >
-              <Text style={styles.savingsText}>
-                限时立减 ¥{recommendation.savings}
-              </Text>
-            </ObservedView>
-            <ObservedView
-              stableId="home.recommendation.eta"
-              sourceRef={sourceRef}
-              observationRole="text"
-              accessible
-              style={styles.etaCopy}
-            >
-              <Text style={styles.etaText}>
-                {recommendation.eta} · 预计送达
-              </Text>
-            </ObservedView>
-          </View>
-          <ObservedPressable
-            stableId="home.recommendation.primary_action"
-            sourceRef={sourceRef_home_recommendation_primary_action}
-            observationRole="button"
-            accessibilityLabel={primaryActionLabel}
-            disabled={ctaState !== "idle"}
-            onPress={() => {
-              Keyboard.dismiss();
-              pendingDish.current = recommendation.dishId;
-              setCtaState("loading");
-            }}
-            style={[
-              styles.primaryAction,
-              { backgroundColor: home.primaryActionBackground },
-              ctaState === "success" && styles.primaryActionSuccess,
-            ]}
-          >
-            <Text style={styles.primaryActionText}>{primaryActionLabel}</Text>
+          <View style={styles.tag}><Text style={styles.tagText}>{f.hero.tag}</Text></View>
+        </View>
+
+        <View style={styles.modeGrid}>
+          <ObservedPressable stableId="home.mode.pickup" observationRole="button" sourceRef={sourceRef} style={styles.modeCard}
+            onPress={() => router.navigate('/menu' as never)}>
+            <View style={styles.modeIcon}><Image source={art.pickup} style={styles.icon22} /></View>
+            <View>
+              <ObservedText stableId="home.mode.pickup.title" observationRole="text" sourceRef={sourceRef} style={styles.modeTitle}>到店自取</ObservedText>
+              <Text style={styles.tinyMuted}>提前点，到店拿</Text>
+            </View>
           </ObservedPressable>
-          <ObservedPressable
-            stableId="home.recommendation.next_action"
-            sourceRef={sourceRef}
-            observationRole="button"
-            accessibilityRole="button"
-            disabled={isSwapping}
-            onPress={() => {
-              Keyboard.dismiss();
-              setIsSwapping(true);
-            }}
-            style={styles.nextAction}
-          >
-            <Text style={styles.nextActionText}>
-              {isSwapping ? "正在换口味" : "换个口味"}
-            </Text>
+          <ObservedPressable stableId="home.mode.delivery" observationRole="button" sourceRef={sourceRef} style={styles.modeCard}>
+            <View style={styles.modeIcon}><Image source={art.delivery} style={styles.icon22} /></View>
+            <View>
+              <ObservedText stableId="home.mode.delivery.title" observationRole="text" sourceRef={sourceRef} style={styles.modeTitle}>外送到家</ObservedText>
+              <Text style={styles.tinyMuted}>热乎美味送到家</Text>
+            </View>
           </ObservedPressable>
         </View>
-      </ObservedView>
-      <ObservedView
-        stableId="home.navigation"
-        sourceRef={sourceRef}
-        observationRole="tablist"
-        accessibilityRole="tablist"
-        style={styles.bottomNavigation}
-      >
-        {tabs.map((tab) => {
-          const active = activeTab === tab.id;
-          return (
-            <ObservedPressable
-              key={tab.id}
-              stableId={tab.stableId}
-              sourceRef={sourceRef}
-              observationRole="tab"
-              accessibilityRole="tab"
-              accessibilityState={{ selected: active }}
-              onPress={() => {
-                Keyboard.dismiss();
-                setActiveTab(tab.id);
-                if (tab.route) router.push(tab.route);
-              }}
-              style={[styles.tab, active && styles.tabActive]}
-            >
-              <Text style={[styles.tabLabel, active && styles.tabLabelActive]}>
-                {tab.label}
-              </Text>
+
+        <ObservedPressable stableId="member.points.open" observationRole="button" sourceRef={sourceRef} style={styles.memberStrip}>
+          <Text style={styles.memberTitle}>食刻会员<Text style={styles.memberSubtle}> · 让每一餐都有回馈</Text></Text>
+          <ObservedText stableId="home.member.coupons" observationRole="text" sourceRef={sourceRef} style={styles.memberAction}>{memberStripAction(account)}</ObservedText>
+        </ObservedPressable>
+
+        <View style={styles.sectionTitle}>
+          <ObservedText stableId="home.shelf.title" observationRole="text" sourceRef={sourceRef} style={styles.sectionText}>人气好滋味</ObservedText>
+          <ObservedPressable stableId="home.start_order" observationRole="button" sourceRef={sourceRef} style={styles.textAction}
+            onPress={() => router.navigate('/menu' as never)}>
+            <Text style={styles.textActionLabel}>开始点餐 ›</Text>
+          </ObservedPressable>
+        </View>
+        <View style={styles.miniGrid}>
+          {f.featured.map((product, index) => (
+            <ObservedPressable key={product.id} stableId={`menu.product.${product.id}.open`} observationRole="button" sourceRef={sourceRef} style={styles.miniProduct}>
+              <View style={styles.miniArt}><Image source={art.products[index]} style={styles.miniArtImage} contentFit="contain" /></View>
+              <View style={styles.miniCopy}>
+                <ObservedText stableId={`home.shelf.${product.id}.name`} observationRole="text" sourceRef={sourceRef} style={styles.miniName}>{product.name}</ObservedText>
+                <View style={styles.miniRow}>
+                  <ObservedText stableId={`home.shelf.${product.id}.price`} observationRole="text" sourceRef={sourceRef} style={styles.miniPrice}>{formatCents(product.priceCents)}</ObservedText>
+                  <Text style={styles.plus}>＋</Text>
+                </View>
+              </View>
             </ObservedPressable>
-          );
-        })}
-      </ObservedView>
+          ))}
+        </View>
+
+        <ObservedPressable stableId="home.ai.open" observationRole="button" sourceRef={sourceRef} style={styles.aiCard}>
+          <View style={styles.aiLabel}><Image source={art.spark} style={styles.icon22} /><Text style={styles.aiText}> 不知道吃什么？帮我搭一餐</Text></View>
+          <Text style={styles.aiText}>›</Text>
+        </ObservedPressable>
+      </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: { backgroundColor: "#FFF8EF", flex: 1 },
-  intro: { height: 195, paddingHorizontal: 21 },
-  headerActions: {
-    height: 44,
-    marginHorizontal: -3,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  locationButton: { width: 120, height: 21 },
-  locationLabel: {
-    color: "#241713",
-    fontSize: 15,
-    fontWeight: "600",
-    lineHeight: 21,
-    letterSpacing: 0,
-  },
-  cartButton: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
-    backgroundColor: "#FFFFFF",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  cartIcon: {
-    color: "#241713",
-    fontSize: 14,
-    fontWeight: "700",
-    lineHeight: 18,
-  },
-  cartBadge: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: "#E6472F",
-    position: "absolute",
-    top: 0,
-    right: 0,
-  },
-  cartBadgeText: {
-    color: "#FFFFFF",
-    fontSize: 12,
-    fontWeight: "800",
-    lineHeight: 20,
-    textAlign: "center",
-  },
-  brandObservation: { width: 120, height: 34 },
-  brand: {
-    color: "#E6472F",
-    fontSize: 26,
-    fontWeight: "800",
-    lineHeight: 34,
-    height: 34,
-    letterSpacing: 0,
-  },
-  headlineObservation: { width: 360, height: 46, marginTop: 3 },
-  headline: {
-    color: "#241713",
-    fontSize: 32,
-    fontWeight: "800",
-    lineHeight: 46,
-    letterSpacing: 0,
-  },
-  promptShell: {
-    height: 44,
-    marginTop: 8,
-    flexDirection: "row",
-    alignItems: "center",
-    paddingLeft: 16,
-    paddingRight: 4,
-    backgroundColor: "#FFFFFF",
-    borderColor: "#E8DCD3",
-    borderWidth: 1,
-    borderRadius: 16,
-  },
-  promptInputObservation: { height: 20, flex: 1 },
-  promptInput: {
-    height: 20,
-    padding: 0,
-    color: "#77655F",
-    fontSize: 14,
-    fontWeight: "500",
-    lineHeight: 20,
-    letterSpacing: 0,
-  },
-  hiddenText: { height: 0, opacity: 0, width: 0 },
-  promptSubmit: {
-    width: 35.7969,
-    height: 36,
-    backgroundColor: "#E6472F",
-    borderRadius: 18,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  promptSubmitText: {
-    color: "#FFFFFF",
-    fontSize: 20,
-    fontWeight: "700",
-    lineHeight: 24,
-    letterSpacing: 0,
-  },
-  recommendation: { flex: 1, backgroundColor: "#FFFFFF", overflow: "hidden" },
-  recommendationImage: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 261,
-    backgroundColor: "#7E3825",
-    alignItems: "center",
-    justifyContent: "center",
-    overflow: "hidden",
-  },
-  imageHalo: {
-    height: 270,
-    width: 270,
-    backgroundColor: "#B7653E",
-    borderRadius: 80,
-  },
-  imageBowl: {
-    height: 170,
-    width: 230,
-    backgroundColor: "#EAB478",
-    borderRadius: 80,
-    position: "absolute",
-    left: 100,
-    top: 85,
-  },
-  recommendationContent: {
-    position: "absolute",
-    bottom: 8,
-    left: 22,
-    right: 22,
-  },
-  matchPill: {
-    height: 20,
-    width: 100,
-    backgroundColor: "#F7D7B5",
-    borderRadius: 10,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  matchText: {
-    color: "#241713",
-    fontSize: 13,
-    fontWeight: "700",
-    lineHeight: 20,
-    letterSpacing: 0,
-  },
-  dishTitleObservation: { height: 31, width: 386, marginTop: 6 },
-  dishTitle: {
-    color: "#241713",
-    fontSize: 24,
-    fontWeight: "800",
-    lineHeight: 31,
-    letterSpacing: 0,
-  },
-  mutedContent: { opacity: 0.45 },
-  attributesRow: { height: 20, width: 386, marginTop: 6 },
-  attributesText: {
-    color: "#77655F",
-    fontSize: 14,
-    fontWeight: "400",
-    lineHeight: 20,
-    letterSpacing: 0,
-  },
-  pagination: { height: 14, width: 50, marginTop: 6 },
-  paginationText: {
-    color: "#E6472F",
-    fontSize: 11,
-    fontWeight: "700",
-    lineHeight: 14,
-    letterSpacing: 0,
-  },
-  offerRow: {
-    height: 32,
-    marginTop: 22,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  priceObservation: { width: 56, height: 29 },
-  price: {
-    color: "#E6472F",
-    fontSize: 23,
-    fontWeight: "800",
-    lineHeight: 29,
-    width: 56,
-    height: 29,
-    letterSpacing: 0,
-  },
-  savingsBadge: {
-    width: 120,
-    height: 26,
-    marginLeft: 14,
-    backgroundColor: "#E6472F",
-    borderRadius: 13,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  savingsText: {
-    color: "#FFFFFF",
-    fontSize: 12,
-    fontWeight: "700",
-    lineHeight: 26,
-    letterSpacing: 0,
-  },
-  etaCopy: { width: 163, height: 18, marginLeft: 33 },
-  etaText: {
-    color: "#77655F",
-    fontSize: 13,
-    fontWeight: "600",
-    lineHeight: 18,
-    letterSpacing: 0,
-  },
-  primaryAction: {
-    height: 46,
-    marginTop: 6,
-    borderRadius: 16,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  primaryActionSuccess: { backgroundColor: "#70AD6C" },
-  primaryActionText: {
-    color: "#FFFFFF",
-    fontSize: 16,
-    fontWeight: "700",
-    lineHeight: 22,
-    letterSpacing: 0,
-  },
-  nextAction: {
-    height: 28,
-    width: 386,
-    marginTop: 6,
-    backgroundColor: "#FFFFFF",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  nextActionText: {
-    color: "#E6472F",
-    fontSize: 16,
-    fontWeight: "700",
-    lineHeight: 22,
-    letterSpacing: 0,
-  },
-  bottomNavigation: {
-    height: 70,
-    flexDirection: "row",
-    paddingHorizontal: 9,
-    paddingTop: 5,
-    paddingBottom: 14,
-    borderTopColor: "#E8DCD3",
-    borderTopWidth: 1,
-    backgroundColor: "#FFFFFF",
-  },
-  tab: {
-    flex: 1,
-    height: 50,
-    backgroundColor: "#FFFFFF",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  tabActive: { backgroundColor: "#F7D7B5", borderRadius: 16 },
-  tabLabel: {
-    color: "#77655F",
-    fontSize: 12,
-    fontWeight: "600",
-    lineHeight: 17,
-    letterSpacing: 0,
-  },
-  tabLabelActive: { color: "#E6472F" },
+  screen: { flex: 1, backgroundColor: colors.background },
+  header: { paddingTop: 8, paddingBottom: 12, paddingHorizontal: 20, minHeight: 55, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  brand: { fontSize: 26, fontWeight: '800', color: colors.brand, letterSpacing: -1 },
+  brandSub: { fontSize: 10, letterSpacing: 2, color: colors.muted, fontWeight: '400' },
+  iconButton: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center', borderRadius: 22 },
+  icon22: { width: 22, height: 22 },
+  icon17: { width: 17, height: 17 },
+  scroll: { flex: 1 },
+  scrollContent: { paddingHorizontal: 20, paddingBottom: 16 },
+  storeRow: { flexDirection: 'row', alignItems: 'center', gap: 12, minHeight: 44 },
+  storeName: { fontSize: 13, fontWeight: '700', color: colors.ink },
+  storeDistance: { fontSize: 12, lineHeight: 20, color: colors.muted },
+  greeting: { fontSize: 13, color: colors.muted, marginTop: 6, marginBottom: 14 },
+  hero: { height: 214, backgroundColor: colors.heroBg, borderRadius: 24, overflow: 'hidden', padding: 22 },
+  heroRing: { position: 'absolute', width: 210, height: 210, borderWidth: 1, borderColor: '#D9B487', borderRadius: 105, right: -48, top: -42 },
+  heroArt: { position: 'absolute', right: -20, bottom: -13, width: 228, height: 194, transform: [{ rotate: '-7deg' }] },
+  eyebrow: { fontSize: 10, color: colors.heroMicro, letterSpacing: 2, fontWeight: '600' },
+  headline: { fontSize: 29, lineHeight: 38, marginVertical: 10, color: colors.heroInk, fontWeight: '800' },
+  offer: { flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: 2 },
+  heroPrice: { fontSize: 22, color: colors.heroPrice, fontWeight: '800', letterSpacing: -0.4 },
+  micro: { fontSize: 10, color: colors.heroMicro },
+  tag: { alignSelf: 'flex-start', backgroundColor: colors.memberBg, borderRadius: 6, paddingVertical: 4, paddingHorizontal: 8, marginTop: 12, width: 105 },
+  tagText: { color: '#FFFFFF', fontSize: 10 },
+  modeGrid: { flexDirection: 'row', gap: 12, marginTop: 14 },
+  modeCard: { flex: 1, flexDirection: 'row', gap: 10, alignItems: 'center', borderRadius: 18, backgroundColor: colors.surface, paddingVertical: 16, paddingHorizontal: 12, borderWidth: 1, borderColor: colors.modeLine, minHeight: 88 },
+  modeIcon: { backgroundColor: colors.soft, borderRadius: 14, width: 42, height: 42, alignItems: 'center', justifyContent: 'center' },
+  modeTitle: { fontSize: 17, fontWeight: '700', color: colors.ink, marginBottom: 4 },
+  tinyMuted: { fontSize: 11, color: colors.muted },
+  memberStrip: { marginTop: 14, paddingVertical: 13, paddingHorizontal: 15, borderRadius: 14, backgroundColor: colors.memberBg, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  memberTitle: { fontSize: 13, fontWeight: '700', color: colors.memberInk },
+  memberSubtle: { fontSize: 11, fontWeight: '400', color: colors.memberSubtle },
+  memberAction: { fontSize: 13, color: colors.memberInk },
+  sectionTitle: { marginTop: 20, marginBottom: 12, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  sectionText: { fontSize: 18, fontWeight: '700', color: colors.ink },
+  textAction: { minHeight: 44, paddingVertical: 8, justifyContent: 'center' },
+  textActionLabel: { fontSize: 13, color: colors.muted },
+  miniGrid: { flexDirection: 'row', gap: 12 },
+  miniProduct: { flex: 1, borderRadius: 18, backgroundColor: colors.surface, overflow: 'hidden' },
+  miniArt: { height: 104, backgroundColor: colors.productArt, alignItems: 'center', justifyContent: 'center' },
+  miniArtImage: { width: 177, height: 104 },
+  miniCopy: { paddingVertical: 10, paddingHorizontal: 12 },
+  miniName: { fontSize: 13, fontWeight: '700', color: colors.ink },
+  miniRow: { marginTop: 8, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  miniPrice: { fontSize: 18, color: colors.brand, fontWeight: '800', letterSpacing: -0.4 },
+  plus: { fontSize: 14, color: colors.ink },
+  aiCard: { marginTop: 16, borderRadius: 20, backgroundColor: colors.soft, padding: 16, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  aiLabel: { flexDirection: 'row', alignItems: 'center' },
+  aiText: { fontSize: 14, color: colors.ink },
 });

@@ -4,11 +4,10 @@
 
 ```sh
 npm ci --ignore-scripts
-npm run test:eval-r1
-npm run test:eval-r1-browser
+npm run test:commerce
 npx tsc --noEmit
-npx eslint 'app/(tabs)/index.tsx' tests/*.cjs
-CI=1 EXPO_OFFLINE=1 EXPO_PUBLIC_AUTOPHONE_VERIFICATION=1 npx expo export --platform ios --output-dir dist/eval-r1-ios
+npx eslint 'app/(tabs)' components/commerce tests/*.cjs
+CI=1 EXPO_OFFLINE=1 EXPO_PUBLIC_AUTOPHONE_VERIFICATION=1 npx expo export --platform ios --output-dir dist/commerce-ios
 ```
 
 浏览器依赖 Playwright 对应的 Chromium；首次使用可执行 `npx playwright install chromium`。

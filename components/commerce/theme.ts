@@ -1,0 +1,21 @@
+/** commerce-v1 设计令牌（design/commerce-v1/spec/design-tokens.json 与原型 :root）。 */
+export const colors = {
+  brand: '#C93C25',
+  soft: '#FFF0E7',
+  background: '#FAF7F2',
+  surface: '#FFFFFF',
+  ink: '#251D19',
+  muted: '#71655D',
+  line: '#E7DED5',
+  heroBg: '#F0D8B8',
+  heroInk: '#352418',
+  heroPrice: '#8D311B',
+  heroMicro: '#6E4B2A',
+  memberBg: '#30271F',
+  memberInk: '#F7EBD9',
+  memberSubtle: '#D8C5B3',
+  cardLine: '#F0E8DF',
+  modeLine: '#EEE4D9',
+  productArt: '#F5EADB',
+  segmentBg: '#EDE6DD',
+} as const;
