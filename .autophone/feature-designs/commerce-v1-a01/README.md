@@ -153,7 +153,7 @@ python3 -I tools/check_render_determinism.py --runs 5
 | D1（G1） | 游客首页与默认态布局相同；会员条显示登录引导，不显示券数量 |
 | D2（G2） | 订单空态：文案“还没有订单”，主操作“去点餐”（`orders.empty.primary_action`，跳转点餐） |
 | D3（G4） | 金额统一显示两位小数（`¥32.90`）；Fixture 增加门店简称字段，首页显示简称“科创园店” |
-| D4（P1–P5） | 先用 `home.default.v1` 验证平台已有的 v1 HTML 草稿路径（直接打包原型 HTML，加 `data-stable-id` 注入适配器），与当前 DSL 产物并排比较后，再决定扩展 DSL 还是采用 HTML 适配器 |
+| D4（P1–P5） | 先用 `home.default.v1` 验证平台已有的 v1 HTML 草稿路径（直接打包原型 HTML，加 `data-stable-id` 注入适配器），与当前 DSL 产物并排比较后，再决定扩展 DSL 还是采用 HTML 适配器。2026-11-06 验证结果见 [spike/README.md](spike/README.md) |
 | D5（G8） | 接受 `home.ai.open` 在首屏部分可见；B4 验收以“滚动后可达”断言，不压缩上方间距 |
 | D6（合同未解析） | 订单筛选 ID：`orders.filter.all`、`orders.filter.active`、`orders.filter.completed`、`orders.filter.after_sale`，对应原型“全部 / 进行中 / 已完成 / 售后” |
 
