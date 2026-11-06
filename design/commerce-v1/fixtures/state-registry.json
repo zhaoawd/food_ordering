@@ -1,0 +1,1212 @@
+{
+  "schema_version": "food-ordering-design/1.0.0",
+  "fixtures": [
+    {
+      "id": "home.guest.v1",
+      "screen_id": "home",
+      "state_id": "home.guest.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "guest",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "home.default.v1",
+      "screen_id": "home",
+      "state_id": "home.default.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "default",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "home.loading.v1",
+      "screen_id": "home",
+      "state_id": "home.loading.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "loading",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "home.network_error.v1",
+      "screen_id": "home",
+      "state_id": "home.network_error.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "network_error",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "home.active_order.v1",
+      "screen_id": "home",
+      "state_id": "home.active_order.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "active_order",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "stores.permission_denied.v1",
+      "screen_id": "stores",
+      "state_id": "stores.permission_denied.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "permission_denied",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "stores.list.v1",
+      "screen_id": "stores",
+      "state_id": "stores.list.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "list",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "stores.empty.v1",
+      "screen_id": "stores",
+      "state_id": "stores.empty.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "empty",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "stores.closed.v1",
+      "screen_id": "stores",
+      "state_id": "stores.closed.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "closed",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "stores.switch_conflict.v1",
+      "screen_id": "stores",
+      "state_id": "stores.switch_conflict.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "switch_conflict",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "menu.default.v1",
+      "screen_id": "menu",
+      "state_id": "menu.default.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "default",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "menu.loading.v1",
+      "screen_id": "menu",
+      "state_id": "menu.loading.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "loading",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "menu.empty.v1",
+      "screen_id": "menu",
+      "state_id": "menu.empty.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "empty",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "menu.error.v1",
+      "screen_id": "menu",
+      "state_id": "menu.error.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "error",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "menu.sold_out.v1",
+      "screen_id": "menu",
+      "state_id": "menu.sold_out.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "sold_out",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "menu.search_empty.v1",
+      "screen_id": "menu",
+      "state_id": "menu.search_empty.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "search_empty",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "product.default.v1",
+      "screen_id": "product",
+      "state_id": "product.default.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "default",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "product.customized.v1",
+      "screen_id": "product",
+      "state_id": "product.customized.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "customized",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "product.required_missing.v1",
+      "screen_id": "product",
+      "state_id": "product.required_missing.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "required_missing",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "product.sold_out.v1",
+      "screen_id": "product",
+      "state_id": "product.sold_out.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "sold_out",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "product.line_limit.v1",
+      "screen_id": "product",
+      "state_id": "product.line_limit.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "line_limit",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "cart.empty.v1",
+      "screen_id": "cart",
+      "state_id": "cart.empty.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "empty",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "cart.default.v1",
+      "screen_id": "cart",
+      "state_id": "cart.default.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "default",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "cart.coupon_invalid.v1",
+      "screen_id": "cart",
+      "state_id": "cart.coupon_invalid.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "coupon_invalid",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "cart.price_changed.v1",
+      "screen_id": "cart",
+      "state_id": "cart.price_changed.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "price_changed",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "cart.store_conflict.v1",
+      "screen_id": "cart",
+      "state_id": "cart.store_conflict.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "store_conflict",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "coupons.default.v1",
+      "screen_id": "coupons",
+      "state_id": "coupons.default.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "default",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "coupons.draft_selected.v1",
+      "screen_id": "coupons",
+      "state_id": "coupons.draft_selected.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "draft_selected",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "coupons.unavailable.v1",
+      "screen_id": "coupons",
+      "state_id": "coupons.unavailable.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "unavailable",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "coupons.expired.v1",
+      "screen_id": "coupons",
+      "state_id": "coupons.expired.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "expired",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "coupons.empty.v1",
+      "screen_id": "coupons",
+      "state_id": "coupons.empty.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "empty",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "checkout.quoting.v1",
+      "screen_id": "checkout",
+      "state_id": "checkout.quoting.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "quoting",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "checkout.ready.v1",
+      "screen_id": "checkout",
+      "state_id": "checkout.ready.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "ready",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "checkout.quote_expired.v1",
+      "screen_id": "checkout",
+      "state_id": "checkout.quote_expired.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "quote_expired",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "checkout.price_changed.v1",
+      "screen_id": "checkout",
+      "state_id": "checkout.price_changed.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "price_changed",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "checkout.stock_changed.v1",
+      "screen_id": "checkout",
+      "state_id": "checkout.stock_changed.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "stock_changed",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "checkout.auth_required.v1",
+      "screen_id": "checkout",
+      "state_id": "checkout.auth_required.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "auth_required",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "checkout.submitting.v1",
+      "screen_id": "checkout",
+      "state_id": "checkout.submitting.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "submitting",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "payment.pending.v1",
+      "screen_id": "payment",
+      "state_id": "payment.pending.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "pending",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "payment.succeeded.v1",
+      "screen_id": "payment",
+      "state_id": "payment.succeeded.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "succeeded",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "payment.failed.v1",
+      "screen_id": "payment",
+      "state_id": "payment.failed.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "failed",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "payment.unknown.v1",
+      "screen_id": "payment",
+      "state_id": "payment.unknown.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "unknown",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "payment.reconciling.v1",
+      "screen_id": "payment",
+      "state_id": "payment.reconciling.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "reconciling",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "order.awaiting_payment.v1",
+      "screen_id": "order",
+      "state_id": "order.awaiting_payment.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "awaiting_payment",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "order.confirmed.v1",
+      "screen_id": "order",
+      "state_id": "order.confirmed.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "confirmed",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "order.preparing.v1",
+      "screen_id": "order",
+      "state_id": "order.preparing.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "preparing",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "order.ready_for_pickup.v1",
+      "screen_id": "order",
+      "state_id": "order.ready_for_pickup.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "ready_for_pickup",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "order.out_for_delivery.v1",
+      "screen_id": "order",
+      "state_id": "order.out_for_delivery.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "out_for_delivery",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "order.completed.v1",
+      "screen_id": "order",
+      "state_id": "order.completed.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "completed",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "order.canceled.v1",
+      "screen_id": "order",
+      "state_id": "order.canceled.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "canceled",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "order.refund_pending.v1",
+      "screen_id": "order",
+      "state_id": "order.refund_pending.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "refund_pending",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "order.refund_succeeded.v1",
+      "screen_id": "order",
+      "state_id": "order.refund_succeeded.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "refund_succeeded",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "orders.loading.v1",
+      "screen_id": "orders",
+      "state_id": "orders.loading.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "loading",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "orders.default.v1",
+      "screen_id": "orders",
+      "state_id": "orders.default.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "default",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "orders.empty.v1",
+      "screen_id": "orders",
+      "state_id": "orders.empty.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "empty",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "orders.error.v1",
+      "screen_id": "orders",
+      "state_id": "orders.error.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "error",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "member.guest.v1",
+      "screen_id": "member",
+      "state_id": "member.guest.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "guest",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "member.default.v1",
+      "screen_id": "member",
+      "state_id": "member.default.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "default",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "member.points_empty.v1",
+      "screen_id": "member",
+      "state_id": "member.points_empty.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "points_empty",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "member.error.v1",
+      "screen_id": "member",
+      "state_id": "member.error.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "error",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "address.default.v1",
+      "screen_id": "address",
+      "state_id": "address.default.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "default",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "address.editing.v1",
+      "screen_id": "address",
+      "state_id": "address.editing.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "editing",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "address.invalid.v1",
+      "screen_id": "address",
+      "state_id": "address.invalid.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "invalid",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "address.out_of_range.v1",
+      "screen_id": "address",
+      "state_id": "address.out_of_range.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "out_of_range",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "address.empty.v1",
+      "screen_id": "address",
+      "state_id": "address.empty.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "empty",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "ai.idle.v1",
+      "screen_id": "ai",
+      "state_id": "ai.idle.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "idle",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "ai.thinking.v1",
+      "screen_id": "ai",
+      "state_id": "ai.thinking.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "thinking",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "ai.suggestions.v1",
+      "screen_id": "ai",
+      "state_id": "ai.suggestions.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "suggestions",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "ai.no_match.v1",
+      "screen_id": "ai",
+      "state_id": "ai.no_match.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "no_match",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "ai.tool_failure.v1",
+      "screen_id": "ai",
+      "state_id": "ai.tool_failure.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "tool_failure",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    },
+    {
+      "id": "ai.unsafe_suggestion_rejected.v1",
+      "screen_id": "ai",
+      "state_id": "ai.unsafe_suggestion_rejected.v1",
+      "seed_files": [
+        "fixtures/catalog.json",
+        "fixtures/commerce.json"
+      ],
+      "clock": "2026-11-05T12:00:00+08:00",
+      "locale": "zh-CN",
+      "timezone": "Asia/Shanghai",
+      "deterministic": true,
+      "bootstrap_strategy": "adapter_needed",
+      "state_recipe": "unsafe_suggestion_rejected",
+      "isolation": "new run_id + backend namespace + fresh session nonce",
+      "note": "状态配方尚需接入真实应用；交互目标状态不得通过直接改Store替代被测动作。"
+    }
+  ]
+}

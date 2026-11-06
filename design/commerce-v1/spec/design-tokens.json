@@ -1,0 +1,72 @@
+{
+  "schema_version": "food-ordering-design/1.0.0",
+  "color": {
+    "brand": "#C93C25",
+    "brandSoft": "#FFF0E7",
+    "background": "#FAF7F2",
+    "surface": "#FFFFFF",
+    "text": "#251D19",
+    "muted": "#71655D",
+    "border": "#E7DED5",
+    "success": "#236449",
+    "successSoft": "#E8F3EC",
+    "warning": "#8A5200",
+    "warningSoft": "#FFF2D2",
+    "disabled": "#B7ABA1",
+    "ink": "#30271F"
+  },
+  "space": [
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    32,
+    40,
+    48
+  ],
+  "radius": {
+    "control": 12,
+    "card": 20,
+    "sheet": 28,
+    "pill": 999
+  },
+  "type": {
+    "nativeFamily": "system",
+    "designFamily": "Noto Sans SC",
+    "sizes": {
+      "caption": 12,
+      "small": 13,
+      "body": 15,
+      "headline": 20,
+      "title": 28,
+      "hero": 34
+    },
+    "fontScaleSupported": [
+      1,
+      1.3,
+      1.6,
+      2
+    ]
+  },
+  "interaction": {
+    "minimumHitTargetPt": 44,
+    "primaryHeightPt": 52,
+    "reducedMotion": true
+  },
+  "layout": {
+    "compactMaxWidthExclusive": 600,
+    "mediumMaxWidthExclusive": 840,
+    "expandedMinWidth": 840,
+    "unit": "logical points / RN layout units",
+    "basis": "available content width after safe-area and reserved regions, not physical screen pixels",
+    "minimumPaneWidths": {
+      "catalog": 280,
+      "detail": 300,
+      "cart": 300
+    },
+    "gap": 16,
+    "fallback": "when fontScale >= 1.6 or panes cannot fit, use single column; at 840+ permit two panes, third only when 3 minima + gaps fit"
+  }
+}

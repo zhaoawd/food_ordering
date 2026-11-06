@@ -1,0 +1,1285 @@
+{
+  "schema_version": "food-ordering-design/1.0.0",
+  "native_execution_status": "not_run",
+  "cases": [
+    {
+      "id": "T001",
+      "feature_id": "F01",
+      "title": "游客浏览不被强制登录",
+      "screen_id": "home",
+      "state_id": "home.guest.v1",
+      "fixture_id": "home.guest.v1",
+      "rule_ids": [
+        "R10"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "打开首页并进入菜单",
+      "then": "显示菜单，未创建账号",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T002",
+      "feature_id": "F01",
+      "title": "结算登录保留购物车",
+      "screen_id": "checkout",
+      "state_id": "checkout.auth_required.v1",
+      "fixture_id": "checkout.auth_required.v1",
+      "rule_ids": [
+        "R10"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "登录测试用户后继续结算",
+      "then": "购物车摘要不变、回到结算",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T003",
+      "feature_id": "F02",
+      "title": "五个导航入口可达",
+      "screen_id": "home",
+      "state_id": "home.default.v1",
+      "fixture_id": "home.default.v1",
+      "rule_ids": [
+        "R21"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "逐一点击首页/点餐/优惠/订单/我的",
+      "then": "五条正确路由，无空点击",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T004",
+      "feature_id": "F02",
+      "title": "订单不再显示购物车",
+      "screen_id": "orders",
+      "state_id": "orders.empty.v1",
+      "fixture_id": "orders.empty.v1",
+      "rule_ids": [
+        "R21"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "点击订单入口",
+      "then": "显示订单空态，不显示购物袋",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T005",
+      "feature_id": "F03",
+      "title": "拒绝定位手动选店",
+      "screen_id": "stores",
+      "state_id": "stores.permission_denied.v1",
+      "fixture_id": "stores.permission_denied.v1",
+      "rule_ids": [
+        "R02"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "拒绝定位并选择演示门店",
+      "then": "可进入对应门店菜单",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T006",
+      "feature_id": "F03",
+      "title": "闭店禁止开始下单",
+      "screen_id": "stores",
+      "state_id": "stores.closed.v1",
+      "fixture_id": "stores.closed.v1",
+      "rule_ids": [
+        "R18"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "选择已闭店门店",
+      "then": "展示营业时间、下单不可用",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T007",
+      "feature_id": "F03",
+      "title": "取消切店保留原购物车",
+      "screen_id": "stores",
+      "state_id": "stores.switch_conflict.v1",
+      "fixture_id": "stores.switch_conflict.v1",
+      "rule_ids": [
+        "R02"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "切店预检后取消",
+      "then": "原店、原券、原行键均保留",
+      "layer": "integration",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T008",
+      "feature_id": "F03",
+      "title": "确认切店提示失效商品",
+      "screen_id": "stores",
+      "state_id": "stores.switch_conflict.v1",
+      "fixture_id": "stores.switch_conflict.v1",
+      "rule_ids": [
+        "R02"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "确认切店并处理缺货项",
+      "then": "变价/下架可见；旧报价失效",
+      "layer": "integration",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T009",
+      "feature_id": "F04",
+      "title": "搜索无结果可清除",
+      "screen_id": "menu",
+      "state_id": "menu.search_empty.v1",
+      "fixture_id": "menu.search_empty.v1",
+      "rule_ids": [
+        "R21"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "输入不存在的餐品后清除",
+      "then": "空态后恢复完整分类",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T010",
+      "feature_id": "F04",
+      "title": "售罄不可加购",
+      "screen_id": "menu",
+      "state_id": "menu.sold_out.v1",
+      "fixture_id": "menu.sold_out.v1",
+      "rule_ids": [
+        "R11"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "尝试加购售罄SKU",
+      "then": "按钮禁用且cartRevision不变",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T011",
+      "feature_id": "F04",
+      "title": "菜单请求失败可重试",
+      "screen_id": "menu",
+      "state_id": "menu.error.v1",
+      "fixture_id": "menu.error.v1",
+      "rule_ids": [
+        "R21"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "请求失败后点击重试",
+      "then": "恢复内容，不重复加购",
+      "layer": "integration",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T012",
+      "feature_id": "F05",
+      "title": "套餐必选组校验",
+      "screen_id": "product",
+      "state_id": "product.required_missing.v1",
+      "fixture_id": "product.required_missing.v1",
+      "rule_ids": [
+        "R03"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "未选必选项尝试加购",
+      "then": "提示缺少字段，无购物车变化",
+      "layer": "unit",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T013",
+      "feature_id": "F05",
+      "title": "规格顺序不影响合并",
+      "screen_id": "product",
+      "state_id": "product.customized.v1",
+      "fixture_id": "product.customized.v1",
+      "rule_ids": [
+        "R03"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "以不同顺序选择相同规格并加购",
+      "then": "同一稳定行键合并数量",
+      "layer": "unit",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T014",
+      "feature_id": "F05",
+      "title": "不同规格独立购物车行",
+      "screen_id": "product",
+      "state_id": "product.customized.v1",
+      "fixture_id": "product.customized.v1",
+      "rule_ids": [
+        "R03"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "分别加购少冰和去冰",
+      "then": "生成不同稳定行键",
+      "layer": "unit",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T015",
+      "feature_id": "F05",
+      "title": "加价正确计入商品金额",
+      "screen_id": "product",
+      "state_id": "product.customized.v1",
+      "fixture_id": "product.customized.v1",
+      "rule_ids": [
+        "R01"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "两份套餐饮品换为加300分咖啡",
+      "then": "商品金额=7180分",
+      "layer": "unit",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T016",
+      "feature_id": "F06",
+      "title": "单行数量上限9",
+      "screen_id": "product",
+      "state_id": "product.line_limit.v1",
+      "fixture_id": "product.line_limit.v1",
+      "rule_ids": [
+        "R04"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "已有8份再加2份",
+      "then": "整笔拒绝，仍为8份",
+      "layer": "unit",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T017",
+      "feature_id": "F06",
+      "title": "减至零删除商品",
+      "screen_id": "cart",
+      "state_id": "cart.default.v1",
+      "fixture_id": "cart.default.v1",
+      "rule_ids": [
+        "R04"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "单份商品点击减号",
+      "then": "行删除、空车费用清零",
+      "layer": "unit",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T018",
+      "feature_id": "F06",
+      "title": "空车不能结算",
+      "screen_id": "cart",
+      "state_id": "cart.empty.v1",
+      "fixture_id": "cart.empty.v1",
+      "rule_ids": [
+        "R08"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "查看购物袋",
+      "then": "展示去点餐；不能创建订单",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T019",
+      "feature_id": "F07",
+      "title": "券门槛含等于",
+      "screen_id": "coupons",
+      "state_id": "coupons.default.v1",
+      "fixture_id": "coupons.default.v1",
+      "rule_ids": [
+        "R05"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "商品金额正好6000分选择save10",
+      "then": "优惠1000分；费用不计门槛",
+      "layer": "unit",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T020",
+      "feature_id": "F07",
+      "title": "取消选券不保存草稿",
+      "screen_id": "coupons",
+      "state_id": "coupons.draft_selected.v1",
+      "fixture_id": "coupons.draft_selected.v1",
+      "rule_ids": [
+        "R06"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "选择新券后取消",
+      "then": "原应用券保持不变",
+      "layer": "unit",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T021",
+      "feature_id": "F07",
+      "title": "减少商品使优惠失效",
+      "screen_id": "cart",
+      "state_id": "cart.coupon_invalid.v1",
+      "fixture_id": "cart.coupon_invalid.v1",
+      "rule_ids": [
+        "R06"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "两份套餐减为一份",
+      "then": "save10失效；不自动恢复",
+      "layer": "integration",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T022",
+      "feature_id": "F07",
+      "title": "券有效期采用右开区间",
+      "screen_id": "coupons",
+      "state_id": "coupons.expired.v1",
+      "fixture_id": "coupons.expired.v1",
+      "rule_ids": [
+        "R05"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "时钟到valid_until_exclusive",
+      "then": "券不可用、明示过期",
+      "layer": "unit",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T023",
+      "feature_id": "F08",
+      "title": "标准自取结算金额",
+      "screen_id": "checkout",
+      "state_id": "checkout.ready.v1",
+      "fixture_id": "checkout.ready.v1",
+      "rule_ids": [
+        "R07"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "两份3290套餐使用save10",
+      "then": "6580+400-1000=5980分",
+      "layer": "integration",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T024",
+      "feature_id": "F08",
+      "title": "报价过期重新确认",
+      "screen_id": "checkout",
+      "state_id": "checkout.quote_expired.v1",
+      "fixture_id": "checkout.quote_expired.v1",
+      "rule_ids": [
+        "R09"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "推进时钟121秒后提交",
+      "then": "不建单，重报价并提示确认",
+      "layer": "integration",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T025",
+      "feature_id": "F08",
+      "title": "服务端拒绝客户端篡改金额",
+      "screen_id": "checkout",
+      "state_id": "checkout.ready.v1",
+      "fixture_id": "checkout.ready.v1",
+      "rule_ids": [
+        "R09"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "请求附带1分钱payable",
+      "then": "拒绝非合同字段或忽略后重新定价",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T026",
+      "feature_id": "F08",
+      "title": "缺货阻止创建订单",
+      "screen_id": "checkout",
+      "state_id": "checkout.stock_changed.v1",
+      "fixture_id": "checkout.stock_changed.v1",
+      "rule_ids": [
+        "R11"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "报价后库存被另一订单占用",
+      "then": "409 STOCK_CHANGED；无部分扣券",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T027",
+      "feature_id": "F09",
+      "title": "双击只创建一单",
+      "screen_id": "checkout",
+      "state_id": "checkout.submitting.v1",
+      "fixture_id": "checkout.submitting.v1",
+      "rule_ids": [
+        "R10"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "同一幂等键并发提交两次",
+      "then": "一个orderId、一笔库存预留",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T028",
+      "feature_id": "F09",
+      "title": "幂等键不同请求冲突",
+      "screen_id": "checkout",
+      "state_id": "checkout.submitting.v1",
+      "fixture_id": "checkout.submitting.v1",
+      "rule_ids": [
+        "R10"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "相同key发送不同quoteId",
+      "then": "409 IDEMPOTENCY_CONFLICT",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T029",
+      "feature_id": "F09",
+      "title": "支付超时不能显示失败",
+      "screen_id": "payment",
+      "state_id": "payment.unknown.v1",
+      "fixture_id": "payment.unknown.v1",
+      "rule_ids": [
+        "R13"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "支付请求超时后重新查单",
+      "then": "仍查同订单；没有新订单或重复扣款",
+      "layer": "integration",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T030",
+      "feature_id": "F09",
+      "title": "重复支付回调不重复履约",
+      "screen_id": "payment",
+      "state_id": "payment.succeeded.v1",
+      "fixture_id": "payment.succeeded.v1",
+      "rule_ids": [
+        "R14"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "重复投递同一支付成功事件",
+      "then": "一次状态转移、一次履约任务",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T031",
+      "feature_id": "F09",
+      "title": "无效回调签名被拒绝",
+      "screen_id": "payment",
+      "state_id": "payment.pending.v1",
+      "fixture_id": "payment.pending.v1",
+      "rule_ids": [
+        "R12"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "投递未授权成功回调",
+      "then": "拒绝；订单仍待支付",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T032",
+      "feature_id": "F09",
+      "title": "已取消单迟到支付补偿",
+      "screen_id": "order",
+      "state_id": "order.canceled.v1",
+      "fixture_id": "order.canceled.v1",
+      "rule_ids": [
+        "R14"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "投递真实迟到支付成功事件",
+      "then": "启动补偿退款，不出餐",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T033",
+      "feature_id": "F10",
+      "title": "取餐码跟随真实订单状态",
+      "screen_id": "order",
+      "state_id": "order.preparing.v1",
+      "fixture_id": "order.preparing.v1",
+      "rule_ids": [
+        "R16"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "模拟后端推进至ready_for_pickup",
+      "then": "AX状态与服务端一致、显示取餐码",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T034",
+      "feature_id": "F10",
+      "title": "未支付取消释放一次",
+      "screen_id": "order",
+      "state_id": "order.awaiting_payment.v1",
+      "fixture_id": "order.awaiting_payment.v1",
+      "rule_ids": [
+        "R15"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "两次请求取消同订单",
+      "then": "一次释放库存和券，不重复",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T035",
+      "feature_id": "F10",
+      "title": "订单归属权限",
+      "screen_id": "order",
+      "state_id": "order.completed.v1",
+      "fixture_id": "order.completed.v1",
+      "rule_ids": [
+        "R23"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "另一账号请求订单详情",
+      "then": "403或404且不泄漏订单信息",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T036",
+      "feature_id": "F11",
+      "title": "测试命令跨会话被拒绝",
+      "screen_id": "home",
+      "state_id": "home.default.v1",
+      "fixture_id": "home.default.v1",
+      "rule_ids": [
+        "R20"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "发送错误nonce的seed命令",
+      "then": "命令失败且业务状态不变",
+      "layer": "security",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T037",
+      "feature_id": "F11",
+      "title": "release不存在测试桥",
+      "screen_id": "home",
+      "state_id": "home.default.v1",
+      "fixture_id": "home.default.v1",
+      "rule_ids": [
+        "R20"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "release构建扫描并调用reset命令",
+      "then": "桥接不可达且无fixture测试用户",
+      "layer": "security",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T038",
+      "feature_id": "F11",
+      "title": "内部观测不充当独立证据",
+      "screen_id": "checkout",
+      "state_id": "checkout.ready.v1",
+      "fixture_id": "checkout.ready.v1",
+      "rule_ids": [
+        "R21"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "仅伪造观测应付文本",
+      "then": "与AX/截图/后端金额不符，验收失败",
+      "layer": "mutation",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T039",
+      "feature_id": "F12",
+      "title": "折叠重排保留购物车",
+      "screen_id": "cart",
+      "state_id": "cart.default.v1",
+      "fixture_id": "cart.default.v1",
+      "rule_ids": [
+        "R22"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "内容宽度390→760→1024→390",
+      "then": "行键/数量/已选券不变",
+      "layer": "native",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T040",
+      "feature_id": "F12",
+      "title": "输入时收起不白屏",
+      "screen_id": "ai",
+      "state_id": "ai.idle.v1",
+      "fixture_id": "ai.idle.v1",
+      "rule_ids": [
+        "R22"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "输入框焦点+键盘打开时切窄屏",
+      "then": "页面可见、输入文本保留、焦点恢复",
+      "layer": "native",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T041",
+      "feature_id": "F12",
+      "title": "大字与触控目标",
+      "screen_id": "checkout",
+      "state_id": "checkout.ready.v1",
+      "fixture_id": "checkout.ready.v1",
+      "rule_ids": [
+        "R22"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "字体1.6与2.0、逐控件检测",
+      "then": "无关键截断，主操作44pt以上可触",
+      "layer": "native",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T042",
+      "feature_id": "F12",
+      "title": "提交时旋转不重复请求",
+      "screen_id": "checkout",
+      "state_id": "checkout.submitting.v1",
+      "fixture_id": "checkout.submitting.v1",
+      "rule_ids": [
+        "R22"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "提交期间旋转和前后台切换",
+      "then": "同一幂等键与orderId，仅一次创建",
+      "layer": "native",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T043",
+      "feature_id": "F13",
+      "title": "外送收费正确",
+      "screen_id": "checkout",
+      "state_id": "checkout.ready.v1",
+      "fixture_id": "checkout.ready.v1",
+      "rule_ids": [
+        "R18"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "同购物车切换外送并确认地址",
+      "then": "6580+400+300-1000=6280分",
+      "layer": "integration",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T044",
+      "feature_id": "F13",
+      "title": "超范围地址不可下单",
+      "screen_id": "address",
+      "state_id": "address.out_of_range.v1",
+      "fixture_id": "address.out_of_range.v1",
+      "rule_ids": [
+        "R18"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "选择超出服务范围地址",
+      "then": "提示修改地址或自取",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T045",
+      "feature_id": "F14",
+      "title": "完成单积分仅入账一次",
+      "screen_id": "order",
+      "state_id": "order.completed.v1",
+      "fixture_id": "order.completed.v1",
+      "rule_ids": [
+        "R17"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "重复完成事件",
+      "then": "积分流水唯一、不重复赠送",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T046",
+      "feature_id": "F14",
+      "title": "退款冲销积分可追溯",
+      "screen_id": "order",
+      "state_id": "order.refund_succeeded.v1",
+      "fixture_id": "order.refund_succeeded.v1",
+      "rule_ids": [
+        "R17"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "执行部分退款事件",
+      "then": "冲销积分并保留原始台账",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T047",
+      "feature_id": "F15",
+      "title": "活动配置失败安全降级",
+      "screen_id": "home",
+      "state_id": "home.network_error.v1",
+      "fixture_id": "home.network_error.v1",
+      "rule_ids": [
+        "R21"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "投放配置不可用或schema无效",
+      "then": "展示本地安全首页，点餐不受阻",
+      "layer": "integration",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T048",
+      "feature_id": "F15",
+      "title": "活动到期不可继续优惠",
+      "screen_id": "coupons",
+      "state_id": "coupons.expired.v1",
+      "fixture_id": "coupons.expired.v1",
+      "rule_ids": [
+        "R05"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "推进时钟越过活动截止",
+      "then": "移除活动，服务端拒绝过期优惠",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T049",
+      "feature_id": "F16",
+      "title": "再来一单重新定价",
+      "screen_id": "orders",
+      "state_id": "orders.default.v1",
+      "fixture_id": "orders.default.v1",
+      "rule_ids": [
+        "R09"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "对历史订单点击再来一单",
+      "then": "新购物车使用现价，提示失效SKU",
+      "layer": "integration",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T050",
+      "feature_id": "F17",
+      "title": "退款状态不覆盖履约历史",
+      "screen_id": "order",
+      "state_id": "order.refund_pending.v1",
+      "fixture_id": "order.refund_pending.v1",
+      "rule_ids": [
+        "R16"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "申请退款并接收成功事件",
+      "then": "退款状态变更，履约时间线保留",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T051",
+      "feature_id": "F18",
+      "title": "拒绝推送仍可查看订单",
+      "screen_id": "orders",
+      "state_id": "orders.default.v1",
+      "fixture_id": "orders.default.v1",
+      "rule_ids": [
+        "R21"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "拒绝推送权限后进入订单",
+      "then": "可通过轮询/刷新获取状态",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T052",
+      "feature_id": "F19",
+      "title": "未完成订单不可评价",
+      "screen_id": "order",
+      "state_id": "order.preparing.v1",
+      "fixture_id": "order.preparing.v1",
+      "rule_ids": [
+        "R16"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "请求提交评价",
+      "then": "服务端拒绝，保留输入说明",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T053",
+      "feature_id": "F20",
+      "title": "证据脱敏扫描",
+      "screen_id": "address",
+      "state_id": "address.default.v1",
+      "fixture_id": "address.default.v1",
+      "rule_ids": [
+        "R23"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "采集日志/事件/观察数据",
+      "then": "无手机号、精确地址、token或支付凭据",
+      "layer": "security",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T054",
+      "feature_id": "F21",
+      "title": "AI不虚构商品与价格",
+      "screen_id": "ai",
+      "state_id": "ai.suggestions.v1",
+      "fixture_id": "ai.suggestions.v1",
+      "rule_ids": [
+        "R19"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "注入无效SKU和低价的模型输出",
+      "then": "工具schema/目录校验拒绝",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T055",
+      "feature_id": "F21",
+      "title": "AI加购前要求确认",
+      "screen_id": "ai",
+      "state_id": "ai.suggestions.v1",
+      "fixture_id": "ai.suggestions.v1",
+      "rule_ids": [
+        "R19"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "生成推荐但不点击确认",
+      "then": "cartRevision保持不变",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T056",
+      "feature_id": "F21",
+      "title": "AI工具失败回退菜单",
+      "screen_id": "ai",
+      "state_id": "ai.tool_failure.v1",
+      "fixture_id": "ai.tool_failure.v1",
+      "rule_ids": [
+        "R19"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "推荐工具超时",
+      "then": "展示失败原因与手动点餐入口",
+      "layer": "ui",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "screenshot.png",
+        "accessibility-tree.json"
+      ]
+    },
+    {
+      "id": "T057",
+      "feature_id": "F22",
+      "title": "权益核销防重",
+      "screen_id": "member",
+      "state_id": "member.default.v1",
+      "fixture_id": "member.default.v1",
+      "rule_ids": [
+        "R10"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "同权益同订单重复核销",
+      "then": "一次消费记录",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T058",
+      "feature_id": "F23",
+      "title": "预约容量不足不可下单",
+      "screen_id": "checkout",
+      "state_id": "checkout.stock_changed.v1",
+      "fixture_id": "checkout.stock_changed.v1",
+      "rule_ids": [
+        "R18"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "选择已满时间段",
+      "then": "提示可用时段，不创建订单",
+      "layer": "api",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T059",
+      "feature_id": "F24",
+      "title": "实验分桶稳定",
+      "screen_id": "home",
+      "state_id": "home.default.v1",
+      "fixture_id": "home.default.v1",
+      "rule_ids": [
+        "R21"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "同账号重启应用",
+      "then": "实验版本不变时分桶一致",
+      "layer": "unit",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    },
+    {
+      "id": "T060",
+      "feature_id": "F11",
+      "title": "旧购物车优惠评测兼容",
+      "screen_id": "cart",
+      "state_id": "cart.default.v1",
+      "fixture_id": "cart.default.v1",
+      "rule_ids": [
+        "R01"
+      ],
+      "given": "固定合成数据、独立run_id、固定时钟与菜单版本",
+      "when": "运行legacy-v1两份牛肉饭+save10",
+      "then": "6400+400+300-1000=6100分",
+      "layer": "regression",
+      "status": "specified_not_executed",
+      "required_evidence": [
+        "test-result.json",
+        "business-events.json",
+        "server-readback.json"
+      ]
+    }
+  ]
+}

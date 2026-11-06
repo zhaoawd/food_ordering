@@ -1,0 +1,78 @@
+{
+  "retrieved_on": "2026-11-05",
+  "scope": "Selected public main files, not full repository audit; raw source readable but git clone unavailable in this runtime. No app or native tests executed.",
+  "commit_sha": null,
+  "agent_must_freeze_sha": true,
+  "sources": [
+    {
+      "id": "S01",
+      "title": "package.json",
+      "url": "https://raw.githubusercontent.com/zhaoawd/food_ordering/main/package.json"
+    },
+    {
+      "id": "S02",
+      "title": "首页",
+      "url": "https://raw.githubusercontent.com/zhaoawd/food_ordering/main/app/(tabs)/index.tsx"
+    },
+    {
+      "id": "S03",
+      "title": "购物车",
+      "url": "https://raw.githubusercontent.com/zhaoawd/food_ordering/main/app/(tabs)/cart.tsx"
+    },
+    {
+      "id": "S04",
+      "title": "导航",
+      "url": "https://raw.githubusercontent.com/zhaoawd/food_ordering/main/app/(tabs)/_layout.tsx"
+    },
+    {
+      "id": "S05",
+      "title": "观测协议",
+      "url": "https://raw.githubusercontent.com/zhaoawd/food_ordering/main/verification/observation.tsx"
+    },
+    {
+      "id": "S06",
+      "title": "购物车状态",
+      "url": "https://raw.githubusercontent.com/zhaoawd/food_ordering/main/store/cart.store.ts"
+    },
+    {
+      "id": "S07",
+      "title": "优惠券状态",
+      "url": "https://raw.githubusercontent.com/zhaoawd/food_ordering/main/store/coupon.store.ts"
+    },
+    {
+      "id": "S08",
+      "title": "测试命令",
+      "url": "https://raw.githubusercontent.com/zhaoawd/food_ordering/main/tests/test-command.test.cjs"
+    },
+    {
+      "id": "S09",
+      "title": "构建配置",
+      "url": "https://raw.githubusercontent.com/zhaoawd/food_ordering/main/app.json"
+    },
+    {
+      "id": "S10",
+      "title": "KFC官方App商店说明",
+      "url": "https://apps.apple.com/cn/app/id587238847"
+    },
+    {
+      "id": "S11",
+      "title": "KFC官方外送服务范围/菜单规则",
+      "url": "https://login.kfc.com.cn/CRM/superapp_wechat/lawprivacy.html?from=app&type=deliveryAgreement"
+    },
+    {
+      "id": "S12",
+      "title": "React Native窗口尺寸",
+      "url": "https://reactnative.dev/docs/usewindowdimensions"
+    },
+    {
+      "id": "S13",
+      "title": "Maestro React Native",
+      "url": "https://docs.maestro.dev/get-started/supported-platform/react-native"
+    }
+  ],
+  "figma": {
+    "file_key": "8FJKObnyjHu1O8o87Upy0U",
+    "url": "https://www.figma.com/design/8FJKObnyjHu1O8o87Upy0U"
+  },
+  "revalidation_note": "At final packaging, repeated web fetches of selected raw GitHub URLs returned cache misses; the selected-file findings refer to the earlier successful reads in this session. Commit SHA remains unresolved."
+}

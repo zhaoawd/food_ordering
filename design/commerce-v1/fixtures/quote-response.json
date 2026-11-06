@@ -1,0 +1,15 @@
+{
+  "id": "quote-demo-001",
+  "expires_at": "2026-11-05T12:02:00+08:00",
+  "goods_cents": 6580,
+  "packaging_cents": 400,
+  "delivery_cents": 0,
+  "discount_cents": 1000,
+  "payable_cents": 5980,
+  "user_id": "user-demo-001",
+  "store_id": "store-demo-001",
+  "channel": "pickup",
+  "cart_digest": "sha256:1ff61dcf0bcf8c85ec0cf95872c8a829cdb0be52168719f04a7ecc1a7b959a88",
+  "price_revision": "demo-menu-20261105-v1",
+  "currency": "CNY"
+}

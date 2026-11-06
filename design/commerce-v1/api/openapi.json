@@ -1,0 +1,1162 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Food Ordering Commerce API — Proposed Contract",
+    "version": "1.0.0",
+    "description": "Design contract; not an existing deployed API. P0 mock only; public fixture reset endpoints intentionally excluded."
+  },
+  "servers": [
+    {
+      "url": "https://commerce.example.invalid/v1",
+      "description": "Placeholder; replace only during implementation"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/stores": {
+      "get": {
+        "operationId": "listStores",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Store list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Store"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stores/{storeId}/menu": {
+      "get": {
+        "operationId": "getMenu",
+        "security": [],
+        "parameters": [
+          {
+            "name": "storeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "channel",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "enum": [
+                "pickup",
+                "dine_in",
+                "delivery"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Menu",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Menu"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quotes": {
+      "post": {
+        "operationId": "createQuote",
+        "description": "Server validates price, stock, coupon eligibility, serviceability, store hours and slot; quote has no reservation side effects. Authenticated checkout only. 120-second TTL is a proposed policy.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Quote",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quote"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders": {
+      "post": {
+        "operationId": "createOrder",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 16,
+              "maxLength": 128
+            },
+            "description": "Unique within authenticated user + operation. Same key/different canonical body returns 409."
+          }
+        ],
+        "description": "Revalidate quote bindings and inventory, reserve stock + coupon, create one order using atomic transaction or idempotent saga/outbox. Server ignores/rejects client amounts.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "listMyOrders",
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OrderPage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderPage"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{orderId}": {
+      "get": {
+        "operationId": "getMyOrder",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "Ownership enforced. Use after client timeout; read state does not trigger duplicate create.",
+        "responses": {
+          "200": {
+            "description": "Order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{orderId}/payment-intents": {
+      "post": {
+        "operationId": "createPaymentIntent",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 16,
+              "maxLength": 128
+            },
+            "description": "Unique within authenticated user + operation. Same key/different canonical body returns 409."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Payment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{orderId}/cancel": {
+      "post": {
+        "operationId": "cancelOrder",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 16,
+              "maxLength": 128
+            },
+            "description": "Unique within authenticated user + operation. Same key/different canonical body returns 409."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CancelRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{orderId}/refunds": {
+      "post": {
+        "operationId": "requestRefund",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 16,
+              "maxLength": 128
+            },
+            "description": "Unique within authenticated user + operation. Same key/different canonical body returns 409."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Refund",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Refund"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payments/{paymentId}": {
+      "get": {
+        "operationId": "reconcilePayment",
+        "parameters": [
+          {
+            "name": "paymentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "Read/reconcile the same intent; unknown is not failure. Provider callbacks are private, signed, server-only and outside this mobile contract.",
+        "responses": {
+          "200": {
+            "description": "Payment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Typed error; no partial success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "Store": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "open",
+              "closed",
+              "paused"
+            ]
+          },
+          "timezone": {
+            "type": "string"
+          },
+          "channels": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "pickup",
+                "dine_in",
+                "delivery"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "status",
+          "timezone",
+          "channels"
+        ],
+        "additionalProperties": false
+      },
+      "CartLine": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "quantity": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9
+          }
+        },
+        "required": [
+          "product_id",
+          "options",
+          "quantity"
+        ],
+        "additionalProperties": false
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price_cents": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "option_group_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "price_cents",
+          "available",
+          "option_group_ids"
+        ],
+        "additionalProperties": false
+      },
+      "Menu": {
+        "type": "object",
+        "properties": {
+          "revision": {
+            "type": "string"
+          },
+          "store_id": {
+            "type": "string"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
+          }
+        },
+        "required": [
+          "revision",
+          "store_id",
+          "products"
+        ],
+        "additionalProperties": false
+      },
+      "QuoteRequest": {
+        "type": "object",
+        "properties": {
+          "store_id": {
+            "type": "string"
+          },
+          "channel": {
+            "enum": [
+              "pickup",
+              "dine_in",
+              "delivery"
+            ]
+          },
+          "menu_revision": {
+            "type": "string"
+          },
+          "lines": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/CartLine"
+            }
+          },
+          "coupon_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "address_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "slot_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "store_id",
+          "channel",
+          "menu_revision",
+          "lines",
+          "coupon_id"
+        ],
+        "additionalProperties": false
+      },
+      "Quote": {
+        "type": "object",
+        "required": [
+          "id",
+          "user_id",
+          "store_id",
+          "channel",
+          "cart_digest",
+          "price_revision",
+          "expires_at",
+          "currency",
+          "goods_cents",
+          "packaging_cents",
+          "delivery_cents",
+          "discount_cents",
+          "payable_cents"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "user_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "store_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "cart_digest": {
+            "type": "string",
+            "minLength": 1
+          },
+          "price_revision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "channel": {
+            "enum": [
+              "pickup",
+              "dine_in",
+              "delivery"
+            ]
+          },
+          "currency": {
+            "const": "CNY"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "goods_cents": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "packaging_cents": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "delivery_cents": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "discount_cents": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "payable_cents": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateOrderRequest": {
+        "type": "object",
+        "properties": {
+          "quote_id": {
+            "type": "string"
+          },
+          "cart_digest": {
+            "type": "string"
+          },
+          "store_confirmed": {
+            "const": true
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 120
+          }
+        },
+        "required": [
+          "quote_id",
+          "cart_digest",
+          "store_confirmed"
+        ],
+        "additionalProperties": false
+      },
+      "Order": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "awaiting_payment",
+              "confirmed",
+              "preparing",
+              "ready_for_pickup",
+              "out_for_delivery",
+              "completed",
+              "canceled",
+              "expired"
+            ]
+          },
+          "payment_status": {
+            "enum": [
+              "created",
+              "pending",
+              "unknown",
+              "succeeded",
+              "failed"
+            ]
+          },
+          "refund_status": {
+            "enum": [
+              "none",
+              "requested",
+              "approved",
+              "processing",
+              "succeeded",
+              "rejected",
+              "failed"
+            ]
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "quote": {
+            "$ref": "#/components/schemas/Quote"
+          },
+          "pickup_code": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "payment_status",
+          "refund_status",
+          "revision",
+          "quote",
+          "pickup_code"
+        ],
+        "additionalProperties": false
+      },
+      "OrderPage": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Order"
+            }
+          },
+          "next_cursor": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "items",
+          "next_cursor"
+        ],
+        "additionalProperties": false
+      },
+      "PaymentRequest": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "enum": [
+              "mock",
+              "production_provider_adapter"
+            ]
+          }
+        },
+        "required": [
+          "provider"
+        ],
+        "additionalProperties": false
+      },
+      "Payment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "order_id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "created",
+              "pending",
+              "unknown",
+              "succeeded",
+              "failed"
+            ]
+          },
+          "amount_cents": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "currency": {
+            "const": "CNY"
+          }
+        },
+        "required": [
+          "id",
+          "order_id",
+          "status",
+          "amount_cents",
+          "currency"
+        ],
+        "additionalProperties": false
+      },
+      "CancelRequest": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "enum": [
+              "customer_changed_mind",
+              "wrong_store",
+              "other"
+            ]
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "RefundRequest": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "enum": [
+              "missing_item",
+              "quality_issue",
+              "canceled_order_late_payment",
+              "other"
+            ]
+          },
+          "order_line_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "Refund": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "order_id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "requested",
+              "approved",
+              "processing",
+              "succeeded",
+              "rejected",
+              "failed"
+            ]
+          },
+          "approved_amount_cents": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          }
+        },
+        "required": [
+          "id",
+          "order_id",
+          "status",
+          "approved_amount_cents"
+        ],
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "enum": [
+              "INVALID_REQUEST",
+              "UNAUTHENTICATED",
+              "NOT_FOUND",
+              "QUOTE_EXPIRED",
+              "PRICE_CHANGED",
+              "STOCK_CHANGED",
+              "COUPON_UNAVAILABLE",
+              "STORE_CLOSED",
+              "OUT_OF_RANGE",
+              "SLOT_UNAVAILABLE",
+              "IDEMPOTENCY_CONFLICT",
+              "PAYMENT_UNKNOWN",
+              "STATE_CONFLICT"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "request_id": {
+            "type": "string"
+          },
+          "retryable": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "request_id",
+          "retryable"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,0 +1,319 @@
+{
+  "schema_version": "food-ordering-design/1.0.0",
+  "mapping": {
+    "figma_layer_name": "stable_id + descriptive label",
+    "react_native": "testID = stable_id; accessibilityLabel = localized user label",
+    "existing_observation": "stable_id and source_ref preserved; semantic changes create versioned alias",
+    "web_prototype": "data-testid"
+  },
+  "controls": [
+    {
+      "stable_id": "home.store.select",
+      "screen_id": "home",
+      "role": "button",
+      "label": "选择门店",
+      "action": "navigate:stores",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "home.mode.pickup",
+      "screen_id": "home",
+      "role": "button",
+      "label": "到店自取",
+      "action": "context:pickup",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "home.mode.delivery",
+      "screen_id": "home",
+      "role": "button",
+      "label": "外送到家",
+      "action": "navigate:address",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "home.start_order",
+      "screen_id": "home",
+      "role": "button",
+      "label": "开始点餐",
+      "action": "navigate:menu",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "home.ai.open",
+      "screen_id": "home",
+      "role": "button",
+      "label": "帮我搭一餐",
+      "action": "navigate:ai",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "stores.store.store-demo-001.select",
+      "screen_id": "stores",
+      "role": "button",
+      "label": "选择科创园店",
+      "action": "store:select",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "stores.switch.confirm",
+      "screen_id": "stores",
+      "role": "button",
+      "label": "确认更换门店",
+      "action": "store:confirm",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "menu.search",
+      "screen_id": "menu",
+      "role": "searchbox",
+      "label": "搜索餐品",
+      "action": "menu:search",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "menu.product.{productId}.open",
+      "screen_id": "menu",
+      "role": "button",
+      "label": "查看餐品",
+      "action": "navigate:product",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "menu.cart.open",
+      "screen_id": "menu",
+      "role": "button",
+      "label": "打开购物袋",
+      "action": "navigate:cart",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "product.option.{groupId}.{optionId}",
+      "screen_id": "product",
+      "role": "radio",
+      "label": "选择规格",
+      "action": "product:select",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "product.quantity.increase",
+      "screen_id": "product",
+      "role": "button",
+      "label": "增加数量",
+      "action": "product:increase",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "product.add",
+      "screen_id": "product",
+      "role": "button",
+      "label": "加入购物袋",
+      "action": "cart:add",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "cart.line.{lineKey}.increase",
+      "screen_id": "cart",
+      "role": "button",
+      "label": "增加商品数量",
+      "action": "cart:increase",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "cart.line.{lineKey}.decrease",
+      "screen_id": "cart",
+      "role": "button",
+      "label": "减少商品数量",
+      "action": "cart:decrease",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "cart.coupon.entry",
+      "screen_id": "cart",
+      "role": "button",
+      "label": "选择优惠券",
+      "action": "navigate:coupons",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "cart.summary.payable",
+      "screen_id": "cart",
+      "role": "text",
+      "label": "应付金额",
+      "action": "binding:quote.payable_cents",
+      "min_hit_target_pt": null
+    },
+    {
+      "stable_id": "cart.checkout",
+      "screen_id": "cart",
+      "role": "button",
+      "label": "去结算",
+      "action": "navigate:checkout",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "coupons.coupon.{couponId}.select",
+      "screen_id": "coupons",
+      "role": "radio",
+      "label": "选择优惠券",
+      "action": "coupon:draft",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "coupons.confirm",
+      "screen_id": "coupons",
+      "role": "button",
+      "label": "确认使用",
+      "action": "coupon:confirm",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "coupons.cancel",
+      "screen_id": "coupons",
+      "role": "button",
+      "label": "取消选择",
+      "action": "coupon:cancel",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "checkout.store.confirm",
+      "screen_id": "checkout",
+      "role": "checkbox",
+      "label": "确认取餐门店",
+      "action": "checkout:confirm_store",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "checkout.summary.payable",
+      "screen_id": "checkout",
+      "role": "text",
+      "label": "应付金额",
+      "action": "binding:quote.payable_cents",
+      "min_hit_target_pt": null
+    },
+    {
+      "stable_id": "checkout.submit",
+      "screen_id": "checkout",
+      "role": "button",
+      "label": "提交订单",
+      "action": "order:create",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "checkout.quote.accept",
+      "screen_id": "checkout",
+      "role": "button",
+      "label": "接受新报价",
+      "action": "quote:accept",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "payment.confirm_mock",
+      "screen_id": "payment",
+      "role": "button",
+      "label": "模拟支付成功",
+      "action": "mock:pay",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "payment.retry_status",
+      "screen_id": "payment",
+      "role": "button",
+      "label": "查询支付结果",
+      "action": "payment:reconcile",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "payment.status",
+      "screen_id": "payment",
+      "role": "text",
+      "label": "支付状态",
+      "action": "binding:payment.status",
+      "min_hit_target_pt": null
+    },
+    {
+      "stable_id": "order.status",
+      "screen_id": "order",
+      "role": "text",
+      "label": "订单状态",
+      "action": "binding:order.status",
+      "min_hit_target_pt": null
+    },
+    {
+      "stable_id": "order.pickup_code",
+      "screen_id": "order",
+      "role": "text",
+      "label": "取餐码",
+      "action": "binding:order.pickup_code",
+      "min_hit_target_pt": null
+    },
+    {
+      "stable_id": "order.cancel",
+      "screen_id": "order",
+      "role": "button",
+      "label": "取消订单",
+      "action": "order:cancel",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "order.reorder",
+      "screen_id": "order",
+      "role": "button",
+      "label": "再来一单",
+      "action": "order:reorder",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "orders.order.{orderId}.open",
+      "screen_id": "orders",
+      "role": "button",
+      "label": "查看订单",
+      "action": "navigate:order",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "member.points.open",
+      "screen_id": "member",
+      "role": "button",
+      "label": "积分明细",
+      "action": "navigate:points",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "address.save",
+      "screen_id": "address",
+      "role": "button",
+      "label": "保存地址",
+      "action": "address:save",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "ai.prompt",
+      "screen_id": "ai",
+      "role": "textbox",
+      "label": "选餐需求",
+      "action": "ai:input",
+      "min_hit_target_pt": 44
+    },
+    {
+      "stable_id": "ai.suggestion.confirm",
+      "screen_id": "ai",
+      "role": "button",
+      "label": "确认加入购物袋",
+      "action": "ai:confirm",
+      "min_hit_target_pt": 44
+    }
+  ],
+  "deprecated_aliases": [
+    {
+      "from": "home.recommendation.primary_action",
+      "to": "product.add",
+      "reason": "原立即下单语义是加购，应先检查现有stable_id真实绑定再迁移，不可直接破坏旧评测。"
+    },
+    {
+      "from": "home.navigation.orders",
+      "to": "nav.orders",
+      "reason": "新路由为真实订单；旧cart入口保留迁移测试。"
+    }
+  ]
+}

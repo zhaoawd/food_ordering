@@ -1,0 +1,182 @@
+{
+  "scope": "standalone HTML design prototype only; NOT RN Web/native/backend acceptance",
+  "checked_at_utc": "2026-11-05T16:09:45.304997+00:00",
+  "passed": 33,
+  "total": 33,
+  "checks": [
+    {
+      "name": "render_home",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "render_stores",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "render_menu",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "render_product",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "render_cart",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "render_coupons",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "render_checkout",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "render_payment",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "render_order",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "render_orders",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "render_member",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "render_address",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "render_ai",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no_javascript_errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "initial_sample_total",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "orders_is_not_cart",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "empty_cart_visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "standard_combo_added_twice",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "coupon_above_threshold_disabled",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "coupon_confirm_total",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "coupon_cancel_retains_applied",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "invalid_coupon_clears",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "submit_requires_store_confirmation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "mock_order_created",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "mock_success_shows_order",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "expired_quote_blocks_submit",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "quote_refresh_requires_confirmation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unknown_payment_queries_original",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "soldout_blocks_add",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "wide_layout_rendered",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "resize_preserves_cart",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "quantity_capped_at_nine",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no_errors_after_interactions",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "native_execution": "not_run",
+  "backend_execution": "not_run",
+  "payment_execution": "mock_in_memory_only",
+  "known_limitations": [
+    "Only the standard combo path has a complete demo calculation.",
+    "No authentication, inventory concurrency, payment webhook or refund implementation.",
+    "The prototype intentionally includes static sample membership/order pages.",
+    "No full accessibility audit or pixel-perfect RN comparison was performed."
+  ]
+}

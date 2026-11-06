@@ -1,0 +1,169 @@
+{
+  "schema_version": "food-ordering-design/1.0.0",
+  "machines": [
+    {
+      "id": "order",
+      "initial": "awaiting_payment",
+      "states": [
+        "awaiting_payment",
+        "confirmed",
+        "preparing",
+        "ready_for_pickup",
+        "out_for_delivery",
+        "completed",
+        "canceled",
+        "expired"
+      ],
+      "transitions": [
+        {
+          "from": "awaiting_payment",
+          "event": "payment_verified",
+          "to": "confirmed",
+          "guard": "amount_currency_ownership_match_and_not_canceled"
+        },
+        {
+          "from": "awaiting_payment",
+          "event": "cancel_verified_unpaid",
+          "to": "canceled",
+          "guard": "payment_is_definitively_unpaid"
+        },
+        {
+          "from": "awaiting_payment",
+          "event": "payment_window_expired",
+          "to": "expired",
+          "guard": "reconciliation_confirms_no_payment"
+        },
+        {
+          "from": "confirmed",
+          "event": "kitchen_accepts",
+          "to": "preparing",
+          "guard": "once_only_outbox_delivery"
+        },
+        {
+          "from": "preparing",
+          "event": "pickup_ready",
+          "to": "ready_for_pickup",
+          "guard": "channel_is_pickup_or_dine_in"
+        },
+        {
+          "from": "preparing",
+          "event": "courier_pickup",
+          "to": "out_for_delivery",
+          "guard": "channel_is_delivery"
+        },
+        {
+          "from": "ready_for_pickup",
+          "event": "pickup_confirmed",
+          "to": "completed",
+          "guard": "valid_pickup_token"
+        },
+        {
+          "from": "out_for_delivery",
+          "event": "delivery_confirmed",
+          "to": "completed",
+          "guard": "trusted_fulfillment_event"
+        }
+      ]
+    },
+    {
+      "id": "payment",
+      "initial": "created",
+      "states": [
+        "created",
+        "pending",
+        "unknown",
+        "succeeded",
+        "failed"
+      ],
+      "transitions": [
+        {
+          "from": "created",
+          "event": "request_sent",
+          "to": "pending"
+        },
+        {
+          "from": "pending",
+          "event": "request_timeout",
+          "to": "unknown"
+        },
+        {
+          "from": "pending",
+          "event": "verified_success",
+          "to": "succeeded"
+        },
+        {
+          "from": "unknown",
+          "event": "verified_success",
+          "to": "succeeded"
+        },
+        {
+          "from": "pending",
+          "event": "verified_failure",
+          "to": "failed"
+        },
+        {
+          "from": "unknown",
+          "event": "verified_failure",
+          "to": "failed"
+        },
+        {
+          "from": "failed",
+          "event": "retry_with_same_order_new_attempt",
+          "to": "pending"
+        }
+      ],
+      "terminal_success": "No callback or retry may move succeeded backward; refunds are a separate machine."
+    },
+    {
+      "id": "refund",
+      "initial": "none",
+      "states": [
+        "none",
+        "requested",
+        "approved",
+        "processing",
+        "succeeded",
+        "rejected",
+        "failed"
+      ],
+      "transitions": [
+        {
+          "from": "none",
+          "event": "customer_request",
+          "to": "requested"
+        },
+        {
+          "from": "requested",
+          "event": "operator_approves",
+          "to": "approved"
+        },
+        {
+          "from": "requested",
+          "event": "operator_rejects",
+          "to": "rejected"
+        },
+        {
+          "from": "approved",
+          "event": "provider_request",
+          "to": "processing"
+        },
+        {
+          "from": "processing",
+          "event": "verified_success",
+          "to": "succeeded"
+        },
+        {
+          "from": "processing",
+          "event": "verified_failure",
+          "to": "failed"
+        },
+        {
+          "from": "failed",
+          "event": "operator_retry",
+          "to": "processing"
+        }
+      ],
+      "late_payment_compensation": "system may request a refund for a canceled/expired order through the same audited approval policy, never auto-reopen fulfillment"
+    }
+  ]
+}

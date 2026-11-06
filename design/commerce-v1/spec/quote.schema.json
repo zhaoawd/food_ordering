@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AuthoritativeQuote",
+  "type": "object",
+  "required": [
+    "id",
+    "user_id",
+    "store_id",
+    "channel",
+    "cart_digest",
+    "price_revision",
+    "expires_at",
+    "currency",
+    "goods_cents",
+    "packaging_cents",
+    "delivery_cents",
+    "discount_cents",
+    "payable_cents"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "user_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "store_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cart_digest": {
+      "type": "string",
+      "minLength": 1
+    },
+    "price_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "channel": {
+      "enum": [
+        "pickup",
+        "dine_in",
+        "delivery"
+      ]
+    },
+    "currency": {
+      "const": "CNY"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "goods_cents": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "packaging_cents": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "delivery_cents": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "discount_cents": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "payable_cents": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

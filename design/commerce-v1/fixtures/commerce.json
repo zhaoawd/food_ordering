@@ -1,0 +1,131 @@
+{
+  "schema_version": "food-ordering-design/1.0.0",
+  "synthetic": true,
+  "clock": "2026-11-05T12:00:00+08:00",
+  "timezone": "Asia/Shanghai",
+  "random_seed": 271105,
+  "user_id": "user-demo-001",
+  "stores": [
+    {
+      "id": "store-demo-001",
+      "name": "食刻 · 科创园店（演示）",
+      "distance_label": "步行约5分钟",
+      "status": "open",
+      "channels": [
+        "pickup",
+        "dine_in",
+        "delivery"
+      ],
+      "timezone": "Asia/Shanghai",
+      "hours": "07:00–22:00",
+      "prep_minutes": [
+        10,
+        15
+      ],
+      "delivery_cents": 300,
+      "packaging_cents_per_sellable_unit": 200
+    },
+    {
+      "id": "store-demo-002",
+      "name": "食刻 · 城市广场店（演示）",
+      "status": "closed",
+      "channels": [
+        "pickup"
+      ],
+      "timezone": "Asia/Shanghai",
+      "hours": "07:00–20:00"
+    }
+  ],
+  "coupons": [
+    {
+      "id": "save6",
+      "name": "满39减6",
+      "threshold_cents": 3900,
+      "discount_cents": 600,
+      "rule_revision": "commerce-v1",
+      "eligible_channels": [
+        "pickup",
+        "delivery",
+        "dine_in"
+      ],
+      "valid_from": "2026-11-01T00:00:00+08:00",
+      "valid_until_exclusive": "2026-12-01T00:00:00+08:00",
+      "stacking_group": "order_coupon",
+      "eligible_product_ids": "all_demo_products"
+    },
+    {
+      "id": "save10",
+      "name": "满60减10",
+      "threshold_cents": 6000,
+      "discount_cents": 1000,
+      "rule_revision": "commerce-v1",
+      "eligible_channels": [
+        "pickup",
+        "delivery",
+        "dine_in"
+      ],
+      "valid_from": "2026-11-01T00:00:00+08:00",
+      "valid_until_exclusive": "2026-12-01T00:00:00+08:00",
+      "stacking_group": "order_coupon",
+      "eligible_product_ids": "all_demo_products"
+    },
+    {
+      "id": "save20",
+      "name": "满100减20",
+      "threshold_cents": 10000,
+      "discount_cents": 2000,
+      "rule_revision": "commerce-v1",
+      "eligible_channels": [
+        "pickup",
+        "delivery",
+        "dine_in"
+      ],
+      "valid_from": "2026-11-01T00:00:00+08:00",
+      "valid_until_exclusive": "2026-12-01T00:00:00+08:00",
+      "stacking_group": "order_coupon",
+      "eligible_product_ids": "all_demo_products"
+    }
+  ],
+  "canonical_cart": {
+    "id": "cart-demo-001",
+    "store_id": "store-demo-001",
+    "channel": "pickup",
+    "revision": 1,
+    "lines": [
+      {
+        "product_id": "combo-chicken-001",
+        "options": [
+          "drink:tea",
+          "ice:less"
+        ],
+        "quantity": 2,
+        "unit_price_cents": 3290
+      }
+    ]
+  },
+  "golden_quote": {
+    "id": "quote-demo-001",
+    "goods_cents": 6580,
+    "packaging_cents": 400,
+    "delivery_cents": 0,
+    "discount_cents": 1000,
+    "payable_cents": 5980,
+    "coupon_id": "save10",
+    "quantity": 2,
+    "expires_at": "2026-11-05T12:02:00+08:00"
+  },
+  "legacy_fixture_policy": {
+    "preserve": [
+      "home.default.fixture-v1",
+      "cart.empty.fixture-v1",
+      "coupons.default.fixture-v1",
+      "coupons.selected.fixture-v1"
+    ],
+    "rule_revision": "legacy-v1",
+    "save6_threshold_cents": 3200,
+    "base_unit_price_cents": 3200,
+    "packaging_per_unit_cents": 200,
+    "delivery_cents": 300,
+    "two_units_save10_payable_cents": 6100
+  }
+}

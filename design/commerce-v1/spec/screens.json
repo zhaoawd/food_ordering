@@ -1,0 +1,715 @@
+{
+  "schema_version": "food-ordering-design/1.0.0",
+  "screens": [
+    {
+      "id": "home",
+      "name": "首页",
+      "route": "/(tabs)/index",
+      "feature_ids": [
+        "F01",
+        "F02",
+        "F03",
+        "F15",
+        "F21",
+        "F24"
+      ],
+      "states": [
+        {
+          "id": "home.guest.v1",
+          "name": "guest",
+          "fixture_id": "home.guest.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "home.default.v1",
+          "name": "default",
+          "fixture_id": "home.default.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "home.loading.v1",
+          "name": "loading",
+          "fixture_id": "home.loading.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "home.network_error.v1",
+          "name": "network_error",
+          "fixture_id": "home.network_error.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "home.active_order.v1",
+          "name": "active_order",
+          "fixture_id": "home.active_order.v1",
+          "render_status": "specified_not_native_implemented"
+        }
+      ],
+      "layout_variants": [
+        "compact",
+        "responsive_container"
+      ],
+      "stable_id_prefix": "home",
+      "source_target": {
+        "status": "proposed",
+        "file": "app/(tabs)/index.tsx"
+      }
+    },
+    {
+      "id": "stores",
+      "name": "选择门店",
+      "route": "/stores",
+      "feature_ids": [
+        "F03"
+      ],
+      "states": [
+        {
+          "id": "stores.permission_denied.v1",
+          "name": "permission_denied",
+          "fixture_id": "stores.permission_denied.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "stores.list.v1",
+          "name": "list",
+          "fixture_id": "stores.list.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "stores.empty.v1",
+          "name": "empty",
+          "fixture_id": "stores.empty.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "stores.closed.v1",
+          "name": "closed",
+          "fixture_id": "stores.closed.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "stores.switch_conflict.v1",
+          "name": "switch_conflict",
+          "fixture_id": "stores.switch_conflict.v1",
+          "render_status": "specified_not_native_implemented"
+        }
+      ],
+      "layout_variants": [
+        "compact",
+        "responsive_container"
+      ],
+      "stable_id_prefix": "stores",
+      "source_target": {
+        "status": "proposed",
+        "file": "app/stores.tsx"
+      }
+    },
+    {
+      "id": "menu",
+      "name": "点餐",
+      "route": "/(tabs)/menu",
+      "feature_ids": [
+        "F02",
+        "F04",
+        "F12",
+        "F16"
+      ],
+      "states": [
+        {
+          "id": "menu.default.v1",
+          "name": "default",
+          "fixture_id": "menu.default.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "menu.loading.v1",
+          "name": "loading",
+          "fixture_id": "menu.loading.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "menu.empty.v1",
+          "name": "empty",
+          "fixture_id": "menu.empty.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "menu.error.v1",
+          "name": "error",
+          "fixture_id": "menu.error.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "menu.sold_out.v1",
+          "name": "sold_out",
+          "fixture_id": "menu.sold_out.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "menu.search_empty.v1",
+          "name": "search_empty",
+          "fixture_id": "menu.search_empty.v1",
+          "render_status": "specified_not_native_implemented"
+        }
+      ],
+      "layout_variants": [
+        "compact",
+        "medium",
+        "expanded"
+      ],
+      "stable_id_prefix": "menu",
+      "source_target": {
+        "status": "proposed",
+        "file": "app/menu.tsx"
+      }
+    },
+    {
+      "id": "product",
+      "name": "套餐详情",
+      "route": "/dish-detail?dishId={productId}",
+      "feature_ids": [
+        "F05",
+        "F12"
+      ],
+      "states": [
+        {
+          "id": "product.default.v1",
+          "name": "default",
+          "fixture_id": "product.default.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "product.customized.v1",
+          "name": "customized",
+          "fixture_id": "product.customized.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "product.required_missing.v1",
+          "name": "required_missing",
+          "fixture_id": "product.required_missing.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "product.sold_out.v1",
+          "name": "sold_out",
+          "fixture_id": "product.sold_out.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "product.line_limit.v1",
+          "name": "line_limit",
+          "fixture_id": "product.line_limit.v1",
+          "render_status": "specified_not_native_implemented"
+        }
+      ],
+      "layout_variants": [
+        "compact",
+        "medium",
+        "expanded"
+      ],
+      "stable_id_prefix": "product",
+      "source_target": {
+        "status": "proposed",
+        "file": "app/product.tsx"
+      }
+    },
+    {
+      "id": "cart",
+      "name": "购物袋",
+      "route": "/cart",
+      "feature_ids": [
+        "F06",
+        "F07",
+        "F12"
+      ],
+      "states": [
+        {
+          "id": "cart.empty.v1",
+          "name": "empty",
+          "fixture_id": "cart.empty.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "cart.default.v1",
+          "name": "default",
+          "fixture_id": "cart.default.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "cart.coupon_invalid.v1",
+          "name": "coupon_invalid",
+          "fixture_id": "cart.coupon_invalid.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "cart.price_changed.v1",
+          "name": "price_changed",
+          "fixture_id": "cart.price_changed.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "cart.store_conflict.v1",
+          "name": "store_conflict",
+          "fixture_id": "cart.store_conflict.v1",
+          "render_status": "specified_not_native_implemented"
+        }
+      ],
+      "layout_variants": [
+        "compact",
+        "medium",
+        "expanded"
+      ],
+      "stable_id_prefix": "cart",
+      "source_target": {
+        "status": "proposed",
+        "file": "app/(tabs)/cart.tsx"
+      }
+    },
+    {
+      "id": "coupons",
+      "name": "优惠中心/选券",
+      "route": "/(tabs)/rewards | /coupons",
+      "feature_ids": [
+        "F07",
+        "F15",
+        "F22"
+      ],
+      "states": [
+        {
+          "id": "coupons.default.v1",
+          "name": "default",
+          "fixture_id": "coupons.default.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "coupons.draft_selected.v1",
+          "name": "draft_selected",
+          "fixture_id": "coupons.draft_selected.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "coupons.unavailable.v1",
+          "name": "unavailable",
+          "fixture_id": "coupons.unavailable.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "coupons.expired.v1",
+          "name": "expired",
+          "fixture_id": "coupons.expired.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "coupons.empty.v1",
+          "name": "empty",
+          "fixture_id": "coupons.empty.v1",
+          "render_status": "specified_not_native_implemented"
+        }
+      ],
+      "layout_variants": [
+        "compact",
+        "responsive_container"
+      ],
+      "stable_id_prefix": "coupons",
+      "source_target": {
+        "status": "proposed",
+        "file": "app/coupons.tsx"
+      }
+    },
+    {
+      "id": "checkout",
+      "name": "确认订单",
+      "route": "/checkout",
+      "feature_ids": [
+        "F03",
+        "F07",
+        "F08",
+        "F12",
+        "F13",
+        "F23"
+      ],
+      "states": [
+        {
+          "id": "checkout.quoting.v1",
+          "name": "quoting",
+          "fixture_id": "checkout.quoting.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "checkout.ready.v1",
+          "name": "ready",
+          "fixture_id": "checkout.ready.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "checkout.quote_expired.v1",
+          "name": "quote_expired",
+          "fixture_id": "checkout.quote_expired.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "checkout.price_changed.v1",
+          "name": "price_changed",
+          "fixture_id": "checkout.price_changed.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "checkout.stock_changed.v1",
+          "name": "stock_changed",
+          "fixture_id": "checkout.stock_changed.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "checkout.auth_required.v1",
+          "name": "auth_required",
+          "fixture_id": "checkout.auth_required.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "checkout.submitting.v1",
+          "name": "submitting",
+          "fixture_id": "checkout.submitting.v1",
+          "render_status": "specified_not_native_implemented"
+        }
+      ],
+      "layout_variants": [
+        "compact",
+        "medium",
+        "expanded"
+      ],
+      "stable_id_prefix": "checkout",
+      "source_target": {
+        "status": "proposed",
+        "file": "app/checkout.tsx"
+      }
+    },
+    {
+      "id": "payment",
+      "name": "支付结果",
+      "route": "/payment/{orderId}",
+      "feature_ids": [
+        "F09"
+      ],
+      "states": [
+        {
+          "id": "payment.pending.v1",
+          "name": "pending",
+          "fixture_id": "payment.pending.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "payment.succeeded.v1",
+          "name": "succeeded",
+          "fixture_id": "payment.succeeded.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "payment.failed.v1",
+          "name": "failed",
+          "fixture_id": "payment.failed.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "payment.unknown.v1",
+          "name": "unknown",
+          "fixture_id": "payment.unknown.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "payment.reconciling.v1",
+          "name": "reconciling",
+          "fixture_id": "payment.reconciling.v1",
+          "render_status": "specified_not_native_implemented"
+        }
+      ],
+      "layout_variants": [
+        "compact",
+        "responsive_container"
+      ],
+      "stable_id_prefix": "payment",
+      "source_target": {
+        "status": "proposed",
+        "file": "app/payment.tsx"
+      }
+    },
+    {
+      "id": "order",
+      "name": "订单详情",
+      "route": "/orders/{orderId}",
+      "feature_ids": [
+        "F10",
+        "F13",
+        "F17",
+        "F19"
+      ],
+      "states": [
+        {
+          "id": "order.awaiting_payment.v1",
+          "name": "awaiting_payment",
+          "fixture_id": "order.awaiting_payment.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "order.confirmed.v1",
+          "name": "confirmed",
+          "fixture_id": "order.confirmed.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "order.preparing.v1",
+          "name": "preparing",
+          "fixture_id": "order.preparing.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "order.ready_for_pickup.v1",
+          "name": "ready_for_pickup",
+          "fixture_id": "order.ready_for_pickup.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "order.out_for_delivery.v1",
+          "name": "out_for_delivery",
+          "fixture_id": "order.out_for_delivery.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "order.completed.v1",
+          "name": "completed",
+          "fixture_id": "order.completed.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "order.canceled.v1",
+          "name": "canceled",
+          "fixture_id": "order.canceled.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "order.refund_pending.v1",
+          "name": "refund_pending",
+          "fixture_id": "order.refund_pending.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "order.refund_succeeded.v1",
+          "name": "refund_succeeded",
+          "fixture_id": "order.refund_succeeded.v1",
+          "render_status": "specified_not_native_implemented"
+        }
+      ],
+      "layout_variants": [
+        "compact",
+        "medium",
+        "expanded"
+      ],
+      "stable_id_prefix": "order",
+      "source_target": {
+        "status": "proposed",
+        "file": "app/order.tsx"
+      }
+    },
+    {
+      "id": "orders",
+      "name": "订单列表",
+      "route": "/(tabs)/orders",
+      "feature_ids": [
+        "F02",
+        "F10",
+        "F16",
+        "F18"
+      ],
+      "states": [
+        {
+          "id": "orders.loading.v1",
+          "name": "loading",
+          "fixture_id": "orders.loading.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "orders.default.v1",
+          "name": "default",
+          "fixture_id": "orders.default.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "orders.empty.v1",
+          "name": "empty",
+          "fixture_id": "orders.empty.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "orders.error.v1",
+          "name": "error",
+          "fixture_id": "orders.error.v1",
+          "render_status": "specified_not_native_implemented"
+        }
+      ],
+      "layout_variants": [
+        "compact",
+        "medium",
+        "expanded"
+      ],
+      "stable_id_prefix": "orders",
+      "source_target": {
+        "status": "proposed",
+        "file": "app/orders.tsx"
+      }
+    },
+    {
+      "id": "member",
+      "name": "我的与会员",
+      "route": "/(tabs)/profile",
+      "feature_ids": [
+        "F01",
+        "F14",
+        "F18",
+        "F19",
+        "F20",
+        "F22"
+      ],
+      "states": [
+        {
+          "id": "member.guest.v1",
+          "name": "guest",
+          "fixture_id": "member.guest.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "member.default.v1",
+          "name": "default",
+          "fixture_id": "member.default.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "member.points_empty.v1",
+          "name": "points_empty",
+          "fixture_id": "member.points_empty.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "member.error.v1",
+          "name": "error",
+          "fixture_id": "member.error.v1",
+          "render_status": "specified_not_native_implemented"
+        }
+      ],
+      "layout_variants": [
+        "compact",
+        "responsive_container"
+      ],
+      "stable_id_prefix": "member",
+      "source_target": {
+        "status": "proposed",
+        "file": "app/(tabs)/profile.tsx"
+      }
+    },
+    {
+      "id": "address",
+      "name": "配送地址",
+      "route": "/delivery-address",
+      "feature_ids": [
+        "F13",
+        "F20"
+      ],
+      "states": [
+        {
+          "id": "address.default.v1",
+          "name": "default",
+          "fixture_id": "address.default.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "address.editing.v1",
+          "name": "editing",
+          "fixture_id": "address.editing.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "address.invalid.v1",
+          "name": "invalid",
+          "fixture_id": "address.invalid.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "address.out_of_range.v1",
+          "name": "out_of_range",
+          "fixture_id": "address.out_of_range.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "address.empty.v1",
+          "name": "empty",
+          "fixture_id": "address.empty.v1",
+          "render_status": "specified_not_native_implemented"
+        }
+      ],
+      "layout_variants": [
+        "compact",
+        "responsive_container"
+      ],
+      "stable_id_prefix": "address",
+      "source_target": {
+        "status": "proposed",
+        "file": "app/address.tsx"
+      }
+    },
+    {
+      "id": "ai",
+      "name": "帮我搭一餐",
+      "route": "/meal-assistant",
+      "feature_ids": [
+        "F21",
+        "F24"
+      ],
+      "states": [
+        {
+          "id": "ai.idle.v1",
+          "name": "idle",
+          "fixture_id": "ai.idle.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "ai.thinking.v1",
+          "name": "thinking",
+          "fixture_id": "ai.thinking.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "ai.suggestions.v1",
+          "name": "suggestions",
+          "fixture_id": "ai.suggestions.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "ai.no_match.v1",
+          "name": "no_match",
+          "fixture_id": "ai.no_match.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "ai.tool_failure.v1",
+          "name": "tool_failure",
+          "fixture_id": "ai.tool_failure.v1",
+          "render_status": "specified_not_native_implemented"
+        },
+        {
+          "id": "ai.unsafe_suggestion_rejected.v1",
+          "name": "unsafe_suggestion_rejected",
+          "fixture_id": "ai.unsafe_suggestion_rejected.v1",
+          "render_status": "specified_not_native_implemented"
+        }
+      ],
+      "layout_variants": [
+        "compact",
+        "responsive_container"
+      ],
+      "stable_id_prefix": "ai",
+      "source_target": {
+        "status": "proposed",
+        "file": "app/ai.tsx"
+      }
+    }
+  ]
+}

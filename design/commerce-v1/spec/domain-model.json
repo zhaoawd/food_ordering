@@ -1,0 +1,298 @@
+{
+  "schema_version": "food-ordering-design/1.0.0",
+  "status": "proposed_not_backend_implemented",
+  "entities": [
+    {
+      "name": "User",
+      "primary_key": "id",
+      "fields": [
+        "auth_subject",
+        "display_name",
+        "locale",
+        "privacy_consents"
+      ],
+      "write_authority": "identity_service",
+      "references": []
+    },
+    {
+      "name": "Store",
+      "primary_key": "id",
+      "fields": [
+        "timezone",
+        "opening_hours",
+        "channels",
+        "temporary_status"
+      ],
+      "write_authority": "store_service",
+      "references": []
+    },
+    {
+      "name": "MenuVersion",
+      "primary_key": "id",
+      "fields": [
+        "store_id",
+        "channel",
+        "effective_from",
+        "effective_to",
+        "price_revision"
+      ],
+      "write_authority": "catalog_service",
+      "references": [
+        "Store"
+      ]
+    },
+    {
+      "name": "Product",
+      "primary_key": "id",
+      "fields": [
+        "name",
+        "category_id",
+        "option_group_ids",
+        "allergens",
+        "image_asset_id"
+      ],
+      "write_authority": "catalog_service",
+      "references": []
+    },
+    {
+      "name": "OptionGroup",
+      "primary_key": "id",
+      "fields": [
+        "min_select",
+        "max_select",
+        "options",
+        "price_delta_cents"
+      ],
+      "write_authority": "catalog_service",
+      "references": []
+    },
+    {
+      "name": "StoreAvailability",
+      "primary_key": "store_id+product_id+slot",
+      "fields": [
+        "stock",
+        "sold_out",
+        "sellable_channels",
+        "version"
+      ],
+      "write_authority": "inventory_service",
+      "references": [
+        "Store",
+        "Product"
+      ]
+    },
+    {
+      "name": "Cart",
+      "primary_key": "id",
+      "fields": [
+        "user_or_session_id",
+        "store_id",
+        "channel",
+        "revision",
+        "lines"
+      ],
+      "write_authority": "client_draft",
+      "references": [
+        "Store",
+        "User"
+      ]
+    },
+    {
+      "name": "CartLine",
+      "primary_key": "line_key",
+      "fields": [
+        "product_id",
+        "normalized_option_ids",
+        "quantity"
+      ],
+      "write_authority": "client_draft",
+      "references": [
+        "Product"
+      ]
+    },
+    {
+      "name": "CouponDefinition",
+      "primary_key": "id+revision",
+      "fields": [
+        "threshold",
+        "eligible_products",
+        "scope",
+        "stacking_group",
+        "effective_window"
+      ],
+      "write_authority": "promotion_service",
+      "references": []
+    },
+    {
+      "name": "UserCoupon",
+      "primary_key": "id",
+      "fields": [
+        "owner_id",
+        "definition_revision",
+        "status",
+        "reservation_id"
+      ],
+      "write_authority": "promotion_service",
+      "references": [
+        "CouponDefinition",
+        "User"
+      ]
+    },
+    {
+      "name": "Quote",
+      "primary_key": "id",
+      "fields": [
+        "owner_id",
+        "cart_digest",
+        "price_revision",
+        "expires_at",
+        "money_breakdown"
+      ],
+      "write_authority": "quote_service",
+      "references": [
+        "Cart",
+        "Store",
+        "UserCoupon"
+      ]
+    },
+    {
+      "name": "Order",
+      "primary_key": "id",
+      "fields": [
+        "owner_id",
+        "quote_id",
+        "idempotency_key_hash",
+        "order_status",
+        "payment_summary",
+        "revision"
+      ],
+      "write_authority": "order_service",
+      "references": [
+        "Quote",
+        "User"
+      ]
+    },
+    {
+      "name": "OrderLineSnapshot",
+      "primary_key": "id",
+      "fields": [
+        "order_id",
+        "product_name",
+        "option_labels",
+        "quantity",
+        "unit_price_cents",
+        "tax_policy_revision"
+      ],
+      "write_authority": "order_service",
+      "references": [
+        "Order"
+      ]
+    },
+    {
+      "name": "PaymentAttempt",
+      "primary_key": "id",
+      "fields": [
+        "order_id",
+        "provider",
+        "provider_reference",
+        "amount_cents",
+        "currency",
+        "status",
+        "event_ids"
+      ],
+      "write_authority": "payment_service",
+      "references": [
+        "Order"
+      ]
+    },
+    {
+      "name": "Refund",
+      "primary_key": "id",
+      "fields": [
+        "order_id",
+        "payment_attempt_id",
+        "reason",
+        "amount_cents",
+        "status",
+        "idempotency_key_hash"
+      ],
+      "write_authority": "refund_service",
+      "references": [
+        "Order",
+        "PaymentAttempt"
+      ]
+    },
+    {
+      "name": "FulfillmentEvent",
+      "primary_key": "event_id",
+      "fields": [
+        "order_id",
+        "version",
+        "event_type",
+        "occurred_at",
+        "trusted_source"
+      ],
+      "write_authority": "fulfillment_service",
+      "references": [
+        "Order"
+      ]
+    },
+    {
+      "name": "LoyaltyLedger",
+      "primary_key": "entry_id",
+      "fields": [
+        "user_id",
+        "source_event_id",
+        "points_delta",
+        "reason",
+        "expiry_at"
+      ],
+      "write_authority": "loyalty_service",
+      "references": [
+        "User",
+        "Order",
+        "Refund"
+      ]
+    },
+    {
+      "name": "Campaign",
+      "primary_key": "id+version",
+      "fields": [
+        "module_type",
+        "route_id",
+        "product_ids",
+        "scope",
+        "effective_window",
+        "status"
+      ],
+      "write_authority": "ops_config",
+      "references": [
+        "Product",
+        "Store"
+      ]
+    },
+    {
+      "name": "AuditEvent",
+      "primary_key": "id",
+      "fields": [
+        "actor",
+        "action",
+        "entity_ref",
+        "request_id",
+        "redacted_changes",
+        "timestamp"
+      ],
+      "write_authority": "audit_service",
+      "references": []
+    }
+  ],
+  "invariants": [
+    "Order owner matches authenticated user; never trust client owner_id.",
+    "Cart contents are drafts; server validates price, stock and option constraints.",
+    "OrderLineSnapshot is immutable after order creation.",
+    "Payment/refund/order are separate state machines.",
+    "Source event uniqueness prevents duplicate points and kitchen actions.",
+    "No raw card data or unredacted address in screenshot/test evidence."
+  ],
+  "field_naming_note": "Conceptual entity field inventory; concrete HTTP names and required fields are defined by api/openapi.json and the applicable JSONSchema."
+}

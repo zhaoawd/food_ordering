@@ -1,0 +1,24 @@
+{
+  "scope": "Figma editable-design inspection, not native validation",
+  "file_key": "8FJKObnyjHu1O8o87Upy0U",
+  "screens_created": 17,
+  "editable_text_nodes": 344,
+  "sampled_board_node_ids": [
+    "2:2",
+    "2:239",
+    "2:611"
+  ],
+  "observed_and_corrected": [
+    "Horizontal content rows initially clipped to 1px; changed cross-axis to HUG.",
+    "Multiline text reflow corrected.",
+    "Key control layer names aligned with JSON contract.",
+    "Footer padding and dark-card text contrast corrected."
+  ],
+  "native_execution": "not_run",
+  "not_claimed": [
+    "Full accessibility audit",
+    "Figma pixel parity with HTML or native UI",
+    "Full reusable component/variant library",
+    "Native app implementation"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "food-ordering-design/1.0.0",
+  "status": "proposed_adapter_not_implemented",
+  "driver_types": [
+    "ios_simulator",
+    "vphone_fork",
+    "real_device"
+  ],
+  "capability_probe": [
+    "install",
+    "launch",
+    "terminate",
+    "accessibility_query",
+    "tap_element",
+    "tap_coordinate",
+    "type_text",
+    "screenshot",
+    "read_app_artifact",
+    "cold_reset",
+    "resize_or_posture",
+    "backend_fixture_namespace"
+  ],
+  "operations": [
+    {
+      "name": "install",
+      "required": true
+    },
+    {
+      "name": "launch",
+      "required": true
+    },
+    {
+      "name": "accessibility_query",
+      "required": true
+    },
+    {
+      "name": "tap_element",
+      "required": true
+    },
+    {
+      "name": "type_text",
+      "required": true
+    },
+    {
+      "name": "screenshot",
+      "required": true
+    },
+    {
+      "name": "read_app_artifact",
+      "required": true
+    },
+    {
+      "name": "cold_reset",
+      "required": false
+    },
+    {
+      "name": "resize_or_posture",
+      "required": false
+    }
+  ],
+  "verification_rules": [
+    "unsupported capability = blocked, never passed",
+    "scenario setup commands are separate from tested user actions",
+    "fresh lease and run_id; fixtures isolated server-side, not only guest snapshot",
+    "real_device_required: VoiceOver, push delivery, real SDK payment sandbox, distribution signing"
+  ],
+  "k8s_boundary": "Control-plane jobs may run on Linux; Apple VM execution requires a qualified Mac-host runner. A VM lease is not an ordinary Linux iPhone Pod. Actual fork API must be mapped after capability probe."
+}

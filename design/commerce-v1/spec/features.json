@@ -1,0 +1,449 @@
+{
+  "schema_version": "food-ordering-design/1.0.0",
+  "features": [
+    {
+      "id": "F01",
+      "phase": "P0",
+      "name": "访客与登录",
+      "scope": "访客能浏览；结算时登录并保留门店、规格、购物车。",
+      "screen_ids": [
+        "home",
+        "member"
+      ],
+      "acceptance": [
+        "authenticated checkout keeps cart digest"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T001",
+        "T002"
+      ]
+    },
+    {
+      "id": "F02",
+      "phase": "P0",
+      "name": "首页与导航",
+      "scope": "首页/点餐/优惠/订单/我的五个真实入口；购物车不再冒充订单。",
+      "screen_ids": [
+        "home",
+        "menu",
+        "orders"
+      ],
+      "acceptance": [
+        "every enabled navigation target is real"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T003",
+        "T004"
+      ]
+    },
+    {
+      "id": "F03",
+      "phase": "P0",
+      "name": "门店与履约上下文",
+      "scope": "选择门店、自取/堂食；定位拒绝可手动选店；切店先预检再确认。",
+      "screen_ids": [
+        "stores",
+        "home",
+        "checkout"
+      ],
+      "acceptance": [
+        "switching store never silently deletes cart"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T005",
+        "T006",
+        "T007",
+        "T008"
+      ]
+    },
+    {
+      "id": "F04",
+      "phase": "P0",
+      "name": "门店菜单与搜索",
+      "scope": "按门店、时段、渠道、价格版本返回菜单；支持分类和无结果。",
+      "screen_ids": [
+        "menu"
+      ],
+      "acceptance": [
+        "sold-out SKU cannot be added"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T009",
+        "T010",
+        "T011"
+      ]
+    },
+    {
+      "id": "F05",
+      "phase": "P0",
+      "name": "商品与套餐规格",
+      "scope": "必选组、可选组、替换项、加价、数量上限和过敏原信息。",
+      "screen_ids": [
+        "product"
+      ],
+      "acceptance": [
+        "same normalized configuration merges; different configuration stays separate"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T012",
+        "T013",
+        "T014",
+        "T015"
+      ]
+    },
+    {
+      "id": "F06",
+      "phase": "P0",
+      "name": "购物车",
+      "scope": "基于商品及规格稳定行键；增减删、失效项提示、切店重验。",
+      "screen_ids": [
+        "cart"
+      ],
+      "acceptance": [
+        "line quantity 1..9; decrement at 1 removes line"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T016",
+        "T017",
+        "T018"
+      ]
+    },
+    {
+      "id": "F07",
+      "phase": "P0",
+      "name": "优惠券",
+      "scope": "查看可用性和原因、草稿选择/确认/取消；变更购物车使券失效。",
+      "screen_ids": [
+        "coupons",
+        "checkout"
+      ],
+      "acceptance": [
+        "threshold uses eligible goods only; one coupon at P0"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T019",
+        "T020",
+        "T021",
+        "T022"
+      ]
+    },
+    {
+      "id": "F08",
+      "phase": "P0",
+      "name": "报价与确认订单",
+      "scope": "服务端报价、有时效、明细、备注、取餐时间；变价必须重新确认。",
+      "screen_ids": [
+        "checkout"
+      ],
+      "acceptance": [
+        "client does not set payable amount"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T023",
+        "T024",
+        "T025",
+        "T026"
+      ]
+    },
+    {
+      "id": "F09",
+      "phase": "P0",
+      "name": "支付与状态确认",
+      "scope": "P0 模拟支付；真支付仅预留适配层；超时先查单，不直接判失败。",
+      "screen_ids": [
+        "payment"
+      ],
+      "acceptance": [
+        "one active intent per order; duplicate submit produces one order"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T027",
+        "T028",
+        "T029",
+        "T030",
+        "T031",
+        "T032"
+      ]
+    },
+    {
+      "id": "F10",
+      "phase": "P0",
+      "name": "订单与取餐",
+      "scope": "真实订单列表、状态时间线、取餐码、取消未支付单、再次购买重验。",
+      "screen_ids": [
+        "orders",
+        "order"
+      ],
+      "acceptance": [
+        "pickup code appears only after verified payment and fulfillment acceptance"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T033",
+        "T034",
+        "T035"
+      ]
+    },
+    {
+      "id": "F11",
+      "phase": "P0",
+      "name": "数据化验收",
+      "scope": "stable_id、fixture、业务事件、观测与证据清单；测试入口只在验证构建。",
+      "screen_ids": [
+        "home",
+        "menu",
+        "checkout",
+        "order"
+      ],
+      "acceptance": [
+        "production bundle rejects reset/seed/advance-time commands"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T036",
+        "T037",
+        "T038",
+        "T060"
+      ]
+    },
+    {
+      "id": "F12",
+      "phase": "P0",
+      "name": "自适应与无障碍",
+      "scope": "单栏/双栏共享业务状态；触控44pt；动态字体、焦点与键盘回归。",
+      "screen_ids": [
+        "menu",
+        "product",
+        "cart",
+        "checkout"
+      ],
+      "acceptance": [
+        "resize does not lose selections, cart or duplicate order submission"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T039",
+        "T040",
+        "T041",
+        "T042"
+      ]
+    },
+    {
+      "id": "F13",
+      "phase": "P1",
+      "name": "外送与地址",
+      "scope": "地址簿、服务范围、起送额、配送费、预约时间；地址变化重新报价。",
+      "screen_ids": [
+        "address",
+        "checkout",
+        "order"
+      ],
+      "acceptance": [
+        "outside delivery area prevents checkout"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T043",
+        "T044"
+      ]
+    },
+    {
+      "id": "F14",
+      "phase": "P1",
+      "name": "会员与积分",
+      "scope": "会员码、权益、积分流水；完成订单入账，退款冲销。",
+      "screen_ids": [
+        "member"
+      ],
+      "acceptance": [
+        "point entries are unique by orderId and entry type"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T045",
+        "T046"
+      ]
+    },
+    {
+      "id": "F15",
+      "phase": "P1",
+      "name": "活动与运营配置",
+      "scope": "活动位、券、商品集合、时段、分群、发布审核、版本回滚。",
+      "screen_ids": [
+        "home",
+        "coupons"
+      ],
+      "acceptance": [
+        "expired or invalid campaign has safe fallback"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T047",
+        "T048"
+      ]
+    },
+    {
+      "id": "F16",
+      "phase": "P1",
+      "name": "收藏与复购",
+      "scope": "收藏商品、历史订单再来一单；下架与变价明确提示。",
+      "screen_ids": [
+        "orders",
+        "menu"
+      ],
+      "acceptance": [
+        "reorder is fresh cart creation, not reuse of old amount"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T049"
+      ]
+    },
+    {
+      "id": "F17",
+      "phase": "P1",
+      "name": "售后与退款",
+      "scope": "申请、原因、审核、退款结果与进度；账务与履约状态分离。",
+      "screen_ids": [
+        "order"
+      ],
+      "acceptance": [
+        "refund success is server-confirmed, not client animation"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T050"
+      ]
+    },
+    {
+      "id": "F18",
+      "phase": "P1",
+      "name": "通知与消息",
+      "scope": "订单通知、消息中心、深链；拒绝推送仍可查订单。",
+      "screen_ids": [
+        "orders",
+        "member"
+      ],
+      "acceptance": [
+        "deep link enforces order ownership"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T051"
+      ]
+    },
+    {
+      "id": "F19",
+      "phase": "P1",
+      "name": "评价与客服",
+      "scope": "完成单评价、常见问题、订单上下文客服。",
+      "screen_ids": [
+        "order",
+        "member"
+      ],
+      "acceptance": [
+        "only owned completed order can be reviewed"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T052"
+      ]
+    },
+    {
+      "id": "F20",
+      "phase": "P1",
+      "name": "隐私与账号",
+      "scope": "同意记录、权限按需申请、注销/导出/隐私入口；日志脱敏。",
+      "screen_ids": [
+        "member",
+        "address"
+      ],
+      "acceptance": [
+        "no precise address, phone, payment credentials in evidence"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T053"
+      ]
+    },
+    {
+      "id": "F21",
+      "phase": "P2",
+      "name": "AI辅助选餐",
+      "scope": "预算/人数/偏好生成套餐建议；仅受约束工具查真实菜单，用户确认加购。",
+      "screen_ids": [
+        "ai",
+        "home"
+      ],
+      "acceptance": [
+        "model output cannot invent SKU/price, bypass allergens or pay"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T054",
+        "T055",
+        "T056"
+      ]
+    },
+    {
+      "id": "F22",
+      "phase": "P2",
+      "name": "付费会员与权益卡",
+      "scope": "周期权益与核销台账；首版不做自动续费和储值。",
+      "screen_ids": [
+        "member",
+        "coupons"
+      ],
+      "acceptance": [
+        "entitlement grant and consume are idempotent"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T057"
+      ]
+    },
+    {
+      "id": "F23",
+      "phase": "P2",
+      "name": "早餐预约与团餐",
+      "scope": "预约容量、截止时间、多人预算；先单付款人，后考虑分账。",
+      "screen_ids": [
+        "menu",
+        "checkout"
+      ],
+      "acceptance": [
+        "cannot book unavailable time slot"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T058"
+      ]
+    },
+    {
+      "id": "F24",
+      "phase": "P2",
+      "name": "增长实验与推荐",
+      "scope": "规则推荐优先；实验分桶稳定、曝光去重、隐私最小化。",
+      "screen_ids": [
+        "home",
+        "ai"
+      ],
+      "acceptance": [
+        "same account and experiment revision keep assignment"
+      ],
+      "status": "proposed",
+      "test_ids": [
+        "T059"
+      ]
+    }
+  ]
+}

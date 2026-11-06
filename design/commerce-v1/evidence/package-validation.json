@@ -1,0 +1,170 @@
+{
+  "scope": "design-package static checks only; NOT app/native acceptance",
+  "checked_at_utc": "2026-11-05T16:09:38.661181+00:00",
+  "passed": 31,
+  "total": 31,
+  "checks": [
+    {
+      "name": "all_json_parse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unique_features",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unique_screens",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unique_rules",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unique_fixtures",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unique_tests",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unique_tasks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unique_controls",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "expected_design_counts",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "screen_feature_refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "feature_screen_test_refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "state_fixture_bijection",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "test_refs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "test_states_belong_to_screen",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "each_feature_has_tests",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all_native_cases_unexecuted",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "control_refs_and_hit_targets",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "task_schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "task_refs_and_input_files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "task_dag_acyclic",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "fixtures_seed_files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "machine_states_valid",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "pickup_golden_independent",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "delivery_golden_independent",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "legacy_golden_independent",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "money_arithmetic",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "quote_example_schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "openapi_internal_references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "openapi_is_proposal",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "entity_references",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "required_handoff_files",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "native_execution": "not_run",
+  "existing_repository_tests": "not_run",
+  "known_limitations": [
+    "No complete OpenAPI semantic validator; only JSON parsing and local $ref resolution.",
+    "Fixtures describe recipes; native adapters are not implemented.",
+    "Specification schemas constrain selected objects; not every domain object has a formal JSONSchema."
+  ]
+}

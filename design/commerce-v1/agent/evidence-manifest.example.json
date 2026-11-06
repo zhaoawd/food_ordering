@@ -1,0 +1,63 @@
+{
+  "schema_version": "food-ordering-evidence/1",
+  "example_only": true,
+  "run_id": "RUN-EXAMPLE-NOT-EXECUTED",
+  "task_id": "A05",
+  "test_ids": [
+    "T023",
+    "T027",
+    "T029"
+  ],
+  "repo_commit": "REQUIRED_ACTUAL_SHA",
+  "spec_revision": "food-ordering-design/1.0.0",
+  "spec_sha256": "REQUIRED_AT_RUN",
+  "app_build_sha256": "REQUIRED_AT_RUN",
+  "fixture_id": "checkout.ready.v1",
+  "fixture_sha256": "REQUIRED_AT_RUN",
+  "clock": "2026-11-05T12:00:00+08:00",
+  "device": {
+    "kind": "vphone_fork",
+    "profile_id": "REQUIRED",
+    "os_build": "REQUIRED",
+    "logical_viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scale": "REQUIRED",
+    "capabilities": "REQUIRED_PROBE_RESULT"
+  },
+  "artifacts": [
+    {
+      "type": "screenshot",
+      "path": "screens/checkout.png",
+      "sha256": "REQUIRED"
+    },
+    {
+      "type": "accessibility",
+      "path": "ax/checkout.json",
+      "sha256": "REQUIRED"
+    },
+    {
+      "type": "observation",
+      "path": "autophone-ui-observation.json",
+      "sha256": "REQUIRED"
+    },
+    {
+      "type": "server_readback",
+      "path": "business/order.json",
+      "sha256": "REQUIRED"
+    },
+    {
+      "type": "business_events",
+      "path": "business/events.json",
+      "sha256": "REQUIRED"
+    },
+    {
+      "type": "test_report",
+      "path": "report.json",
+      "sha256": "REQUIRED"
+    }
+  ],
+  "verdict": "not_run",
+  "failure_category": null
+}

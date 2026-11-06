@@ -1,0 +1,610 @@
+{
+  "schema_version": "food-ordering-design/1.0.0",
+  "status": "proposed_view_model_contract_not_renderer_implemented",
+  "binding_namespace": "proposed semantic view model; NOT raw API property paths",
+  "safe_rendering": "Only whitelisted component types/actions; no remote executable scripts.",
+  "components": [
+    "AddressList",
+    "AllergenNotice",
+    "BottomAction",
+    "CampaignHero",
+    "CancelConfirmBar",
+    "CartBar",
+    "CartLineList",
+    "CategoryRail",
+    "ConflictSummary",
+    "CouponEntry",
+    "CouponList",
+    "DeliveryEligibility",
+    "EmptyState",
+    "FulfillmentEntry",
+    "FulfillmentSelector",
+    "MemberBalances",
+    "MemberStrip",
+    "MembershipCard",
+    "OptionGroupList",
+    "OrderCardList",
+    "OrderFilter",
+    "OrderLineSummary",
+    "OrderTimeline",
+    "PaymentAction",
+    "PaymentAmount",
+    "PickupCode",
+    "PriceBreakdown",
+    "ProductHero",
+    "ProductList",
+    "ProductShelf",
+    "PromptInput",
+    "QuantityStepper",
+    "QuoteStatus",
+    "RecommendationCard",
+    "RecoveryAction",
+    "SearchInput",
+    "ServiceList",
+    "StatusPanel",
+    "StoreConfirmation",
+    "StoreHeader",
+    "StoreList",
+    "ValidationNotice"
+  ],
+  "views": [
+    {
+      "screen_id": "home",
+      "route": "/(tabs)/index",
+      "figma_node_id": "2:8",
+      "layout_policy": "container_width_and_font_scale",
+      "state_ids": [
+        "home.guest.v1",
+        "home.default.v1",
+        "home.loading.v1",
+        "home.network_error.v1",
+        "home.active_order.v1"
+      ],
+      "sections": [
+        {
+          "component": "StoreHeader",
+          "binding": "selectedStore",
+          "control_or_group_id": "home.store.select",
+          "slot": 0,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "CampaignHero",
+          "binding": "campaigns.homeHero",
+          "control_or_group_id": "home.start_order",
+          "slot": 1,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "FulfillmentEntry",
+          "binding": "selectedChannel",
+          "control_or_group_id": "home.mode.pickup",
+          "slot": 2,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "MemberStrip",
+          "binding": "member.summary",
+          "control_or_group_id": "member.points.open",
+          "slot": 3,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "ProductShelf",
+          "binding": "menu.featured",
+          "control_or_group_id": "menu.product.{productId}.open",
+          "slot": 4,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        }
+      ]
+    },
+    {
+      "screen_id": "stores",
+      "route": "/stores",
+      "figma_node_id": "2:85",
+      "layout_policy": "container_width_and_font_scale",
+      "state_ids": [
+        "stores.permission_denied.v1",
+        "stores.list.v1",
+        "stores.empty.v1",
+        "stores.closed.v1",
+        "stores.switch_conflict.v1"
+      ],
+      "sections": [
+        {
+          "component": "SearchInput",
+          "binding": "storeQuery",
+          "control_or_group_id": "stores.search",
+          "slot": 0,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "StoreList",
+          "binding": "stores.results",
+          "control_or_group_id": "stores.store.{storeId}.select",
+          "slot": 1,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "ConflictSummary",
+          "binding": "cart.storeSwitchPreview",
+          "control_or_group_id": "stores.switch.confirm",
+          "slot": 2,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        }
+      ]
+    },
+    {
+      "screen_id": "menu",
+      "route": "/(tabs)/menu",
+      "figma_node_id": "2:113",
+      "layout_policy": "container_width_and_font_scale",
+      "state_ids": [
+        "menu.default.v1",
+        "menu.loading.v1",
+        "menu.empty.v1",
+        "menu.error.v1",
+        "menu.sold_out.v1",
+        "menu.search_empty.v1"
+      ],
+      "sections": [
+        {
+          "component": "StoreHeader",
+          "binding": "selectedStore",
+          "control_or_group_id": "home.store.select",
+          "slot": 0,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "FulfillmentSelector",
+          "binding": "selectedChannel",
+          "control_or_group_id": "menu.channel.{channel}",
+          "slot": 1,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "SearchInput",
+          "binding": "menuQuery",
+          "control_or_group_id": "menu.search",
+          "slot": 2,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "CategoryRail",
+          "binding": "menu.categories",
+          "control_or_group_id": "menu.category.{categoryId}",
+          "slot": 3,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "ProductList",
+          "binding": "menu.products",
+          "control_or_group_id": "menu.product.{productId}.open",
+          "slot": 4,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "CartBar",
+          "binding": "cart.quotePreview",
+          "control_or_group_id": "menu.cart.open",
+          "slot": 5,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        }
+      ]
+    },
+    {
+      "screen_id": "product",
+      "route": "/dish-detail?dishId={productId}",
+      "figma_node_id": "2:194",
+      "layout_policy": "container_width_and_font_scale",
+      "state_ids": [
+        "product.default.v1",
+        "product.customized.v1",
+        "product.required_missing.v1",
+        "product.sold_out.v1",
+        "product.line_limit.v1"
+      ],
+      "sections": [
+        {
+          "component": "ProductHero",
+          "binding": "selectedProduct",
+          "control_or_group_id": "product.hero",
+          "slot": 0,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "OptionGroupList",
+          "binding": "selectedProduct.optionGroups",
+          "control_or_group_id": "product.option.{groupId}.{optionId}",
+          "slot": 1,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "QuantityStepper",
+          "binding": "optionDraft.quantity",
+          "control_or_group_id": "product.quantity.increase",
+          "slot": 2,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "AllergenNotice",
+          "binding": "selectedProduct.allergens",
+          "control_or_group_id": "product.allergens",
+          "slot": 3,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "BottomAction",
+          "binding": "optionDraft.pricePreview",
+          "control_or_group_id": "product.add",
+          "slot": 4,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        }
+      ]
+    },
+    {
+      "screen_id": "cart",
+      "route": "/cart",
+      "figma_node_id": "2:245",
+      "layout_policy": "container_width_and_font_scale",
+      "state_ids": [
+        "cart.empty.v1",
+        "cart.default.v1",
+        "cart.coupon_invalid.v1",
+        "cart.price_changed.v1",
+        "cart.store_conflict.v1"
+      ],
+      "sections": [
+        {
+          "component": "CartLineList",
+          "binding": "cart.lines",
+          "control_or_group_id": "cart.line.{lineKey}.increase",
+          "slot": 0,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "CouponEntry",
+          "binding": "cart.appliedCoupon",
+          "control_or_group_id": "cart.coupon.entry",
+          "slot": 1,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "PriceBreakdown",
+          "binding": "quotePreview",
+          "control_or_group_id": "cart.summary.payable",
+          "slot": 2,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "BottomAction",
+          "binding": "cart.validity",
+          "control_or_group_id": "cart.checkout",
+          "slot": 3,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        }
+      ]
+    },
+    {
+      "screen_id": "coupons",
+      "route": "/(tabs)/rewards | /coupons",
+      "figma_node_id": "2:300",
+      "layout_policy": "container_width_and_font_scale",
+      "state_ids": [
+        "coupons.default.v1",
+        "coupons.draft_selected.v1",
+        "coupons.unavailable.v1",
+        "coupons.expired.v1",
+        "coupons.empty.v1"
+      ],
+      "sections": [
+        {
+          "component": "CouponList",
+          "binding": "coupons.withEligibility",
+          "control_or_group_id": "coupons.coupon.{couponId}.select",
+          "slot": 0,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "CancelConfirmBar",
+          "binding": "couponDraft",
+          "control_or_group_id": "coupons.confirm",
+          "slot": 1,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        }
+      ]
+    },
+    {
+      "screen_id": "checkout",
+      "route": "/checkout",
+      "figma_node_id": "2:342",
+      "layout_policy": "container_width_and_font_scale",
+      "state_ids": [
+        "checkout.quoting.v1",
+        "checkout.ready.v1",
+        "checkout.quote_expired.v1",
+        "checkout.price_changed.v1",
+        "checkout.stock_changed.v1",
+        "checkout.auth_required.v1",
+        "checkout.submitting.v1"
+      ],
+      "sections": [
+        {
+          "component": "StoreConfirmation",
+          "binding": "quote.store",
+          "control_or_group_id": "checkout.store.confirm",
+          "slot": 0,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "OrderLineSummary",
+          "binding": "quote.lines",
+          "control_or_group_id": "checkout.items",
+          "slot": 1,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "PriceBreakdown",
+          "binding": "quote",
+          "control_or_group_id": "checkout.summary.payable",
+          "slot": 2,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "QuoteStatus",
+          "binding": "quote.expiresAt",
+          "control_or_group_id": "checkout.quote.accept",
+          "slot": 3,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "BottomAction",
+          "binding": "checkout.canSubmit",
+          "control_or_group_id": "checkout.submit",
+          "slot": 4,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        }
+      ]
+    },
+    {
+      "screen_id": "payment",
+      "route": "/payment/{orderId}",
+      "figma_node_id": "2:389",
+      "layout_policy": "container_width_and_font_scale",
+      "state_ids": [
+        "payment.pending.v1",
+        "payment.succeeded.v1",
+        "payment.failed.v1",
+        "payment.unknown.v1",
+        "payment.reconciling.v1"
+      ],
+      "sections": [
+        {
+          "component": "StatusPanel",
+          "binding": "paymentAttempt.status",
+          "control_or_group_id": "payment.status",
+          "slot": 0,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "PaymentAmount",
+          "binding": "order.payable",
+          "control_or_group_id": "payment.amount",
+          "slot": 1,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "PaymentAction",
+          "binding": "paymentAttempt",
+          "control_or_group_id": "payment.confirm_mock",
+          "slot": 2,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "RecoveryAction",
+          "binding": "paymentAttempt",
+          "control_or_group_id": "payment.retry_status",
+          "slot": 3,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        }
+      ]
+    },
+    {
+      "screen_id": "order",
+      "route": "/orders/{orderId}",
+      "figma_node_id": "2:421",
+      "layout_policy": "container_width_and_font_scale",
+      "state_ids": [
+        "order.awaiting_payment.v1",
+        "order.confirmed.v1",
+        "order.preparing.v1",
+        "order.ready_for_pickup.v1",
+        "order.out_for_delivery.v1",
+        "order.completed.v1",
+        "order.canceled.v1",
+        "order.refund_pending.v1",
+        "order.refund_succeeded.v1"
+      ],
+      "sections": [
+        {
+          "component": "StatusPanel",
+          "binding": "order.fulfillment",
+          "control_or_group_id": "order.status",
+          "slot": 0,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "PickupCode",
+          "binding": "order.pickupToken",
+          "control_or_group_id": "order.pickup_code",
+          "slot": 1,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "OrderTimeline",
+          "binding": "order.events",
+          "control_or_group_id": "order.timeline",
+          "slot": 2,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "OrderLineSummary",
+          "binding": "order.lines",
+          "control_or_group_id": "order.items",
+          "slot": 3,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "RecoveryAction",
+          "binding": "order.availableActions",
+          "control_or_group_id": "order.cancel",
+          "slot": 4,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        }
+      ]
+    },
+    {
+      "screen_id": "orders",
+      "route": "/(tabs)/orders",
+      "figma_node_id": "2:450",
+      "layout_policy": "container_width_and_font_scale",
+      "state_ids": [
+        "orders.loading.v1",
+        "orders.default.v1",
+        "orders.empty.v1",
+        "orders.error.v1"
+      ],
+      "sections": [
+        {
+          "component": "OrderFilter",
+          "binding": "orderFilter",
+          "control_or_group_id": "orders.filter.{filter}",
+          "slot": 0,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "OrderCardList",
+          "binding": "orders.items",
+          "control_or_group_id": "orders.order.{orderId}.open",
+          "slot": 1,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "EmptyState",
+          "binding": "orders.empty",
+          "control_or_group_id": "orders.empty.primary_action",
+          "slot": 2,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        }
+      ]
+    },
+    {
+      "screen_id": "member",
+      "route": "/(tabs)/profile",
+      "figma_node_id": "2:519",
+      "layout_policy": "container_width_and_font_scale",
+      "state_ids": [
+        "member.guest.v1",
+        "member.default.v1",
+        "member.points_empty.v1",
+        "member.error.v1"
+      ],
+      "sections": [
+        {
+          "component": "MembershipCard",
+          "binding": "member.identity",
+          "control_or_group_id": "member.card",
+          "slot": 0,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "MemberBalances",
+          "binding": "member.balances",
+          "control_or_group_id": "member.points.open",
+          "slot": 1,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "ServiceList",
+          "binding": "member.services",
+          "control_or_group_id": "member.service.{serviceId}",
+          "slot": 2,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        }
+      ]
+    },
+    {
+      "screen_id": "address",
+      "route": "/delivery-address",
+      "figma_node_id": "2:588",
+      "layout_policy": "container_width_and_font_scale",
+      "state_ids": [
+        "address.default.v1",
+        "address.editing.v1",
+        "address.invalid.v1",
+        "address.out_of_range.v1",
+        "address.empty.v1"
+      ],
+      "sections": [
+        {
+          "component": "AddressList",
+          "binding": "addresses.items",
+          "control_or_group_id": "address.{addressId}.select",
+          "slot": 0,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "DeliveryEligibility",
+          "binding": "delivery.preview",
+          "control_or_group_id": "address.coverage",
+          "slot": 1,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "BottomAction",
+          "binding": "addressDraft",
+          "control_or_group_id": "address.save",
+          "slot": 2,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        }
+      ]
+    },
+    {
+      "screen_id": "ai",
+      "route": "/meal-assistant",
+      "figma_node_id": "2:617",
+      "layout_policy": "container_width_and_font_scale",
+      "state_ids": [
+        "ai.idle.v1",
+        "ai.thinking.v1",
+        "ai.suggestions.v1",
+        "ai.no_match.v1",
+        "ai.tool_failure.v1",
+        "ai.unsafe_suggestion_rejected.v1"
+      ],
+      "sections": [
+        {
+          "component": "PromptInput",
+          "binding": "assistant.constraints",
+          "control_or_group_id": "ai.prompt",
+          "slot": 0,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "RecommendationCard",
+          "binding": "assistant.validatedSuggestions",
+          "control_or_group_id": "ai.suggestion.confirm",
+          "slot": 1,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        },
+        {
+          "component": "ValidationNotice",
+          "binding": "assistant.validation",
+          "control_or_group_id": "ai.validation",
+          "slot": 2,
+          "status": "proposed; reuse repository Observed primitives where appropriate"
+        }
+      ]
+    }
+  ]
+}

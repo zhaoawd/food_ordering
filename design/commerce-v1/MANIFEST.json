@@ -1,0 +1,277 @@
+{
+  "schema_version": "food-ordering-design/1.0.0",
+  "artifact_type": "design_handoff_not_application",
+  "file_count_excluding_manifest": 54,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3125,
+      "sha256": "b1968f4a2a4ef5c49bd8cab5f7865c6d9cb350c28bcaa10aa67a009f5070d24d"
+    },
+    {
+      "path": "agent/IMPLEMENTATION_PROMPT.md",
+      "bytes": 1158,
+      "sha256": "c071f9a7338ce9f6dc99076541e7b24c08fd0e491277a30df9cefd770acb70a7"
+    },
+    {
+      "path": "agent/START_HERE.md",
+      "bytes": 2088,
+      "sha256": "23205537b1dcede1ad65aa54cd443620eb0bbdb5f702e0ffbfeee76cc37a06b8"
+    },
+    {
+      "path": "agent/driver-contract.json",
+      "bytes": 1637,
+      "sha256": "b7bfd75ce6091b7eb67c00f2c2b24716d3b7e225825edb0120a297ce06d5cc4a"
+    },
+    {
+      "path": "agent/evidence-manifest.example.json",
+      "bytes": 1438,
+      "sha256": "08f545c9f9defd4e91d03d963e443b8cb99bafba1fbd96b8c16396668cf27c30"
+    },
+    {
+      "path": "agent/tasks.json",
+      "bytes": 15415,
+      "sha256": "827becc0783993b72cda9838418f3bec40a7ff44475747b99071f6f1bc8a9e8e"
+    },
+    {
+      "path": "api/openapi.json",
+      "bytes": 28852,
+      "sha256": "9def727e77dde00af571c9020d38ac65cd19f5f8a1516efdcd8e6cbaa89f4184"
+    },
+    {
+      "path": "docs/PRODUCT_DESIGN.md",
+      "bytes": 21530,
+      "sha256": "215ddcb786f39e9003975819f1556760293d72c4590b18aa6f767d695069a5f1"
+    },
+    {
+      "path": "docs/source-audit.json",
+      "bytes": 2681,
+      "sha256": "1278c32a6995567be8c14c21a9560f073a2095916f68cfca20e17d5c8f3405ff"
+    },
+    {
+      "path": "evidence/figma-review.json",
+      "bytes": 733,
+      "sha256": "4f34def137258299374a0a2c7ee33c5cb56b141b33e070cc09b4afc1cdfd70c2"
+    },
+    {
+      "path": "evidence/package-validation.json",
+      "bytes": 3387,
+      "sha256": "101179bffa9a684c69bce2ef7087b2cf08fa17d59bb149e9174d7f1ec8db2de1"
+    },
+    {
+      "path": "evidence/prototype-checks.json",
+      "bytes": 3685,
+      "sha256": "9b449f7996eb8d17740a200e3cdeb90ac49265489000ae84853cae4d76afaa9d"
+    },
+    {
+      "path": "fixtures/catalog.json",
+      "bytes": 4984,
+      "sha256": "d19a648a9acfe987d0d1b61f3ab0a78441524261af9d04907017569b56d630ff"
+    },
+    {
+      "path": "fixtures/commerce.json",
+      "bytes": 3312,
+      "sha256": "7ab38afbc309d2528fdb2d693adaf59f3766e7a8df29945e214c030485fbe6d6"
+    },
+    {
+      "path": "fixtures/quote-response.json",
+      "bytes": 439,
+      "sha256": "ce526bed662c8e357c981b6a011b0906a332ed6c804c5507faa3483d57feb343"
+    },
+    {
+      "path": "fixtures/state-registry.json",
+      "bytes": 44448,
+      "sha256": "b4fa9cd9e441ede864935d99008e7389131520fb417f329a596b538f686f466f"
+    },
+    {
+      "path": "scripts/build_prototype.py",
+      "bytes": 53516,
+      "sha256": "a8739010966c2f325e25608864a7258b50c5db592b834a5a00790c9c6276104d"
+    },
+    {
+      "path": "scripts/check_prototype.py",
+      "bytes": 5958,
+      "sha256": "4c0469c046cf6637bfa9cb8f38eb16bf222cb1cc3bee1cd67a8a578e9e5000a5"
+    },
+    {
+      "path": "scripts/render_ui.py",
+      "bytes": 1373,
+      "sha256": "ece775b5b2694f3368067d58e9594ebee0e59523db8b8ab549e329827e7fef8b"
+    },
+    {
+      "path": "scripts/requirements.txt",
+      "bytes": 40,
+      "sha256": "b587e9814a979b5a37ea807aeac0579fa65c37cef8ab024f0b80b571cf522c12"
+    },
+    {
+      "path": "scripts/validate.py",
+      "bytes": 7442,
+      "sha256": "83c5c66bcbc1deef2b3726cb118e99cc9cde143703cd763c61bc63df45d18c6e"
+    },
+    {
+      "path": "spec/business-rules.json",
+      "bytes": 4647,
+      "sha256": "0b0238379404dc456a6b577acbfea8f29ad5afe798b555d50910f0edddfdce43"
+    },
+    {
+      "path": "spec/design-tokens.json",
+      "bytes": 1511,
+      "sha256": "9a685b3b6377748f005d76feb329659439a793e04caad0be3e86b837047b479d"
+    },
+    {
+      "path": "spec/domain-model.json",
+      "bytes": 6507,
+      "sha256": "ca575d15ccbc9d2651137f48c1de358a1560f17a66c550562d527cb3343b5c36"
+    },
+    {
+      "path": "spec/features.json",
+      "bytes": 10637,
+      "sha256": "5f9d0d5b744e64fb2614bd6bf4c5b5087daa170c2ec63e48e84bec105794ba63"
+    },
+    {
+      "path": "spec/quote.schema.json",
+      "bytes": 1383,
+      "sha256": "2198f45386ca5b2913ba52b874e17326dbfcd122b33524215d15351f855c218a"
+    },
+    {
+      "path": "spec/screens.json",
+      "bytes": 19871,
+      "sha256": "191dbb6c4eb6998fb4aeedd4befc682d2e7340cd18d6d083797746bba4ade5fc"
+    },
+    {
+      "path": "spec/state-machines.json",
+      "bytes": 4190,
+      "sha256": "6129c9aa1dfde919285d2bad36a2b8493312e323b66d873a39331cccd76f8a67"
+    },
+    {
+      "path": "spec/task.schema.json",
+      "bytes": 1125,
+      "sha256": "f1d9857d866e2c4093d29ad0497c7a9534e79cc148a4eb9fda8e2d3f6ec2a00b"
+    },
+    {
+      "path": "spec/traceability.csv",
+      "bytes": 6883,
+      "sha256": "516d1f0c1144a1bd3696160e0073b0e2f08f1b0fb9af90513dd09b29094b753c"
+    },
+    {
+      "path": "spec/ui-contract.json",
+      "bytes": 8377,
+      "sha256": "46fd969e033c6b109d74dc9f90dc1738ebb2836ccc16470afd84a81eca2af59a"
+    },
+    {
+      "path": "spec/view-models.json",
+      "bytes": 19816,
+      "sha256": "67d1bdbb19afecb0b4090643ebb9295e551ecef85aed60e38c4a79c0afc5ba3b"
+    },
+    {
+      "path": "tests/acceptance-cases.json",
+      "bytes": 38845,
+      "sha256": "ca375fb45c6a95e7f4db5fd2d92f659d6ec23c7d85ed7c3b35c94e1bf6051c05"
+    },
+    {
+      "path": "tests/pickup-flow.maestro.template.yaml",
+      "bytes": 1109,
+      "sha256": "15393cd8585ab23d21011d7cff3756632f3e542aebda66709fef56bbfbf702b8"
+    },
+    {
+      "path": "ui/figma-manifest.json",
+      "bytes": 2106,
+      "sha256": "ffdf00cb95b5e17c7a1c2c7ae27e790a8e54d534108a73d397a73bc8fa067f72"
+    },
+    {
+      "path": "ui/overview.html",
+      "bytes": 1464384,
+      "sha256": "03cb91376863e9e3616823eac3f4f6c7027247540859a5a57a36f316786cb6e1"
+    },
+    {
+      "path": "ui/overview.png",
+      "bytes": 824411,
+      "sha256": "104a87fe7ca3427803d6e0328a9037754144140f51c47882069c9750ff9ebcaa"
+    },
+    {
+      "path": "ui/preview.png",
+      "bytes": 283543,
+      "sha256": "eff61a20925bf7d242a6fb57b2b22cb55d333f71278c9e2bff09752f0e61e2a8"
+    },
+    {
+      "path": "ui/prototype.html",
+      "bytes": 78392,
+      "sha256": "3ea5f13392adb678ab7eb5e962a9cbbe77f259cfff6246a35ec2c9099d7131b1"
+    },
+    {
+      "path": "ui/review-collage.png",
+      "bytes": 407429,
+      "sha256": "0c451f3f99a30254dabcbed4322b6282c95424653102da59c300596845181fbd"
+    },
+    {
+      "path": "ui/screens/address.png",
+      "bytes": 44109,
+      "sha256": "567bf4d3aeb90d5a26365a2e4ee986c3b97a08f3bac2f1344c0c30f3650d8fe8"
+    },
+    {
+      "path": "ui/screens/ai.png",
+      "bytes": 57951,
+      "sha256": "127f364c69e0e6010ee691bb1839e7954cdb89d4bccfd5aaa61937143bbdab46"
+    },
+    {
+      "path": "ui/screens/cart.png",
+      "bytes": 48296,
+      "sha256": "1a0cacb77f1da05d5ad3901c81a1153dcd0b80ddd727491448dca2476660c33e"
+    },
+    {
+      "path": "ui/screens/checkout.png",
+      "bytes": 48490,
+      "sha256": "d2932d8d6f82706e399940b548627b593f7e35440ff1c41f73db62481d26187f"
+    },
+    {
+      "path": "ui/screens/coupons.png",
+      "bytes": 56723,
+      "sha256": "7f6b3a1f59c5dd3a6de528a4b5eafe8a9b021434ed3344105c0942d6b411a5d7"
+    },
+    {
+      "path": "ui/screens/duo-menu.png",
+      "bytes": 104317,
+      "sha256": "04e4264da0be32fb0ca526c74ac1df188d5d057376c9ba3aff84f40583bdb4c4"
+    },
+    {
+      "path": "ui/screens/home.png",
+      "bytes": 70956,
+      "sha256": "e8bbdc61f34f81253b9d0609862bd50acac5355e83ce1db26a32a681726f4341"
+    },
+    {
+      "path": "ui/screens/member.png",
+      "bytes": 46760,
+      "sha256": "00114aca51ba1c9c19dd608c27cd5f48a5ffd40b196a8096c0f0404034e67298"
+    },
+    {
+      "path": "ui/screens/menu.png",
+      "bytes": 65080,
+      "sha256": "71367f0df597bb87aac5843c9b3b56363ec2a86a1e17937ec085358053120441"
+    },
+    {
+      "path": "ui/screens/order.png",
+      "bytes": 46191,
+      "sha256": "9602bcb47d18488e6eec951af5724eadffeee47f8863dd336316fe0a570abf4f"
+    },
+    {
+      "path": "ui/screens/orders.png",
+      "bytes": 45403,
+      "sha256": "e6a7a0cb013dabdb00767bbf7aac31e1e5132c5fee79fe5655cd1da1a61ad630"
+    },
+    {
+      "path": "ui/screens/payment.png",
+      "bytes": 31710,
+      "sha256": "244aa5d3ed460eb7277df2fa4945992364c1c4f61a3afbdfab5ac61c6e2f5ed6"
+    },
+    {
+      "path": "ui/screens/product.png",
+      "bytes": 51219,
+      "sha256": "4d379597968dc88b32f255d4e26ab3ea51588afc508f5330ddc0802a293f852a"
+    },
+    {
+      "path": "ui/screens/stores.png",
+      "bytes": 50422,
+      "sha256": "8529ee2ef80b1dcc735b8b0cc523629ba6144dfc5bd996176cf4e706e5f7fd6e"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "file_key": "8FJKObnyjHu1O8o87Upy0U",
+  "url": "https://www.figma.com/design/8FJKObnyjHu1O8o87Upy0U",
+  "editable_native_layers": true,
+  "text_node_count": 344,
+  "screens": [
+    {
+      "id": "home",
+      "node_id": "2:8",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "stores",
+      "node_id": "2:85",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "menu",
+      "node_id": "2:113",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "product",
+      "node_id": "2:194",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "cart",
+      "node_id": "2:245",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "coupons",
+      "node_id": "2:300",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "checkout",
+      "node_id": "2:342",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "payment",
+      "node_id": "2:389",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "order",
+      "node_id": "2:421",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "orders",
+      "node_id": "2:450",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "member",
+      "node_id": "2:519",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "address",
+      "node_id": "2:588",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "ai",
+      "node_id": "2:617",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "duo-menu",
+      "node_id": "2:650",
+      "width": 760,
+      "height": 844
+    },
+    {
+      "id": "cart-empty",
+      "node_id": "2:757",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "quote-expired",
+      "node_id": "2:772",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "payment-unknown",
+      "node_id": "2:801",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "source_of_truth": "spec JSON defines exact business rules; Figma is editable visual interpretation",
+  "interaction_note": "Figma static frames; click-through flow is in prototype.html"
+}

@@ -1,0 +1,37 @@
+# TEMPLATE ONLY — requires A01..A06 implementation and an independent fixture setup adapter.
+# Does not seed or mark an order paid through direct Store mutation during the tested actions.
+appId: com.autophone.foodorderingdemo.v2
+name: P0 pickup checkout (not yet run)
+---
+- launchApp
+- tapOn:
+    id: '^home\.start_order$'
+- tapOn:
+    id: '^menu\.product\.combo-chicken-001\.open$'
+- tapOn:
+    id: '^product\.option\.drink\.tea$'
+- tapOn:
+    id: '^product\.option\.ice\.less$'
+- tapOn:
+    id: '^product\.quantity\.increase$'
+- tapOn:
+    id: '^product\.add$'
+- tapOn:
+    id: '^menu\.cart\.open$'
+- tapOn:
+    id: '^cart\.coupon\.entry$'
+- tapOn:
+    id: '^coupons\.coupon\.save10\.select$'
+- tapOn:
+    id: '^coupons\.confirm$'
+- assertVisible: '¥59.80'
+- tapOn:
+    id: '^cart\.checkout$'
+- tapOn:
+    id: '^checkout\.store\.confirm$'
+- tapOn:
+    id: '^checkout\.submit$'
+- assertVisible:
+    id: '^payment\.status$'
+# Harness must verify ONE persisted order and amount 5980 via independent backend readback.
+# Then drive a mock-provider event, not a production payment, and assert native order UI.

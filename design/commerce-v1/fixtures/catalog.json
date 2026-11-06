@@ -1,0 +1,204 @@
+{
+  "schema_version": "food-ordering-design/1.0.0",
+  "currency": "CNY",
+  "synthetic": true,
+  "menu_revision": "menu-demo-20261105-01",
+  "products": [
+    {
+      "id": "combo-chicken-001",
+      "name": "香脆鸡腿堡套餐",
+      "base_price_cents": 3290,
+      "category": "套餐",
+      "description": "经典鸡腿堡 / 薯条 / 冰茶",
+      "art": "burger",
+      "available": true,
+      "allergen_status": "demo_not_for_consumption",
+      "allergens": [
+        "wheat",
+        "milk"
+      ],
+      "option_group_ids": [
+        "drink",
+        "ice"
+      ],
+      "max_line_quantity": 9
+    },
+    {
+      "id": "combo-beef-002",
+      "name": "炙烤牛肉堡套餐",
+      "base_price_cents": 3890,
+      "category": "套餐",
+      "description": "牛肉堡 / 薯条 / 冰茶",
+      "art": "burger",
+      "available": true,
+      "allergen_status": "demo_not_for_consumption",
+      "allergens": [
+        "wheat",
+        "milk"
+      ],
+      "option_group_ids": [
+        "drink",
+        "ice"
+      ],
+      "max_line_quantity": 9
+    },
+    {
+      "id": "burger-classic-003",
+      "name": "经典香脆鸡腿堡",
+      "base_price_cents": 2290,
+      "category": "汉堡",
+      "description": "现炸鸡腿 · 新鲜生菜",
+      "art": "burger",
+      "available": true,
+      "allergen_status": "demo_not_for_consumption",
+      "allergens": [
+        "wheat",
+        "milk"
+      ],
+      "option_group_ids": [],
+      "max_line_quantity": 9
+    },
+    {
+      "id": "wings-004",
+      "name": "香辣鸡翅 2块",
+      "base_price_cents": 1490,
+      "category": "小食",
+      "description": "外酥里嫩 · 微辣",
+      "art": "chicken",
+      "available": true,
+      "allergen_status": "demo_not_for_consumption",
+      "allergens": [],
+      "option_group_ids": [],
+      "max_line_quantity": 9
+    },
+    {
+      "id": "fries-005",
+      "name": "金黄薯条",
+      "base_price_cents": 990,
+      "category": "小食",
+      "description": "现炸出炉 · 标准份",
+      "art": "fries",
+      "available": true,
+      "allergen_status": "demo_not_for_consumption",
+      "allergens": [],
+      "option_group_ids": [],
+      "max_line_quantity": 9
+    },
+    {
+      "id": "tea-006",
+      "name": "清爽柠檬冰茶",
+      "base_price_cents": 1290,
+      "category": "饮品",
+      "description": "可选糖度与冰量",
+      "art": "drink",
+      "available": true,
+      "allergen_status": "demo_not_for_consumption",
+      "allergens": [],
+      "option_group_ids": [],
+      "max_line_quantity": 9
+    },
+    {
+      "id": "coffee-007",
+      "name": "燕麦拿铁",
+      "base_price_cents": 1890,
+      "category": "饮品",
+      "description": "燕麦饮 · 现磨咖啡",
+      "art": "drink",
+      "available": false,
+      "allergen_status": "demo_not_for_consumption",
+      "allergens": [],
+      "option_group_ids": [],
+      "max_line_quantity": 9
+    },
+    {
+      "id": "family-008",
+      "name": "周末分享餐",
+      "base_price_cents": 7990,
+      "category": "分享餐",
+      "description": "2个汉堡 / 鸡翅 / 薯条 / 饮品",
+      "art": "burger",
+      "available": true,
+      "allergen_status": "demo_not_for_consumption",
+      "allergens": [
+        "wheat",
+        "milk"
+      ],
+      "option_group_ids": [],
+      "max_line_quantity": 9
+    },
+    {
+      "id": "beef-bowl-001",
+      "name": "炙烤牛肉拌饭",
+      "base_price_cents": 3200,
+      "category": "米饭",
+      "description": "兼容旧测试样本",
+      "art": "bowl",
+      "available": true,
+      "allergen_status": "demo_not_for_consumption",
+      "allergens": [],
+      "option_group_ids": [],
+      "max_line_quantity": 9
+    },
+    {
+      "id": "chicken-bowl-002",
+      "name": "香辣鸡腿拌饭",
+      "base_price_cents": 2900,
+      "category": "米饭",
+      "description": "兼容旧测试样本",
+      "art": "bowl",
+      "available": true,
+      "allergen_status": "demo_not_for_consumption",
+      "allergens": [],
+      "option_group_ids": [],
+      "max_line_quantity": 9
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "drink",
+      "label": "选择饮品",
+      "min": 1,
+      "max": 1,
+      "options": [
+        {
+          "id": "tea",
+          "label": "柠檬冰茶",
+          "delta_cents": 0
+        },
+        {
+          "id": "cola",
+          "label": "可乐",
+          "delta_cents": 0
+        },
+        {
+          "id": "coffee",
+          "label": "美式咖啡",
+          "delta_cents": 300
+        }
+      ]
+    },
+    {
+      "id": "ice",
+      "label": "冰量",
+      "min": 1,
+      "max": 1,
+      "options": [
+        {
+          "id": "regular",
+          "label": "正常冰",
+          "delta_cents": 0
+        },
+        {
+          "id": "less",
+          "label": "少冰",
+          "delta_cents": 0
+        },
+        {
+          "id": "none",
+          "label": "去冰",
+          "delta_cents": 0
+        }
+      ]
+    }
+  ]
+}
