@@ -10,6 +10,9 @@ Only three things are injected:
      elements), plus the display text that recorded decisions changed. A decision text may only
      replace an element that has no child elements, so no prototype styling is dropped silently.
 
+Decision D7 adds a fourth: before tagging, the renderer-dependent layout defaults (line-height: normal,
+button user-agent boxes) are set to the values the reference renderer resolved (measure_layout_pins.mjs).
+
 The draft declares the viewport profile and the acceptance targets, so autophone (>= 1ad4866b1)
 makes the safe area transparent and scopes each element to its declared properties.
 """
@@ -24,6 +27,25 @@ R4_STYLE = """<style id="r4-adapter">
 .phoneapp{height:calc(100% - 59px)!important}
 .nav{height:96px!important;padding-bottom:37px!important}
 </style>"""
+
+PINS_SCRIPT = """<script id="layout-pins-adapter">
+(() => {
+  // Decision D7: pin renderer-dependent layout defaults to the values the reference renderer resolved.
+  // Runs before stable-id tagging, which inserts spans and would shift the element paths.
+  const pins = __PINS__;
+  const kids = (el) => [...el.children].filter((c) => c.tagName.toLowerCase() !== 'svg');
+  const root = document.getElementById('device');
+  for (const pin of pins) {
+    let el = root;
+    for (const index of pin.path) {
+      el = kids(el)[index];
+      if (!el) throw new Error('layout pin path not found: ' + JSON.stringify(pin.path));
+    }
+    if (pin.kind === 'line_height') el.style.lineHeight = pin.value_px + 'px';
+    else for (const [prop, value] of Object.entries(pin.properties)) el.style.setProperty(prop, value);
+  }
+})();
+</script>"""
 
 MAPPING_SCRIPT = """<script id="stable-id-adapter">
 (() => {
@@ -71,7 +93,8 @@ def _plain(locator: dict) -> dict:
 
 
 def build_html_draft(*, prototype: Path, state_id: str, screen_id: str, html_spec: dict, bindings: dict,
-                     fixture: dict, checks: list[dict], viewport_profile: dict, adapter_source: Path) -> dict:
+                     fixture: dict, checks: list[dict], viewport_profile: dict, adapter_source: Path,
+                     layout_pins: dict) -> dict:
     """Return {file name: text} for drafts-html/<state>/. Pure function of its inputs."""
     calibration = bindings['calibration']['elements']
     targets = html_spec['targets']
@@ -102,10 +125,12 @@ def build_html_draft(*, prototype: Path, state_id: str, screen_id: str, html_spe
     query = f"<script>history.replaceState(null,'','?embed&width=430&page={screen_id}')</script>"
     head = html.index('<head>') + len('<head>')
     html = html[:head] + query + R4_STYLE + html[head:]
+    pins = [{k: p[k] for k in ('path', 'kind', 'value_px', 'properties') if k in p} for p in layout_pins['pins']]
+    pin_script = PINS_SCRIPT.replace('__PINS__', json.dumps(pins, ensure_ascii=False))
     script = MAPPING_SCRIPT.replace('__LOCATORS__', json.dumps(locators, ensure_ascii=False)).replace(
         '__TEXTS__', json.dumps(texts, ensure_ascii=False))
     end = html.rindex('</body>')
-    html = html[:end] + script + html[end:]
+    html = html[:end] + pin_script + script + html[end:]
     spec = {
         'schema_version': 'prototype-design-draft/v1',
         'adapter': 'commerce-v1-html-adapter/v1',
@@ -124,6 +149,8 @@ def build_html_draft(*, prototype: Path, state_id: str, screen_id: str, html_spe
         'prototype_sha256': hashlib.sha256(prototype.read_bytes()).hexdigest(),
         'adapter_sha256': hashlib.sha256(adapter_source.read_bytes()).hexdigest(),
         'decision_texts': texts,
+        'layout_pins': {'decision': layout_pins['decision'], 'count': len(pins),
+                        'sha256': hashlib.sha256(json.dumps(layout_pins, sort_keys=True).encode()).hexdigest()},
     }
     dump = lambda value: json.dumps(value, ensure_ascii=False, indent=1) + '\n'  # noqa: E731
     return {

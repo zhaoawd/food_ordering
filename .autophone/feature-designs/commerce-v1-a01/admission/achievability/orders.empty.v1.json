@@ -1,7 +1,7 @@
 {
  "schema_version": "commerce-v1-text-achievability/v1",
  "faces": {
-  "path": "calibration/orders.empty.v1/round-9-faces.json",
+  "path": "calibration/orders.empty.v1/round-10-faces.json",
   "sha256": "929d201ffd69e30f7d4d887061a0f04957accaf23e217a2ccc62fa3be9d5741a",
   "design_package_sha256": "95b9826dff4d2466f66b3c824df3d0eb4254f34236d8e4c5197959c9b146e0f3"
  },

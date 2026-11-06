@@ -1,9 +1,14 @@
 {
  "schema_version": "commerce-v1-html-draft-provenance/v1",
  "prototype_sha256": "3ea5f13392adb678ab7eb5e962a9cbbe77f259cfff6246a35ec2c9099d7131b1",
- "adapter_sha256": "b72a6f223a8c7f0d81ffe4e2eccf1c1ce2dfae33c6dc454bf00d3f3a0250f238",
+ "adapter_sha256": "b9f6b565e05d90b61aa8d4942c6135e901bc1721f2d403dd724f55f6a4027677",
  "decision_texts": {
   "home.hero.price": "¥32.90",
   "home.member.coupons": "登录 ›"
+ },
+ "layout_pins": {
+  "decision": "D7",
+  "count": 75,
+  "sha256": "19eda9baf57fd1f8b7027d63b52977b4de300163ba7af9769ed127c2623f0e46"
  }
 }

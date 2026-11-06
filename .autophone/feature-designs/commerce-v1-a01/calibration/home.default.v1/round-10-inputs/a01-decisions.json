@@ -1,0 +1,125 @@
+{
+  "schema_version": "commerce-v1-design-decisions/v1",
+  "note": "Design decisions recorded on top of the frozen package. Each entry names who decided and when; derive.py applies them and records which output each one changed. AI-chosen wording inside a decision is marked authored_copy.",
+  "decisions": [
+    {
+      "id": "D1",
+      "date": "2026-11-06",
+      "decided_by": "user (accepted the proposal)",
+      "gap": "G1",
+      "summary": "游客首页与默认态布局相同；会员条显示登录引导，不显示券数量"
+    },
+    {
+      "id": "D2",
+      "date": "2026-11-06",
+      "decided_by": "user (accepted the proposal)",
+      "gap": "G2",
+      "summary": "订单空态：文案“还没有订单”，主操作“去点餐”（orders.empty.primary_action，跳转点餐）"
+    },
+    {
+      "id": "D3",
+      "date": "2026-11-06",
+      "decided_by": "user (accepted the proposal)",
+      "gap": "G4",
+      "summary": "金额统一两位小数；Fixture 增加门店简称，首页显示简称"
+    },
+    {
+      "id": "D4",
+      "date": "2026-11-06",
+      "decided_by": "user (accepted the proposal)",
+      "gap": "P1-P5",
+      "summary": "先验证 v1 HTML 草稿路径，再决定扩展 DSL 或采用 HTML 适配器"
+    },
+    {
+      "id": "D5",
+      "date": "2026-11-06",
+      "decided_by": "user (accepted the proposal)",
+      "gap": "G8",
+      "summary": "接受 home.ai.open 首屏部分可见；B4 以滚动后可达断言"
+    },
+    {
+      "id": "D6",
+      "date": "2026-11-06",
+      "decided_by": "user (accepted the proposal)",
+      "gap": "contract_unresolved",
+      "summary": "订单筛选 ID：all、active、completed、after_sale"
+    },
+    {
+      "id": "D7",
+      "date": "2026-11-06",
+      "decided_by": "user (chose option a)",
+      "gap": "BL-213 isolation-peer measurement_layout",
+      "summary": "原型依赖渲染器默认值的布局（line-height: normal、按钮的浏览器默认盒模型）改为显式值，取宿主 Chromium（参考渲染器）的解析结果，由 HTML 适配器注入；App 实现按同一组显式值"
+    }
+  ],
+  "display_rules": {
+    "money": {
+      "decision": "D3",
+      "format": "¥{yuan}.{fen:02d}",
+      "input": "integer fen"
+    },
+    "store_short_name": {
+      "decision": "D3",
+      "input": "fixture_additions.stores.<id>.short_name"
+    }
+  },
+  "fixture_additions": {
+    "decision": "D3",
+    "stores": {
+      "store-demo-001": {
+        "short_name": "科创园店"
+      }
+    }
+  },
+  "view_overrides": {
+    "home.guest.v1": {
+      "member_coupons": {
+        "text": "登录 ›",
+        "decision": "D1",
+        "authored_copy": true,
+        "replaces": "3 张券 ›（游客没有可用券）"
+      }
+    }
+  },
+  "view_additions": {
+    "orders.empty.v1": {
+      "empty_title": {
+        "text": "还没有订单",
+        "decision": "D2"
+      },
+      "empty_action": {
+        "text": "去点餐",
+        "decision": "D2"
+      }
+    }
+  },
+  "template_values": {
+    "orders.filter.{filter}": {
+      "decision": "D6",
+      "values": [
+        "all",
+        "active",
+        "completed",
+        "after_sale"
+      ],
+      "prototype_labels": [
+        "全部",
+        "进行中",
+        "已完成",
+        "售后"
+      ]
+    }
+  },
+  "accepted_partial_visibility": [
+    {
+      "stable_id": "home.ai.open",
+      "decision": "D5",
+      "b4_assertion": "reachable_after_scroll"
+    }
+  ],
+  "layout_pins": {
+    "decision": "D7",
+    "source": "baseline/<page>/layout-pins-430.json（tools/measure_layout_pins.mjs）",
+    "verified": "2026-11-06 宿主对照：注入后 Chromium 布局不变（偏差 0），Playwright WebKit 与 Chromium 的元素盒子最大差由 4pt 降到 0.79pt（剩余为字形宽度差）"
+  }
+}

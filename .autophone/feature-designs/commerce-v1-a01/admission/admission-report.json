@@ -19,8 +19,8 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/home.default.v1.json",
-          "sha256": "a021fa30d5aac2a11ce23c62710521fb32b647b24d7ea5574fa23a73382a177f",
-          "design_package_sha256": "a91d27611555968e92c91081e9ca1cb797719fb6862228d6c995e8563b7fa339",
+          "sha256": "61a27aaff0bb0b014914e10d788827caacf71ac5862cceb38cb6a9a4210adb6d",
+          "design_package_sha256": "800002e83b28ba58e9f8ec115d4a5de92088e5e334e5d7f5db9a8aa9950d0244",
           "profile": {
             "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
             "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
@@ -486,8 +486,8 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/home.guest.v1.json",
-          "sha256": "b395cf8087b8b7ae7ea06825f2abf63b97829217d425fb34cd4af6a6b96c1cd4",
-          "design_package_sha256": "b42bb0c670010f825a4d032be6b01caba3c7fee5aa53943d09a44736e8941e0a",
+          "sha256": "277922be50fcf6a6acc549e757815f5de0674a584e9f2b71d57a5086410b84d2",
+          "design_package_sha256": "c5f42c7233a5b0f2dffb18e99c13865274f859feb58243da988283afe43149da",
           "profile": {
             "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
             "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
@@ -955,7 +955,7 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/orders.empty.v1.json",
-          "sha256": "3ad60fec8e3e97a9e050787c5184a0fba57694b2ec9e2bfac8087c4325abb9d6",
+          "sha256": "14b356d9c0f987288dc529f1be4f73ea41e5001fb2981bfb8cdb45d558e83ad5",
           "design_package_sha256": "95b9826dff4d2466f66b3c824df3d0eb4254f34236d8e4c5197959c9b146e0f3",
           "profile": {
             "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",

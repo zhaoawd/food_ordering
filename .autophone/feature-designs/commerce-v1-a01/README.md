@@ -2,7 +2,7 @@
 
 本目录把冻结设计包 `design/commerce-v1/` 中 A01 批次的页面状态转换为 autophone 结构化设计包（`structured-design-package/v1`）。设计版本为 `commerce-v1-a01-430/r4`：画布从原包的 390×844 重排到 430×932，作为新设计版本处理，不改写原包。
 
-状态：2026-11-06 第 9 轮（策略 v5），A01 三个状态均通过批次准入（含期望可实现性）、校准 0 失败。首页默认态与游客态走 HTML 路线：29/28 通过，3/4 项已登记偏差来自设计决定（D1、D3、D5），13 处图形均已交付；订单空态走 DSL 路线：9 通过、1 项已登记偏差（P3）。80 个文本节点均判为可实现，所用映射证据为“假设”，待设备证据。本目录不执行 design lock，也不包含需求输入包。
+状态：2026-11-06 第 10 轮（策略 v5），A01 三个状态均通过批次准入（含期望可实现性）、校准 0 失败。首页默认态与游客态走 HTML 路线：29/28 通过，3/4 项已登记偏差来自设计决定（D1、D3、D5），13 处图形均已交付；订单空态走 DSL 路线：9 通过、1 项已登记偏差（P3）。80 个文本节点均判为可实现，所用映射证据为“假设”，待设备证据。本目录不执行 design lock，也不包含需求输入包。
 
 ## 1. 流程
 
@@ -94,6 +94,21 @@ python3 -I tools/check_render_determinism.py --runs 5
 | home.shelf.combo-beef-002.price | ¥ | 800 | 700、bold |
 
 此前认为“拉丁字符取 850 不可实现”：逐段测量显示首页取 SF 可变字体 wght 850 的只有品牌名后的一个空格，“FRESH MOMENTS”实际为 `.SFNS-Bold`，该结论不成立。所有判定依赖“React Native 字重 → iOS 字面”的假设映射，须由设备证据确认（BL-213 资格验证或设备采集）。
+
+### 布局锚定值（D7，2026-11-06）
+
+BL-213 在 isolation-peer 的资格验证中，设备 WebKit 渲染的区块比宿主 Chromium 高约 10 px（3.3pt）。宿主上用 Playwright WebKit 对照查明两处依赖渲染器默认值的布局：`line-height: normal`（例如 13px 文本 Chromium 18、WebKit 16）与 `<button>` 的浏览器默认盒模型（门店入口与商品卡在 WebKit 中高 3pt）。按 D7 改为显式值：
+
+- `tools/measure_layout_pins.mjs` 在宿主 Chromium 中测得锚定值（首页 61 处行高、14 个按钮；订单页 43 处行高、12 个按钮），按 DOM 路径写入 `baseline/<page>/layout-pins-430.json`；行高取探针 span（元素自身文本，或无自身文本时一个拉丁字形作为行支柱）在 normal 下的高度。两次测量逐字节一致。
+- `tools/html_adapter.py` 在建立 `data-stable-id` 之前按路径注入；`derive.py` 读取锚定值，L2 摘要按 D7 更新（5 个产物变化，见 `batch/l2-digest.json` 的 `revisions`）。
+
+| 对照 | 元素盒子最大差 |
+| --- | --- |
+| 注入后 Chromium 与注入前 Chromium | 0 |
+| 宿主 WebKit 与 Chromium：注入前 / 注入后 | 4pt / 0.79pt（剩余为字形宽度差） |
+| 设备 WebKit 与 Chromium（isolation-peer，`measurement_layout` 自证超差像素） | 注入前 56412（2.42%），注入后 9294（0.40%） |
+
+注入后设备的超差像素全部位于平涂色交界 3 个物理像素（约 1pt）以内，是相邻声明颜色之间的亚像素边缘差；自证容差为 0，仍未通过。第 10 轮：三个状态均准入、校准 0 失败（与第 9 轮相同）。
 
 ## 3. 批次准入与校准
 

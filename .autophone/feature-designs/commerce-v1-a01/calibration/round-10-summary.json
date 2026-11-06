@@ -1,0 +1,60 @@
+{
+  "round": 10,
+  "policy": {
+    "path": "policy/calibration-policy.v5.json",
+    "sha256": "768088afdd9c8e85c1cc03f1ae9c1e9354caad30e858c626ff65a8431985b196"
+  },
+  "states": {
+    "home.default.v1": {
+      "status": "calibrated",
+      "package": "packages/home.default.v1/round-10",
+      "design_package_sha256": "800002e83b28ba58e9f8ec115d4a5de92088e5e334e5d7f5db9a8aa9950d0244",
+      "mapped_nodes": 27,
+      "missing_nodes": 0,
+      "calibration": {
+        "elements": 32,
+        "passed": 29,
+        "deviations": 3,
+        "failed": 0,
+        "stale_deviations": 0
+      }
+    },
+    "home.guest.v1": {
+      "status": "calibrated",
+      "package": "packages/home.guest.v1/round-10",
+      "design_package_sha256": "c5f42c7233a5b0f2dffb18e99c13865274f859feb58243da988283afe43149da",
+      "mapped_nodes": 27,
+      "missing_nodes": 0,
+      "calibration": {
+        "elements": 32,
+        "passed": 28,
+        "deviations": 4,
+        "failed": 0,
+        "stale_deviations": 0
+      }
+    },
+    "orders.empty.v1": {
+      "status": "calibrated",
+      "package": "packages/orders.empty.v1/round-10",
+      "design_package_sha256": "95b9826dff4d2466f66b3c824df3d0eb4254f34236d8e4c5197959c9b146e0f3",
+      "mapped_nodes": 12,
+      "missing_nodes": 0,
+      "calibration": {
+        "elements": 10,
+        "passed": 9,
+        "deviations": 1,
+        "failed": 0,
+        "stale_deviations": 0
+      }
+    }
+  },
+  "admission": {
+    "report_sha256": "c9440c6f4435ca222d535c50d3ffd484e53c32503acab0b6fe6ed7944beabda7",
+    "admitted_states": [
+      "home.default.v1",
+      "home.guest.v1",
+      "orders.empty.v1"
+    ],
+    "blocked_states": []
+  }
+}
