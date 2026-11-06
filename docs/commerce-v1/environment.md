@@ -29,8 +29,8 @@
 | Guest 系统 | iOS 27.0.1 |
 | 设备画像 | `vphone-ios27-default` |
 | 画布 | 430×932 pt，scale 3，截图 1290×2796 px |
-| 主题 / 语言 | `light` / `zh-CN`（2026-11-06 由 `en-US` 切换，见 E6） |
-| 采集环境指纹 | 预期 `isolation-peer/vphone-ios27-default/zh-CN/light`，待最小闭环确认；此前为 `…/en-US/light` |
+| 主题 / 语言 | `light` / `zh-CN`（2026-11-06 由 `en-US` 切换，见 E6）；设备首选语言 `zh-Hans-CN`，区域 `zh_CN`，采集前由平台实测核对 |
+| 采集环境指纹 | `isolation-peer/vphone-ios27-default/zh-CN/light`（2026-11-06 由 `REQ-20261106-008` 确认）；此前为 `…/en-US/light` |
 | 字号档位 | 平台默认档（采集时按 `DEFAULT_TEXT_SIZE_CATEGORY` 核对） |
 
 首阶段只用这一台 Rig。不使用 legacy VM、Duo 或多 VM 业务并发。
@@ -39,7 +39,7 @@
 
 | 项 | 值 |
 | --- | --- |
-| autophone | `fcb2549d52be2e84705e11744233c69f4ac20089`（含 PR #335、#336） |
+| autophone | `a455eb4a3`（含 PR #335、#336、#340）；`fcb2549d5` 为 en-US 基线时的版本 |
 | vphone-cli | `~/github/vphone-cli/.worktrees/autophone-release`，分支 `autophone/release`，`bb533bd733081363b898b5186b6a5e52029b3c1b` |
 | Control Plane | 本机 `127.0.0.1:8100`，PostgreSQL `autophone_control`；设备执行经 Assignment 与 ScreenLock |
 | 宿主系统 | macOS 27.2，Xcode 27.1（27A9269），Node v22.22.3 |
@@ -71,7 +71,7 @@ commerce-v1 原始设计包（`food-ordering-design/1.0.0`，390×844）须按�
 | E3 | 只验证一台 Rig、同一宿主 | 不能推断多 Rig 或跨主机 | 首阶段不扩展 |
 | E4 | 运行时主工作目录有未跟踪文件，源码身份标记为 dirty | 身份记录精确到 commit，但不是干净树 | 正式批次前清理主工作目录，或在批次记录中注明 |
 | E5 | 宿主并行运行 Release 构建与重型检查时，曾出现两台 VM 健康探测同时超时并被隔离（2026-11-06，原因未查证） | 批次中途 Rig 可能被隔离，任务排队 | Rig 有任务或需保持可用时，本机构建与重型检查不并行；隔离后按授权执行 `control recovery resume --retry` |
-| E6 | 设备系统语言于 2026-11-06 由用户手动从 `en-US` 切换为 `zh-CN`，与设计包 fixture 的 `locale` 一致 | 采集环境指纹改变；`REQ-20261106-006` 与 iOS 27 首页校准均在 `en-US` 下取得，不能直接沿用 | 切换后尚未采集。按变更规则在 `zh-CN` 下重跑一次菜品默认态无修改最小闭环，确认采集到的 `AppleLanguages`/`AppleLocale` 与指纹后再进入 P1 |
+| E6 | 设备系统语言于 2026-11-06 由用户手动从 `en-US` 切换为 `zh-CN`，与设计包 fixture 的 `locale` 一致 | 采集环境指纹改变；`REQ-20261106-006` 与 iOS 27 首页校准均在 `en-US` 下取得，不能直接沿用 | 平台原先只取 App Driver 的语言常量，不读设备，zh-CN 无法如实声明；autophone PR #340（`a455eb4a3`）改为采集前实测设备语言与区域并分开判定。`REQ-20261106-007` 被拒：设备语言已改中文但区域仍为美国（`zh-Hans_US`），用户随后将区域改为中国大陆。`REQ-20261106-008` 在 zh-CN 下对同一基线构建无修改现采：0 Finding，出口闸 11/11，accepted，0 次模型调用。已关闭；App 进程内的有效语言只记录未判定 |
 
 ## 6. 变更规则
 
