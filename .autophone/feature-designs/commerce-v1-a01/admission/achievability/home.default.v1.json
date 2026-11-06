@@ -1,9 +1,9 @@
 {
  "schema_version": "commerce-v1-text-achievability/v1",
  "faces": {
-  "path": "calibration/home.default.v1/round-10-faces.json",
-  "sha256": "625980684bf216cb929e551c58d2a7024d88b554fbde08ac4ad7ab1af9ff1f30",
-  "design_package_sha256": "800002e83b28ba58e9f8ec115d4a5de92088e5e334e5d7f5db9a8aa9950d0244"
+  "path": "calibration/home.default.v1/round-11-faces.json",
+  "sha256": "efe70cbe6bce83416ff9d689a7113994c5e336774daab964ed0c0efdf81dc2b3",
+  "design_package_sha256": "c9c49d234a7e36b64edf01014d4ca11b6d008319ad14bc4681013dc927275dcb"
  },
  "profile": {
   "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",

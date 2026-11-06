@@ -3,7 +3,7 @@
  "note": "derive.py 全部产物的 SHA-256。由批次定义数据化之前（4c39a70）的代码生成；相同 L0、L1 输入下重构后的产物必须与之逐字节一致。规则含义有意改变时才更新本文件，并在提交说明中写明原因。",
  "inputs": {
   "manifest_sha256": "ec6bed1c5fbae3eb4d7cca23dbb1a78c573906b08b52a062e93812f604c174ee",
-  "decisions_sha256": "66e5419726e8955df04b8b7f5f5e986d56d8a3651efbb647aecd66d6edb24646"
+  "decisions_sha256": "3ef022a191d3ad5626da8a5c86807e35081538001c58a30c3258d779add052c3"
  },
  "generated_by": "4c39a70",
  "files": {
@@ -15,7 +15,7 @@
   "derived/bindings/home.guest.v1.json": "e169d21dc916bc215e304f12cc8056182e9937c5848c906138b821bc4320a12a",
   "derived/bindings/orders.empty.v1.json": "0d89e4d903bfe56a1a851d1b8aa20885274b42fd7a252d823eb7a81c14f76c57",
   "derived/input-checks.json": "3bc949b04bfc8ac1f60cf7ae89705623c2f0c6ec7d819c54236842e912397a4d",
-  "derived/provenance.json": "5dd620ee6b9bb127ff2a3ebe7cc1f128a0c982f2e6af0f418e4921d590a9c429",
+  "derived/provenance.json": "a69f8f44d251aa4918d1285a518459d0ca86239168fa80ba42ebec8d82dd5584",
   "derived/relayout-r4.json": "fb7aff544a3d0b9bebfa739d819f2af9d0543d86d2e412ec280de531bc18e7d4",
   "derived/screen-plan.home.json": "0e58ab9d2ea3a82573c8b16c4db02b10eb7558a44607f3cd0799390502be1982",
   "derived/screen-plan.orders.json": "f32b10c0d4d9b11dc915d5ca683651212b0c03e947ef82e69c63e6d2d54f76f5",
@@ -33,12 +33,12 @@
   "drafts/orders.empty.v1/screen-plan.json": "f32b10c0d4d9b11dc915d5ca683651212b0c03e947ef82e69c63e6d2d54f76f5",
   "drafts/orders.empty.v1/state-fixture.json": "b89c8bf2b296baab77bf6959cdf52c43f86a9b95986358a5f3b14613250896f6",
   "drafts/orders.empty.v1/ui-document.json": "2e0895ee9b1d73cde79b28f62495c516771380aab63fad524464e1102b8a0992",
-  "drafts-html/home.default.v1/adapter-provenance.json": "d23b906f2e82291253f2038096513b214c0d13dd3a4a6800b20459475745feb2",
-  "drafts-html/home.default.v1/index.html": "a47f76c62d408993edbce511166bffe2703fa748860b5f9e0186384681fc5db0",
+  "drafts-html/home.default.v1/adapter-provenance.json": "b63272a510895da9588da4b07a0077df69eb54fd2a838bc1d1cbc8e248af9a3a",
+  "drafts-html/home.default.v1/index.html": "c2473261f3f6d381fe30a9fc98b423f1a314df04b6fe2a0bc6358158380b0502",
   "drafts-html/home.default.v1/prototype-spec.json": "a6c7c37dcf0f6b722f80299f90d26d2da6bf3dcc4bdf895d417264fd40355661",
   "drafts-html/home.default.v1/state-fixture.json": "54e1299342f9d34a7bc6aad74ba6070b8d34a2ead07c40a738b3167444e1c72a",
-  "drafts-html/home.guest.v1/adapter-provenance.json": "f9314b4965658cb80adff4f9bff31290c1002789800163a52a02a71e9c571a67",
-  "drafts-html/home.guest.v1/index.html": "44e48bb51839c1d40499abecdae85568d4e50e682d4087a613b9548e68947c84",
+  "drafts-html/home.guest.v1/adapter-provenance.json": "2b5b701c6274ecc84e2c0df0216c570acec6746150e734965418774f1dfadecf",
+  "drafts-html/home.guest.v1/index.html": "6cd09144d30835cab78c94d04405b87806e98bf17fd9e89f7eefd363a8b5e573",
   "drafts-html/home.guest.v1/prototype-spec.json": "d9c530c5c834485c2d0e0181dd4d200812525bf128e4c84bb8a677c875f50c49",
   "drafts-html/home.guest.v1/state-fixture.json": "b6f765c142de67c8d87a09899d53b595bb66521676402b4134fe5bfac67993fa"
  },
@@ -47,6 +47,18 @@
    "date": "2026-11-06",
    "decision": "D7",
    "reason": "HTML 路线草稿注入布局锚定值（line-height: normal 与按钮默认盒模型改为宿主 Chromium 解析值）；决定文件新增 D7",
+   "changed_files": [
+    "derived/provenance.json",
+    "drafts-html/home.default.v1/adapter-provenance.json",
+    "drafts-html/home.default.v1/index.html",
+    "drafts-html/home.guest.v1/adapter-provenance.json",
+    "drafts-html/home.guest.v1/index.html"
+   ]
+  },
+  {
+   "date": "2026-11-06",
+   "decision": "D8",
+   "reason": "HTML 路线布局对齐整数 pt 网格（块级高度与文字撑开盒子的固定宽度）；R4 注入的查询参数与外壳 CSS 移入批次定义 injection；决定文件新增 D8",
    "changed_files": [
     "derived/provenance.json",
     "drafts-html/home.default.v1/adapter-provenance.json",

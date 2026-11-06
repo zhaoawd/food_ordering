@@ -1,0 +1,4 @@
+{
+ "extends": "home.default.v1",
+ "name": "首页 · guest（commerce-v1 A01，430 重排；D1 与默认态同布局）"
+}

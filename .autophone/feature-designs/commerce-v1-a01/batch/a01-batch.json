@@ -2,40 +2,91 @@
   "schema_version": "commerce-v1-batch-definition/v1",
   "note": "批次事实与配置。能从 L0 读出的写 source（文件与位置）；改动或补充 L0 的写 decision（a01-decisions.json 中的编号）。derive.py 拒绝缺少 source 与 decision 的条目。",
   "batch": "A01",
-  "design_version": {"value": "commerce-v1-a01-430/r4",
-                     "source": "food_ordering docs/commerce-v1/delivery-plan.md R4：430×932 重排作为新设计版本"},
+  "design_version": {
+    "value": "commerce-v1-a01-430/r4",
+    "source": "food_ordering docs/commerce-v1/delivery-plan.md R4：430×932 重排作为新设计版本"
+  },
   "design_package": {
     "path": "design/commerce-v1",
     "manifest_sha256": "ec6bed1c5fbae3eb4d7cca23dbb1a78c573906b08b52a062e93812f604c174ee",
     "source": "food_ordering docs/commerce-v1/design-package.md 入库记录（MANIFEST.json SHA-256）"
   },
-  "frame": {"width": 430, "height": 932,
-            "source": "food_ordering docs/commerce-v1/environment.md §2 画布 430×932 pt"},
+  "frame": {
+    "width": 430,
+    "height": 932,
+    "source": "food_ordering docs/commerce-v1/environment.md §2 画布 430×932 pt"
+  },
   "viewport_profile": {
     "value": {
       "profile_id": "vphone-ios27-430x932",
-      "safe_area": {"top": 59, "right": 0, "bottom": 37, "left": 0},
-      "safe_area_application": ["top", "bottom"],
+      "safe_area": {
+        "top": 59,
+        "right": 0,
+        "bottom": 37,
+        "left": 0
+      },
+      "safe_area_application": [
+        "top",
+        "bottom"
+      ],
       "system_ui": "separate_region"
     },
     "source": "food_ordering docs/commerce-v1/environment.md §2 设备画像 vphone-ios27-default；安全区沿用 autophone vphone 430×932 画像"
   },
   "states": {
-    "home.default.v1": {"screen": "home", "baseline": "home", "cases": ["T003"],
-                        "source": "tests/acceptance-cases.json T003 state_id；delivery-plan 批次 1"},
-    "home.guest.v1": {"screen": "home", "baseline": "home", "cases": ["T001"],
-                      "source": "tests/acceptance-cases.json T001 state_id；delivery-plan 批次 1"},
-    "orders.empty.v1": {"screen": "orders", "baseline": "orders", "cases": ["T004"],
-                        "source": "tests/acceptance-cases.json T004 state_id；delivery-plan 批次 1"}
+    "home.default.v1": {
+      "screen": "home",
+      "baseline": "home",
+      "cases": [
+        "T003"
+      ],
+      "source": "tests/acceptance-cases.json T003 state_id；delivery-plan 批次 1"
+    },
+    "home.guest.v1": {
+      "screen": "home",
+      "baseline": "home",
+      "cases": [
+        "T001"
+      ],
+      "source": "tests/acceptance-cases.json T001 state_id；delivery-plan 批次 1"
+    },
+    "orders.empty.v1": {
+      "screen": "orders",
+      "baseline": "orders",
+      "cases": [
+        "T004"
+      ],
+      "source": "tests/acceptance-cases.json T004 state_id；delivery-plan 批次 1"
+    }
   },
   "shell_sections": {
-    "home": {"head": ["AppHeader"], "tail": ["TabBar"],
-             "source": "ui/prototype.html home()：header() 页头与 navbar()；view-models.json 未列出外壳"},
-    "orders": {"head": ["PageHeader"], "tail": ["TabBar"],
-               "source": "ui/prototype.html orders()：header('我的订单') 与 navbar()"}
+    "home": {
+      "head": [
+        "AppHeader"
+      ],
+      "tail": [
+        "TabBar"
+      ],
+      "source": "ui/prototype.html home()：header() 页头与 navbar()；view-models.json 未列出外壳"
+    },
+    "orders": {
+      "head": [
+        "PageHeader"
+      ],
+      "tail": [
+        "TabBar"
+      ],
+      "source": "ui/prototype.html orders()：header('我的订单') 与 navbar()"
+    }
   },
   "tab_bar": {
-    "stable_ids": ["nav.home", "nav.menu", "nav.coupons", "nav.orders", "nav.member"],
+    "stable_ids": [
+      "nav.home",
+      "nav.menu",
+      "nav.coupons",
+      "nav.orders",
+      "nav.member"
+    ],
     "source": "docs/PRODUCT_DESIGN.md 第 58 行“底部导航固定为 首页｜点餐｜优惠｜订单｜我的”；ui/prototype.html navbar() 的 data-testid nav.<id>"
   },
   "featured_products": {
@@ -47,23 +98,62 @@
     "source": "ui/prototype.html home() 显示“科创园店”；fixtures/commerce.json stores[0]"
   },
   "template_sources": [
-    {"template": "menu.product.{productId}.open", "screen": "home", "placeholder": "{productId}",
-     "values_from": "featured_products",
-     "source": "spec/view-models.json home ProductShelf；ui/prototype.html home() 的前两个商品"}
+    {
+      "template": "menu.product.{productId}.open",
+      "screen": "home",
+      "placeholder": "{productId}",
+      "values_from": "featured_products",
+      "source": "spec/view-models.json home ProductShelf；ui/prototype.html home() 的前两个商品"
+    }
   ],
   "display_bindings": {
-    "hero_price": {"rule": "money", "business_value": {"kind": "featured_product", "index": 0},
-                   "decision": "D3", "source": "ui/prototype.html home() 主推价格对应 products[0]"},
-    "product_1_price": {"rule": "money", "business_value": {"kind": "featured_product", "index": 0},
-                        "decision": "D3", "source": "ui/prototype.html home() 商品卡 products[0]"},
-    "product_2_price": {"rule": "money", "business_value": {"kind": "featured_product", "index": 1},
-                        "decision": "D3", "source": "ui/prototype.html home() 商品卡 products[1]"},
-    "store_name": {"rule": "store_short_name", "business_value": {"kind": "current_store"},
-                   "decision": "D3", "source": "ui/prototype.html home() 门店入口"}
+    "hero_price": {
+      "rule": "money",
+      "business_value": {
+        "kind": "featured_product",
+        "index": 0
+      },
+      "decision": "D3",
+      "source": "ui/prototype.html home() 主推价格对应 products[0]"
+    },
+    "product_1_price": {
+      "rule": "money",
+      "business_value": {
+        "kind": "featured_product",
+        "index": 0
+      },
+      "decision": "D3",
+      "source": "ui/prototype.html home() 商品卡 products[0]"
+    },
+    "product_2_price": {
+      "rule": "money",
+      "business_value": {
+        "kind": "featured_product",
+        "index": 1
+      },
+      "decision": "D3",
+      "source": "ui/prototype.html home() 商品卡 products[1]"
+    },
+    "store_name": {
+      "rule": "store_short_name",
+      "business_value": {
+        "kind": "current_store"
+      },
+      "decision": "D3",
+      "source": "ui/prototype.html home() 门店入口"
+    }
   },
   "contract_exclusions": [
-    {"state_id": "orders.empty.v1", "stable_id": "orders.order.{orderId}.open",
-     "reason": "state_recipe=empty：订单列表为空，没有订单行可供打开",
-     "source": "fixtures/state-registry.json orders.empty.v1 state_recipe"}
-  ]
+    {
+      "state_id": "orders.empty.v1",
+      "stable_id": "orders.order.{orderId}.open",
+      "reason": "state_recipe=empty：订单列表为空，没有订单行可供打开",
+      "source": "fixtures/state-registry.json orders.empty.v1 state_recipe"
+    }
+  ],
+  "injection": {
+    "query": "embed&width=430&page={screen}",
+    "css": ".statusbar{height:59px!important;padding:0!important;visibility:hidden}\n.phoneapp{height:calc(100% - 59px)!important}\n.nav{height:96px!important;padding-bottom:37px!important}",
+    "source": "R4 视口重排（food_ordering docs/commerce-v1/delivery-plan.md R4；viewport_profile 安全区 59/37）；ui/prototype.html 读取 embed、width、page 查询参数，.statusbar/.phoneapp/.nav 为原型外壳选择器"
+  }
 }

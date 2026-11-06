@@ -28,7 +28,7 @@ REPO = HERE.parent.parent.parent
 DECISIONS = HERE / 'decisions' / 'a01-decisions.json'
 BATCH_DEFINITION = HERE / 'batch' / 'a01-batch.json'
 # Sections of the batch definition whose entries must cite a source in L0 or a recorded decision.
-PROVENANCE_SECTIONS = ('design_version', 'design_package', 'frame', 'viewport_profile', 'states',
+PROVENANCE_SECTIONS = ('design_version', 'design_package', 'frame', 'viewport_profile', 'injection', 'states',
                        'shell_sections', 'tab_bar', 'featured_products', 'current_store', 'template_sources',
                        'display_bindings', 'contract_exclusions')
 
@@ -385,7 +385,7 @@ def generate() -> dict[Path, str]:
             if width == 430 and pins_path.is_file():
                 provenance.setdefault('layout_pins', {})[page] = {
                     'path': pins_path.relative_to(HERE).as_posix(), 'sha256': sha256(pins_path),
-                    'decision': load(pins_path)['decision']}
+                    'decisions': load(pins_path)['decisions']}
             provenance.setdefault('baselines', {})[f'{page}@{width}'] = {
                 'path': path.relative_to(HERE).as_posix(), 'sha256': sha256(path),
                 'png_sha256': sha256(path.with_suffix('.png')), 'viewport': data['viewport'],
@@ -483,7 +483,8 @@ def generate() -> dict[Path, str]:
                 prototype=DESIGN / 'ui' / 'prototype.html', state_id=state_id, screen_id=screen,
                 html_spec=html_spec, bindings=bindings, fixture=fixture, checks=checks[state_id],
                 viewport_profile=VIEWPORT_PROFILE, adapter_source=HERE / 'tools' / 'html_adapter.py',
-                layout_pins=load(HERE / 'baseline' / spec['baseline'] / 'layout-pins-430.json'))
+                layout_pins=load(HERE / 'baseline' / spec['baseline'] / 'layout-pins-430.json'),
+                injection=BATCH['injection'])
             for name, text in html_files.items():
                 outputs[HERE / 'drafts-html' / state_id / name] = text
             scope['states'][state_id].update({'draft': f'drafts-html/{state_id}', 'route': 'html',

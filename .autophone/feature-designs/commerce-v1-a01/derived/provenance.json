@@ -3,7 +3,7 @@
   "files_verified": 54,
   "decisions": {
     "path": "decisions/a01-decisions.json",
-    "sha256": "66e5419726e8955df04b8b7f5f5e986d56d8a3651efbb647aecd66d6edb24646"
+    "sha256": "3ef022a191d3ad5626da8a5c86807e35081538001c58a30c3258d779add052c3"
   },
   "baselines": {
     "home@390": {
@@ -54,13 +54,19 @@
   "layout_pins": {
     "home": {
       "path": "baseline/home/layout-pins-430.json",
-      "sha256": "5743d224215c337bb63cf07d3f9fca90a04dedfce305f6f9ad839d60f58f54f7",
-      "decision": "D7"
+      "sha256": "c55c29358bd0c9d49547561c90bed7eb8d34884390771c5c7f7f7fd093d6d821",
+      "decisions": [
+        "D7",
+        "D8"
+      ]
     },
     "orders": {
       "path": "baseline/orders/layout-pins-430.json",
-      "sha256": "36c4b6ca532b7b3108d9c8712110d93658e8427bd432cfc5e7dfe6710c5a8778",
-      "decision": "D7"
+      "sha256": "c5e527265418e34e26a662b361695258b8679b0a82f00e7ffb196b9528466b3f",
+      "decisions": [
+        "D7",
+        "D8"
+      ]
     }
   },
   "design_version": "commerce-v1-a01-430/r4",

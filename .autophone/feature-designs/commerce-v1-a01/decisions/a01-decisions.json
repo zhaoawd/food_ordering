@@ -50,6 +50,13 @@
       "decided_by": "user (chose option a)",
       "gap": "BL-213 isolation-peer measurement_layout",
       "summary": "原型依赖渲染器默认值的布局（line-height: normal、按钮的浏览器默认盒模型）改为显式值，取宿主 Chromium（参考渲染器）的解析结果，由 HTML 适配器注入；App 实现按同一组显式值"
+    },
+    {
+      "id": "D8",
+      "date": "2026-11-06",
+      "decided_by": "user (chose whole-pt grid and fixed widths)",
+      "gap": "BL-213 measurement_layout residual edges",
+      "summary": "HTML 路线布局对齐整数 pt 网格：块级元素的上下边缘取整到整数 pt，以显式高度写入；由文字撑开、带可见背景或边框的行内块按宿主 Chromium 宽度向上取整为整数 pt 的固定宽度并禁止折行。App 实现按同一组数值"
     }
   ],
   "display_rules": {
@@ -120,6 +127,11 @@
   "layout_pins": {
     "decision": "D7",
     "source": "baseline/<page>/layout-pins-430.json（tools/measure_layout_pins.mjs）",
-    "verified": "2026-11-06 宿主对照：注入后 Chromium 布局不变（偏差 0），Playwright WebKit 与 Chromium 的元素盒子最大差由 4pt 降到 0.79pt（剩余为字形宽度差）"
+    "verified": "2026-11-06 宿主对照：注入后 Chromium 布局不变（偏差 0），Playwright WebKit 与 Chromium 的元素盒子最大差由 4pt 降到 0.79pt（剩余为字形宽度差）",
+    "d8": {
+      "decision": "D8",
+      "source": "baseline/<page>/layout-pins-430.json 中 kind=width、height 的条目",
+      "verified": "2026-11-06 实验：设备 measurement_layout 超差像素 9294 → 24（仅垂直对齐）；剩余 24 在文字撑开的标签右边缘"
+    }
   }
 }

@@ -1,36 +1,56 @@
 {
- "schema_version": "commerce-v1-layout-pins/v1",
- "decision": "D7",
+ "schema_version": "commerce-v1-layout-pins/v2",
+ "decisions": [
+  "D7",
+  "D8"
+ ],
  "source": {
   "path": "design/commerce-v1/ui/prototype.html",
   "sha256": "3ea5f13392adb678ab7eb5e962a9cbbe77f259cfff6246a35ec2c9099d7131b1"
  },
  "url_query": "?embed&width=430&page=orders",
+ "injection_css_sha256": "4f46fca6bc62208596c308e35bbf8231914b6cbe4a9d278f2b1ee2a3a69cf4f7",
  "browser": "chromium/149.0.7827.55",
  "compositor_args": [
   "--disable-gpu",
   "--disable-gpu-compositing"
  ],
+ "height_passes": 1,
+ "off_grid_blocks": [
+  {
+   "tag": "span",
+   "class": null,
+   "top": 21.5,
+   "bottom": 37.5
+  },
+  {
+   "tag": "span",
+   "class": "statusicons",
+   "top": 22.5,
+   "bottom": 36.5
+  }
+ ],
  "pins": [
   {
+   "decision": "D7",
    "path": [],
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     0
    ],
    "kind": "line_height",
    "value_px": 16,
    "strut": true,
-   "text": "",
-   "font_size": "13px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     0,
     0
@@ -38,10 +58,10 @@
    "kind": "line_height",
    "value_px": 16,
    "strut": false,
-   "text": "9:41",
-   "font_size": "13px"
+   "text": "9:41"
   },
   {
+   "decision": "D7",
    "path": [
     0,
     1
@@ -49,10 +69,10 @@
    "kind": "line_height",
    "value_px": 16,
    "strut": true,
-   "text": "",
-   "font_size": "13px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     0,
     2
@@ -60,20 +80,20 @@
    "kind": "line_height",
    "value_px": 14,
    "strut": false,
-   "text": "▮▮▮ ᴡɪꜰɪ ▰",
-   "font_size": "11px"
+   "text": "▮▮▮ ᴡɪꜰɪ ▰"
   },
   {
+   "decision": "D7",
    "path": [
     1
    ],
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     0
@@ -81,10 +101,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     0,
@@ -93,10 +113,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     0,
@@ -128,6 +148,7 @@
    "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     0,
@@ -136,10 +157,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1
@@ -147,10 +168,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -159,10 +180,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -172,10 +193,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": false,
-   "text": "全部",
-   "font_size": "12px"
+   "text": "全部"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -208,6 +229,7 @@
    "text": "全部"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -217,10 +239,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": false,
-   "text": "进行中",
-   "font_size": "12px"
+   "text": "进行中"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -253,6 +275,7 @@
    "text": "进行中"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -262,10 +285,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": false,
-   "text": "已完成",
-   "font_size": "12px"
+   "text": "已完成"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -298,6 +321,7 @@
    "text": "已完成"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -307,10 +331,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": false,
-   "text": "售后",
-   "font_size": "12px"
+   "text": "售后"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -343,6 +367,7 @@
    "text": "售后"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -351,10 +376,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -364,10 +389,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -378,10 +403,10 @@
    "kind": "line_height",
    "value_px": 20,
    "strut": false,
-   "text": "科创园店",
-   "font_size": "14px"
+   "text": "科创园店"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -392,10 +417,10 @@
    "kind": "line_height",
    "value_px": 14,
    "strut": false,
-   "text": "正在制作",
-   "font_size": "10px"
+   "text": "正在制作"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -405,10 +430,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -419,10 +444,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -433,10 +458,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -448,10 +473,10 @@
    "kind": "line_height",
    "value_px": 18,
    "strut": false,
-   "text": "香脆鸡腿堡套餐 × 2",
-   "font_size": "13px"
+   "text": "香脆鸡腿堡套餐 × 2"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -463,10 +488,10 @@
    "kind": "line_height",
    "value_px": 18,
    "strut": false,
-   "text": "实付 ¥59.80",
-   "font_size": "13px"
+   "text": "实付 ¥59.80"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -476,10 +501,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -490,10 +515,10 @@
    "kind": "line_height",
    "value_px": 18,
    "strut": false,
-   "text": "取餐码 A108",
-   "font_size": "13px"
+   "text": "取餐码 A108"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -504,10 +529,10 @@
    "kind": "line_height",
    "value_px": 20,
    "strut": false,
-   "text": "查看进度",
-   "font_size": "14px"
+   "text": "查看进度"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -541,6 +566,7 @@
    "text": "查看进度"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -549,10 +575,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -562,10 +588,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -576,10 +602,10 @@
    "kind": "line_height",
    "value_px": 20,
    "strut": false,
-   "text": "科创园店",
-   "font_size": "14px"
+   "text": "科创园店"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -589,10 +615,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -603,10 +629,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -617,10 +643,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -632,10 +658,10 @@
    "kind": "line_height",
    "value_px": 18,
    "strut": false,
-   "text": "炙烤牛肉拌饭",
-   "font_size": "13px"
+   "text": "炙烤牛肉拌饭"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -647,10 +673,10 @@
    "kind": "line_height",
    "value_px": 18,
    "strut": false,
-   "text": "历史实付 ¥32.00",
-   "font_size": "13px"
+   "text": "历史实付 ¥32.00"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -660,10 +686,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -674,10 +700,10 @@
    "kind": "line_height",
    "value_px": 20,
    "strut": false,
-   "text": "再来一单",
-   "font_size": "14px"
+   "text": "再来一单"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     1,
@@ -711,6 +737,7 @@
    "text": "再来一单"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     2
@@ -718,10 +745,10 @@
    "kind": "line_height",
    "value_px": 17,
    "strut": true,
-   "text": "",
-   "font_size": "14px"
+   "text": ""
   },
   {
+   "decision": "D7",
    "path": [
     1,
     2,
@@ -730,10 +757,10 @@
    "kind": "line_height",
    "value_px": 14,
    "strut": false,
-   "text": "首页",
-   "font_size": "10px"
+   "text": "首页"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     2,
@@ -765,6 +792,7 @@
    "text": "首页"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     2,
@@ -773,10 +801,10 @@
    "kind": "line_height",
    "value_px": 14,
    "strut": false,
-   "text": "点餐",
-   "font_size": "10px"
+   "text": "点餐"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     2,
@@ -808,6 +836,7 @@
    "text": "点餐"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     2,
@@ -816,10 +845,10 @@
    "kind": "line_height",
    "value_px": 14,
    "strut": false,
-   "text": "优惠",
-   "font_size": "10px"
+   "text": "优惠"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     2,
@@ -851,6 +880,7 @@
    "text": "优惠"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     2,
@@ -859,10 +889,10 @@
    "kind": "line_height",
    "value_px": 14,
    "strut": false,
-   "text": "订单",
-   "font_size": "10px"
+   "text": "订单"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     2,
@@ -894,6 +924,7 @@
    "text": "订单"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     2,
@@ -902,10 +933,10 @@
    "kind": "line_height",
    "value_px": 14,
    "strut": false,
-   "text": "我的",
-   "font_size": "10px"
+   "text": "我的"
   },
   {
+   "decision": "D7",
    "path": [
     1,
     2,
@@ -935,6 +966,86 @@
     "margin-bottom": "0px"
    },
    "text": "我的"
+  },
+  {
+   "decision": "D8",
+   "path": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "kind": "height",
+   "from_px": 62.141,
+   "value_px": 62
+  },
+  {
+   "decision": "D8",
+   "path": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "kind": "height",
+   "from_px": 18.141,
+   "value_px": 18
+  },
+  {
+   "decision": "D8",
+   "path": [
+    1,
+    1,
+    2,
+    0,
+    1
+   ],
+   "kind": "height",
+   "from_px": 19.797,
+   "value_px": 20
+  },
+  {
+   "decision": "D8",
+   "path": [
+    1,
+    1,
+    2,
+    1,
+    1
+   ],
+   "kind": "height",
+   "from_px": 62.141,
+   "value_px": 62
+  },
+  {
+   "decision": "D8",
+   "path": [
+    1,
+    1,
+    2,
+    1,
+    1,
+    1
+   ],
+   "kind": "height",
+   "from_px": 18.141,
+   "value_px": 18
+  },
+  {
+   "decision": "D8",
+   "path": [
+    1,
+    1,
+    2,
+    2,
+    0
+   ],
+   "kind": "height",
+   "from_px": 18.141,
+   "value_px": 18
   }
  ]
 }
