@@ -1,0 +1,141 @@
+{
+  "schema_version": "design-batch-calibration-selftest-samples/v1",
+  "note": "校准器自检的受控变异（原 tools/calibration_selftest.py 中的写法，迁入 autophone design-batch selftest 后改为数据）。",
+  "state_id": "home.default.v1",
+  "wrong_state_page": "orders",
+  "dsl": {
+    "text_changed": {
+      "description": "home.greeting text differs from the prototype",
+      "ops": [
+        {
+          "op": "fixture_view",
+          "key": "greeting",
+          "value": "晚餐时间，把好心情吃回来。"
+        }
+      ]
+    },
+    "element_missing": {
+      "description": "home.mode.pickup.title removed from the layout",
+      "ops": [
+        {
+          "op": "document_remove_node",
+          "node_id": "home.mode.pickup.title"
+        }
+      ]
+    },
+    "shifted": {
+      "description": "mode cards and everything below moved down 5pt",
+      "ops": [
+        {
+          "op": "document_set",
+          "node_id": "home.modes",
+          "path": [
+            "layout",
+            "margin"
+          ],
+          "value": [
+            19,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "occluded": {
+      "description": "an opaque layer covers the pickup card content",
+      "ops": [
+        {
+          "op": "document_append_child",
+          "node_id": "home.mode.pickup",
+          "child": {
+            "id": "selftest.cover",
+            "component": "Decoration",
+            "layout": {
+              "position": "absolute",
+              "inset": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            },
+            "style": {
+              "backgroundColor": "$color.surface"
+            }
+          }
+        }
+      ]
+    },
+    "deviation_masking": {
+      "description": "hero price changed although its text check carries a recorded deviation (D3)",
+      "ops": [
+        {
+          "op": "fixture_view",
+          "key": "hero_price",
+          "value": "¥99.90"
+        }
+      ]
+    }
+  },
+  "html": {
+    "text_changed": {
+      "description": "greeting changed in the prototype and the fixture alike",
+      "ops": [
+        {
+          "op": "html_replace",
+          "old": "午餐时间，把好心情吃回来。",
+          "new": "晚餐时间，把好心情吃回来。"
+        },
+        {
+          "op": "fixture_view",
+          "key": "greeting",
+          "value": "晚餐时间，把好心情吃回来。"
+        }
+      ]
+    },
+    "element_missing": {
+      "description": "pickup title removed from the prototype markup",
+      "ops": [
+        {
+          "op": "html_replace",
+          "old": "<strong>到店自取</strong>",
+          "new": ""
+        }
+      ]
+    },
+    "shifted": {
+      "description": "mode cards and everything below moved down 5pt",
+      "ops": [
+        {
+          "op": "html_style",
+          "css": ".modegrid{margin-top:19px!important}"
+        }
+      ]
+    },
+    "occluded": {
+      "description": "an opaque layer covers the pickup card content",
+      "ops": [
+        {
+          "op": "html_style",
+          "css": "[data-testid=\"home.mode.pickup\"]{position:relative}[data-testid=\"home.mode.pickup\"]::after{content:\"\";position:absolute;inset:0;background:#fff}"
+        }
+      ]
+    },
+    "deviation_masking": {
+      "description": "hero price changed although its text check carries a recorded deviation (D3)",
+      "ops": [
+        {
+          "op": "html_replace",
+          "old": "\"home.hero.price\": \"¥32.90\"",
+          "new": "\"home.hero.price\": \"¥99.90\""
+        },
+        {
+          "op": "fixture_view",
+          "key": "hero_price",
+          "value": "¥99.90"
+        }
+      ]
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
- "schema_version": "commerce-v1-asset-manifest/v1",
+ "schema_version": "design-batch-asset-manifest/v1",
  "source": {
   "path": "design/commerce-v1/ui/prototype.html",
   "sha256": "3ea5f13392adb678ab7eb5e962a9cbbe77f259cfff6246a35ec2c9099d7131b1"

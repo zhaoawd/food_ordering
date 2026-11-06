@@ -1,11 +1,11 @@
 {
-  "schema_version": "commerce-v1-final-package/v1",
+  "schema_version": "design-batch-final-package/v1",
   "state_id": "home.default.v1",
-  "round": 12,
+  "round": 13,
   "status": "final_candidate",
   "package": {
-    "path": "packages/home.default.v1/round-12-device",
-    "design_package_sha256": "bacaae681c3ec32e3bc2a9d69cbb8b474e940e5e957a1740f5d9e68577b06512",
+    "path": "packages/home.default.v1/round-13-device",
+    "design_package_sha256": "225737b9d5834ed22c458b0a1c5a0f1fb13f20334b41969bab68d43a37550478",
     "reference_sha256": "368e8e6481a36ad1a396e43c4e1ea17069d04fff4c76eedf98edf6d0f69de700",
     "reference_renderer": {
       "renderer": "ios-wkwebview",
@@ -36,13 +36,13 @@
     }
   },
   "host_package": {
-    "path": "packages/home.default.v1/round-12",
-    "design_package_sha256": "c9c49d234a7e36b64edf01014d4ca11b6d008319ad14bc4681013dc927275dcb"
+    "path": "packages/home.default.v1/round-13",
+    "design_package_sha256": "a7b1c8729d49621b507d3fbb0c8924d63b22d6b04f972e78dd80acf534114377"
   },
   "checks": {
     "calibration": {
-      "record": "calibration/home.default.v1/round-12-device.json",
-      "sha256": "9c3321aff4ae0877d4c564f998083c7b7bcdd6c48831052b37f29087562aed04",
+      "record": "calibration/home.default.v1/round-13-device.json",
+      "sha256": "a217700bc9a4722a50a6e9bbc6b9be6c5f84185fdcad56d52b0dc3b00457303c",
       "summary": {
         "elements": 32,
         "passed": 29,
@@ -54,14 +54,14 @@
     },
     "achievability": {
       "report": "admission/achievability/home.default.v1.final.json",
-      "sha256": "a0d6e88a43f28334e0985371349aa4c1e1958b1626a0c18634b4d315ac00bb1c",
+      "sha256": "1ee02ce82086cd037d745fbf8d49801ba80c6b3e022d1effe018462d633c362d",
       "counts": {
         "achievable/assumed": 34
       }
     },
     "admission": {
       "report": "admission/admission-report.json",
-      "sha256": "26aa7704a2e681042b66f4392a354256cc6ef6181471770b588fcd8a053163e5",
+      "sha256": "c363b4d00d25bf6517d102703dcc35129e9aa511bc06d66ece398b7f3a9faa99",
       "admitted": true
     }
   }

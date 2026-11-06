@@ -1,11 +1,11 @@
 {
-  "schema_version": "commerce-v1-final-package/v1",
+  "schema_version": "design-batch-final-package/v1",
   "state_id": "home.guest.v1",
-  "round": 12,
+  "round": 13,
   "status": "final_candidate",
   "package": {
-    "path": "packages/home.guest.v1/round-12-device",
-    "design_package_sha256": "8457192779fc6d9f9a5967f4f4944fd563b006588c3623e43651074fed1803a3",
+    "path": "packages/home.guest.v1/round-13-device",
+    "design_package_sha256": "7d34c70beface68b09940706a3445f92097b82aee878648c52cc7ec58ef6dc57",
     "reference_sha256": "92f051d605b4d1aca352aad74e201c33ef8708902948799b4df14483fb8474b9",
     "reference_renderer": {
       "renderer": "ios-wkwebview",
@@ -36,13 +36,13 @@
     }
   },
   "host_package": {
-    "path": "packages/home.guest.v1/round-12",
-    "design_package_sha256": "bd3cc8921a3575f9afdcece3577ffbfe3a0d92575d4ba71aa7654b70d45d421b"
+    "path": "packages/home.guest.v1/round-13",
+    "design_package_sha256": "9dadcbd97f1f715286de82bfebf32e7c875fa44a551b7a8f0dedbd980cb56e2c"
   },
   "checks": {
     "calibration": {
-      "record": "calibration/home.guest.v1/round-12-device.json",
-      "sha256": "3aa2ded661c19246fd548ad4954a45915c73a4f90e04ef178b49391d6a9b4ca7",
+      "record": "calibration/home.guest.v1/round-13-device.json",
+      "sha256": "bf274c4af0af92756ff0c51da4d6f33e0d05661493f60fe591eb85a01e72a9c1",
       "summary": {
         "elements": 32,
         "passed": 28,
@@ -54,14 +54,14 @@
     },
     "achievability": {
       "report": "admission/achievability/home.guest.v1.final.json",
-      "sha256": "f39000a56c7ea4063bf09ecb886d5e9b92ecb954a0338995400fb769bde73eb8",
+      "sha256": "768958bc73cad8fd14a2e5b65b30af03e508d6070ef79defa5484d6f0c2b14af",
       "counts": {
         "achievable/assumed": 34
       }
     },
     "admission": {
       "report": "admission/admission-report.json",
-      "sha256": "26aa7704a2e681042b66f4392a354256cc6ef6181471770b588fcd8a053163e5",
+      "sha256": "c363b4d00d25bf6517d102703dcc35129e9aa511bc06d66ece398b7f3a9faa99",
       "admitted": true
     }
   }

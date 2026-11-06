@@ -2,19 +2,21 @@
 
 本目录把冻结设计包 `design/commerce-v1/` 中 A01 批次的页面状态转换为 autophone 结构化设计包（`structured-design-package/v1`）。设计版本为 `commerce-v1-a01-430/r4`：画布从原包的 390×844 重排到 430×932，作为新设计版本处理，不改写原包。
 
-状态：2026-11-06 第 12 轮（策略 v5），A01 三个状态均通过批次准入（含期望可实现性）、校准 0 失败。首页默认态与游客态走 HTML 路线：29/28 通过，3/4 项已登记偏差来自设计决定（D1、D3、D5），13 处图形均已交付；订单空态走 DSL 路线：9 通过、1 项已登记偏差（P3）。80 个文本节点均判为可实现，所用映射证据为“假设”，待设备证据。本目录不执行 design lock，也不包含需求输入包。
+状态：2026-11-06 第 13 轮（策略 v5，autophone `design-batch` 引擎），A01 三个状态均通过批次准入（含期望可实现性）、校准 0 失败。首页默认态与游客态走 HTML 路线：29/28 通过，3/4 项已登记偏差来自设计决定（D1、D3、D5），13 处图形均已交付；订单空态走 DSL 路线：9 通过、1 项已登记偏差（P3）。80 个文本节点均判为可实现，所用映射证据为“假设”，待设备证据。进入 B4 的检查清单以第 13 轮为起点（`final/b4-entry.json`）。本目录不执行 design lock，也不包含需求输入包。
+
+本目录只放数据与产物；派生、渲染、校准、准入与检查由 autophone `design-batch` 命令执行（2026-11-06 迁入，见 §2.1）。
 
 ## 1. 流程
 
 ```mermaid
 flowchart LR
-  P["design/commerce-v1<br/>MANIFEST 校验"] --> R["render_baseline.mjs<br/>390 与 430 原型基准"]
-  P --> D["derive.py<br/>令牌、fixture、计划、范围、检查"]
+  P["design/commerce-v1<br/>MANIFEST 校验"] --> R["design-batch baseline<br/>390 与 430 原型基准"]
+  P --> D["design-batch derive<br/>令牌、fixture、计划、范围、检查"]
   R --> D
   A["authored/<br/>AI 起草布局与定位器"] --> D
   D --> F["drafts/<br/>4 个草稿文件"]
-  F --> K["build.py<br/>autophone ui-design package"]
-  K --> C["calibrate.mjs<br/>逐元素几何比较"]
+  F --> K["design-batch build<br/>autophone ui-design package"]
+  K --> C["校准<br/>逐元素几何比较"]
   C -->|超出容差| A
 ```
 
@@ -35,28 +37,64 @@ flowchart LR
 | 设计包 | 确定性：autophone `ui-design package` | `packages/<state>/round-<n>/` |
 | 校准记录 | 确定性：编译结果与 430 基准逐元素比较 | `calibration/<state>/round-<n>.{json,png}` |
 
-`derive.py` 先按 `MANIFEST.json`（SHA-256 `ec6bed1c…`）重算原包 54 个文件，任一不一致即停止。草稿的 `ai_provenance.prompt_sha256` 取 `authored/AUTHORING.md` 的哈希。
+派生先按 `MANIFEST.json`（SHA-256 `ec6bed1c…`）重算原包 54 个文件，任一不一致即停止。草稿的 `ai_provenance.prompt_sha256` 取 `authored/AUTHORING.md` 的哈希。
 
 ## 2. 重新生成
 
+在 autophone 仓库根目录执行（`B` 为本目录的绝对路径）：
+
 ```sh
-cd .autophone/feature-designs/commerce-v1-a01
-export PLAYWRIGHT_MODULE=<autophone>/node_modules/playwright/index.mjs
-export COMPOSITOR_PROFILES=<autophone>/autophone/workflow/requirement/prototype_compositor.json
-BASELINE_VIEWPORT=390x844 node tools/render_baseline.mjs ../../../design/commerce-v1/ui/prototype.html baseline home orders
-node tools/render_baseline.mjs ../../../design/commerce-v1/ui/prototype.html baseline home orders
-python3 -I tools/derive.py            # 写 derived/（含批次合同）与 drafts/
-python3 -I tools/derive.py --check    # 只核对产物是否过期，不判设计有效性
-python3 -I -B -m unittest discover -s tools -p 'test_*.py'   # 批次定义回归、可实现性判定与度量受控样本（后者需上面两个环境变量）
-node tools/extract_assets.mjs ../../../design/commerce-v1/ui/prototype.html assets home orders   # SVG 资源与独立渲染对照
-python3 tools/build.py --autophone-root <autophone> --round <n> --policy policy/calibration-policy.v5.json   # 另读 autophone apps/food_ordering_v2/target_stack/target-stack-profile.v1.json
-python3 -I tools/admission.py         # 单独执行批次准入
-python3 tools/calibration_selftest.py --autophone-root <autophone> --policy policy/calibration-policy.v5.json --route html
-python3 tools/calibration_selftest.py --autophone-root <autophone> --policy policy/calibration-policy.v4.json --route dsl
-python3 -I tools/check_render_determinism.py --runs 5
+D="uv run --group platform python -m autophone.cli design-batch"
+$D baseline $B --out <新目录> --viewport 390x844   # L3 基准；查询参数取批次定义 baseline_query
+$D baseline $B --out <新目录>
+$D layout-pins $B --out <新目录>                  # D7/D8 布局锚定值（先注入批次定义 injection）
+$D assets $B --out <新目录>                       # SVG 资源与独立渲染对照
+$D derive $B                                      # 只检查：产物与 batch/l2-digest.json 一致
+$D derive $B --write                              # 重新生成 derived/、drafts/、drafts-html/
+$D derive $B --record-revision "<原因>" --decision <编号>   # 有意改变产物时登记摘要修订
+$D build $B --round <n> --policy policy/calibration-policy.v5.json [--rig-target <rig 运行时目标>]
+$D admission $B
+$D selftest $B --policy policy/calibration-policy.v5.json --route html
+$D selftest $B --policy policy/calibration-policy.v4.json --route dsl
+$D determinism $B --page home --runs 5
+$D b4-entry $B --round <n> [--write]
 ```
 
-`build.py` 每轮写入新目录（设计包、校准记录、对照图、本轮输入快照 `round-<n>-inputs/`），同一轮号已存在时拒绝执行；校准失败或任一必需状态未准入时返回 1。本仓库不依赖 Playwright，渲染与校准使用 autophone 的 Playwright（`playwright/1.61.1`、`chromium/149.0.7827.55`），Chromium 启动参数取 autophone `prototype_compositor.json` 的打包配置（`software/v1`：`--disable-gpu --disable-gpu-compositing`），与平台参考图渲染相同。
+`build` 每轮写入新目录（设计包、校准记录、对照图、本轮输入快照 `round-<n>-inputs/`），同一轮号已存在时拒绝执行；校准失败或任一必需状态未准入时返回 1；给出 `--rig-target` 时再生成设备最终包（`final/<state>.json`）。设备采集登记控制面预留，需要 `AUTOPHONE_DATABASE_URL`。渲染与校准使用 autophone 的 Playwright（`playwright/1.61.1`、`chromium/149.0.7827.55`），Chromium 启动参数取 `prototype_compositor.json` 的打包配置（`software/v1`：`--disable-gpu --disable-gpu-compositing`），与平台参考图渲染相同。
+
+### 2.1 工具迁入 autophone（2026-11-06）
+
+按 `docs/design-input-pipeline.md`（autophone）§7.5，原 `tools/` 下的派生、基准、锚定、资源、校准、可实现性、准入、自检、确定性与 B4 清单检查迁入 autophone `autophone/workflow/design_batch/`（命令 `design-batch`）。commerce-v1 设计包格式的读取与业务显示规则（金额、门店简称、推荐商品）在 `apps/food_ordering_v2/design_source.py`，批次定义的 `design_source` 指向它。Schema：`design-batch-definition.v1`、`design-batch-decisions.v1`、`design-batch-calibration-policy.v1`（接受迁移前的 `commerce-v1-*` 标识，已冻结的策略与决定文件不重写）。
+
+本目录新增或改写的数据：
+
+| 文件 | 内容 |
+| --- | --- |
+| `batch/a01-batch.json` | 新增 `design_source`、`baseline_query`（原 `render_baseline.mjs` 常量）；标识改为 `design-batch-definition/v1` |
+| `batch/calibration-selftest.json` | 自检受控变异（原 `calibration_selftest.py` 中写死的节点与文案），平台固定样本类别 |
+| `batch/b4-entry-notes.json` | 锁定轮次的依据与遗留风险（原写在 `b4_entry.py` 中） |
+| `assets/asset-manifest.json` | 仅 `schema_version` 改为 `design-batch-asset-manifest/v1` |
+
+迁移前后的等价性（相同输入，新引擎对照已提交产物）：
+
+| 对象 | 结果 |
+| --- | --- |
+| L2 34 个产物 | 29 个逐字节一致；5 个仅标识不同（批次合同 schema、HTML 草稿 adapter 名、来源记录 schema 与 adapter 源码哈希），HTML 页面逐字节一致；摘要修订已登记 |
+| L3 基准 home/orders × 390/430 | JSON 除 `schema_version` 外一致，PNG 逐字节一致 |
+| 布局锚定值 home/orders | 除 `schema_version` 外一致 |
+| 资源 22 个 | SVG 逐字节一致；清单除 `schema_version` 外一致 |
+| 第 12 轮 5 个设计包（含 2 个设备包）重跑校准、字面测量、可实现性 | 除标识与文件路径外一致 |
+| 准入报告 | 除标识与批次合同哈希外一致 |
+| 校准器自检 html（v5）、dsl（v4）各 8 个样本 | 检出结果、阶段与失败项逐项一致 |
+| 渲染确定性（home，3 次） | JSON 与 PNG 均一致 |
+| 第 13 轮（新引擎，含设备） | 校准、可实现性、准入与第 12 轮相同；宿主与设备参考图与第 12 轮逐字节相同；B4 清单 12 项通过 |
+
+迁移中发现的两处问题：
+
+- 原自检在打包被拒时把 `detected` 记为样本的预期值，对照样本打包失败会被当作符合预期。迁移后打包被拒一律记为已检出，对照样本因此会报告异常。
+- DSL 路线用策略 v5 自检时对照样本失败（`fontWeight` 4 项），迁移前工具结果相同：v5 的锚定偏差按 HTML 路线设定，DSL 交叉对照仍用 v4。
+
+下文各节记录当时的工具名（`tools/*.py`、`tools/*.mjs`），对应关系：`derive.py` → `design-batch derive`，`build.py` → `build`，`admission.py` → `admission`，`calibration_selftest.py` → `selftest`，`b4_entry.py` → `b4-entry`，`render_baseline.mjs` → `baseline`，`measure_layout_pins.mjs` → `layout-pins`，`extract_assets.mjs` → `assets`，`check_render_determinism.py` → `determinism`；其余脚本在 autophone `autophone/workflow/design_batch/`。
 
 ### 批次定义数据化（2026-11-06）
 
@@ -68,7 +106,7 @@ python3 -I tools/check_render_determinism.py --runs 5
 - `tools/test_derive_batch.py`（10 项）：产物与摘要一致、输入身份与摘要一致、每个条目有出处或决定、缺出处或未知决定与规则被拒、迁出的字面量未回到脚本。把导航顺序对调后，测试报 `derived/acceptance-scope.json` 不一致；把商品数改为 1 后，显示绑定越界报错。
 - 规则含义有意改变时才更新摘要，并在提交说明中写明原因。
 
-未迁出（保持产物一致所需）：`tools/html_adapter.py` 中的注入内容（查询参数、R4 外壳样式与选择器）。草稿的 `adapter-provenance.json` 记录该文件的哈希，修改它会改变产物；按 `docs/design-input-pipeline.md` §7.5，迁入 autophone 时改为批次定义中的注入声明。`tools/render_baseline.mjs`（L3）的查询参数同样留到那时处理。
+当时未迁出（保持产物一致所需，已于 D8 与 §2.1 处理）：`tools/html_adapter.py` 中的注入内容（查询参数、R4 外壳样式与选择器）。草稿的 `adapter-provenance.json` 记录该文件的哈希，修改它会改变产物；按 `docs/design-input-pipeline.md` §7.5，迁入 autophone 时改为批次定义中的注入声明。`tools/render_baseline.mjs`（L3）的查询参数同样留到那时处理。
 
 ### 期望可实现性（2026-11-06）
 

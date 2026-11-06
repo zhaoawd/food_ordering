@@ -1,11 +1,12 @@
 {
-  "schema_version": "commerce-v1-calibration-selftest/v1",
+  "schema_version": "design-batch-calibration-selftest/v1",
   "state_id": "home.default.v1",
   "route": "dsl",
   "policy": {
     "path": "policy/calibration-policy.v4.json",
     "sha256": "cb63c66170780df8d81dc404582d66ac50bfc60f1718007d410fd79f70e9c493"
   },
+  "samples_declaration_sha256": "52b62f9f03dcb3b31c5915358948cdad4d0de1bbc5ad925d377c5e09e9a3943b",
   "all_as_expected": true,
   "samples": {
     "control": {
@@ -80,7 +81,7 @@
       ]
     },
     "wrong_state": {
-      "description": "home draft calibrated against the orders baseline",
+      "description": "draft calibrated against the orders baseline",
       "must_fail": true,
       "exit_code": 1,
       "detected": true,
@@ -101,13 +102,13 @@
       ]
     },
     "stale_evidence": {
-      "description": "baseline file differs from the digest recorded by derive.py",
+      "description": "baseline file differs from the digest recorded by derive",
       "must_fail": true,
       "exit_code": 2,
       "detected": true,
       "stage": "calibration",
       "failing_checks": [],
-      "refusal": "baseline /var/folders/kb/fl4_kf695qz76pxnqq14n_zh0000gn/T/calibration-selftest-m9hwq55b/stale_evidence/prototype-430.json differs from the derived baseline; re-run derive.py"
+      "refusal": "baseline /var/folders/kb/fl4_kf695qz76pxnqq14n_zh0000gn/T/calibration-selftest-qu4ptirj/stale_evidence/prototype-430.json differs from the derived baseline; re-run design-batch derive"
     }
   }
 }

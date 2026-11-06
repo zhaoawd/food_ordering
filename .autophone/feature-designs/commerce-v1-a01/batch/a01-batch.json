@@ -1,5 +1,5 @@
 {
-  "schema_version": "commerce-v1-batch-definition/v1",
+  "schema_version": "design-batch-definition/v1",
   "note": "批次事实与配置。能从 L0 读出的写 source（文件与位置）；改动或补充 L0 的写 decision（a01-decisions.json 中的编号）。derive.py 拒绝缺少 source 与 decision 的条目。",
   "batch": "A01",
   "design_version": {
@@ -10,6 +10,11 @@
     "path": "design/commerce-v1",
     "manifest_sha256": "ec6bed1c5fbae3eb4d7cca23dbb1a78c573906b08b52a062e93812f604c174ee",
     "source": "food_ordering docs/commerce-v1/design-package.md 入库记录（MANIFEST.json SHA-256）"
+  },
+  "design_source": {
+    "app": "food_ordering_v2",
+    "format": "commerce-design-package/v1",
+    "source": "design/commerce-v1/MANIFEST.json 文件布局（spec/、fixtures/、tests/acceptance-cases.json）；读取器为 autophone apps/food_ordering_v2/design_source.py"
   },
   "frame": {
     "width": 430,
@@ -32,6 +37,10 @@
       "system_ui": "separate_region"
     },
     "source": "food_ordering docs/commerce-v1/environment.md §2 设备画像 vphone-ios27-default；安全区沿用 autophone vphone 430×932 画像"
+  },
+  "baseline_query": {
+    "value": "embed&width={width}&page={page}&state={state}",
+    "source": "ui/prototype.html 读取的查询参数 embed、width、page、state（原 tools/render_baseline.mjs 常量）"
   },
   "states": {
     "home.default.v1": {

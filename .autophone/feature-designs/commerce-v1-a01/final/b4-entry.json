@@ -1,8 +1,9 @@
 {
-  "schema_version": "commerce-v1-b4-entry/v1",
-  "round": 12,
+  "schema_version": "design-batch-b4-entry/v1",
+  "batch": "A01",
+  "round": 13,
   "ready": true,
-  "rationale": "Round 12 is the first round in which every state is admitted with 0 calibration failures and every HTML-route state has a final package rendered on the rig that passes the device self-check with 0 mismatched pixels; earlier rounds have host references only.",
+  "rationale": "第 13 轮由迁入 autophone 的 design-batch 引擎生成：所有状态准入、校准 0 失败，HTML 路线状态都有设备最终包且自证超差 0。与第 12 轮（迁移前工具，首个满足上述条件的轮次）相比，校准、可实现性与准入结果一致，宿主与设备参考图逐字节相同；B4 从第 13 轮开始，使后续维护的引擎与锁定起点一致。",
   "checks": [
     {
       "item": "l2_up_to_date",
@@ -57,7 +58,7 @@
     {
       "item": "orders.empty.v1: host package",
       "ok": true,
-      "detail": "packages/orders.empty.v1/round-12"
+      "detail": "packages/orders.empty.v1/round-13"
     },
     {
       "item": "orders.empty.v1: achievability on the host package",
@@ -69,9 +70,9 @@
     "home.default.v1": {
       "route": "html",
       "final": "final/home.default.v1.json",
-      "final_sha256": "b3def715182b0277df21d35ffd3dca247fefd84fa622c51487045264ac1fdfe1",
-      "package": "packages/home.default.v1/round-12-device",
-      "design_package_sha256": "bacaae681c3ec32e3bc2a9d69cbb8b474e940e5e957a1740f5d9e68577b06512",
+      "final_sha256": "4a10a619139ab1b27ba0992c2b8a844f1e301d3c2f5ae7372bf8c626d382d0d8",
+      "package": "packages/home.default.v1/round-13-device",
+      "design_package_sha256": "225737b9d5834ed22c458b0a1c5a0f1fb13f20334b41969bab68d43a37550478",
       "reference_sha256": "368e8e6481a36ad1a396e43c4e1ea17069d04fff4c76eedf98edf6d0f69de700",
       "reference_renderer": {
         "renderer": "ios-wkwebview",
@@ -104,9 +105,9 @@
     "home.guest.v1": {
       "route": "html",
       "final": "final/home.guest.v1.json",
-      "final_sha256": "c48bccc211f623c9c2926b9419b5cbc9abfbe6f0f719f6c72e29bc862caa02a2",
-      "package": "packages/home.guest.v1/round-12-device",
-      "design_package_sha256": "8457192779fc6d9f9a5967f4f4944fd563b006588c3623e43651074fed1803a3",
+      "final_sha256": "c57d07a688016d42ae992bbfe3b522c0ec2e130dd8f0201c0a6960da06d3c9d5",
+      "package": "packages/home.guest.v1/round-13-device",
+      "design_package_sha256": "7d34c70beface68b09940706a3445f92097b82aee878648c52cc7ec58ef6dc57",
       "reference_sha256": "92f051d605b4d1aca352aad74e201c33ef8708902948799b4df14483fb8474b9",
       "reference_renderer": {
         "renderer": "ios-wkwebview",
@@ -138,10 +139,10 @@
     },
     "orders.empty.v1": {
       "route": "dsl",
-      "package": "packages/orders.empty.v1/round-12",
+      "package": "packages/orders.empty.v1/round-13",
       "design_package_sha256": "95b9826dff4d2466f66b3c824df3d0eb4254f34236d8e4c5197959c9b146e0f3",
       "reference_sha256": "2f8377dee86e70efff2505ab3349af80bea8bee71aa0d268d478b4fc93757c7b",
-      "achievability_sha256": "af15ca41f115051ec19d76ec0265892359df101e7ace32e4e1e97040676fe9d0"
+      "achievability_sha256": "62ba3ef4fa187eb4f97c561b08c926c7915856365b7536fd36c6b05e8972fc75"
     }
   },
   "policy": {
@@ -149,7 +150,7 @@
     "sha256": "768088afdd9c8e85c1cc03f1ae9c1e9354caad30e858c626ff65a8431985b196"
   },
   "admission": {
-    "report_sha256": "26aa7704a2e681042b66f4392a354256cc6ef6181471770b588fcd8a053163e5",
+    "report_sha256": "c363b4d00d25bf6517d102703dcc35129e9aa511bc06d66ece398b7f3a9faa99",
     "admitted_states": [
       "home.default.v1",
       "home.guest.v1",
@@ -159,11 +160,11 @@
   },
   "stack_profile_sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
   "residual_risks": [
-    "Achievability evidence is assumed (React Native weight → iOS face mapping), not device-verified.",
-    "Device references cover one rig (isolation-peer, vphone-ios27-default, zh-CN, light, dynamic type L).",
-    "Some vertically centred elements sit on half points (layout-pins off_grid_blocks); they have no flat-colour edge on these pages, which may not hold for other pages.",
-    "D7/D8 change design values by up to 0.86pt; the App implementation uses the same pinned values.",
-    "Locators can map to a wrong element whose text happens to match; admission does not detect it."
+    "可实现性证据为假设级（React Native 字重 → iOS 字面映射），未经设备验证。",
+    "设备参考图只覆盖一台 Rig（isolation-peer，vphone-ios27-default，zh-CN，light，字号档位 L）。",
+    "少数垂直居中的元素位于半 pt（layout-pins off_grid_blocks）；本页这些元素旁没有平涂色交界，其他页面不一定成立。",
+    "D7/D8 改变设计数值，最多 0.86pt；App 实现按同一组锚定值。",
+    "定位器可能映射到文本恰好相同的错误元素，准入不能发现。"
   ],
   "not_done_here": "design lock and the B4 acceptance contract (registered actions, assertions, thresholds) are B4 work; this file only records the round they start from."
 }

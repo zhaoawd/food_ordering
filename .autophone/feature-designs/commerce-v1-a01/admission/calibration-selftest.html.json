@@ -1,11 +1,12 @@
 {
-  "schema_version": "commerce-v1-calibration-selftest/v1",
+  "schema_version": "design-batch-calibration-selftest/v1",
   "state_id": "home.default.v1",
   "route": "html",
   "policy": {
     "path": "policy/calibration-policy.v5.json",
     "sha256": "768088afdd9c8e85c1cc03f1ae9c1e9354caad30e858c626ff65a8431985b196"
   },
+  "samples_declaration_sha256": "52b62f9f03dcb3b31c5915358948cdad4d0de1bbc5ad925d377c5e09e9a3943b",
   "all_as_expected": true,
   "samples": {
     "control": {
@@ -31,7 +32,7 @@
       "must_fail": true,
       "detected": true,
       "stage": "packaging",
-      "detail": "oupons, home.mode.delivery, home.mode.delivery.title, home.mode.pickup.title, home.shelf.combo-beef-002.name, home.shelf.combo-beef-002.price, home.shelf.combo-chicken-001.name, home.shelf.combo-chicken-001.price, home.shelf.title, home.start_order, member.points.open, menu.product.combo-beef-002.open, menu.product.combo-chicken-001.open, nav.coupons, nav.home, nav.member, nav.menu, nav.orders\"\n}\n"
+      "detail": "er.coupons, home.mode.delivery, home.mode.delivery.title, home.mode.pickup.title, home.shelf.combo-beef-002.name, home.shelf.combo-beef-002.price, home.shelf.combo-chicken-001.name, home.shelf.combo-chicken-001.price, home.shelf.title, home.start_order, member.points.open, menu.product.combo-beef-002.open, menu.product.combo-chicken-001.open, nav.coupons, nav.home, nav.member, nav.menu, nav.orders"
     },
     "shifted": {
       "description": "mode cards and everything below moved down 5pt",
@@ -76,7 +77,7 @@
       ]
     },
     "wrong_state": {
-      "description": "home draft calibrated against the orders baseline",
+      "description": "draft calibrated against the orders baseline",
       "must_fail": true,
       "exit_code": 1,
       "detected": true,
@@ -97,13 +98,13 @@
       ]
     },
     "stale_evidence": {
-      "description": "baseline file differs from the digest recorded by derive.py",
+      "description": "baseline file differs from the digest recorded by derive",
       "must_fail": true,
       "exit_code": 2,
       "detected": true,
       "stage": "calibration",
       "failing_checks": [],
-      "refusal": "baseline /var/folders/kb/fl4_kf695qz76pxnqq14n_zh0000gn/T/calibration-selftest-3krrh0vg/stale_evidence/prototype-430.json differs from the derived baseline; re-run derive.py"
+      "refusal": "baseline /var/folders/kb/fl4_kf695qz76pxnqq14n_zh0000gn/T/calibration-selftest-kk7t5lmj/stale_evidence/prototype-430.json differs from the derived baseline; re-run design-batch derive"
     }
   }
 }

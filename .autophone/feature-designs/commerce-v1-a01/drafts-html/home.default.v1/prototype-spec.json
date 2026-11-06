@@ -1,6 +1,6 @@
 {
  "schema_version": "prototype-design-draft/v1",
- "adapter": "commerce-v1-html-adapter/v1",
+ "adapter": "design-batch-html-adapter/v1",
  "screen_id": "home",
  "state_id": "home.default.v1",
  "frame_size": {

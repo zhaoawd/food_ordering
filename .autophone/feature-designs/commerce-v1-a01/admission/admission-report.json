@@ -1,7 +1,7 @@
 {
-  "schema_version": "commerce-v1-batch-admission/v1",
+  "schema_version": "design-batch-admission/v1",
   "batch": "A01",
-  "contract_sha256": "9f057d4d7e71b6b59dd75795e1e544510ea772d643930d67ffd2b7e5ee58cac1",
+  "contract_sha256": "bf1e0b2d1bac5cf9cae089338cbe4ae6a7aa0816b9379bb0aa050b7a30e394a1",
   "admitted_states": [
     "home.default.v1",
     "home.guest.v1",
@@ -19,10 +19,10 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/home.default.v1.json",
-          "sha256": "e0780c3fdb0429846f806bca787b3eb4b2f3dab084d5aef3717db7e82b79a6cb",
-          "design_package_sha256": "c9c49d234a7e36b64edf01014d4ca11b6d008319ad14bc4681013dc927275dcb",
+          "sha256": "126a0e244f5bdb750e768f7a22b474d0d0ba6f9100a0bda62172a7219e1a04da",
+          "design_package_sha256": "a7b1c8729d49621b507d3fbb0c8924d63b22d6b04f972e78dd80acf534114377",
           "profile": {
-            "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
+            "path": "apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
             "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
             "app": "food_ordering_v2",
             "version": 1
@@ -486,10 +486,10 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/home.guest.v1.json",
-          "sha256": "d0f046feb59387dcf20aa88d7801a17f294efec3c84c746ddec495a107ae7772",
-          "design_package_sha256": "bd3cc8921a3575f9afdcece3577ffbfe3a0d92575d4ba71aa7654b70d45d421b",
+          "sha256": "ba4af34858988503beec2accad9e541b4b245aac72906b1865c89923f3b98b49",
+          "design_package_sha256": "9dadcbd97f1f715286de82bfebf32e7c875fa44a551b7a8f0dedbd980cb56e2c",
           "profile": {
-            "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
+            "path": "apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
             "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
             "app": "food_ordering_v2",
             "version": 1
@@ -955,10 +955,10 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/orders.empty.v1.json",
-          "sha256": "af15ca41f115051ec19d76ec0265892359df101e7ace32e4e1e97040676fe9d0",
+          "sha256": "62ba3ef4fa187eb4f97c561b08c926c7915856365b7536fd36c6b05e8972fc75",
           "design_package_sha256": "95b9826dff4d2466f66b3c824df3d0eb4254f34236d8e4c5197959c9b146e0f3",
           "profile": {
-            "path": "/Users/kolar/github/autophone/apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
+            "path": "apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
             "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
             "app": "food_ordering_v2",
             "version": 1

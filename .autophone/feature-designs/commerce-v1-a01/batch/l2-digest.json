@@ -8,7 +8,7 @@
  "generated_by": "4c39a70",
  "files": {
   "derived/acceptance-scope.json": "f8da416f09ece6da9ebb374948df666569e0344af87d2a5b24ee73fb47094d68",
-  "derived/batch-contract.json": "9f057d4d7e71b6b59dd75795e1e544510ea772d643930d67ffd2b7e5ee58cac1",
+  "derived/batch-contract.json": "bf1e0b2d1bac5cf9cae089338cbe4ae6a7aa0816b9379bb0aa050b7a30e394a1",
   "derived/bindings/home.default.v1.dsl.json": "f8c93f8a44dfde31703a6003948f97cfe686cedb569a0e011e6661fb03eda99a",
   "derived/bindings/home.default.v1.json": "8a005e94103aded506a2acb662ce3ba1b178ceb76c51c75472631e7499404c52",
   "derived/bindings/home.guest.v1.dsl.json": "c4f3de9a4b0752ab65d4ac5ca995e8158aaf6eb32625547bdd648fba7a849318",
@@ -33,13 +33,13 @@
   "drafts/orders.empty.v1/screen-plan.json": "f32b10c0d4d9b11dc915d5ca683651212b0c03e947ef82e69c63e6d2d54f76f5",
   "drafts/orders.empty.v1/state-fixture.json": "b89c8bf2b296baab77bf6959cdf52c43f86a9b95986358a5f3b14613250896f6",
   "drafts/orders.empty.v1/ui-document.json": "2e0895ee9b1d73cde79b28f62495c516771380aab63fad524464e1102b8a0992",
-  "drafts-html/home.default.v1/adapter-provenance.json": "b63272a510895da9588da4b07a0077df69eb54fd2a838bc1d1cbc8e248af9a3a",
+  "drafts-html/home.default.v1/adapter-provenance.json": "908ebb98b4f03718d7f0cdf34266eac11bcdd9f3a9918ff63e817d35cfe926bb",
   "drafts-html/home.default.v1/index.html": "c2473261f3f6d381fe30a9fc98b423f1a314df04b6fe2a0bc6358158380b0502",
-  "drafts-html/home.default.v1/prototype-spec.json": "a6c7c37dcf0f6b722f80299f90d26d2da6bf3dcc4bdf895d417264fd40355661",
+  "drafts-html/home.default.v1/prototype-spec.json": "5bd597fd947facd8bc0592f4c2b7ac4980c748f28af6fe7b1007ab883a5e64b0",
   "drafts-html/home.default.v1/state-fixture.json": "54e1299342f9d34a7bc6aad74ba6070b8d34a2ead07c40a738b3167444e1c72a",
-  "drafts-html/home.guest.v1/adapter-provenance.json": "2b5b701c6274ecc84e2c0df0216c570acec6746150e734965418774f1dfadecf",
+  "drafts-html/home.guest.v1/adapter-provenance.json": "a229aabc892a18f382a5ef9e0f65a5e78e289e403097ae97e5f82c8c80e467cb",
   "drafts-html/home.guest.v1/index.html": "6cd09144d30835cab78c94d04405b87806e98bf17fd9e89f7eefd363a8b5e573",
-  "drafts-html/home.guest.v1/prototype-spec.json": "d9c530c5c834485c2d0e0181dd4d200812525bf128e4c84bb8a677c875f50c49",
+  "drafts-html/home.guest.v1/prototype-spec.json": "21d3337d1485ffa029c2395661fb345973fd09f0bd2ed950dc8693a2ce4390ec",
   "drafts-html/home.guest.v1/state-fixture.json": "b6f765c142de67c8d87a09899d53b595bb66521676402b4134fe5bfac67993fa"
  },
  "revisions": [
@@ -65,6 +65,17 @@
     "drafts-html/home.default.v1/index.html",
     "drafts-html/home.guest.v1/adapter-provenance.json",
     "drafts-html/home.guest.v1/index.html"
+   ]
+  },
+  {
+   "date": "2026-11-06",
+   "reason": "测量与派生工具迁入 autophone design-batch 引擎；批次合同、HTML 草稿 adapter 与来源记录改用 design-batch 标识，HTML 页面内容不变",
+   "changed_files": [
+    "derived/batch-contract.json",
+    "drafts-html/home.default.v1/adapter-provenance.json",
+    "drafts-html/home.default.v1/prototype-spec.json",
+    "drafts-html/home.guest.v1/adapter-provenance.json",
+    "drafts-html/home.guest.v1/prototype-spec.json"
    ]
   }
  ]

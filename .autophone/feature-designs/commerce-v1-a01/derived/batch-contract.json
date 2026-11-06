@@ -1,5 +1,5 @@
 {
-  "schema_version": "commerce-v1-batch-contract/v1",
+  "schema_version": "design-batch-contract/v1",
   "batch": "A01",
   "design_version": "commerce-v1-a01-430/r4",
   "states": {
