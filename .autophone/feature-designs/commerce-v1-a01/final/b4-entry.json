@@ -1,0 +1,169 @@
+{
+  "schema_version": "commerce-v1-b4-entry/v1",
+  "round": 12,
+  "ready": true,
+  "rationale": "Round 12 is the first round in which every state is admitted with 0 calibration failures and every HTML-route state has a final package rendered on the rig that passes the device self-check with 0 mismatched pixels; earlier rounds have host references only.",
+  "checks": [
+    {
+      "item": "l2_up_to_date",
+      "ok": true,
+      "detail": "34 derived files up to date"
+    },
+    {
+      "item": "policy_hash",
+      "ok": true,
+      "detail": "policy/calibration-policy.v5.json"
+    },
+    {
+      "item": "admission_report_hash",
+      "ok": true,
+      "detail": "admission/admission-report.json"
+    },
+    {
+      "item": "home.default.v1: admitted, 0 calibration failures",
+      "ok": true,
+      "detail": "{\"elements\": 32, \"passed\": 29, \"deviations\": 3, \"failed\": 0, \"stale_deviations\": 0}"
+    },
+    {
+      "item": "home.default.v1: final package on the rig",
+      "ok": true,
+      "detail": "status final_candidate, stale [], self-check 0/2326737, capture vphone-open-url-safari-band-capture/v1"
+    },
+    {
+      "item": "home.default.v1: achievability on the final package",
+      "ok": true,
+      "detail": "{\"achievable/assumed\": 34}"
+    },
+    {
+      "item": "home.guest.v1: admitted, 0 calibration failures",
+      "ok": true,
+      "detail": "{\"elements\": 32, \"passed\": 28, \"deviations\": 4, \"failed\": 0, \"stale_deviations\": 0}"
+    },
+    {
+      "item": "home.guest.v1: final package on the rig",
+      "ok": true,
+      "detail": "status final_candidate, stale [], self-check 0/2328719, capture vphone-open-url-safari-band-capture/v1"
+    },
+    {
+      "item": "home.guest.v1: achievability on the final package",
+      "ok": true,
+      "detail": "{\"achievable/assumed\": 34}"
+    },
+    {
+      "item": "orders.empty.v1: admitted, 0 calibration failures",
+      "ok": true,
+      "detail": "{\"elements\": 10, \"passed\": 9, \"deviations\": 1, \"failed\": 0, \"stale_deviations\": 0}"
+    },
+    {
+      "item": "orders.empty.v1: host package",
+      "ok": true,
+      "detail": "packages/orders.empty.v1/round-12"
+    },
+    {
+      "item": "orders.empty.v1: achievability on the host package",
+      "ok": true,
+      "detail": "{\"achievable/assumed\": 12}"
+    }
+  ],
+  "states": {
+    "home.default.v1": {
+      "route": "html",
+      "final": "final/home.default.v1.json",
+      "final_sha256": "b3def715182b0277df21d35ffd3dca247fefd84fa622c51487045264ac1fdfe1",
+      "package": "packages/home.default.v1/round-12-device",
+      "design_package_sha256": "bacaae681c3ec32e3bc2a9d69cbb8b474e940e5e957a1740f5d9e68577b06512",
+      "reference_sha256": "368e8e6481a36ad1a396e43c4e1ea17069d04fff4c76eedf98edf6d0f69de700",
+      "reference_renderer": {
+        "renderer": "ios-wkwebview",
+        "capture": "vphone-open-url-safari-band-capture/v1",
+        "env_fingerprint": "isolation-peer/vphone-ios27-default/zh-CN/light",
+        "device_profile": "vphone-ios27-default",
+        "locale": "zh-CN",
+        "theme": "light",
+        "dynamic_type": "L",
+        "self_check": {
+          "mode": "measurement_layout",
+          "baseline_sha256": "5e093e43370b065afa2cfa10d0d12dc6162b83f56c9baf63fec57d1878e0097d",
+          "tolerance": 8,
+          "max_changed_ratio": 0.0,
+          "include_colors": [
+            "#FAF7F2",
+            "#FFFFFF",
+            "#F0D8B8",
+            "#30271F",
+            "#FFF0E7"
+          ],
+          "edge_inset_px": 12,
+          "minimum_coverage_ratio": 0.2,
+          "compared_pixels": 2326737,
+          "changed_pixels": 0,
+          "max_delta": 0
+        }
+      }
+    },
+    "home.guest.v1": {
+      "route": "html",
+      "final": "final/home.guest.v1.json",
+      "final_sha256": "c48bccc211f623c9c2926b9419b5cbc9abfbe6f0f719f6c72e29bc862caa02a2",
+      "package": "packages/home.guest.v1/round-12-device",
+      "design_package_sha256": "8457192779fc6d9f9a5967f4f4944fd563b006588c3623e43651074fed1803a3",
+      "reference_sha256": "92f051d605b4d1aca352aad74e201c33ef8708902948799b4df14483fb8474b9",
+      "reference_renderer": {
+        "renderer": "ios-wkwebview",
+        "capture": "vphone-open-url-safari-band-capture/v1",
+        "env_fingerprint": "isolation-peer/vphone-ios27-default/zh-CN/light",
+        "device_profile": "vphone-ios27-default",
+        "locale": "zh-CN",
+        "theme": "light",
+        "dynamic_type": "L",
+        "self_check": {
+          "mode": "measurement_layout",
+          "baseline_sha256": "3fb0af3ff32dc83df23fcd86b156c9e5772548ccbeb472ae45d25f578152d1bd",
+          "tolerance": 8,
+          "max_changed_ratio": 0.0,
+          "include_colors": [
+            "#FAF7F2",
+            "#FFFFFF",
+            "#F0D8B8",
+            "#30271F",
+            "#FFF0E7"
+          ],
+          "edge_inset_px": 12,
+          "minimum_coverage_ratio": 0.2,
+          "compared_pixels": 2328719,
+          "changed_pixels": 0,
+          "max_delta": 0
+        }
+      }
+    },
+    "orders.empty.v1": {
+      "route": "dsl",
+      "package": "packages/orders.empty.v1/round-12",
+      "design_package_sha256": "95b9826dff4d2466f66b3c824df3d0eb4254f34236d8e4c5197959c9b146e0f3",
+      "reference_sha256": "2f8377dee86e70efff2505ab3349af80bea8bee71aa0d268d478b4fc93757c7b",
+      "achievability_sha256": "af15ca41f115051ec19d76ec0265892359df101e7ace32e4e1e97040676fe9d0"
+    }
+  },
+  "policy": {
+    "path": "policy/calibration-policy.v5.json",
+    "sha256": "768088afdd9c8e85c1cc03f1ae9c1e9354caad30e858c626ff65a8431985b196"
+  },
+  "admission": {
+    "report_sha256": "26aa7704a2e681042b66f4392a354256cc6ef6181471770b588fcd8a053163e5",
+    "admitted_states": [
+      "home.default.v1",
+      "home.guest.v1",
+      "orders.empty.v1"
+    ],
+    "blocked_states": []
+  },
+  "stack_profile_sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
+  "residual_risks": [
+    "Achievability evidence is assumed (React Native weight → iOS face mapping), not device-verified.",
+    "Device references cover one rig (isolation-peer, vphone-ios27-default, zh-CN, light, dynamic type L).",
+    "Some vertically centred elements sit on half points (layout-pins off_grid_blocks); they have no flat-colour edge on these pages, which may not hold for other pages.",
+    "D7/D8 change design values by up to 0.86pt; the App implementation uses the same pinned values.",
+    "Locators can map to a wrong element whose text happens to match; admission does not detect it."
+  ],
+  "not_done_here": "design lock and the B4 acceptance contract (registered actions, assertions, thresholds) are B4 work; this file only records the round they start from."
+}
