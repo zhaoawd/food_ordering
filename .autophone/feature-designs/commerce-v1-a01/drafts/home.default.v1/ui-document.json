@@ -1382,6 +1382,12 @@
           ]
         },
         {
+          "stable_id": "home.store.select",
+          "properties": [
+            "resolved_style.backgroundColor"
+          ]
+        },
+        {
           "stable_id": "home.store.name",
           "properties": [
             "text",

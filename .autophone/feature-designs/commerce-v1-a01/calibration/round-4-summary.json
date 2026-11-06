@@ -1,0 +1,38 @@
+{
+  "round": 4,
+  "policy": {
+    "path": "policy/calibration-policy.v2.json",
+    "sha256": "1135f971ac5525926597d633553e7a73a5b274dda4b3691e174200c94bbcb7f0"
+  },
+  "states": {
+    "home.default.v1": {
+      "status": "calibrated",
+      "package": "packages/home.default.v1/round-4",
+      "design_package_sha256": "79471d8c00cfa1ff5c7fb1d6891149e798af23dc09fdecdcdccad0dd3404e98a",
+      "mapped_nodes": 27,
+      "missing_nodes": 0,
+      "calibration": {
+        "elements": 33,
+        "passed": 28,
+        "deviations": 5,
+        "failed": 0,
+        "stale_deviations": 0
+      }
+    },
+    "home.guest.v1": {
+      "status": "not_authored"
+    },
+    "orders.empty.v1": {
+      "status": "not_authored"
+    }
+  },
+  "admission": {
+    "report_sha256": "dd1ae088f4d2e2af0f83598bf35c51b5b56e50036ce4faf1667fc9d9add81876",
+    "admitted_states": [],
+    "blocked_states": [
+      "home.default.v1",
+      "home.guest.v1",
+      "orders.empty.v1"
+    ]
+  }
+}

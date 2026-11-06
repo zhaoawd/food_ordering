@@ -168,27 +168,11 @@
   }
  },
  "calibration": {
-  "regions": {
-   "top": {
-    "baseline_origin_y": 44,
-    "draft_origin_y": 59,
-    "reason": "顶部安全区 59pt 取代原型 44pt 模拟状态栏"
-   },
-   "bottom": {
-    "baseline_origin_y": 856,
-    "draft_origin_y": 836,
-    "reason": "导航按钮区保持 59pt，底部 17pt 内边距由 37pt 安全区取代"
-   }
-  },
-  "tolerance_pt": {
-   "box": 2.0,
-   "text": 3.0
-  },
   "elements": {
    "home.brand": {
     "locator": {
      "class": "brandname",
-     "own": false
+     "own": true
     },
     "mode": "text",
     "region": "top"
@@ -441,7 +425,33 @@
     },
     "mode": "box",
     "region": "bottom"
+   },
+   "home.hero.headline.line1": {
+    "locator": {
+     "tag": "h2",
+     "line": 0
+    },
+    "mode": "content",
+    "region": "top"
+   },
+   "home.hero.headline.line2": {
+    "locator": {
+     "tag": "h2",
+     "line": 1
+    },
+    "mode": "content",
+    "region": "top"
+   },
+   "home.shelf.title": {
+    "locator": {
+     "class": "sectiontitle",
+     "own": true
+    },
+    "mode": "content",
+    "region": "top"
    }
-  }
+  },
+  "screen_id": "home",
+  "state_id": "home.default.v1"
  }
 }

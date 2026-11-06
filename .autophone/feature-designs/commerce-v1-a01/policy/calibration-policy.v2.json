@@ -1,0 +1,72 @@
+{
+  "schema_version": "commerce-v1-calibration-policy/v1",
+  "version": 2,
+  "note": "Fixed before calibration. Changing any value creates a new version file; known deviations must cite a gap recorded in README.md §5.",
+  "regions": {
+    "home": {
+      "top": {
+        "baseline_origin_y": 44,
+        "draft_origin_y": 59,
+        "reason": "顶部安全区 59pt 取代原型 44pt 模拟状态栏"
+      },
+      "bottom": {
+        "baseline_origin_y": 856,
+        "draft_origin_y": 836,
+        "reason": "导航按钮区保持 59pt，底部 17pt 内边距由 37pt 安全区取代"
+      }
+    }
+  },
+  "tolerance_pt": {
+    "box": 2.0,
+    "text": 3.0,
+    "visible_fraction": 0.1
+  },
+  "checks": {
+    "geometry": true,
+    "text": true,
+    "style": true,
+    "lines": true,
+    "visibility": true
+  },
+  "known_deviations": [
+    {
+      "state_id": "home.default.v1",
+      "stable_id": "home.brand",
+      "check": "fontWeight",
+      "gap": "P3",
+      "note": "原型 850/750，DSL 只允许 100 的整数倍"
+    },
+    {
+      "state_id": "home.default.v1",
+      "stable_id": "home.hero.headline.line1",
+      "check": "fontWeight",
+      "gap": "P3",
+      "note": "原型 850/750，DSL 只允许 100 的整数倍"
+    },
+    {
+      "state_id": "home.default.v1",
+      "stable_id": "home.hero.headline.line2",
+      "check": "fontWeight",
+      "gap": "P3",
+      "note": "原型 850/750，DSL 只允许 100 的整数倍"
+    },
+    {
+      "state_id": "home.default.v1",
+      "stable_id": "home.shelf.title",
+      "check": "fontWeight",
+      "gap": "P3",
+      "note": "原型 850/750，DSL 只允许 100 的整数倍"
+    },
+    {
+      "state_id": "home.default.v1",
+      "stable_id": "home.ai.open",
+      "check": "visibility",
+      "gap": "G8",
+      "note": "R4 安全区重排，待设计确认"
+    }
+  ],
+  "revision": {
+    "from_version": 1,
+    "reason": "v1 首次运行（未登记偏差）发现 4 项真实差异：3 项字重受 DSL 限制（P3），1 项可见比例来自 R4 重排（G8）。按缺口登记为已知偏差；其余阈值与检查项不变。"
+  }
+}

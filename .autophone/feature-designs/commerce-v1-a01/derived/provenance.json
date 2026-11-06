@@ -4,7 +4,7 @@
   "baselines": {
     "home@390": {
       "path": "baseline/home/prototype-390.json",
-      "sha256": "69daa6ce7f06456ea3d5081b1ab728b49fdb659f28f7a6f8363fae7181e8c85d",
+      "sha256": "f54a98f9bea2ee2c50726f20e7d178deea6298b743079ffaeb20fd00629014e5",
       "png_sha256": "9059c045a225e1e7745cb8240b77a44f7eea86b210fa07a748d8f646abf106e3",
       "viewport": {
         "width": 390,
@@ -15,7 +15,7 @@
     },
     "home@430": {
       "path": "baseline/home/prototype-430.json",
-      "sha256": "83487d73b44a7e9d01420be4fc5e9f5ae163c58960bb0716238933f46f7b1b23",
+      "sha256": "5c8c72af4627d939e26b9e563082cc96c1429bad8bdae95322625d96b59a5850",
       "png_sha256": "822a012dd107e268a98e3bcb64038d2c615681aeda8264944c2daa23540fb794",
       "viewport": {
         "width": 430,
@@ -26,7 +26,7 @@
     },
     "orders@390": {
       "path": "baseline/orders/prototype-390.json",
-      "sha256": "cde7fa4d18e86a1ce9a95d3bfbb830c6e7977496b0e91caa4c2da62121f99f46",
+      "sha256": "1c22c292d48b2d8852388be12c55aefa44ea40c50cfce1e64e9ec9a0337a0f83",
       "png_sha256": "0a6e3333502b18b18c80e4277a5e464b5d1901185b21af05fcd55ac09bdb8535",
       "viewport": {
         "width": 390,
@@ -37,7 +37,7 @@
     },
     "orders@430": {
       "path": "baseline/orders/prototype-430.json",
-      "sha256": "082fa83adbb862f52d5215b40589bfccfba711646a9a71240cccb580e5b959ce",
+      "sha256": "200686213146cfaf02063744e9e4b8f3492ce3774e7db42636e9a8f03129dd5c",
       "png_sha256": "bea4ed8a6c7d3ea68fceeb0541eae9daa846f116fd450405df8ee0db8f9706f4",
       "viewport": {
         "width": 430,

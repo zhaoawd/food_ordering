@@ -1,0 +1,43 @@
+{
+  "schema_version": "commerce-v1-render-determinism/v1",
+  "page": "home",
+  "runs": 5,
+  "browser": "chromium/149.0.7827.55",
+  "host": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "node": "v22.22.3"
+  },
+  "compositor": {
+    "profile": "software/v1",
+    "chromium_args": [
+      "--disable-gpu",
+      "--disable-gpu-compositing"
+    ],
+    "profiles_sha256": "c0836611eba3c867790ba43a80c5988c53cc147ddf3572dd62d7df4e97457ec4"
+  },
+  "json_identical": true,
+  "png_identical": true,
+  "png_against_first": [
+    {
+      "same_size": true,
+      "max_channel_diff": 0,
+      "differing_pixels": 0
+    },
+    {
+      "same_size": true,
+      "max_channel_diff": 0,
+      "differing_pixels": 0
+    },
+    {
+      "same_size": true,
+      "max_channel_diff": 0,
+      "differing_pixels": 0
+    },
+    {
+      "same_size": true,
+      "max_channel_diff": 0,
+      "differing_pixels": 0
+    }
+  ]
+}

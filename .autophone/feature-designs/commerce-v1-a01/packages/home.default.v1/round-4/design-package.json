@@ -1,0 +1,560 @@
+{
+  "schema_version": "structured-design-package/v1",
+  "adapter": "ai-prototype-dsl/v2",
+  "toolchain": {
+    "packer": "autophone-prototype-packager/v2",
+    "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1",
+    "browser": "chromium/149.0.7827.55",
+    "compiler": "autophone-ui-prototype-compiler/v2"
+  },
+  "screen_id": "home",
+  "state_id": "home.default.v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "node_scope": [
+    "home.brand",
+    "home.store.select",
+    "home.store.name",
+    "home.store.distance",
+    "home.greeting",
+    "home.hero.headline.line1",
+    "home.hero.headline.line2",
+    "home.hero.price",
+    "home.mode.pickup",
+    "home.mode.pickup.title",
+    "home.mode.delivery",
+    "home.mode.delivery.title",
+    "member.points.open",
+    "home.member.coupons",
+    "home.shelf.title",
+    "home.start_order",
+    "menu.product.combo-chicken-001.open",
+    "home.shelf.combo-chicken-001.name",
+    "home.shelf.combo-chicken-001.price",
+    "menu.product.combo-beef-002.open",
+    "home.shelf.combo-beef-002.name",
+    "home.shelf.combo-beef-002.price",
+    "nav.home",
+    "nav.menu",
+    "nav.coupons",
+    "nav.orders",
+    "nav.member"
+  ],
+  "artifacts": [
+    {
+      "role": "reference",
+      "path": "reference.png",
+      "sha256": "f511ab38891cf2d1ebb482f6c50114a936968290ab2262c400a53134c6c5c14b"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/compiled-scene.json",
+      "sha256": "3334ded8941087343c1c84e233a45bd31e23696b92db08dd488c974897a64431"
+    },
+    {
+      "role": "prototype",
+      "path": "prototype/compiled/index.html",
+      "sha256": "995b2467e25b9cc8d8a0c27262071bdaf4644fba782ee78bfa920dbe09783b39"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/compiled/renderer-spec.json",
+      "sha256": "d1aba590653fe0f1e9005704f09857f1b40e9a18ea056caae285b38e5324efd2"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/prototype-spec.json",
+      "sha256": "9c130d92ecba30e26fac707dc7a4914616d1f2debd5c92ee9405cbe5c301c2a6"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/screen-plan.json",
+      "sha256": "0e58ab9d2ea3a82573c8b16c4db02b10eb7558a44607f3cd0799390502be1982"
+    },
+    {
+      "role": "fixture",
+      "path": "prototype/state-fixture.json",
+      "sha256": "3b8c0689f0fc12cd75a1b2b9c90190a06825b7d50f3e96389505e81cf94820b0"
+    },
+    {
+      "role": "mapping",
+      "path": "prototype/ui-document.json",
+      "sha256": "87bcf642b25be10956e326e608546b1033320bbbadf5656f388e14312716bfd3"
+    }
+  ],
+  "elements": [
+    {
+      "node_id": "home.brand",
+      "stable_id": "home.brand",
+      "properties": [
+        {
+          "property": "text",
+          "value": "食刻"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#C93C25"
+        }
+      ]
+    },
+    {
+      "node_id": "home.store.select",
+      "stable_id": "home.store.select",
+      "properties": [
+        {
+          "property": "resolved_style.backgroundColor",
+          "undecidable_reason": "renderer_property_unavailable"
+        }
+      ]
+    },
+    {
+      "node_id": "home.store.name",
+      "stable_id": "home.store.name",
+      "properties": [
+        {
+          "property": "text",
+          "value": "科创园店"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#251D19"
+        },
+        {
+          "property": "resolved_style.fontWeight",
+          "value": "700"
+        }
+      ]
+    },
+    {
+      "node_id": "home.store.distance",
+      "stable_id": "home.store.distance",
+      "properties": [
+        {
+          "property": "text",
+          "value": "步行约5分钟"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#71655D"
+        }
+      ]
+    },
+    {
+      "node_id": "home.greeting",
+      "stable_id": "home.greeting",
+      "properties": [
+        {
+          "property": "text",
+          "value": "午餐时间，把好心情吃回来。"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#71655D"
+        }
+      ]
+    },
+    {
+      "node_id": "home.hero.headline.line1",
+      "stable_id": "home.hero.headline.line1",
+      "properties": [
+        {
+          "property": "text",
+          "value": "今天，"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#352418"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "29"
+        }
+      ]
+    },
+    {
+      "node_id": "home.hero.headline.line2",
+      "stable_id": "home.hero.headline.line2",
+      "properties": [
+        {
+          "property": "text",
+          "value": "来点热乎的。"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#352418"
+        },
+        {
+          "property": "resolved_style.fontSize",
+          "value": "29"
+        }
+      ]
+    },
+    {
+      "node_id": "home.hero.price",
+      "stable_id": "home.hero.price",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥32.9"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#8D311B"
+        }
+      ]
+    },
+    {
+      "node_id": "home.mode.pickup",
+      "stable_id": "home.mode.pickup",
+      "properties": [
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "18"
+        }
+      ]
+    },
+    {
+      "node_id": "home.mode.pickup.title",
+      "stable_id": "home.mode.pickup.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "到店自取"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#251D19"
+        }
+      ]
+    },
+    {
+      "node_id": "home.mode.delivery",
+      "stable_id": "home.mode.delivery",
+      "properties": [
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "18"
+        }
+      ]
+    },
+    {
+      "node_id": "home.mode.delivery.title",
+      "stable_id": "home.mode.delivery.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "外送到家"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#251D19"
+        }
+      ]
+    },
+    {
+      "node_id": "member.points.open",
+      "stable_id": "member.points.open",
+      "properties": [
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#30271F"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "14"
+        }
+      ]
+    },
+    {
+      "node_id": "home.member.coupons",
+      "stable_id": "home.member.coupons",
+      "properties": [
+        {
+          "property": "text",
+          "value": "3 张券 ›"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#F7EBD9"
+        }
+      ]
+    },
+    {
+      "node_id": "home.shelf.title",
+      "stable_id": "home.shelf.title",
+      "properties": [
+        {
+          "property": "text",
+          "value": "人气好滋味"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#251D19"
+        }
+      ]
+    },
+    {
+      "node_id": "home.start_order",
+      "stable_id": "home.start_order",
+      "properties": [
+        {
+          "property": "text",
+          "value": "开始点餐 ›"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#71655D"
+        }
+      ]
+    },
+    {
+      "node_id": "menu.product.combo-chicken-001.open",
+      "stable_id": "menu.product.combo-chicken-001.open",
+      "properties": [
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "18"
+        }
+      ]
+    },
+    {
+      "node_id": "home.shelf.combo-chicken-001.name",
+      "stable_id": "home.shelf.combo-chicken-001.name",
+      "properties": [
+        {
+          "property": "text",
+          "value": "香脆鸡腿堡套餐"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#251D19"
+        }
+      ]
+    },
+    {
+      "node_id": "home.shelf.combo-chicken-001.price",
+      "stable_id": "home.shelf.combo-chicken-001.price",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥32.90"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#C93C25"
+        }
+      ]
+    },
+    {
+      "node_id": "menu.product.combo-beef-002.open",
+      "stable_id": "menu.product.combo-beef-002.open",
+      "properties": [
+        {
+          "property": "resolved_style.backgroundColor",
+          "value": "#FFFFFF"
+        },
+        {
+          "property": "resolved_style.borderRadius",
+          "value": "18"
+        }
+      ]
+    },
+    {
+      "node_id": "home.shelf.combo-beef-002.name",
+      "stable_id": "home.shelf.combo-beef-002.name",
+      "properties": [
+        {
+          "property": "text",
+          "value": "炙烤牛肉堡套餐"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#251D19"
+        }
+      ]
+    },
+    {
+      "node_id": "home.shelf.combo-beef-002.price",
+      "stable_id": "home.shelf.combo-beef-002.price",
+      "properties": [
+        {
+          "property": "text",
+          "value": "¥38.90"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#C93C25"
+        }
+      ]
+    },
+    {
+      "node_id": "nav.home",
+      "stable_id": "nav.home",
+      "properties": [
+        {
+          "property": "text",
+          "value": "首页"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#C93C25"
+        },
+        {
+          "property": "frame.x",
+          "value": "16.875"
+        },
+        {
+          "property": "frame.y",
+          "value": "845"
+        },
+        {
+          "property": "frame.width",
+          "value": "65"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "node_id": "nav.menu",
+      "stable_id": "nav.menu",
+      "properties": [
+        {
+          "property": "text",
+          "value": "点餐"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#71655D"
+        },
+        {
+          "property": "frame.x",
+          "value": "99.6875"
+        },
+        {
+          "property": "frame.y",
+          "value": "845"
+        },
+        {
+          "property": "frame.width",
+          "value": "65"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "node_id": "nav.coupons",
+      "stable_id": "nav.coupons",
+      "properties": [
+        {
+          "property": "text",
+          "value": "优惠"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#71655D"
+        },
+        {
+          "property": "frame.x",
+          "value": "182.5"
+        },
+        {
+          "property": "frame.y",
+          "value": "845"
+        },
+        {
+          "property": "frame.width",
+          "value": "65"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "node_id": "nav.orders",
+      "stable_id": "nav.orders",
+      "properties": [
+        {
+          "property": "text",
+          "value": "订单"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#71655D"
+        },
+        {
+          "property": "frame.x",
+          "value": "265.3125"
+        },
+        {
+          "property": "frame.y",
+          "value": "845"
+        },
+        {
+          "property": "frame.width",
+          "value": "65"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "node_id": "nav.member",
+      "stable_id": "nav.member",
+      "properties": [
+        {
+          "property": "text",
+          "value": "我的"
+        },
+        {
+          "property": "resolved_style.color",
+          "value": "#71655D"
+        },
+        {
+          "property": "frame.x",
+          "value": "348.125"
+        },
+        {
+          "property": "frame.y",
+          "value": "845"
+        },
+        {
+          "property": "frame.width",
+          "value": "65"
+        },
+        {
+          "property": "frame.height",
+          "value": "50"
+        }
+      ]
+    }
+  ],
+  "mapping_gaps": [],
+  "comparison_policy": {
+    "pixel_scope": "expected_alpha"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "commerce-v1-calibration-policy/v1",
+  "version": 1,
+  "note": "Fixed before calibration. Changing any value creates a new version file; known deviations must cite a gap recorded in README.md §5.",
+  "regions": {
+    "home": {
+      "top": {
+        "baseline_origin_y": 44,
+        "draft_origin_y": 59,
+        "reason": "顶部安全区 59pt 取代原型 44pt 模拟状态栏"
+      },
+      "bottom": {
+        "baseline_origin_y": 856,
+        "draft_origin_y": 836,
+        "reason": "导航按钮区保持 59pt，底部 17pt 内边距由 37pt 安全区取代"
+      }
+    }
+  },
+  "tolerance_pt": {
+    "box": 2.0,
+    "text": 3.0,
+    "visible_fraction": 0.1
+  },
+  "checks": {
+    "geometry": true,
+    "text": true,
+    "style": true,
+    "lines": true,
+    "visibility": true
+  },
+  "known_deviations": []
+}

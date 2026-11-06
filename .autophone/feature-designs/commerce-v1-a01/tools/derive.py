@@ -40,6 +40,15 @@ STATES = {
 # Shell regions present in the prototype but not in view-models.json; PRODUCT_DESIGN.md fixes the tab bar.
 SHELL_SECTIONS = {'home': (['AppHeader'], ['TabBar']), 'orders': (['PageHeader'], ['TabBar'])}
 TAB_BAR = ['nav.home', 'nav.menu', 'nav.coupons', 'nav.orders', 'nav.member']
+# Template IDs from view-models.json resolve only where the frozen package says which items appear.
+# Home ProductShelf renders DATA.catalog.products.slice(0, 2) in ui/prototype.html.
+FEATURED_PRODUCT_COUNT = 2
+# Exclusions must name their source; nothing here may be added to make a check pass.
+CONTRACT_EXCLUSIONS = [
+    {'state_id': 'orders.empty.v1', 'stable_id': 'orders.order.{orderId}.open',
+     'reason': 'state_recipe=empty：订单列表为空，没有订单行可供打开',
+     'source': 'fixtures/state-registry.json orders.empty.v1 state_recipe'},
+]
 
 
 def sha256(path: Path) -> str:
@@ -161,6 +170,52 @@ def relayout_diff(original: dict, target: dict, calibration: dict) -> list[dict]
         rows.append({'stable_id': stable_id, 'region': spec['region'], 'box_390': a, 'box_430': b,
                      'delta': {k: round(b[i] - a[i], 2) for i, k in enumerate(('x', 'y', 'width', 'height'))}})
     return rows
+
+
+def batch_contract(view_models: dict, contract: dict, catalog: dict) -> dict:
+    """Required elements per A01 state, derived without reading any authored draft."""
+    roles = {c['stable_id']: c for c in contract['controls']}
+    featured = [p['id'] for p in catalog['products'][:FEATURED_PRODUCT_COUNT]]
+    states = {}
+    for state_id, spec in STATES.items():
+        screen = spec['screen']
+        candidates = []
+        for control in contract['controls']:
+            if control['screen_id'] == screen:
+                candidates.append((control['stable_id'], 'ui-contract.json controls'))
+        for section in view_models[screen]['sections']:
+            candidates.append((section['control_or_group_id'], f"view-models.json {section['component']}"))
+        candidates += [(nav, 'PRODUCT_DESIGN.md 底部导航') for nav in TAB_BAR]
+        required, unresolved, excluded = {}, [], []
+        for stable_id, source in candidates:
+            exclusion = next((e for e in CONTRACT_EXCLUSIONS
+                              if e['state_id'] == state_id and e['stable_id'] == stable_id), None)
+            if exclusion:
+                known = next((e for e in excluded if e['stable_id'] == stable_id), None)
+                if known is None:
+                    excluded.append({**exclusion, 'derived_from': [source]})
+                elif source not in known['derived_from']:
+                    known['derived_from'].append(source)
+                continue
+            if '{productId}' in stable_id and screen == 'home':
+                ids = [stable_id.replace('{productId}', pid) for pid in featured]
+            elif '{' in stable_id:
+                unresolved.append({'stable_id': stable_id, 'derived_from': source,
+                                   'reason': '设计包未给出模板参数的取值'})
+                continue
+            else:
+                ids = [stable_id]
+            for item in ids:
+                entry = required.setdefault(item, {'sources': [], 'role': roles.get(stable_id, {}).get('role')})
+                if source not in entry['sources']:
+                    entry['sources'].append(source)
+        states[state_id] = {
+            'screen_id': screen, 'cases': spec['cases'],
+            'required': dict(sorted(required.items())),
+            'unresolved': unresolved, 'excluded': excluded,
+        }
+    return {'schema_version': 'commerce-v1-batch-contract/v1', 'batch': 'A01',
+            'design_version': DESIGN_VERSION, 'states': states}
 
 
 def yuan(cents: int) -> str:
@@ -326,6 +381,7 @@ def main() -> None:
         scope['states'][state_id]['local_tokens'] = sorted(local)
 
     outputs[HERE / 'derived' / 'acceptance-scope.json'] = dump(scope)
+    outputs[HERE / 'derived' / 'batch-contract.json'] = dump(batch_contract(view_models, contract, catalog))
     outputs[HERE / 'derived' / 'input-checks.json'] = dump(checks)
     outputs[HERE / 'derived' / 'relayout-r4.json'] = dump({
         'from': {'viewport': '390x844', 'source': 'baseline/<page>/prototype-390.json'},

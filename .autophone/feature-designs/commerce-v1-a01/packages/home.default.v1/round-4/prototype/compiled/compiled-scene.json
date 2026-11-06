@@ -1,0 +1,516 @@
+{
+  "schema_version": "ui-prototype-compiled-scene/v1",
+  "compiler": "autophone-ui-prototype-compiler/v2",
+  "source_schema_version": "ui-prototype-document/v1",
+  "screen_id": "home",
+  "state_id": "home.default.v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "viewport_profile": {
+    "profile_id": "vphone-ios27-430x932",
+    "safe_area": {
+      "top": 59,
+      "right": 0,
+      "bottom": 37,
+      "left": 0
+    },
+    "safe_area_application": [
+      "top",
+      "bottom"
+    ],
+    "system_ui": "separate_region"
+  },
+  "inputs": [
+    {
+      "role": "plan",
+      "path": "screen-plan.json",
+      "sha256": "0e58ab9d2ea3a82573c8b16c4db02b10eb7558a44607f3cd0799390502be1982"
+    },
+    {
+      "role": "source",
+      "path": "ui-document.json",
+      "sha256": "87bcf642b25be10956e326e608546b1033320bbbadf5656f388e14312716bfd3"
+    },
+    {
+      "role": "fixture",
+      "path": "state-fixture.json",
+      "sha256": "3b8c0689f0fc12cd75a1b2b9c90190a06825b7d50f3e96389505e81cf94820b0"
+    }
+  ],
+  "component_registry": [
+    "Button",
+    "ChoiceGroup",
+    "Decoration",
+    "Frame",
+    "Screen",
+    "Text"
+  ],
+  "node_scope": [
+    {
+      "node_id": "home.brand",
+      "stable_id": "home.brand",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "home.store.select",
+      "stable_id": "home.store.select",
+      "properties": [
+        "resolved_style.backgroundColor"
+      ]
+    },
+    {
+      "node_id": "home.store.name",
+      "stable_id": "home.store.name",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontWeight"
+      ]
+    },
+    {
+      "node_id": "home.store.distance",
+      "stable_id": "home.store.distance",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "home.greeting",
+      "stable_id": "home.greeting",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "home.hero.headline.line1",
+      "stable_id": "home.hero.headline.line1",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize"
+      ]
+    },
+    {
+      "node_id": "home.hero.headline.line2",
+      "stable_id": "home.hero.headline.line2",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "resolved_style.fontSize"
+      ]
+    },
+    {
+      "node_id": "home.hero.price",
+      "stable_id": "home.hero.price",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "home.mode.pickup",
+      "stable_id": "home.mode.pickup",
+      "properties": [
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius"
+      ]
+    },
+    {
+      "node_id": "home.mode.pickup.title",
+      "stable_id": "home.mode.pickup.title",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "home.mode.delivery",
+      "stable_id": "home.mode.delivery",
+      "properties": [
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius"
+      ]
+    },
+    {
+      "node_id": "home.mode.delivery.title",
+      "stable_id": "home.mode.delivery.title",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "member.points.open",
+      "stable_id": "member.points.open",
+      "properties": [
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius"
+      ]
+    },
+    {
+      "node_id": "home.member.coupons",
+      "stable_id": "home.member.coupons",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "home.shelf.title",
+      "stable_id": "home.shelf.title",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "home.start_order",
+      "stable_id": "home.start_order",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "menu.product.combo-chicken-001.open",
+      "stable_id": "menu.product.combo-chicken-001.open",
+      "properties": [
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius"
+      ]
+    },
+    {
+      "node_id": "home.shelf.combo-chicken-001.name",
+      "stable_id": "home.shelf.combo-chicken-001.name",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "home.shelf.combo-chicken-001.price",
+      "stable_id": "home.shelf.combo-chicken-001.price",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "menu.product.combo-beef-002.open",
+      "stable_id": "menu.product.combo-beef-002.open",
+      "properties": [
+        "resolved_style.backgroundColor",
+        "resolved_style.borderRadius"
+      ]
+    },
+    {
+      "node_id": "home.shelf.combo-beef-002.name",
+      "stable_id": "home.shelf.combo-beef-002.name",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "home.shelf.combo-beef-002.price",
+      "stable_id": "home.shelf.combo-beef-002.price",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "nav.home",
+      "stable_id": "nav.home",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "nav.menu",
+      "stable_id": "nav.menu",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "nav.coupons",
+      "stable_id": "nav.coupons",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "nav.orders",
+      "stable_id": "nav.orders",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "nav.member",
+      "stable_id": "nav.member",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    }
+  ],
+  "emitted_nodes": [
+    {
+      "source_node_id": "home.brand",
+      "node_id": "home.brand",
+      "stable_id": "home.brand",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.brand.tagline",
+      "node_id": "home.brand.tagline",
+      "stable_id": "home.brand.tagline",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.store.select",
+      "node_id": "home.store.select",
+      "stable_id": "home.store.select",
+      "component": "Frame"
+    },
+    {
+      "source_node_id": "home.store.name",
+      "node_id": "home.store.name",
+      "stable_id": "home.store.name",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.store.distance",
+      "node_id": "home.store.distance",
+      "stable_id": "home.store.distance",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.greeting",
+      "node_id": "home.greeting",
+      "stable_id": "home.greeting",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.hero.eyebrow",
+      "node_id": "home.hero.eyebrow",
+      "stable_id": "home.hero.eyebrow",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.hero.headline.line1",
+      "node_id": "home.hero.headline.line1",
+      "stable_id": "home.hero.headline.line1",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.hero.headline.line2",
+      "node_id": "home.hero.headline.line2",
+      "stable_id": "home.hero.headline.line2",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.hero.price",
+      "node_id": "home.hero.price",
+      "stable_id": "home.hero.price",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.hero.product",
+      "node_id": "home.hero.product",
+      "stable_id": "home.hero.product",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.hero.tag",
+      "node_id": "home.hero.tag",
+      "stable_id": "home.hero.tag",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.mode.pickup",
+      "node_id": "home.mode.pickup",
+      "stable_id": "home.mode.pickup",
+      "component": "Frame"
+    },
+    {
+      "source_node_id": "home.mode.pickup.title",
+      "node_id": "home.mode.pickup.title",
+      "stable_id": "home.mode.pickup.title",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.mode.pickup.subtitle",
+      "node_id": "home.mode.pickup.subtitle",
+      "stable_id": "home.mode.pickup.subtitle",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.mode.delivery",
+      "node_id": "home.mode.delivery",
+      "stable_id": "home.mode.delivery",
+      "component": "Frame"
+    },
+    {
+      "source_node_id": "home.mode.delivery.title",
+      "node_id": "home.mode.delivery.title",
+      "stable_id": "home.mode.delivery.title",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.mode.delivery.subtitle",
+      "node_id": "home.mode.delivery.subtitle",
+      "stable_id": "home.mode.delivery.subtitle",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "member.points.open",
+      "node_id": "member.points.open",
+      "stable_id": "member.points.open",
+      "component": "Frame"
+    },
+    {
+      "source_node_id": "home.member.title",
+      "node_id": "home.member.title",
+      "stable_id": "home.member.title",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.member.subtitle",
+      "node_id": "home.member.subtitle",
+      "stable_id": "home.member.subtitle",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.member.coupons",
+      "node_id": "home.member.coupons",
+      "stable_id": "home.member.coupons",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.shelf.title",
+      "node_id": "home.shelf.title",
+      "stable_id": "home.shelf.title",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.start_order",
+      "node_id": "home.start_order",
+      "stable_id": "home.start_order",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "menu.product.combo-chicken-001.open",
+      "node_id": "menu.product.combo-chicken-001.open",
+      "stable_id": "menu.product.combo-chicken-001.open",
+      "component": "Frame"
+    },
+    {
+      "source_node_id": "home.shelf.combo-chicken-001.name",
+      "node_id": "home.shelf.combo-chicken-001.name",
+      "stable_id": "home.shelf.combo-chicken-001.name",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.shelf.combo-chicken-001.price",
+      "node_id": "home.shelf.combo-chicken-001.price",
+      "stable_id": "home.shelf.combo-chicken-001.price",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "menu.product.combo-beef-002.open",
+      "node_id": "menu.product.combo-beef-002.open",
+      "stable_id": "menu.product.combo-beef-002.open",
+      "component": "Frame"
+    },
+    {
+      "source_node_id": "home.shelf.combo-beef-002.name",
+      "node_id": "home.shelf.combo-beef-002.name",
+      "stable_id": "home.shelf.combo-beef-002.name",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.shelf.combo-beef-002.price",
+      "node_id": "home.shelf.combo-beef-002.price",
+      "stable_id": "home.shelf.combo-beef-002.price",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "home.ai.open",
+      "node_id": "home.ai.open",
+      "stable_id": "home.ai.open",
+      "component": "Frame"
+    },
+    {
+      "source_node_id": "home.ai.prompt",
+      "node_id": "home.ai.prompt",
+      "stable_id": "home.ai.prompt",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "nav.home",
+      "node_id": "nav.home",
+      "stable_id": "nav.home",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "nav.menu",
+      "node_id": "nav.menu",
+      "stable_id": "nav.menu",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "nav.coupons",
+      "node_id": "nav.coupons",
+      "stable_id": "nav.coupons",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "nav.orders",
+      "node_id": "nav.orders",
+      "stable_id": "nav.orders",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "nav.member",
+      "node_id": "nav.member",
+      "stable_id": "nav.member",
+      "component": "Button"
+    }
+  ],
+  "interactions": []
+}

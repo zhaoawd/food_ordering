@@ -2,7 +2,7 @@
 
 本目录把冻结设计包 `design/commerce-v1/` 中 A01 批次的页面状态转换为 autophone 结构化设计包（`structured-design-package/v1`）。设计版本为 `commerce-v1-a01-430/r4`：画布从原包的 390×844 重排到 430×932，作为新设计版本处理，不改写原包。
 
-状态：2026-11-06，`home.default.v1` 已打包，第 2 轮**几何**校准通过（范围见 §3；不代表视觉一致）。验收范围尚未与批次合同做覆盖检查，见 G7。`home.guest.v1` 与 `orders.empty.v1` 缺少设计决定，暂未起草，见 [§5](#5-映射缺口与待定设计决定)。本目录不执行 design lock，也不包含需求输入包；这两项由 B4 及后续流程完成。
+状态：2026-11-06，`home.default.v1` 第 4 轮校准 28 项通过、5 项已登记偏差、0 项失败（范围见 §3.2）；批次准入未通过：`home.ai.open` 待 G8 设计确认，游客首页与订单空态尚未起草（§3.1）。`home.guest.v1` 与 `orders.empty.v1` 缺少设计决定，暂未起草，见 [§5](#5-映射缺口与待定设计决定)。本目录不执行 design lock，也不包含需求输入包；这两项由 B4 及后续流程完成。
 
 ## 1. 流程
 
@@ -37,34 +37,78 @@ flowchart LR
 ```sh
 cd .autophone/feature-designs/commerce-v1-a01
 export PLAYWRIGHT_MODULE=<autophone>/node_modules/playwright/index.mjs
+export COMPOSITOR_PROFILES=<autophone>/autophone/workflow/requirement/prototype_compositor.json
 BASELINE_VIEWPORT=390x844 node tools/render_baseline.mjs ../../../design/commerce-v1/ui/prototype.html baseline home orders
 node tools/render_baseline.mjs ../../../design/commerce-v1/ui/prototype.html baseline home orders
-python3 -I tools/derive.py            # 写 derived/ 与 drafts/
-python3 -I tools/derive.py --check    # 只核对，不写
-python3 tools/build.py --autophone-root <autophone> --round <n>
+python3 -I tools/derive.py            # 写 derived/（含批次合同）与 drafts/
+python3 -I tools/derive.py --check    # 只核对产物是否过期，不判设计有效性
+python3 tools/build.py --autophone-root <autophone> --round <n> --policy policy/calibration-policy.v2.json
+python3 -I tools/admission.py         # 单独执行批次准入
+python3 tools/calibration_selftest.py --autophone-root <autophone> --policy policy/calibration-policy.v2.json
+python3 -I tools/check_render_determinism.py --runs 5
 ```
 
-2026-11-06 的两次实验中，重新渲染的 430 基准 JSON 与 PNG 字节一致，同一草稿两次打包的 `design-package.json` 哈希一致。评审复核时观察到同版本 Chromium、同一 URL 重复渲染 DOM 相同而部分像素不同（最大通道差 17/255），原因未查明；以上结果只作实验记录，不作可重复性保证。`build.py` 每轮写入新目录，同一轮号已存在时拒绝执行。本仓库不依赖 Playwright，渲染与校准使用 autophone 的 Playwright（`playwright/1.61.1`、`chromium/149.0.7827.55`）。
+`build.py` 每轮写入新目录（设计包、校准记录、对照图、本轮输入快照 `round-<n>-inputs/`），同一轮号已存在时拒绝执行；校准失败或任一必需状态未准入时返回 1。本仓库不依赖 Playwright，渲染与校准使用 autophone 的 Playwright（`playwright/1.61.1`、`chromium/149.0.7827.55`），Chromium 启动参数取 autophone `prototype_compositor.json` 的打包配置（`software/v1`：`--disable-gpu --disable-gpu-compositing`），与平台参考图渲染相同。
 
-## 3. 校准轮次（home.default.v1）
+## 3. 批次准入与校准
 
-坐标比较前按视口画像做两处区域平移，平移量写在 `bindings.json`：
+### 3.1 批次准入（B3a）
+
+`derive.py` 只从冻结设计包生成 `derived/batch-contract.json`：每个 A01 状态的必需元素来自 `ui-contract.json` 控件、`view-models.json` 区块与底部导航；模板 ID 按设计包给出的取值展开（首页商品取原型渲染的前两个），取不到的记为合同未解析；排除项写明理由与来源。`admission.py` 不读 AI 起草的范围，逐项归类：
+
+| 类别 | 含义 | 是否阻断 |
+| --- | --- | --- |
+| covered | 已生成 `stable_id`、进入验收 targets，且有校准映射 | 否 |
+| incomplete | 状态未起草、元素未生成、生成未验收、验收未校准，或合同未解析 | 是 |
+| platform_unsupported | 原型 430 渲染中的图标与插画（按基准里的 SVG 统计，不看草稿） | 否，单独报告，不计为覆盖 |
+| excluded | 合同排除，附理由与来源 | 否 |
+
+2026-11-06 第 4 轮准入结果（`admission/admission-report.json`）：三个状态都未准入。`home.default.v1` 覆盖 12 项，未完成 1 项（`home.ai.open`，见 G8），图标与插画 13 处；`home.guest.v1` 未起草；`orders.empty.v1` 未起草，订单筛选 `orders.filter.{filter}` 合同未解析，订单行按空态配方排除。
+
+### 3.2 校准策略与检查项
+
+区域平移、容差、判定项与已知偏差写在 `policy/calibration-policy.v<n>.json`，与 AI 起草的 `bindings.json`（只负责 `stable_id` 到基准节点的映射）分开；任何改动生成新版本文件，已知偏差必须引用 §5 已登记的缺口。
 
 | 区域 | 原型 | 草稿 | 原因 |
 | --- | --- | --- | --- |
 | 顶部 | 内容起点 y=44（模拟状态栏） | y=59（顶部安全区） | 系统区域由平台视口画像提供 |
 | 底部导航 | 导航顶 y=856，高 76（含 17 底部内边距） | y=836，高 59 | 底部内边距由 37pt 安全区取代，按钮区保持 59pt |
 
-容差：盒子类元素 x、y、宽、高各 ≤2pt；文本类元素 x 与垂直中心 ≤3pt（宽度只记录不判定，原型的行内元素与 DSL Text 宽度定义不同）。
-
-校准范围只有几何：不比较文字内容、颜色、字号、字重、文本宽度、行数与截断，也不检查图标、插画和滚动可达性。区域平移与容差目前写在 AI 起草的 `bindings.json` 中，应改为校准前固定的独立策略文件，变更时生成新版本。
-
-| 轮次 | 结果 | 原因与修正 |
+| 检查 | 内容 | 阈值 |
 | --- | --- | --- |
-| 1 | 13/30 通过 | 第一屏以下元素整体上移约 61pt。内容区为 flex 列，溢出时带 `overflow:hidden` 的子项（主推卡、商品卡）被压缩；原型的滚动区是普通 block，不压缩。修正：内容区内加一层不限高的内层列 `home.scroll`；会员条文字行高度改为原型的 19.14pt（原差 1.14pt） |
-| 2 | 30/30 通过 | 设计包 `design-package.json` SHA-256 `9f1ce285…`，26 个元素、75 个属性，0 个映射缺口；两次独立打包哈希一致 |
+| geometry | 盒子：x、y、宽、高；文本：x 与垂直中心（宽度只记录） | 盒子 2pt，文本 3pt |
+| text | 渲染文本与基准文本相同 | 完全一致 |
+| style | 文本的颜色、字号、字重；盒子的背景色 | 完全一致 |
+| lines | 行数、截断、遮挡（可见部分中心点命中） | 完全一致 |
+| visibility | 视口与裁剪祖先内的可见比例 | 差 ≤0.1 |
+| font | 两侧实际解析出的主字体族 | 只记录 |
 
-第 1 轮的草稿没有单独保存，修正内容即上表所列两处；其校准记录保留在 `calibration/home.default.v1/round-1.json`。
+策略 v1 不含已知偏差；v2 在 v1 首次运行后登记 5 项：4 处字重（P3）与 `home.ai.open` 可见比例（G8），其余不变。
+
+### 3.3 轮次（home.default.v1）
+
+| 轮次 | 策略 | 结果 | 说明 |
+| --- | --- | --- | --- |
+| 1 | 仅几何（旧校准器） | 13/30 | 内容区 flex 列溢出时压缩了带 `overflow:hidden` 的子项；修正为内容区内加一层不限高的内层列 `home.scroll`，会员条文字行高改为 19.14pt |
+| 2 | 仅几何（旧校准器） | 30/30 | 设计包 SHA-256 `9f1ce285…`，26 个元素、75 个属性 |
+| 3 | v2 | 28 通过、5 已登记偏差、0 失败（33 项） | 扩展检查后首次正式轮；草稿未改，设计包哈希与第 2 轮相同 |
+| 4 | v2 | 同上 | `home.store.select` 以背景色存在性断言进入验收 targets（内容撑开的盒子不声明 `frame.*`）；设计包 `79471d8c…` |
+
+用 v1 对第 2 轮设计包运行扩展校准器的结果（28 通过、4 失败：3 处字重、`home.ai.open` 可见比例；当时人气区标题尚无校准映射，补上后为 4 处字重）是登记 v2 偏差的依据。第 1 轮草稿没有保存；从第 3 轮起每轮输入保存在 `calibration/home.default.v1/round-<n>-inputs/`。
+
+### 3.4 校准器自检
+
+`calibration_selftest.py` 从当前草稿出发各做一处受控改动，打包后用策略 v2 校准。2026-11-06 结果（`admission/calibration-selftest.json`）全部符合预期：
+
+| 样本 | 改动 | 判定 | 命中的检查 |
+| --- | --- | --- | --- |
+| control | 无 | 通过 | — |
+| text_changed | 问候语文本 | 失败 | `home.greeting` text |
+| element_missing | 删除自取卡标题 | 失败 | presence；同卡副标题 geometry |
+| shifted | 模式卡上移量 +5pt | 失败 | 以下元素 geometry |
+| occluded | 自取卡内容上加不透明层 | 失败 | 标题与副标题 occluded |
+| wrong_state | 用订单页基准校准首页 | 失败 | locator |
+| stale_evidence | 基准文件与派生记录摘要不符 | 拒绝（退出码 2） | 基准摘要核对 |
 
 ## 4. 确定性检查的发现
 
@@ -73,7 +117,8 @@ python3 tools/build.py --autophone-root <autophone> --round <n>
 | 原型用到的值是否在设计令牌内 | 首页文本字号 10 种中 8 种不在令牌内（令牌只有 12/13/15/20/28/34）；颜色 14 种中 7 种不在；圆角 6 种中 5 种不在（其中 30pt 属于原型的模拟状态栏） | `derived/token-coverage.json` |
 | 原型文本与 fixture 是否一致 | 9 项中 2 项字符串不同：主推价格原型为 `¥32.9`，脚本按两位小数格式化 `base_price_cents=3290` 得 `¥32.90`，金额相同，差异在显示格式；门店名原型为简称 `科创园店`，fixture 为全称 `食刻 · 科创园店（演示）`。两项都缺显示规则，不能判为数据错误；脚本的两位小数格式是本工具的假设 | `derived/input-checks.json` |
 | 390→430 重排差异 | 上半区元素只有宽度与 x 变化（两列卡片各宽 20pt，右列右移 20pt）；导航随视口变高下移 88pt | `derived/relayout-r4.json` |
-| 原包 PNG 与 390 重渲染 | 布局结构一致，文字位置有 2–3pt 差异。原因待验证：原包截图脚本未记录实际字体，`design-tokens.json` 区分 `designFamily: Noto Sans SC` 与 `nativeFamily: system`；本基准也未记录实际解析字体。浏览器与 iOS 的字体一致性须由设备证据单独验证 | 本 README |
+| 原包 PNG 与 390 重渲染 | 布局结构一致，文字位置有 2–3pt 差异。原因待验证：原包截图脚本未记录实际字体，`design-tokens.json` 区分 `designFamily: Noto Sans SC` 与 `nativeFamily: system`；2026-11-06 起基准记录每个文本节点实际解析的字体（首页：PingFang SC 151 个字形、.SF NS 89 个、Menlo 4 个，后者来自模拟状态栏符号）。浏览器与 iOS 的字体一致性须由设备证据单独验证 | 本 README |
+| 渲染可重复性 | 以 `software/v1` 合成参数在本机连续渲染 5 次（`chromium/149.0.7827.55`，darwin arm64）：JSON 与 PNG 字节一致，像素差 0。评审观察到的 17/255 差异发生条件未复现，可能与未使用该合成参数有关，未验证；结论只适用于本机与该工具链 | `admission/render-determinism.json` |
 
 ## 5. 映射缺口与待定设计决定
 
@@ -87,7 +132,8 @@ python3 tools/build.py --autophone-root <autophone> --round <n>
 | G4 | 价格与门店名缺显示规则（§4）：需要区分业务值（`base_price_cents`、门店 ID）、显示规则（金额格式、全称或简称）与显示结果 | 实现按不同规则显示时会与参考图不符 | 草稿取原型文本；Fixture 中的显示文本只消除了转抄错误，不证明符合业务数据 |
 | G5 | `home.store.select` 高 21.8pt，`ui-contract.json` 要求最小触控 44pt | 触控目标检查与参考图冲突 | 草稿取原型几何 |
 | G6 | 商品卡保留了按钮默认内边距（上下 1pt、左右 6pt），插画区左右留白，疑似非设计意图 | 实现若去掉留白会与参考图不符 | 草稿按原型保留 |
-| G7 | 最终验收 targets 取自 AI 起草的 `layout.json`，校准元素取自起草的 `bindings.json`，两者都没有与批次合同建立强制覆盖关系：契约控件 `home.store.select`、`home.ai.open` 不在验收 targets 中；`build.py` 对未起草状态只标记跳过、不返回失败。“0 个映射缺口”只说明已声明 targets 的映射完整 | 设计包可能缺少内容而检查仍通过 | 待补：从批次合同独立生成必需状态、元素、属性集合，覆盖缺口分为未完成、平台不支持、合同明确排除 |
+| G7 | 最终验收 targets 取自 AI 起草的 `layout.json`，校准元素取自起草的 `bindings.json`，两者都没有与批次合同建立强制覆盖关系：契约控件 `home.store.select`、`home.ai.open` 不在验收 targets 中；`build.py` 对未起草状态只标记跳过、不返回失败。“0 个映射缺口”只说明已声明 targets 的映射完整 | 设计包可能缺少内容而检查仍通过 | 已实现批次合同与准入检查（§3.1）；第 4 轮剩 `home.ai.open` 未进入验收（G8） |
+| G8 | R4 重排以 59pt 顶部安全区与 37pt 底部安全区取代原型的 44pt 模拟状态栏与 17pt 导航底部内边距，首屏内容区少 35pt；`home.ai.open` 的可见比例从原型 430 渲染的 0.81 降到 0.22（几乎被导航遮挡）。由第 3 轮校准的可见比例检查发现 | 首屏底部入口是否需要完整可见未定 | 待设计确认；校准策略 v2 以已知偏差登记，不计为通过 |
 
 2026-11-06 设计决定（用户按建议确认；作为新设计版本补入，来源记为本次决定，不改写原包）：
 
