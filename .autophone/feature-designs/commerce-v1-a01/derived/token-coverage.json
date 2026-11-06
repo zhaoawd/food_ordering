@@ -1,0 +1,93 @@
+{
+  "home": {
+    "color": {
+      "in_tokens": [
+        "#251D19",
+        "#30271F",
+        "#71655D",
+        "#C93C25",
+        "#FAF7F2",
+        "#FFF0E7",
+        "#FFFFFF"
+      ],
+      "not_in_tokens": [
+        "#352418",
+        "#6E4B2A",
+        "#8D311B",
+        "#D8C5B3",
+        "#F0D8B8",
+        "#F5EADB",
+        "#F7EBD9"
+      ]
+    },
+    "fontSize": {
+      "in_tokens": [
+        12.0,
+        13.0
+      ],
+      "not_in_tokens": [
+        10.0,
+        11.0,
+        14.0,
+        17.0,
+        18.0,
+        22.0,
+        26.0,
+        29.0
+      ]
+    },
+    "borderRadius": {
+      "in_tokens": [
+        20.0
+      ],
+      "not_in_tokens": [
+        14.0,
+        18.0,
+        24.0,
+        30.0,
+        6.0
+      ]
+    }
+  },
+  "orders": {
+    "color": {
+      "in_tokens": [
+        "#236449",
+        "#251D19",
+        "#71655D",
+        "#C93C25",
+        "#E8F3EC",
+        "#FAF7F2",
+        "#FFFFFF"
+      ],
+      "not_in_tokens": [
+        "#EDE6DD",
+        "#F6EDDE"
+      ]
+    },
+    "fontSize": {
+      "in_tokens": [
+        12.0,
+        13.0,
+        20.0
+      ],
+      "not_in_tokens": [
+        10.0,
+        11.0,
+        14.0
+      ]
+    },
+    "borderRadius": {
+      "in_tokens": [
+        12.0,
+        20.0
+      ],
+      "not_in_tokens": [
+        11.0,
+        30.0,
+        5.0,
+        8.0
+      ]
+    }
+  }
+}

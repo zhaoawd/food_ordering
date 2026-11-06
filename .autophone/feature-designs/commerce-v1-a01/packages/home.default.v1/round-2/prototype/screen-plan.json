@@ -1,0 +1,21 @@
+{
+  "schema_version": "ui-prototype-plan/v1",
+  "product_type": "food-ordering",
+  "platform": "mobile",
+  "screens": [
+    {
+      "id": "home",
+      "purpose": "首页",
+      "sections": [
+        "AppHeader",
+        "StoreHeader",
+        "CampaignHero",
+        "FulfillmentEntry",
+        "MemberStrip",
+        "ProductShelf",
+        "TabBar"
+      ]
+    }
+  ],
+  "flows": []
+}

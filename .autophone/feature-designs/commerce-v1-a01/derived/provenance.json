@@ -1,0 +1,70 @@
+{
+  "manifest_sha256": "ec6bed1c5fbae3eb4d7cca23dbb1a78c573906b08b52a062e93812f604c174ee",
+  "files_verified": 54,
+  "baselines": {
+    "home@390": {
+      "path": "baseline/home/prototype-390.json",
+      "sha256": "69daa6ce7f06456ea3d5081b1ab728b49fdb659f28f7a6f8363fae7181e8c85d",
+      "png_sha256": "9059c045a225e1e7745cb8240b77a44f7eea86b210fa07a748d8f646abf106e3",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "scale": 3
+      },
+      "browser": "chromium/149.0.7827.55"
+    },
+    "home@430": {
+      "path": "baseline/home/prototype-430.json",
+      "sha256": "83487d73b44a7e9d01420be4fc5e9f5ae163c58960bb0716238933f46f7b1b23",
+      "png_sha256": "822a012dd107e268a98e3bcb64038d2c615681aeda8264944c2daa23540fb794",
+      "viewport": {
+        "width": 430,
+        "height": 932,
+        "scale": 3
+      },
+      "browser": "chromium/149.0.7827.55"
+    },
+    "orders@390": {
+      "path": "baseline/orders/prototype-390.json",
+      "sha256": "cde7fa4d18e86a1ce9a95d3bfbb830c6e7977496b0e91caa4c2da62121f99f46",
+      "png_sha256": "0a6e3333502b18b18c80e4277a5e464b5d1901185b21af05fcd55ac09bdb8535",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "scale": 3
+      },
+      "browser": "chromium/149.0.7827.55"
+    },
+    "orders@430": {
+      "path": "baseline/orders/prototype-430.json",
+      "sha256": "082fa83adbb862f52d5215b40589bfccfba711646a9a71240cccb580e5b959ce",
+      "png_sha256": "bea4ed8a6c7d3ea68fceeb0541eae9daa846f116fd450405df8ee0db8f9706f4",
+      "viewport": {
+        "width": 430,
+        "height": 932,
+        "scale": 3
+      },
+      "browser": "chromium/149.0.7827.55"
+    }
+  },
+  "design_version": "commerce-v1-a01-430/r4",
+  "design_package": "design/commerce-v1",
+  "viewport_profile": {
+    "profile_id": "vphone-ios27-430x932",
+    "safe_area": {
+      "top": 59,
+      "right": 0,
+      "bottom": 37,
+      "left": 0
+    },
+    "safe_area_application": [
+      "top",
+      "bottom"
+    ],
+    "system_ui": "separate_region"
+  },
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  }
+}

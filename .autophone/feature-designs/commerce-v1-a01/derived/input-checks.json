@@ -1,0 +1,58 @@
+{
+  "home.default.v1": [
+    {
+      "view_key": "product_1_name",
+      "prototype_text": "香脆鸡腿堡套餐",
+      "fixture_text": "香脆鸡腿堡套餐",
+      "consistent": true
+    },
+    {
+      "view_key": "product_1_price",
+      "prototype_text": "¥32.90",
+      "fixture_text": "¥32.90",
+      "consistent": true
+    },
+    {
+      "view_key": "product_2_name",
+      "prototype_text": "炙烤牛肉堡套餐",
+      "fixture_text": "炙烤牛肉堡套餐",
+      "consistent": true
+    },
+    {
+      "view_key": "product_2_price",
+      "prototype_text": "¥38.90",
+      "fixture_text": "¥38.90",
+      "consistent": true
+    },
+    {
+      "view_key": "hero_price",
+      "prototype_text": "¥32.9",
+      "fixture_text": "¥32.90",
+      "consistent": false
+    },
+    {
+      "view_key": "hero_product",
+      "prototype_text": "香脆鸡腿堡套餐",
+      "fixture_text": "香脆鸡腿堡套餐",
+      "consistent": true
+    },
+    {
+      "view_key": "store_name",
+      "prototype_text": "科创园店",
+      "fixture_text": "食刻 · 科创园店（演示）",
+      "consistent": false
+    },
+    {
+      "view_key": "store_distance",
+      "prototype_text": "步行约5分钟",
+      "fixture_text": "步行约5分钟",
+      "consistent": true
+    },
+    {
+      "view_key": "member_coupons",
+      "prototype_text": "3 张券 ›",
+      "fixture_text": "3 张券 ›",
+      "consistent": true
+    }
+  ]
+}

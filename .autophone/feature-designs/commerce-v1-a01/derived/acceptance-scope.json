@@ -1,0 +1,193 @@
+{
+  "design_version": "commerce-v1-a01-430/r4",
+  "states": {
+    "home.default.v1": {
+      "screen_id": "home",
+      "cases": {
+        "T003": {
+          "title": "五个导航入口可达",
+          "state_id": "home.default.v1",
+          "when": "逐一点击首页/点餐/优惠/订单/我的",
+          "then": "五条正确路由，无空点击",
+          "layer": "ui"
+        }
+      },
+      "contract_controls": [
+        {
+          "stable_id": "home.store.select",
+          "screen_id": "home",
+          "role": "button",
+          "label": "选择门店",
+          "action": "navigate:stores",
+          "min_hit_target_pt": 44
+        },
+        {
+          "stable_id": "home.mode.pickup",
+          "screen_id": "home",
+          "role": "button",
+          "label": "到店自取",
+          "action": "context:pickup",
+          "min_hit_target_pt": 44
+        },
+        {
+          "stable_id": "home.mode.delivery",
+          "screen_id": "home",
+          "role": "button",
+          "label": "外送到家",
+          "action": "navigate:address",
+          "min_hit_target_pt": 44
+        },
+        {
+          "stable_id": "home.start_order",
+          "screen_id": "home",
+          "role": "button",
+          "label": "开始点餐",
+          "action": "navigate:menu",
+          "min_hit_target_pt": 44
+        },
+        {
+          "stable_id": "home.ai.open",
+          "screen_id": "home",
+          "role": "button",
+          "label": "帮我搭一餐",
+          "action": "navigate:ai",
+          "min_hit_target_pt": 44
+        }
+      ],
+      "tab_bar": [
+        "nav.home",
+        "nav.menu",
+        "nav.coupons",
+        "nav.orders",
+        "nav.member"
+      ],
+      "deprecated_aliases": [
+        {
+          "from": "home.navigation.orders",
+          "to": "nav.orders",
+          "reason": "新路由为真实订单；旧cart入口保留迁移测试。"
+        }
+      ],
+      "draft": "drafts/home.default.v1",
+      "local_tokens": [
+        "proto.color.artBg",
+        "proto.color.cardBorder",
+        "proto.color.heroBg",
+        "proto.color.heroMuted",
+        "proto.color.heroPrice",
+        "proto.color.heroText",
+        "proto.color.memberMuted",
+        "proto.color.memberText",
+        "proto.font.10",
+        "proto.font.11",
+        "proto.font.14",
+        "proto.font.17",
+        "proto.font.18",
+        "proto.font.22",
+        "proto.font.26",
+        "proto.font.29",
+        "proto.radius.14",
+        "proto.radius.18",
+        "proto.radius.24",
+        "proto.radius.6"
+      ]
+    },
+    "home.guest.v1": {
+      "screen_id": "home",
+      "cases": {
+        "T001": {
+          "title": "游客浏览不被强制登录",
+          "state_id": "home.guest.v1",
+          "when": "打开首页并进入菜单",
+          "then": "显示菜单，未创建账号",
+          "layer": "ui"
+        }
+      },
+      "contract_controls": [
+        {
+          "stable_id": "home.store.select",
+          "screen_id": "home",
+          "role": "button",
+          "label": "选择门店",
+          "action": "navigate:stores",
+          "min_hit_target_pt": 44
+        },
+        {
+          "stable_id": "home.mode.pickup",
+          "screen_id": "home",
+          "role": "button",
+          "label": "到店自取",
+          "action": "context:pickup",
+          "min_hit_target_pt": 44
+        },
+        {
+          "stable_id": "home.mode.delivery",
+          "screen_id": "home",
+          "role": "button",
+          "label": "外送到家",
+          "action": "navigate:address",
+          "min_hit_target_pt": 44
+        },
+        {
+          "stable_id": "home.start_order",
+          "screen_id": "home",
+          "role": "button",
+          "label": "开始点餐",
+          "action": "navigate:menu",
+          "min_hit_target_pt": 44
+        },
+        {
+          "stable_id": "home.ai.open",
+          "screen_id": "home",
+          "role": "button",
+          "label": "帮我搭一餐",
+          "action": "navigate:ai",
+          "min_hit_target_pt": 44
+        }
+      ],
+      "tab_bar": [
+        "nav.home",
+        "nav.menu",
+        "nav.coupons",
+        "nav.orders",
+        "nav.member"
+      ],
+      "deprecated_aliases": [
+        {
+          "from": "home.navigation.orders",
+          "to": "nav.orders",
+          "reason": "新路由为真实订单；旧cart入口保留迁移测试。"
+        }
+      ],
+      "draft": "not_authored"
+    },
+    "orders.empty.v1": {
+      "screen_id": "orders",
+      "cases": {
+        "T004": {
+          "title": "订单不再显示购物车",
+          "state_id": "orders.empty.v1",
+          "when": "点击订单入口",
+          "then": "显示订单空态，不显示购物袋",
+          "layer": "ui"
+        }
+      },
+      "contract_controls": [],
+      "tab_bar": [
+        "nav.home",
+        "nav.menu",
+        "nav.coupons",
+        "nav.orders",
+        "nav.member"
+      ],
+      "deprecated_aliases": [
+        {
+          "from": "home.navigation.orders",
+          "to": "nav.orders",
+          "reason": "新路由为真实订单；旧cart入口保留迁移测试。"
+        }
+      ],
+      "draft": "not_authored"
+    }
+  }
+}

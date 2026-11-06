@@ -1,0 +1,768 @@
+{
+  "schema_version": "commerce-v1-layout-calibration/v1",
+  "package": {
+    "design_package_sha256": "9f1ce285d44ae18b5b38c3198fdbf800f6fbdbf9e7db15e9614f5e98e51718b2",
+    "reference_sha256": "f511ab38891cf2d1ebb482f6c50114a936968290ab2262c400a53134c6c5c14b"
+  },
+  "baseline": {
+    "path": "baseline/home/prototype-430.json",
+    "sha256": "83487d73b44a7e9d01420be4fc5e9f5ae163c58960bb0716238933f46f7b1b23"
+  },
+  "bindings_sha256": "dc5c19bf9325497937c5faea2069a5a7ecbe5ddf6648b72c5ebcb4ecdb4c80e4",
+  "regions": {
+    "top": {
+      "baseline_origin_y": 44,
+      "draft_origin_y": 59,
+      "reason": "顶部安全区 59pt 取代原型 44pt 模拟状态栏"
+    },
+    "bottom": {
+      "baseline_origin_y": 856,
+      "draft_origin_y": 836,
+      "reason": "导航按钮区保持 59pt，底部 17pt 内边距由 37pt 安全区取代"
+    }
+  },
+  "tolerance_pt": {
+    "box": 2,
+    "text": 3
+  },
+  "summary": {
+    "elements": 30,
+    "passed": 30,
+    "failed": 0
+  },
+  "results": [
+    {
+      "stable_id": "home.brand",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        20,
+        70.5,
+        173.19,
+        37
+      ],
+      "actual": [
+        20,
+        70.5,
+        50,
+        37
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": 0,
+        "width": -123.19
+      }
+    },
+    {
+      "stable_id": "home.store.select",
+      "mode": "box",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        20,
+        123,
+        201.42,
+        21.8
+      ],
+      "actual": [
+        20,
+        123,
+        201.42,
+        21.8
+      ],
+      "deltas": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "stable_id": "home.store.name",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        55,
+        124.89,
+        52,
+        18
+      ],
+      "actual": [
+        55,
+        124.89,
+        52,
+        18
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": 0,
+        "width": 0
+      }
+    },
+    {
+      "stable_id": "home.store.distance",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        119,
+        124,
+        67.42,
+        19.8
+      ],
+      "actual": [
+        119,
+        124,
+        67.42,
+        19.8
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": 0,
+        "width": 0
+      }
+    },
+    {
+      "stable_id": "home.greeting",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        20,
+        150.8,
+        390,
+        18
+      ],
+      "actual": [
+        20,
+        150.8,
+        390,
+        18
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": 0,
+        "width": 0
+      }
+    },
+    {
+      "stable_id": "home.hero.eyebrow",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        42,
+        208.8,
+        165.63,
+        12
+      ],
+      "actual": [
+        42,
+        204.8,
+        165.63,
+        17
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": -1.5,
+        "width": 0
+      }
+    },
+    {
+      "stable_id": "home.hero.price",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        42,
+        319.17,
+        61.08,
+        26
+      ],
+      "actual": [
+        42,
+        319.2,
+        61.08,
+        26
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": 0.03,
+        "width": 0
+      }
+    },
+    {
+      "stable_id": "home.hero.product",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        110.08,
+        325.17,
+        70,
+        14
+      ],
+      "actual": [
+        110.08,
+        325.2,
+        70,
+        14
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": 0.03,
+        "width": 0
+      }
+    },
+    {
+      "stable_id": "home.mode.pickup",
+      "mode": "box",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        20,
+        410.8,
+        189,
+        88
+      ],
+      "actual": [
+        20,
+        410.8,
+        189,
+        88
+      ],
+      "deltas": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "stable_id": "home.mode.delivery",
+      "mode": "box",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        221,
+        410.8,
+        189,
+        88
+      ],
+      "actual": [
+        221,
+        410.8,
+        189,
+        88
+      ],
+      "deltas": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "stable_id": "home.mode.pickup.title",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        85,
+        431.22,
+        77,
+        24
+      ],
+      "actual": [
+        85,
+        431.3,
+        77,
+        24
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": 0.08,
+        "width": 0
+      }
+    },
+    {
+      "stable_id": "home.mode.pickup.subtitle",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        85,
+        462.22,
+        77,
+        13
+      ],
+      "actual": [
+        85,
+        455.3,
+        77,
+        23
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": -1.92,
+        "width": 0
+      }
+    },
+    {
+      "stable_id": "home.mode.delivery.title",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        286,
+        431.22,
+        77,
+        24
+      ],
+      "actual": [
+        286,
+        431.3,
+        77,
+        24
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": 0.08,
+        "width": 0
+      }
+    },
+    {
+      "stable_id": "home.mode.delivery.subtitle",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        286,
+        462.22,
+        77,
+        13
+      ],
+      "actual": [
+        286,
+        455.3,
+        77,
+        23
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": -1.92,
+        "width": 0
+      }
+    },
+    {
+      "stable_id": "member.points.open",
+      "mode": "box",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        20,
+        512.8,
+        390,
+        45.14
+      ],
+      "actual": [
+        20,
+        512.8,
+        390,
+        45.13
+      ],
+      "deltas": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": -0.02
+      }
+    },
+    {
+      "stable_id": "home.member.title",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        35,
+        526.8,
+        52,
+        16
+      ],
+      "actual": [
+        35,
+        527.36,
+        52,
+        16
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": 0.56,
+        "width": 0
+      }
+    },
+    {
+      "stable_id": "home.member.coupons",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        348.05,
+        526.36,
+        46.95,
+        18
+      ],
+      "actual": [
+        348.05,
+        526.36,
+        46.95,
+        18
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": 0,
+        "width": 0
+      }
+    },
+    {
+      "stable_id": "home.start_order",
+      "mode": "box",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        348.7,
+        577.94,
+        61.3,
+        44
+      ],
+      "actual": [
+        348.7,
+        577.92,
+        61.3,
+        44
+      ],
+      "deltas": {
+        "x": 0,
+        "y": -0.02,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "stable_id": "menu.product.combo-chicken-001.open",
+      "mode": "box",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        20,
+        633.94,
+        189,
+        173
+      ],
+      "actual": [
+        20,
+        633.92,
+        189,
+        173
+      ],
+      "deltas": {
+        "x": 0,
+        "y": -0.02,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "stable_id": "home.shelf.combo-chicken-001.name",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        38,
+        749.94,
+        91,
+        16
+      ],
+      "actual": [
+        38,
+        748.92,
+        153,
+        18
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": -0.02,
+        "width": 62
+      }
+    },
+    {
+      "stable_id": "home.shelf.combo-chicken-001.price",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        38,
+        774.94,
+        59.5,
+        21
+      ],
+      "actual": [
+        38,
+        774.92,
+        62.16,
+        21
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": -0.02,
+        "width": 2.66
+      }
+    },
+    {
+      "stable_id": "menu.product.combo-beef-002.open",
+      "mode": "box",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        221,
+        633.94,
+        189,
+        173
+      ],
+      "actual": [
+        221,
+        633.92,
+        189,
+        173
+      ],
+      "deltas": {
+        "x": 0,
+        "y": -0.02,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "stable_id": "home.shelf.combo-beef-002.name",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        239,
+        749.94,
+        91,
+        16
+      ],
+      "actual": [
+        239,
+        748.92,
+        153,
+        18
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": -0.02,
+        "width": 62
+      }
+    },
+    {
+      "stable_id": "home.shelf.combo-beef-002.price",
+      "mode": "text",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        239,
+        774.94,
+        59.89,
+        21
+      ],
+      "actual": [
+        239,
+        774.92,
+        62.53,
+        21
+      ],
+      "deltas": {
+        "x": 0,
+        "center_y": -0.02,
+        "width": 2.64
+      }
+    },
+    {
+      "stable_id": "home.ai.open",
+      "mode": "box",
+      "region": "top",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        20,
+        822.94,
+        390,
+        59
+      ],
+      "actual": [
+        20,
+        822.92,
+        390,
+        59
+      ],
+      "deltas": {
+        "x": 0,
+        "y": -0.02,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "stable_id": "nav.home",
+      "mode": "box",
+      "region": "bottom",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        16.89,
+        845,
+        65,
+        50
+      ],
+      "actual": [
+        16.88,
+        845,
+        65,
+        50
+      ],
+      "deltas": {
+        "x": -0.02,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "stable_id": "nav.menu",
+      "mode": "box",
+      "region": "bottom",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        99.69,
+        845,
+        65,
+        50
+      ],
+      "actual": [
+        99.69,
+        845,
+        65,
+        50
+      ],
+      "deltas": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "stable_id": "nav.coupons",
+      "mode": "box",
+      "region": "bottom",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        182.48,
+        845,
+        65,
+        50
+      ],
+      "actual": [
+        182.5,
+        845,
+        65,
+        50
+      ],
+      "deltas": {
+        "x": 0.02,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "stable_id": "nav.orders",
+      "mode": "box",
+      "region": "bottom",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        265.3,
+        845,
+        65,
+        50
+      ],
+      "actual": [
+        265.31,
+        845,
+        65,
+        50
+      ],
+      "deltas": {
+        "x": 0.01,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "stable_id": "nav.member",
+      "mode": "box",
+      "region": "bottom",
+      "ok": true,
+      "over_tolerance": [],
+      "expected": [
+        348.09,
+        845,
+        65,
+        50
+      ],
+      "actual": [
+        348.13,
+        845,
+        65,
+        50
+      ],
+      "deltas": {
+        "x": 0.04,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    }
+  ]
+}

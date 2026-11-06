@@ -1,0 +1,23 @@
+{
+  "round": 2,
+  "states": {
+    "home.default.v1": {
+      "status": "calibrated",
+      "package": "packages/home.default.v1/round-2",
+      "design_package_sha256": "9f1ce285d44ae18b5b38c3198fdbf800f6fbdbf9e7db15e9614f5e98e51718b2",
+      "mapped_nodes": 26,
+      "missing_nodes": 0,
+      "calibration": {
+        "elements": 30,
+        "passed": 30,
+        "failed": 0
+      }
+    },
+    "home.guest.v1": {
+      "status": "not_authored"
+    },
+    "orders.empty.v1": {
+      "status": "not_authored"
+    }
+  }
+}
