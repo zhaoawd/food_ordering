@@ -39,7 +39,7 @@ export default function Home() {
     <SafeAreaView edges={['top']} style={styles.screen}>
       <View style={styles.header}>
         <View style={styles.brandRow}>
-          <ObservedText stableId="home.brand" observationRole="text" sourceRef={sourceRef} style={styles.brand}>食刻</ObservedText>
+          <ObservedText stableId="home.brand" observationRole="text" sourceRef={sourceRef} observationStyle={styles.brandBox} style={styles.brand}>食刻</ObservedText>
           <Text style={styles.brandSub}>FRESH MOMENTS</Text>
         </View>
         <View style={styles.iconButton} accessibilityLabel="消息">
@@ -105,7 +105,7 @@ export default function Home() {
               <View style={styles.miniCopy}>
                 <ObservedText stableId={`home.shelf.${product.id}.name`} observationRole="text" sourceRef={sourceRef} style={styles.miniName}>{product.name}</ObservedText>
                 <View style={styles.miniRow}>
-                  <ObservedText stableId={`home.shelf.${product.id}.price`} observationRole="text" sourceRef={sourceRef} style={styles.miniPrice}>{formatCents(product.priceCents)}</ObservedText>
+                  <ObservedText stableId={`home.shelf.${product.id}.price`} observationRole="text" sourceRef={sourceRef} style={styles.miniPrice}><Text style={styles.miniYen}>¥</Text>{formatCents(product.priceCents).slice(1)}</ObservedText>
                   <Text style={styles.plus}>＋</Text>
                 </View>
               </View>
@@ -126,6 +126,8 @@ const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
   header: { paddingTop: 8, paddingBottom: 12, paddingHorizontal: 20, minHeight: 55, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   brandRow: { flexDirection: 'row', alignItems: 'baseline', gap: 4 },
+  // 观测框四周各留出页面底色（负外边距抵消，字形位置不变），像素派生才能区分底色与字色。
+  brandBox: { paddingVertical: 10, marginVertical: -10, paddingHorizontal: 6, marginHorizontal: -6 },
   brand: { fontSize: 26, lineHeight: 30, fontWeight: '800', color: colors.brand, letterSpacing: -1 },
   brandSub: { fontSize: 10, letterSpacing: 2, color: colors.muted, fontWeight: '400' },
   iconButton: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center', borderRadius: 22 },
@@ -147,7 +149,7 @@ const styles = StyleSheet.create({
   offer: { flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: 2 },
   heroPrice: { fontSize: 22, lineHeight: 26, color: colors.heroPrice, fontWeight: '800', letterSpacing: -0.4 },
   micro: { fontSize: 10, color: colors.heroMicro },
-  tag: { alignSelf: 'flex-start', backgroundColor: colors.memberBg, borderRadius: 6, paddingVertical: 4, paddingHorizontal: 8, marginTop: 12, width: 105 },
+  tag: { alignSelf: 'flex-start', backgroundColor: colors.memberBg, borderRadius: 6, paddingVertical: 4, paddingHorizontal: 8, marginTop: 12 },
   tagText: { color: '#FFFFFF', fontSize: 10 },
   modeGrid: { flexDirection: 'row', gap: 12, marginTop: 14 },
   modeCard: { flex: 1, flexDirection: 'row', gap: 10, alignItems: 'center', borderRadius: 18, backgroundColor: colors.surface, paddingVertical: 16, paddingHorizontal: 12, borderWidth: 1, borderColor: colors.modeLine, minHeight: 88 },
@@ -170,6 +172,7 @@ const styles = StyleSheet.create({
   miniName: { fontSize: 13, lineHeight: 16, fontWeight: '700', color: colors.ink },
   miniRow: { marginTop: 8, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   miniPrice: { fontSize: 18, lineHeight: 21, color: colors.brand, fontWeight: '800', letterSpacing: -0.4 },
+  miniYen: { fontSize: 12 },
   plus: { fontSize: 14, color: colors.ink },
   aiCard: { height: 59, marginTop: 16, borderRadius: 20, backgroundColor: colors.soft, padding: 16, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   aiLabel: { flexDirection: 'row', alignItems: 'center' },
