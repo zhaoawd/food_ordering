@@ -1,11 +1,11 @@
 {
   "schema_version": "design-batch-final-package/v1",
   "state_id": "home.default.v1",
-  "round": 14,
+  "round": 17,
   "status": "final_candidate",
   "package": {
-    "path": "packages/home.default.v1/round-14-device",
-    "design_package_sha256": "25d149dbcb3af437e5472fadb4463de1d4ba36e1efe21c47b47332f42784fffd",
+    "path": "packages/home.default.v1/round-17-device",
+    "design_package_sha256": "7661ae90e02db18e15805a3595f432fed756bc0b692c25e30808f9afaf029ae0",
     "reference_sha256": "74bd0bc4339de98902e3590256488b57a8df6265d7e0b445a879c307c3a4ca68",
     "reference_renderer": {
       "renderer": "ios-wkwebview",
@@ -36,13 +36,13 @@
     }
   },
   "host_package": {
-    "path": "packages/home.default.v1/round-14",
-    "design_package_sha256": "da2089c6b9418bb5653712df621eea521eaa3e76758df5cb613bc09c42621757"
+    "path": "packages/home.default.v1/round-17",
+    "design_package_sha256": "c92c82180ec206672fb3d28609776dd24ab260609aa35303f68b412ff24f6494"
   },
   "checks": {
     "calibration": {
-      "record": "calibration/home.default.v1/round-14-device.json",
-      "sha256": "7bf8c31ec09e5424ecc83e634597403e9e42121909a9bcb3ab358c97294461f6",
+      "record": "calibration/home.default.v1/round-17-device.json",
+      "sha256": "73679ba1ea6b350f4575fb8038cc845bf2264cab0fb70e122618eead1f773592",
       "summary": {
         "elements": 32,
         "passed": 29,
@@ -54,14 +54,14 @@
     },
     "achievability": {
       "report": "admission/achievability/home.default.v1.final.json",
-      "sha256": "f5aad161ff0d3c4da8d399f1ee85cdae82d10b210d4707336aa101c594be6301",
+      "sha256": "878d4c44d375d73bb9a75278eedd74ff835605b1f82a70ea2eb71ae223887f41",
       "counts": {
         "achievable/assumed": 34
       }
     },
     "admission": {
       "report": "admission/admission-report.json",
-      "sha256": "11c9886378947d26684f8b176d154ccc2853d7f187bc3b7ad83b5851f7c9e751",
+      "sha256": "75a59195585e97f567daeb6e178f06878c51c28bfedcd1e2c7166786f0c5f4e1",
       "admitted": true
     }
   }

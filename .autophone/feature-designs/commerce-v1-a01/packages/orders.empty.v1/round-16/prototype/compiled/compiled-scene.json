@@ -1,0 +1,244 @@
+{
+  "schema_version": "ui-prototype-compiled-scene/v1",
+  "compiler": "autophone-ui-prototype-compiler/v2",
+  "source_schema_version": "ui-prototype-document/v1",
+  "screen_id": "orders",
+  "state_id": "orders.empty.v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "viewport_profile": {
+    "profile_id": "vphone-ios27-430x932",
+    "safe_area": {
+      "top": 59,
+      "right": 0,
+      "bottom": 37,
+      "left": 0
+    },
+    "safe_area_application": [
+      "top",
+      "bottom"
+    ],
+    "system_ui": "separate_region"
+  },
+  "inputs": [
+    {
+      "role": "plan",
+      "path": "screen-plan.json",
+      "sha256": "f32b10c0d4d9b11dc915d5ca683651212b0c03e947ef82e69c63e6d2d54f76f5"
+    },
+    {
+      "role": "source",
+      "path": "ui-document.json",
+      "sha256": "2e0895ee9b1d73cde79b28f62495c516771380aab63fad524464e1102b8a0992"
+    },
+    {
+      "role": "fixture",
+      "path": "state-fixture.json",
+      "sha256": "b89c8bf2b296baab77bf6959cdf52c43f86a9b95986358a5f3b14613250896f6"
+    }
+  ],
+  "component_registry": [
+    "Button",
+    "ChoiceGroup",
+    "Decoration",
+    "Frame",
+    "Screen",
+    "Text"
+  ],
+  "node_scope": [
+    {
+      "node_id": "orders.title",
+      "stable_id": "orders.title",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "orders.filter.all",
+      "stable_id": "orders.filter.all",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "orders.filter.active",
+      "stable_id": "orders.filter.active",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "orders.filter.completed",
+      "stable_id": "orders.filter.completed",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "orders.filter.after_sale",
+      "stable_id": "orders.filter.after_sale",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "orders.empty.title",
+      "stable_id": "orders.empty.title",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "orders.empty.primary_action",
+      "stable_id": "orders.empty.primary_action",
+      "properties": [
+        "text",
+        "resolved_style.color"
+      ]
+    },
+    {
+      "node_id": "nav.home",
+      "stable_id": "nav.home",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "nav.menu",
+      "stable_id": "nav.menu",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "nav.coupons",
+      "stable_id": "nav.coupons",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "nav.orders",
+      "stable_id": "nav.orders",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    },
+    {
+      "node_id": "nav.member",
+      "stable_id": "nav.member",
+      "properties": [
+        "text",
+        "resolved_style.color",
+        "frame.x",
+        "frame.y",
+        "frame.width",
+        "frame.height"
+      ]
+    }
+  ],
+  "emitted_nodes": [
+    {
+      "source_node_id": "orders.title",
+      "node_id": "orders.title",
+      "stable_id": "orders.title",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "orders.filter.all",
+      "node_id": "orders.filter.all",
+      "stable_id": "orders.filter.all",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "orders.filter.active",
+      "node_id": "orders.filter.active",
+      "stable_id": "orders.filter.active",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "orders.filter.completed",
+      "node_id": "orders.filter.completed",
+      "stable_id": "orders.filter.completed",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "orders.filter.after_sale",
+      "node_id": "orders.filter.after_sale",
+      "stable_id": "orders.filter.after_sale",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "orders.empty.title",
+      "node_id": "orders.empty.title",
+      "stable_id": "orders.empty.title",
+      "component": "Text"
+    },
+    {
+      "source_node_id": "orders.empty.primary_action",
+      "node_id": "orders.empty.primary_action",
+      "stable_id": "orders.empty.primary_action",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "nav.home",
+      "node_id": "nav.home",
+      "stable_id": "nav.home",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "nav.menu",
+      "node_id": "nav.menu",
+      "stable_id": "nav.menu",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "nav.coupons",
+      "node_id": "nav.coupons",
+      "stable_id": "nav.coupons",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "nav.orders",
+      "node_id": "nav.orders",
+      "stable_id": "nav.orders",
+      "component": "Button"
+    },
+    {
+      "source_node_id": "nav.member",
+      "node_id": "nav.member",
+      "stable_id": "nav.member",
+      "component": "Button"
+    }
+  ],
+  "interactions": []
+}

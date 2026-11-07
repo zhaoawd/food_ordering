@@ -1,0 +1,96 @@
+{
+  "schema_version": "prototype-render-spec/v1",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "entry": "index.html",
+  "node_scope": [
+    "orders.title",
+    "orders.filter.all",
+    "orders.filter.active",
+    "orders.filter.completed",
+    "orders.filter.after_sale",
+    "orders.empty.title",
+    "orders.empty.primary_action",
+    "nav.home",
+    "nav.menu",
+    "nav.coupons",
+    "nav.orders",
+    "nav.member"
+  ],
+  "locale": "zh-CN",
+  "color_scheme": "light",
+  "packer_version": "autophone-prototype-packager/v2",
+  "property_scope": {
+    "orders.title": [
+      "text",
+      "resolved_style.color"
+    ],
+    "orders.filter.all": [
+      "text",
+      "resolved_style.color"
+    ],
+    "orders.filter.active": [
+      "text",
+      "resolved_style.color"
+    ],
+    "orders.filter.completed": [
+      "text",
+      "resolved_style.color"
+    ],
+    "orders.filter.after_sale": [
+      "text",
+      "resolved_style.color"
+    ],
+    "orders.empty.title": [
+      "text",
+      "resolved_style.color"
+    ],
+    "orders.empty.primary_action": [
+      "text",
+      "resolved_style.color"
+    ],
+    "nav.home": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "nav.menu": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "nav.coupons": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "nav.orders": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ],
+    "nav.member": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+    ]
+  }
+}

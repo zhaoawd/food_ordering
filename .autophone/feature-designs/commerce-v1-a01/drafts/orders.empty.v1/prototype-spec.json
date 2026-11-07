@@ -38,6 +38,38 @@
       "#EDE6DD"
     ],
     "edge_inset_px": 12,
-    "minimum_content_coverage_ratio": 0.85
+    "minimum_content_coverage_ratio": 0.85,
+    "exclude_nodes": [
+      {
+        "node_id": "orders.header.back.icon",
+        "reason": "asset_not_representable",
+        "decision": "D11"
+      },
+      {
+        "node_id": "nav.home",
+        "reason": "asset_not_representable",
+        "decision": "D11"
+      },
+      {
+        "node_id": "nav.menu",
+        "reason": "asset_not_representable",
+        "decision": "D11"
+      },
+      {
+        "node_id": "nav.coupons",
+        "reason": "asset_not_representable",
+        "decision": "D11"
+      },
+      {
+        "node_id": "nav.orders",
+        "reason": "asset_not_representable",
+        "decision": "D11"
+      },
+      {
+        "node_id": "nav.member",
+        "reason": "asset_not_representable",
+        "decision": "D11"
+      }
+    ]
   }
 }

@@ -1,0 +1,439 @@
+{
+ "schema_version": "design-batch-text-faces/v1",
+ "package": {
+  "design_package_sha256": "89cdd787b03a62ca74eadd7d71071f4312ddf29bb1451d21821b4bd2f0bc2d26",
+  "entry": "prototype/compiled/index.html"
+ },
+ "browser": "chromium/149.0.7827.55",
+ "host": {
+  "platform": "darwin",
+  "arch": "arm64"
+ },
+ "compositor_args": [
+  "--disable-gpu",
+  "--disable-gpu-compositing"
+ ],
+ "wrap_tolerance_pt": 0.1,
+ "nodes": [
+  {
+   "index": 0,
+   "owner": "orders.title",
+   "stable_id": "orders.title",
+   "tag": "div",
+   "text": "我的订单",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Text\", sans-serif",
+    "fontSize": "20px",
+    "fontWeight": "700",
+    "fontStyle": "normal"
+   },
+   "box": [
+    175,
+    75,
+    80,
+    28
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 0,
+     "text": "我的订单",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "owner": "orders.filter.all",
+   "stable_id": "orders.filter.all",
+   "tag": "button",
+   "text": "全部",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Text\", sans-serif",
+    "fontSize": "12px",
+    "fontWeight": "700",
+    "fontStyle": "normal"
+   },
+   "box": [
+    24,
+    127,
+    92.5,
+    36
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 1,
+     "text": "全部",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "owner": "orders.filter.active",
+   "stable_id": "orders.filter.active",
+   "tag": "button",
+   "text": "进行中",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Text\", sans-serif",
+    "fontSize": "12px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    120.5,
+    127,
+    92.5,
+    36
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 2,
+     "text": "进行中",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "owner": "orders.filter.completed",
+   "stable_id": "orders.filter.completed",
+   "tag": "button",
+   "text": "已完成",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Text\", sans-serif",
+    "fontSize": "12px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    217,
+    127,
+    92.5,
+    36
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 3,
+     "text": "已完成",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "owner": "orders.filter.after_sale",
+   "stable_id": "orders.filter.after_sale",
+   "tag": "button",
+   "text": "售后",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Text\", sans-serif",
+    "fontSize": "12px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    313.5,
+    127,
+    92.5,
+    36
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 4,
+     "text": "售后",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "owner": "orders.empty.title",
+   "stable_id": "orders.empty.title",
+   "tag": "div",
+   "text": "还没有订单",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Text\", sans-serif",
+    "fontSize": "15px",
+    "fontWeight": "700",
+    "fontStyle": "normal"
+   },
+   "box": [
+    177.5,
+    204,
+    75,
+    22
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 5,
+     "text": "还没有订单",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "owner": "orders.empty.primary_action",
+   "stable_id": "orders.empty.primary_action",
+   "tag": "button",
+   "text": "去点餐",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Text\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "600",
+    "fontStyle": "normal"
+   },
+   "box": [
+    179,
+    242,
+    72,
+    46
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 6,
+     "text": "去点餐",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "owner": "nav.home",
+   "stable_id": "nav.home",
+   "tag": "button",
+   "text": "首页",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Text\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    16.88,
+    845,
+    65,
+    50
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 7,
+     "text": "首页",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "owner": "nav.menu",
+   "stable_id": "nav.menu",
+   "tag": "button",
+   "text": "点餐",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Text\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    99.69,
+    845,
+    65,
+    50
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 8,
+     "text": "点餐",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "owner": "nav.coupons",
+   "stable_id": "nav.coupons",
+   "tag": "button",
+   "text": "优惠",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Text\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    182.5,
+    845,
+    65,
+    50
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 9,
+     "text": "优惠",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "owner": "nav.orders",
+   "stable_id": "nav.orders",
+   "tag": "button",
+   "text": "订单",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Text\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "700",
+    "fontStyle": "normal"
+   },
+   "box": [
+    265.31,
+    845,
+    65,
+    50
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 10,
+     "text": "订单",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Semibold",
+       "glyphs": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "owner": "nav.member",
+   "stable_id": "nav.member",
+   "tag": "button",
+   "text": "我的",
+   "css": {
+    "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Text\", sans-serif",
+    "fontSize": "10px",
+    "fontWeight": "400",
+    "fontStyle": "normal"
+   },
+   "box": [
+    348.13,
+    845,
+    65,
+    50
+   ],
+   "wrap_max_delta_pt": 0,
+   "wrap_unchanged": true,
+   "runs": [
+    {
+     "run": 11,
+     "text": "我的",
+     "class": "cjk",
+     "faces": [
+      {
+       "family": "PingFang SC",
+       "postscript": "PingFangSC-Regular",
+       "glyphs": 2
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

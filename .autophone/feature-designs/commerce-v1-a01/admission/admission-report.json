@@ -19,8 +19,8 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/home.default.v1.json",
-          "sha256": "80d376de654eb1cd23b17f9255e7158479a2d219a75c4fa8a5bef1164bceb058",
-          "design_package_sha256": "da2089c6b9418bb5653712df621eea521eaa3e76758df5cb613bc09c42621757",
+          "sha256": "1d9c62ebb33ef4f57df528320a65e9756ac62325506133b64968e11279a4931c",
+          "design_package_sha256": "c92c82180ec206672fb3d28609776dd24ab260609aa35303f68b412ff24f6494",
           "profile": {
             "path": "apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
             "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
@@ -114,8 +114,10 @@
             "ui-contract.json controls"
           ],
           "properties": [
-            "resolved_style.backgroundColor",
-            "resolved_style.borderRadius"
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
@@ -182,8 +184,10 @@
             "view-models.json ProductShelf"
           ],
           "properties": [
-            "resolved_style.backgroundColor",
-            "resolved_style.borderRadius"
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
@@ -193,8 +197,10 @@
             "view-models.json ProductShelf"
           ],
           "properties": [
-            "resolved_style.backgroundColor",
-            "resolved_style.borderRadius"
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
@@ -486,8 +492,8 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/home.guest.v1.json",
-          "sha256": "2b7f78b0be8c91a0781c95adb016a5c1b46748e3b3c879dc04b98a52a246cdf9",
-          "design_package_sha256": "b4de838c5f38af7523c6aeeb98207423ebe62b624b91a0faa83bf7ad08f6dcb6",
+          "sha256": "fc9ed6b41c6b21e3b95a036bde7e6208e8d0127808e74ba9087f786dbf909e6b",
+          "design_package_sha256": "74183e05ef207a7d70a59bd6654da1fbac5b78e106da519613a1f8f30fbdafc0",
           "profile": {
             "path": "apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
             "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
@@ -581,8 +587,10 @@
             "ui-contract.json controls"
           ],
           "properties": [
-            "resolved_style.backgroundColor",
-            "resolved_style.borderRadius"
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
@@ -649,8 +657,10 @@
             "view-models.json ProductShelf"
           ],
           "properties": [
-            "resolved_style.backgroundColor",
-            "resolved_style.borderRadius"
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
@@ -660,8 +670,10 @@
             "view-models.json ProductShelf"
           ],
           "properties": [
-            "resolved_style.backgroundColor",
-            "resolved_style.borderRadius"
+            "frame.x",
+            "frame.y",
+            "frame.width",
+            "frame.height"
           ]
         },
         {
@@ -955,8 +967,8 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/orders.empty.v1.json",
-          "sha256": "acec04b64869af07aa2d12f87ca5b1a89ae137ccd969db8b12cd23cc8995d751",
-          "design_package_sha256": "b8fa8a723465d0f13db885a2c4a87fb5b930d0af94954cfa2af7cedb610a900b",
+          "sha256": "b7f926e544e391dddd59eb8f15ab7a2411ddaf6a451a2268cab36e0a11bb9198",
+          "design_package_sha256": "382926d25d6b5cf41fee2c82a08180fa241774fea5ceedd65ae4d2d2d4e3639c",
           "profile": {
             "path": "apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
             "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",

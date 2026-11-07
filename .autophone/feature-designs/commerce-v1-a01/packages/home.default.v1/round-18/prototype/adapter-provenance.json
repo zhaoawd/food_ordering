@@ -1,0 +1,17 @@
+{
+ "schema_version": "design-batch-html-draft-provenance/v1",
+ "prototype_sha256": "3ea5f13392adb678ab7eb5e962a9cbbe77f259cfff6246a35ec2c9099d7131b1",
+ "adapter": "design-batch-html-adapter/v1",
+ "adapter_sha256": "f024b9aabb69f4a67cc2595469ed534c8c11f470919b618ae48cefcf507166a8",
+ "decision_texts": {
+  "home.hero.price": "¥32.90"
+ },
+ "layout_pins": {
+  "decisions": [
+   "D7",
+   "D8"
+  ],
+  "count": 83,
+  "sha256": "e47dedad97bac4d73d2dc8aaea5c1364c2aaf048c3fec829954a1bc0495d4046"
+ }
+}

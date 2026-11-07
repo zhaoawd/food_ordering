@@ -1,0 +1,2091 @@
+{
+  "schema_version": "design-batch-layout-calibration/v2",
+  "package": {
+    "design_package_sha256": "c2ed612c3729cb17ec1b026385c9f14ee020d21f0163ddbe5aff9b2bfe693418",
+    "reference_sha256": "ef8db51f4393e936baf759bf53bf005b419fa209b1f9bf11cc8c3511a386a0a8"
+  },
+  "baseline": {
+    "path": "baseline/home/prototype-430.json",
+    "sha256": "5c8c72af4627d939e26b9e563082cc96c1429bad8bdae95322625d96b59a5850"
+  },
+  "bindings_sha256": "8a005e94103aded506a2acb662ce3ba1b178ceb76c51c75472631e7499404c52",
+  "policy": {
+    "path": "policy/calibration-policy.v5.json",
+    "sha256": "768088afdd9c8e85c1cc03f1ae9c1e9354caad30e858c626ff65a8431985b196",
+    "version": 5
+  },
+  "summary": {
+    "elements": 32,
+    "passed": 29,
+    "deviations": 3,
+    "failed": 0,
+    "stale_deviations": 0
+  },
+  "stale_deviations": [],
+  "results": [
+    {
+      "stable_id": "home.brand",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": -0.5,
+          "width": -118.8
+        },
+        "text": {
+          "expected": "食刻",
+          "actual": "食刻"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(201, 60, 37)",
+            "fontSize": "26px",
+            "fontWeight": "850"
+          },
+          "actual": {
+            "color": "rgb(201, 60, 37)",
+            "fontSize": "26px",
+            "fontWeight": "850",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": ".SF NS",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        20,
+        70.5,
+        173.19,
+        37
+      ],
+      "actual_box": [
+        20,
+        73.5,
+        54.39,
+        30
+      ]
+    },
+    {
+      "stable_id": "home.store.select",
+      "mode": "box",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "backgroundColor": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0.2
+        },
+        "backgroundColor": {
+          "expected": "rgba(0, 0, 0, 0)",
+          "actual": "rgba(0, 0, 0, 0)"
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": null,
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        20,
+        123,
+        201.42,
+        21.8
+      ],
+      "actual_box": [
+        20,
+        123,
+        201.42,
+        22
+      ]
+    },
+    {
+      "stable_id": "home.store.name",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": 0.11,
+          "width": 0
+        },
+        "text": {
+          "expected": "科创园店",
+          "actual": "科创园店"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(37, 29, 25)",
+            "fontSize": "13px",
+            "fontWeight": "700"
+          },
+          "actual": {
+            "color": "rgb(37, 29, 25)",
+            "fontSize": "13px",
+            "fontWeight": "700",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        55,
+        124.89,
+        52,
+        18
+      ],
+      "actual_box": [
+        55,
+        125,
+        52,
+        18
+      ]
+    },
+    {
+      "stable_id": "home.store.distance",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": 0.1,
+          "width": 0
+        },
+        "text": {
+          "expected": "步行约5分钟",
+          "actual": "步行约5分钟"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(113, 101, 93)",
+            "fontSize": "12px",
+            "fontWeight": "400"
+          },
+          "actual": {
+            "color": "rgb(113, 101, 93)",
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        119,
+        124,
+        67.42,
+        19.8
+      ],
+      "actual_box": [
+        119,
+        124,
+        67.42,
+        20
+      ]
+    },
+    {
+      "stable_id": "home.greeting",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": 0.2,
+          "width": 0
+        },
+        "text": {
+          "expected": "午餐时间，把好心情吃回来。",
+          "actual": "午餐时间，把好心情吃回来。"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(113, 101, 93)",
+            "fontSize": "13px",
+            "fontWeight": "400"
+          },
+          "actual": {
+            "color": "rgb(113, 101, 93)",
+            "fontSize": "13px",
+            "fontWeight": "400",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        20,
+        150.8,
+        390,
+        18
+      ],
+      "actual_box": [
+        20,
+        151,
+        390,
+        18
+      ]
+    },
+    {
+      "stable_id": "home.hero.eyebrow",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": 0.2,
+          "width": 0
+        },
+        "text": {
+          "expected": "FRESHLY MADE · 现点现做",
+          "actual": "FRESHLY MADE · 现点现做"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(110, 75, 42)",
+            "fontSize": "10px",
+            "fontWeight": "600"
+          },
+          "actual": {
+            "color": "rgb(110, 75, 42)",
+            "fontSize": "10px",
+            "fontWeight": "600",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": ".SF NS",
+          "actual": ".SF NS"
+        }
+      },
+      "expected_box": [
+        42,
+        208.8,
+        165.63,
+        12
+      ],
+      "actual_box": [
+        42,
+        209,
+        165.63,
+        12
+      ]
+    },
+    {
+      "stable_id": "home.hero.price",
+      "mode": "text",
+      "region": "top",
+      "outcome": "deviation",
+      "checks": {
+        "geometry": "pass",
+        "text": "deviation:D3",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": -0.17,
+          "width": 14.45
+        },
+        "text": {
+          "expected": "¥32.9",
+          "actual": "¥32.90"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(141, 49, 27)",
+            "fontSize": "22px",
+            "fontWeight": "800"
+          },
+          "actual": {
+            "color": "rgb(141, 49, 27)",
+            "fontSize": "22px",
+            "fontWeight": "800",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": ".SF NS",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        42,
+        319.17,
+        61.08,
+        26
+      ],
+      "actual_box": [
+        42,
+        319,
+        75.53,
+        26
+      ]
+    },
+    {
+      "stable_id": "home.hero.product",
+      "mode": "text",
+      "region": "top",
+      "outcome": "deviation",
+      "checks": {
+        "geometry": "deviation:D3",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 14.45,
+          "center_y": -0.17,
+          "width": 0
+        },
+        "text": {
+          "expected": "香脆鸡腿堡套餐",
+          "actual": "香脆鸡腿堡套餐"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(110, 75, 42)",
+            "fontSize": "10px",
+            "fontWeight": "400"
+          },
+          "actual": {
+            "color": "rgb(110, 75, 42)",
+            "fontSize": "10px",
+            "fontWeight": "400",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": ".SF NS"
+        }
+      },
+      "expected_box": [
+        110.08,
+        325.17,
+        70,
+        14
+      ],
+      "actual_box": [
+        124.53,
+        325,
+        70,
+        14
+      ]
+    },
+    {
+      "stable_id": "home.mode.pickup",
+      "mode": "box",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "backgroundColor": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "y": 0.2,
+          "width": 0,
+          "height": 0
+        },
+        "backgroundColor": {
+          "expected": "rgb(255, 255, 255)",
+          "actual": "rgb(255, 255, 255)"
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": null,
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        20,
+        410.8,
+        189,
+        88
+      ],
+      "actual_box": [
+        20,
+        411,
+        189,
+        88
+      ]
+    },
+    {
+      "stable_id": "home.mode.delivery",
+      "mode": "box",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "backgroundColor": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "y": 0.2,
+          "width": 0,
+          "height": 0
+        },
+        "backgroundColor": {
+          "expected": "rgb(255, 255, 255)",
+          "actual": "rgb(255, 255, 255)"
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": null,
+          "actual": null
+        }
+      },
+      "expected_box": [
+        221,
+        410.8,
+        189,
+        88
+      ],
+      "actual_box": [
+        221,
+        411,
+        189,
+        88
+      ]
+    },
+    {
+      "stable_id": "home.mode.pickup.title",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": -0.22,
+          "width": 0
+        },
+        "text": {
+          "expected": "到店自取",
+          "actual": "到店自取"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(37, 29, 25)",
+            "fontSize": "17px",
+            "fontWeight": "700"
+          },
+          "actual": {
+            "color": "rgb(37, 29, 25)",
+            "fontSize": "17px",
+            "fontWeight": "700",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        85,
+        431.22,
+        77,
+        24
+      ],
+      "actual_box": [
+        85,
+        431,
+        77,
+        24
+      ]
+    },
+    {
+      "stable_id": "home.mode.pickup.subtitle",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": -0.22,
+          "width": 0
+        },
+        "text": {
+          "expected": "提前点，到店拿",
+          "actual": "提前点，到店拿"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(113, 101, 93)",
+            "fontSize": "11px",
+            "fontWeight": "400"
+          },
+          "actual": {
+            "color": "rgb(113, 101, 93)",
+            "fontSize": "11px",
+            "fontWeight": "400",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        85,
+        462.22,
+        77,
+        13
+      ],
+      "actual_box": [
+        85,
+        462,
+        77,
+        13
+      ]
+    },
+    {
+      "stable_id": "home.mode.delivery.title",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": -0.22,
+          "width": 0
+        },
+        "text": {
+          "expected": "外送到家",
+          "actual": "外送到家"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(37, 29, 25)",
+            "fontSize": "17px",
+            "fontWeight": "700"
+          },
+          "actual": {
+            "color": "rgb(37, 29, 25)",
+            "fontSize": "17px",
+            "fontWeight": "700",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": null
+        }
+      },
+      "expected_box": [
+        286,
+        431.22,
+        77,
+        24
+      ],
+      "actual_box": [
+        286,
+        431,
+        77,
+        24
+      ]
+    },
+    {
+      "stable_id": "home.mode.delivery.subtitle",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": -0.22,
+          "width": 0
+        },
+        "text": {
+          "expected": "热乎美味送到家",
+          "actual": "热乎美味送到家"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(113, 101, 93)",
+            "fontSize": "11px",
+            "fontWeight": "400"
+          },
+          "actual": {
+            "color": "rgb(113, 101, 93)",
+            "fontSize": "11px",
+            "fontWeight": "400",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        286,
+        462.22,
+        77,
+        13
+      ],
+      "actual_box": [
+        286,
+        462,
+        77,
+        13
+      ]
+    },
+    {
+      "stable_id": "member.points.open",
+      "mode": "box",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "backgroundColor": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "y": 0.2,
+          "width": 0,
+          "height": -0.14
+        },
+        "backgroundColor": {
+          "expected": "rgb(48, 39, 31)",
+          "actual": "rgb(48, 39, 31)"
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": null,
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        20,
+        512.8,
+        390,
+        45.14
+      ],
+      "actual_box": [
+        20,
+        513,
+        390,
+        45
+      ]
+    },
+    {
+      "stable_id": "home.member.title",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": 0.2,
+          "width": 0
+        },
+        "text": {
+          "expected": "食刻会员",
+          "actual": "食刻会员"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(247, 235, 217)",
+            "fontSize": "13px",
+            "fontWeight": "700"
+          },
+          "actual": {
+            "color": "rgb(247, 235, 217)",
+            "fontSize": "13px",
+            "fontWeight": "700",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": ".SF NS"
+        }
+      },
+      "expected_box": [
+        35,
+        526.8,
+        52,
+        16
+      ],
+      "actual_box": [
+        35,
+        527,
+        52,
+        16
+      ]
+    },
+    {
+      "stable_id": "home.member.coupons",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": 0.14,
+          "width": 0
+        },
+        "text": {
+          "expected": "3 张券 ›",
+          "actual": "3 张券 ›"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(247, 235, 217)",
+            "fontSize": "13px",
+            "fontWeight": "400"
+          },
+          "actual": {
+            "color": "rgb(247, 235, 217)",
+            "fontSize": "13px",
+            "fontWeight": "400",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": ".SF NS",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        348.05,
+        526.36,
+        46.95,
+        18
+      ],
+      "actual_box": [
+        348.05,
+        526.5,
+        46.95,
+        18
+      ]
+    },
+    {
+      "stable_id": "home.start_order",
+      "mode": "box",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "backgroundColor": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "y": 0.06,
+          "width": 0,
+          "height": 0
+        },
+        "backgroundColor": {
+          "expected": "rgba(0, 0, 0, 0)",
+          "actual": "rgba(0, 0, 0, 0)"
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": ".SF NS"
+        }
+      },
+      "expected_box": [
+        348.7,
+        577.94,
+        61.3,
+        44
+      ],
+      "actual_box": [
+        348.7,
+        578,
+        61.3,
+        44
+      ]
+    },
+    {
+      "stable_id": "menu.product.combo-chicken-001.open",
+      "mode": "box",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "backgroundColor": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "y": 0.06,
+          "width": 0,
+          "height": 0
+        },
+        "backgroundColor": {
+          "expected": "rgb(255, 255, 255)",
+          "actual": "rgb(255, 255, 255)"
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": null,
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        20,
+        633.94,
+        189,
+        173
+      ],
+      "actual_box": [
+        20,
+        634,
+        189,
+        173
+      ]
+    },
+    {
+      "stable_id": "home.shelf.combo-chicken-001.name",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": 0.06,
+          "width": 0
+        },
+        "text": {
+          "expected": "香脆鸡腿堡套餐",
+          "actual": "香脆鸡腿堡套餐"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(37, 29, 25)",
+            "fontSize": "13px",
+            "fontWeight": "700"
+          },
+          "actual": {
+            "color": "rgb(37, 29, 25)",
+            "fontSize": "13px",
+            "fontWeight": "700",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        38,
+        749.94,
+        91,
+        16
+      ],
+      "actual_box": [
+        38,
+        750,
+        91,
+        16
+      ]
+    },
+    {
+      "stable_id": "home.shelf.combo-chicken-001.price",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": 0.06,
+          "width": 0
+        },
+        "text": {
+          "expected": "¥32.90",
+          "actual": "¥32.90"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(201, 60, 37)",
+            "fontSize": "18px",
+            "fontWeight": "800"
+          },
+          "actual": {
+            "color": "rgb(201, 60, 37)",
+            "fontSize": "18px",
+            "fontWeight": "800",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": ".SF NS",
+          "actual": null
+        }
+      },
+      "expected_box": [
+        38,
+        774.94,
+        59.5,
+        21
+      ],
+      "actual_box": [
+        38,
+        775,
+        59.5,
+        21
+      ]
+    },
+    {
+      "stable_id": "menu.product.combo-beef-002.open",
+      "mode": "box",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "backgroundColor": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "y": 0.06,
+          "width": 0,
+          "height": 0
+        },
+        "backgroundColor": {
+          "expected": "rgb(255, 255, 255)",
+          "actual": "rgb(255, 255, 255)"
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": null,
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        221,
+        633.94,
+        189,
+        173
+      ],
+      "actual_box": [
+        221,
+        634,
+        189,
+        173
+      ]
+    },
+    {
+      "stable_id": "home.shelf.combo-beef-002.name",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": 0.06,
+          "width": 0
+        },
+        "text": {
+          "expected": "炙烤牛肉堡套餐",
+          "actual": "炙烤牛肉堡套餐"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(37, 29, 25)",
+            "fontSize": "13px",
+            "fontWeight": "700"
+          },
+          "actual": {
+            "color": "rgb(37, 29, 25)",
+            "fontSize": "13px",
+            "fontWeight": "700",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": ".SF NS"
+        }
+      },
+      "expected_box": [
+        239,
+        749.94,
+        91,
+        16
+      ],
+      "actual_box": [
+        239,
+        750,
+        91,
+        16
+      ]
+    },
+    {
+      "stable_id": "home.shelf.combo-beef-002.price",
+      "mode": "text",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "center_y": 0.06,
+          "width": 0
+        },
+        "text": {
+          "expected": "¥38.90",
+          "actual": "¥38.90"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(201, 60, 37)",
+            "fontSize": "18px",
+            "fontWeight": "800"
+          },
+          "actual": {
+            "color": "rgb(201, 60, 37)",
+            "fontSize": "18px",
+            "fontWeight": "800",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": ".SF NS",
+          "actual": null
+        }
+      },
+      "expected_box": [
+        239,
+        774.94,
+        59.89,
+        21
+      ],
+      "actual_box": [
+        239,
+        775,
+        59.89,
+        21
+      ]
+    },
+    {
+      "stable_id": "home.ai.open",
+      "mode": "box",
+      "region": "top",
+      "outcome": "deviation",
+      "checks": {
+        "geometry": "pass",
+        "backgroundColor": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "deviation:G8"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "y": 0.06,
+          "width": 0,
+          "height": 0
+        },
+        "backgroundColor": {
+          "expected": "rgb(255, 240, 231)",
+          "actual": "rgb(255, 240, 231)"
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 0.81,
+          "actual": 0.22
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        20,
+        822.94,
+        390,
+        59
+      ],
+      "actual_box": [
+        20,
+        823,
+        390,
+        59
+      ]
+    },
+    {
+      "stable_id": "nav.home",
+      "mode": "box",
+      "region": "bottom",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "backgroundColor": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "backgroundColor": {
+          "expected": "rgba(0, 0, 0, 0)",
+          "actual": "rgba(0, 0, 0, 0)"
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": ".SF NS"
+        }
+      },
+      "expected_box": [
+        16.89,
+        845,
+        65,
+        50
+      ],
+      "actual_box": [
+        16.89,
+        845,
+        65,
+        50
+      ]
+    },
+    {
+      "stable_id": "nav.menu",
+      "mode": "box",
+      "region": "bottom",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "backgroundColor": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "backgroundColor": {
+          "expected": "rgba(0, 0, 0, 0)",
+          "actual": "rgba(0, 0, 0, 0)"
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        99.69,
+        845,
+        65,
+        50
+      ],
+      "actual_box": [
+        99.69,
+        845,
+        65,
+        50
+      ]
+    },
+    {
+      "stable_id": "nav.coupons",
+      "mode": "box",
+      "region": "bottom",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "backgroundColor": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "backgroundColor": {
+          "expected": "rgba(0, 0, 0, 0)",
+          "actual": "rgba(0, 0, 0, 0)"
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        182.48,
+        845,
+        65,
+        50
+      ],
+      "actual_box": [
+        182.48,
+        845,
+        65,
+        50
+      ]
+    },
+    {
+      "stable_id": "nav.orders",
+      "mode": "box",
+      "region": "bottom",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "backgroundColor": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "backgroundColor": {
+          "expected": "rgba(0, 0, 0, 0)",
+          "actual": "rgba(0, 0, 0, 0)"
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        265.3,
+        845,
+        65,
+        50
+      ],
+      "actual_box": [
+        265.3,
+        845,
+        65,
+        50
+      ]
+    },
+    {
+      "stable_id": "nav.member",
+      "mode": "box",
+      "region": "bottom",
+      "outcome": "pass",
+      "checks": {
+        "geometry": "pass",
+        "backgroundColor": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "geometry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "backgroundColor": {
+          "expected": "rgba(0, 0, 0, 0)",
+          "actual": "rgba(0, 0, 0, 0)"
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        348.09,
+        845,
+        65,
+        50
+      ],
+      "actual_box": [
+        348.09,
+        845,
+        65,
+        50
+      ]
+    },
+    {
+      "stable_id": "home.shelf.title",
+      "mode": "content",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "text": {
+          "expected": "人气好滋味",
+          "actual": "人气好滋味"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(37, 29, 25)",
+            "fontSize": "18px",
+            "fontWeight": "750"
+          },
+          "actual": {
+            "color": "rgb(37, 29, 25)",
+            "fontSize": "18px",
+            "fontWeight": "750",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 1,
+          "actual": 1
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        20,
+        577.94,
+        390,
+        44
+      ],
+      "actual_box": [
+        20,
+        587.5,
+        90,
+        25
+      ]
+    },
+    {
+      "stable_id": "home.hero.headline",
+      "mode": "content",
+      "region": "top",
+      "outcome": "pass",
+      "checks": {
+        "text": "pass",
+        "color": "pass",
+        "fontSize": "pass",
+        "fontWeight": "pass",
+        "line_count": "pass",
+        "truncated": "pass",
+        "occluded": "pass",
+        "visibility": "pass"
+      },
+      "detail": {
+        "text": {
+          "expected": "今天，来点热乎的。",
+          "actual": "今天，来点热乎的。"
+        },
+        "style": {
+          "expected": {
+            "color": "rgb(53, 36, 24)",
+            "fontSize": "29px",
+            "fontWeight": "850"
+          },
+          "actual": {
+            "color": "rgb(53, 36, 24)",
+            "fontSize": "29px",
+            "fontWeight": "850",
+            "backgroundColor": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "line_count": {
+          "expected": 2,
+          "actual": 2
+        },
+        "truncated": {
+          "expected": false,
+          "actual": false
+        },
+        "occluded": {
+          "expected": false,
+          "actual": false
+        },
+        "visibility": {
+          "expected": 1,
+          "actual": 1
+        },
+        "font": {
+          "expected": "PingFang SC",
+          "actual": "PingFang SC"
+        }
+      },
+      "expected_box": [
+        42,
+        231.8,
+        346,
+        75.38
+      ],
+      "actual_box": [
+        42,
+        232,
+        346,
+        75
+      ]
+    }
+  ]
+}

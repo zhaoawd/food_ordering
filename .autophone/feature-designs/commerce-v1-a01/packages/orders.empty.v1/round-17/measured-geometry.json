@@ -1,0 +1,121 @@
+{
+  "schema_version": "prototype-measured-geometry/v1",
+  "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1;text=visual-line/v1",
+  "browser": "chromium/149.0.7827.55",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "reference_sha256": "263fd81fa32b93cbfa07566eb4b8ec7185d5385f938bf1345cefacaefcf1b022",
+  "elements": [
+    {
+      "stable_id": "orders.title",
+      "frame": {
+        "x": 175.0,
+        "y": 75.0,
+        "width": 80.0,
+        "height": 28.0
+      }
+    },
+    {
+      "stable_id": "orders.filter.all",
+      "frame": {
+        "x": 24.0,
+        "y": 127.0,
+        "width": 92.5,
+        "height": 36.0
+      }
+    },
+    {
+      "stable_id": "orders.filter.active",
+      "frame": {
+        "x": 120.5,
+        "y": 127.0,
+        "width": 92.5,
+        "height": 36.0
+      }
+    },
+    {
+      "stable_id": "orders.filter.completed",
+      "frame": {
+        "x": 217.0,
+        "y": 127.0,
+        "width": 92.5,
+        "height": 36.0
+      }
+    },
+    {
+      "stable_id": "orders.filter.after_sale",
+      "frame": {
+        "x": 313.5,
+        "y": 127.0,
+        "width": 92.5,
+        "height": 36.0
+      }
+    },
+    {
+      "stable_id": "orders.empty.title",
+      "frame": {
+        "x": 177.5,
+        "y": 204.0,
+        "width": 75.0,
+        "height": 22.0
+      }
+    },
+    {
+      "stable_id": "orders.empty.primary_action",
+      "frame": {
+        "x": 179.0,
+        "y": 242.0,
+        "width": 72.0,
+        "height": 46.0
+      }
+    },
+    {
+      "stable_id": "nav.home",
+      "frame": {
+        "x": 16.875,
+        "y": 845.0,
+        "width": 65.0,
+        "height": 50.0
+      }
+    },
+    {
+      "stable_id": "nav.menu",
+      "frame": {
+        "x": 99.6875,
+        "y": 845.0,
+        "width": 65.0,
+        "height": 50.0
+      }
+    },
+    {
+      "stable_id": "nav.coupons",
+      "frame": {
+        "x": 182.5,
+        "y": 845.0,
+        "width": 65.0,
+        "height": 50.0
+      }
+    },
+    {
+      "stable_id": "nav.orders",
+      "frame": {
+        "x": 265.3125,
+        "y": 845.0,
+        "width": 65.0,
+        "height": 50.0
+      }
+    },
+    {
+      "stable_id": "nav.member",
+      "frame": {
+        "x": 348.125,
+        "y": 845.0,
+        "width": 65.0,
+        "height": 50.0
+      }
+    }
+  ]
+}

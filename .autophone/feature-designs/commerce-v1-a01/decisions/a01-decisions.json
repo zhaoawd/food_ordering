@@ -64,6 +64,20 @@
       "decided_by": "user (chose masking text and comparing flat colours)",
       "gap": "B4 pixel acceptance across renderers",
       "summary": "A01 的像素比较只取声明平涂色的内部（comparison_mask，内缩 12px）：首页取设备自证验证过的 #FAF7F2、#FFFFFF、#F0D8B8、#30271F、#FFF0E7，订单页取 #FAF7F2、#FFFFFF、#EDE6DD。文字的内容、颜色、字号与盒子由 E3 条款逐元素判定。原因：参考图由 WebKit/Chromium 渲染，App 由 React Native/CoreText 渲染，字形必然不同"
+    },
+    {
+      "id": "D10",
+      "date": "2026-11-07",
+      "decided_by": "user (accepted the r1 clause change list after the design style preflight)",
+      "gap": "required container styles the pixel measurement chain cannot verify on the reference",
+      "summary": "首页默认态与游客态（游客态的验收目标继承默认态）的两张商品卡（menu.product.*.open）与 AI 入口（home.ai.open）不再以 backgroundColor/borderRadius 作为 required 条款，改为各自的 frame.x/y/width/height（取打包测量值）。原因：设计准入预检在第 15 轮设备参考图上判定商品卡两条不可派生（图片占卡片大部分），AI 入口两条无法判定（大半被底部导航覆盖）。背景色仅由 D9 平涂色遮罩内的像素比较部分覆盖，圆角不再被任何检查覆盖；AI 入口被导航遮挡作为本轮接受的设计状态，frame 通过不代表入口可见或可点击。交付结论限定为几何断言与已验证的像素覆盖"
+    },
+    {
+      "id": "D11",
+      "date": "2026-11-07",
+      "decided_by": "user (chose masking the assets the DSL reference cannot draw for A01 r3)",
+      "gap": "the DSL-route orders reference cannot draw SVG icons, so the App's correct icons are charged as changed pixels",
+      "summary": "订单空态（DSL 路线）的平涂色遮罩移除参考图画不出的图标占位节点：返回图标占位 orders.header.back.icon 与底部导航五个按钮 nav.*（按钮整框，含文字）。准入早已把这些图形记为 platform_unsupported / asset_not_representable 且已交付产品。排除框按打包时同一次渲染测得的节点 frame 计算，覆盖率分母不变。这些图形在首页（HTML 路线、设备参考图）仍做像素比较；订单页上只核对其文字、颜色与几何条款。原因：r3 起点轮 0.00228 > 0.002 的变化像素几乎全部来自这些图标"
     }
   ],
   "display_rules": {
