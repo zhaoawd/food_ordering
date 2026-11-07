@@ -9,7 +9,7 @@ export default function Menu() {
   return (
     <SafeAreaView edges={['top']} style={styles.screen}>
       <Text style={styles.title}>点餐</Text>
-      <ObservedView stableId="menu.search" observationRole="search" sourceRef={{ file: 'app/(tabs)/menu.tsx', symbol: 'Menu' }} style={styles.card}><Text style={styles.body}>搜索套餐与单品</Text></ObservedView>
+      <ObservedView accessible accessibilityLabel="搜索套餐与单品" stableId="menu.search" observationRole="search" sourceRef={{ file: 'app/(tabs)/menu.tsx', symbol: 'Menu' }} style={styles.card}><Text style={styles.body}>搜索套餐与单品</Text></ObservedView>
     </SafeAreaView>
   );
 }

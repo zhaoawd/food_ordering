@@ -2,13 +2,14 @@ import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { colors } from '@/components/commerce/theme';
+import { ObservedText } from '@/verification/observation';
 
 
 /** commerce-v1 优惠页占位：A01 只要求底部导航可达，页面内容由后续批次交付。 */
 export default function Rewards() {
   return (
     <SafeAreaView edges={['top']} style={styles.screen}>
-      <Text style={styles.title}>优惠</Text>
+      <ObservedText stableId="rewards.title" observationRole="text" sourceRef={{ file: 'app/(tabs)/rewards.tsx', symbol: 'Rewards' }} style={styles.title}>优惠</ObservedText>
       <View style={styles.card}><Text style={styles.body}>优惠中心将在后续批次交付</Text></View>
     </SafeAreaView>
   );

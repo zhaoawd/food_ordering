@@ -38,28 +38,29 @@ export default function Home() {
   return (
     <SafeAreaView edges={['top']} style={styles.screen}>
       <View style={styles.header}>
-        <ObservedText stableId="home.brand" observationRole="text" sourceRef={sourceRef} style={styles.brand}>
-          食刻 <Text style={styles.brandSub}>FRESH MOMENTS</Text>
-        </ObservedText>
+        <View style={styles.brandRow}>
+          <ObservedText stableId="home.brand" observationRole="text" sourceRef={sourceRef} style={styles.brand}>食刻</ObservedText>
+          <Text style={styles.brandSub}>FRESH MOMENTS</Text>
+        </View>
         <View style={styles.iconButton} accessibilityLabel="消息">
           <Image source={art.message} style={styles.icon22} />
         </View>
       </View>
       <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         <ObservedPressable stableId="home.store.select" observationRole="button" sourceRef={sourceRef} style={styles.storeRow}
-          accessibilityLabel={`${f.store.shortName} ${f.store.distanceLabel}`}>
+          accessibilityLabel={`${f.store.shortName}\n${f.store.distanceLabel}`}>
           <Image source={art.pin} style={styles.icon17} />
           <ObservedText stableId="home.store.name" observationRole="text" sourceRef={sourceRef} style={styles.storeName}>{f.store.shortName}</ObservedText>
           <ObservedText stableId="home.store.distance" observationRole="text" sourceRef={sourceRef} style={styles.storeDistance}>{f.store.distanceLabel}</ObservedText>
           <Image source={art.chevron} style={styles.icon17} />
         </ObservedPressable>
-        <ObservedText stableId="home.greeting" observationRole="text" sourceRef={sourceRef} style={styles.greeting}>{f.greeting}</ObservedText>
+        <ObservedText stableId="home.greeting" observationRole="text" sourceRef={sourceRef} observationStyle={styles.greetingBox} style={styles.greeting}>{f.greeting}</ObservedText>
 
         <View style={styles.hero}>
           <View style={styles.heroRing} />
           <Image source={art.hero} style={styles.heroArt} contentFit="contain" />
           <Text style={styles.eyebrow}>{f.hero.eyebrow}</Text>
-          <ObservedText stableId="home.hero.headline" observationRole="text" sourceRef={sourceRef} style={styles.headline}>{f.hero.headline}</ObservedText>
+          <ObservedText stableId="home.hero.headline" observationRole="text" sourceRef={sourceRef} observationStyle={styles.headlineBox} style={styles.headline}>{f.hero.headline}</ObservedText>
           <View style={styles.offer}>
             <ObservedText stableId="home.hero.price" observationRole="text" sourceRef={sourceRef} style={styles.heroPrice}>{formatCents(f.hero.priceCents)}</ObservedText>
             <Text style={styles.micro}>{f.hero.productName}</Text>
@@ -124,50 +125,53 @@ export default function Home() {
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.background },
   header: { paddingTop: 8, paddingBottom: 12, paddingHorizontal: 20, minHeight: 55, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  brand: { fontSize: 26, fontWeight: '800', color: colors.brand, letterSpacing: -1 },
+  brandRow: { flexDirection: 'row', alignItems: 'baseline', gap: 4 },
+  brand: { fontSize: 26, lineHeight: 30, fontWeight: '800', color: colors.brand, letterSpacing: -1 },
   brandSub: { fontSize: 10, letterSpacing: 2, color: colors.muted, fontWeight: '400' },
   iconButton: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center', borderRadius: 22 },
   icon22: { width: 22, height: 22 },
   icon17: { width: 17, height: 17 },
   scroll: { flex: 1 },
   scrollContent: { paddingHorizontal: 20, paddingBottom: 16 },
-  storeRow: { flexDirection: 'row', alignItems: 'center', gap: 12, minHeight: 44 },
-  storeName: { fontSize: 13, fontWeight: '700', color: colors.ink },
+  storeRow: { alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', gap: 12, height: 22 },
+  storeName: { fontSize: 13, lineHeight: 18, fontWeight: '700', color: colors.ink },
   storeDistance: { fontSize: 12, lineHeight: 20, color: colors.muted },
-  greeting: { fontSize: 13, color: colors.muted, marginTop: 6, marginBottom: 14 },
+  greetingBox: { marginTop: 6, marginBottom: 14 },
+  greeting: { fontSize: 13, lineHeight: 18, color: colors.muted },
   hero: { height: 214, backgroundColor: colors.heroBg, borderRadius: 24, overflow: 'hidden', padding: 22 },
   heroRing: { position: 'absolute', width: 210, height: 210, borderWidth: 1, borderColor: '#D9B487', borderRadius: 105, right: -48, top: -42 },
   heroArt: { position: 'absolute', right: -20, bottom: -13, width: 228, height: 194, transform: [{ rotate: '-7deg' }] },
-  eyebrow: { fontSize: 10, color: colors.heroMicro, letterSpacing: 2, fontWeight: '600' },
-  headline: { fontSize: 29, lineHeight: 38, marginVertical: 10, color: colors.heroInk, fontWeight: '800' },
+  eyebrow: { fontSize: 10, lineHeight: 17, color: colors.heroMicro, letterSpacing: 2, fontWeight: '600' },
+  headlineBox: { marginVertical: 10, height: 75 },
+  headline: { fontSize: 29, lineHeight: 37.5, color: colors.heroInk, fontWeight: '800' },
   offer: { flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: 2 },
-  heroPrice: { fontSize: 22, color: colors.heroPrice, fontWeight: '800', letterSpacing: -0.4 },
+  heroPrice: { fontSize: 22, lineHeight: 26, color: colors.heroPrice, fontWeight: '800', letterSpacing: -0.4 },
   micro: { fontSize: 10, color: colors.heroMicro },
   tag: { alignSelf: 'flex-start', backgroundColor: colors.memberBg, borderRadius: 6, paddingVertical: 4, paddingHorizontal: 8, marginTop: 12, width: 105 },
   tagText: { color: '#FFFFFF', fontSize: 10 },
   modeGrid: { flexDirection: 'row', gap: 12, marginTop: 14 },
   modeCard: { flex: 1, flexDirection: 'row', gap: 10, alignItems: 'center', borderRadius: 18, backgroundColor: colors.surface, paddingVertical: 16, paddingHorizontal: 12, borderWidth: 1, borderColor: colors.modeLine, minHeight: 88 },
   modeIcon: { backgroundColor: colors.soft, borderRadius: 14, width: 42, height: 42, alignItems: 'center', justifyContent: 'center' },
-  modeTitle: { fontSize: 17, fontWeight: '700', color: colors.ink, marginBottom: 4 },
-  tinyMuted: { fontSize: 11, color: colors.muted },
-  memberStrip: { marginTop: 14, paddingVertical: 13, paddingHorizontal: 15, borderRadius: 14, backgroundColor: colors.memberBg, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  memberTitle: { fontSize: 13, fontWeight: '700', color: colors.memberInk },
+  modeTitle: { fontSize: 17, lineHeight: 24, fontWeight: '700', color: colors.ink, marginBottom: 4 },
+  tinyMuted: { fontSize: 11, lineHeight: 20, color: colors.muted },
+  memberStrip: { height: 45, marginTop: 14, paddingVertical: 13, paddingHorizontal: 15, borderRadius: 14, backgroundColor: colors.memberBg, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  memberTitle: { fontSize: 13, lineHeight: 19, fontWeight: '700', color: colors.memberInk },
   memberSubtle: { fontSize: 11, fontWeight: '400', color: colors.memberSubtle },
-  memberAction: { fontSize: 13, color: colors.memberInk },
+  memberAction: { fontSize: 13, lineHeight: 18, color: colors.memberInk },
   sectionTitle: { marginTop: 20, marginBottom: 12, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  sectionText: { fontSize: 18, fontWeight: '700', color: colors.ink },
+  sectionText: { fontSize: 18, lineHeight: 25, fontWeight: '700', color: colors.ink },
   textAction: { minHeight: 44, paddingVertical: 8, justifyContent: 'center' },
   textActionLabel: { fontSize: 13, color: colors.muted },
   miniGrid: { flexDirection: 'row', gap: 12 },
-  miniProduct: { flex: 1, borderRadius: 18, backgroundColor: colors.surface, overflow: 'hidden' },
+  miniProduct: { flex: 1, height: 173, paddingVertical: 1, paddingHorizontal: 6, borderRadius: 18, backgroundColor: colors.surface, overflow: 'hidden' },
   miniArt: { height: 104, backgroundColor: colors.productArt, alignItems: 'center', justifyContent: 'center' },
   miniArtImage: { width: 177, height: 104 },
   miniCopy: { paddingVertical: 10, paddingHorizontal: 12 },
-  miniName: { fontSize: 13, fontWeight: '700', color: colors.ink },
+  miniName: { fontSize: 13, lineHeight: 16, fontWeight: '700', color: colors.ink },
   miniRow: { marginTop: 8, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  miniPrice: { fontSize: 18, color: colors.brand, fontWeight: '800', letterSpacing: -0.4 },
+  miniPrice: { fontSize: 18, lineHeight: 21, color: colors.brand, fontWeight: '800', letterSpacing: -0.4 },
   plus: { fontSize: 14, color: colors.ink },
-  aiCard: { marginTop: 16, borderRadius: 20, backgroundColor: colors.soft, padding: 16, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  aiCard: { height: 59, marginTop: 16, borderRadius: 20, backgroundColor: colors.soft, padding: 16, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   aiLabel: { flexDirection: 'row', alignItems: 'center' },
   aiText: { fontSize: 14, color: colors.ink },
 });

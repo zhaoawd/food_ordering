@@ -21,7 +21,7 @@ export default function TabBar() {
   const pathname = usePathname();
   const insets = useSafeAreaInsets();
   return (
-    <View style={[styles.bar, { paddingBottom: insets.bottom }]}>
+    <View style={[styles.bar, { paddingBottom: Math.max(insets.bottom, 37) }]}>
       {TABS.map(tab => {
         const active = tab.route === '/' ? pathname === '/' || pathname === '/index' : pathname.startsWith(tab.route);
         const icon = active && 'activeIcon' in tab ? tab.activeIcon : tab.idleIcon;
@@ -34,6 +34,7 @@ export default function TabBar() {
             accessibilityRole="tab"
             accessibilityLabel={tab.label}
             accessibilityState={{ selected: active }}
+            aria-selected={active}
             onPress={() => { if (!active) router.navigate(tab.route as never); }}
             style={styles.tab}
           >
