@@ -1,9 +1,9 @@
 {
  "schema_version": "design-batch-text-achievability/v1",
  "faces": {
-  "path": "calibration/home.default.v1/round-14-device-faces.json",
-  "sha256": "df0b5e6a36bc5718b1af9891b3f8f906044b08ef9bc75d7f8e8dd7c8abd7fd33",
-  "design_package_sha256": "25d149dbcb3af437e5472fadb4463de1d4ba36e1efe21c47b47332f42784fffd"
+  "path": "calibration/home.default.v1/round-16-device-faces.json",
+  "sha256": "aaf0d575f31694c583f991dd67cfc54f233c91daba9d994b8bdf9f0704daa592",
+  "design_package_sha256": "68f31c1f99345b3ecdcec66e9e59ce8c8354718ee075559b72d81481a77b0096"
  },
  "profile": {
   "path": "apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",

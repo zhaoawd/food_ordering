@@ -110,8 +110,10 @@
   {
    "stable_id": "menu.product.combo-chicken-001.open",
    "properties": [
-    "resolved_style.backgroundColor",
-    "resolved_style.borderRadius"
+    "frame.x",
+    "frame.y",
+    "frame.width",
+    "frame.height"
    ]
   },
   {
@@ -131,8 +133,10 @@
   {
    "stable_id": "menu.product.combo-beef-002.open",
    "properties": [
-    "resolved_style.backgroundColor",
-    "resolved_style.borderRadius"
+    "frame.x",
+    "frame.y",
+    "frame.width",
+    "frame.height"
    ]
   },
   {
@@ -207,8 +211,10 @@
   {
    "stable_id": "home.ai.open",
    "properties": [
-    "resolved_style.backgroundColor",
-    "resolved_style.borderRadius"
+    "frame.x",
+    "frame.y",
+    "frame.width",
+    "frame.height"
    ]
   }
  ],

@@ -1,0 +1,19 @@
+{
+  "schema_version": "ui-prototype-plan/v1",
+  "product_type": "food-ordering",
+  "platform": "mobile",
+  "screens": [
+    {
+      "id": "orders",
+      "purpose": "订单列表",
+      "sections": [
+        "PageHeader",
+        "OrderFilter",
+        "OrderCardList",
+        "EmptyState",
+        "TabBar"
+      ]
+    }
+  ],
+  "flows": []
+}
