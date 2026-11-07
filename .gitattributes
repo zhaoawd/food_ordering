@@ -1,0 +1,2 @@
+# autophone 已验收需求单终轮构建的 IPA（package store 项目本地存储）用 Git LFS 保存
+.autophone/artifacts/**/*.ipa filter=lfs diff=lfs merge=lfs -text

@@ -43,3 +43,6 @@ app-example
 # Isolated browser regression artifacts
 test-results/
 playwright-report/
+
+# autophone package store 项目本地存储：只有已验收需求单的终轮构建以 LFS 显式提交（git add -f），其余构建只留本机
+.autophone/artifacts/
