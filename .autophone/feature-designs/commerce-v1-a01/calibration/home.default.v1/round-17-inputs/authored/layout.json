@@ -1,0 +1,1458 @@
+{
+ "name": "首页 · default（commerce-v1 A01，430 重排）",
+ "ai_model": "claude-opus-5-5",
+ "local_tokens": {
+  "proto.color.heroBg": {
+   "type": "color",
+   "value": "#F0D8B8"
+  },
+  "proto.color.heroText": {
+   "type": "color",
+   "value": "#352418"
+  },
+  "proto.color.heroMuted": {
+   "type": "color",
+   "value": "#6E4B2A"
+  },
+  "proto.color.heroPrice": {
+   "type": "color",
+   "value": "#8D311B"
+  },
+  "proto.color.cardBorder": {
+   "type": "color",
+   "value": "#EEE4D9"
+  },
+  "proto.color.memberText": {
+   "type": "color",
+   "value": "#F7EBD9"
+  },
+  "proto.color.memberMuted": {
+   "type": "color",
+   "value": "#D8C5B3"
+  },
+  "proto.color.artBg": {
+   "type": "color",
+   "value": "#F5EADB"
+  },
+  "proto.font.10": {
+   "type": "dimension",
+   "value": 10
+  },
+  "proto.font.11": {
+   "type": "dimension",
+   "value": 11
+  },
+  "proto.font.14": {
+   "type": "dimension",
+   "value": 14
+  },
+  "proto.font.17": {
+   "type": "dimension",
+   "value": 17
+  },
+  "proto.font.18": {
+   "type": "dimension",
+   "value": 18
+  },
+  "proto.font.22": {
+   "type": "dimension",
+   "value": 22
+  },
+  "proto.font.26": {
+   "type": "dimension",
+   "value": 26
+  },
+  "proto.font.29": {
+   "type": "dimension",
+   "value": 29
+  },
+  "proto.radius.6": {
+   "type": "dimension",
+   "value": 6
+  },
+  "proto.radius.14": {
+   "type": "dimension",
+   "value": 14
+  },
+  "proto.radius.18": {
+   "type": "dimension",
+   "value": 18
+  },
+  "proto.radius.24": {
+   "type": "dimension",
+   "value": 24
+  }
+ },
+ "screens": [
+  {
+   "id": "home",
+   "name": "首页",
+   "root": {
+    "id": "home.root",
+    "component": "Screen",
+    "style": {
+     "backgroundColor": "$color.background",
+     "color": "$color.text"
+    },
+    "children": [
+     {
+      "id": "home.header",
+      "component": "Frame",
+      "layout": {
+       "direction": "row",
+       "width": "fill",
+       "height": 64,
+       "padding": [
+        8,
+        20,
+        12,
+        20
+       ],
+       "align": "center",
+       "justify": "between",
+       "gap": 10
+      },
+      "children": [
+       {
+        "id": "home.brand.group",
+        "component": "Frame",
+        "layout": {
+         "direction": "row",
+         "width": "hug",
+         "align": "end",
+         "gap": 4
+        },
+        "children": [
+         {
+          "id": "home.brand",
+          "component": "Text",
+          "props": {
+           "text_path": "view.brand"
+          },
+          "style": {
+           "fontSize": "$proto.font.26",
+           "fontWeight": 800,
+           "lineHeight": 37,
+           "letterSpacing": -1,
+           "color": "$color.brand"
+          },
+          "stable_id": "home.brand"
+         },
+         {
+          "id": "home.brand.tagline",
+          "component": "Text",
+          "props": {
+           "text_path": "view.brand_tagline"
+          },
+          "style": {
+           "fontSize": "$proto.font.10",
+           "fontWeight": 800,
+           "lineHeight": 12,
+           "letterSpacing": 2,
+           "color": "$color.muted"
+          },
+          "stable_id": "home.brand.tagline",
+          "layout": {
+           "margin": [
+            0,
+            0,
+            7,
+            0
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "id": "home.header.messages",
+        "component": "Frame",
+        "layout": {
+         "direction": "row",
+         "width": 44,
+         "height": 44,
+         "align": "center",
+         "justify": "center"
+        },
+        "children": [
+         {
+          "id": "home.header.messages.icon",
+          "component": "Decoration",
+          "layout": {
+           "width": 22,
+           "height": 22
+          }
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "home.content",
+      "component": "Frame",
+      "layout": {
+       "direction": "column",
+       "width": "fill",
+       "flex": 1,
+       "padding": [
+        0,
+        20,
+        16,
+        20
+       ],
+       "overflow": "hidden"
+      },
+      "children": [
+       {
+        "id": "home.scroll",
+        "component": "Frame",
+        "layout": {
+         "direction": "column",
+         "width": "fill"
+        },
+        "children": [
+         {
+          "id": "home.store.select",
+          "component": "Frame",
+          "layout": {
+           "direction": "row",
+           "width": "hug",
+           "align": "center",
+           "gap": 12,
+           "padding": [
+            1,
+            6,
+            1,
+            6
+           ]
+          },
+          "children": [
+           {
+            "id": "home.store.pin",
+            "component": "Decoration",
+            "layout": {
+             "width": 17,
+             "height": 17
+            }
+           },
+           {
+            "id": "home.store.name",
+            "component": "Text",
+            "props": {
+             "text_path": "view.store_name"
+            },
+            "style": {
+             "fontSize": "$font.small",
+             "fontWeight": 700,
+             "lineHeight": 18,
+             "color": "$color.text"
+            },
+            "stable_id": "home.store.name"
+           },
+           {
+            "id": "home.store.distance",
+            "component": "Text",
+            "props": {
+             "text_path": "view.store_distance"
+            },
+            "style": {
+             "fontSize": "$font.caption",
+             "fontWeight": 400,
+             "lineHeight": 19.8,
+             "color": "$color.muted"
+            },
+            "stable_id": "home.store.distance"
+           },
+           {
+            "id": "home.store.chevron",
+            "component": "Decoration",
+            "layout": {
+             "width": 17,
+             "height": 17
+            }
+           }
+          ],
+          "stable_id": "home.store.select"
+         },
+         {
+          "id": "home.greeting",
+          "component": "Text",
+          "props": {
+           "text_path": "view.greeting"
+          },
+          "style": {
+           "fontSize": "$font.small",
+           "fontWeight": 400,
+           "lineHeight": 18,
+           "color": "$color.muted"
+          },
+          "stable_id": "home.greeting",
+          "layout": {
+           "margin": [
+            6,
+            0,
+            14,
+            0
+           ]
+          }
+         },
+         {
+          "id": "home.hero",
+          "component": "Frame",
+          "layout": {
+           "direction": "column",
+           "width": "fill",
+           "height": 214,
+           "padding": [
+            22,
+            22,
+            22,
+            22
+           ],
+           "align": "start",
+           "overflow": "hidden"
+          },
+          "children": [
+           {
+            "id": "home.hero.eyebrow",
+            "component": "Text",
+            "props": {
+             "text_path": "view.hero_eyebrow"
+            },
+            "style": {
+             "fontSize": "$proto.font.10",
+             "fontWeight": 600,
+             "lineHeight": 17,
+             "letterSpacing": 2,
+             "color": "$proto.color.heroMuted"
+            },
+            "stable_id": "home.hero.eyebrow"
+           },
+           {
+            "id": "home.hero.headline.line1",
+            "component": "Text",
+            "props": {
+             "text_path": "view.hero_line_1"
+            },
+            "style": {
+             "fontSize": "$proto.font.29",
+             "fontWeight": 800,
+             "lineHeight": 37.7,
+             "color": "$proto.color.heroText"
+            },
+            "stable_id": "home.hero.headline.line1",
+            "layout": {
+             "margin": [
+              10,
+              0,
+              0,
+              0
+             ]
+            }
+           },
+           {
+            "id": "home.hero.headline.line2",
+            "component": "Text",
+            "props": {
+             "text_path": "view.hero_line_2"
+            },
+            "style": {
+             "fontSize": "$proto.font.29",
+             "fontWeight": 800,
+             "lineHeight": 37.7,
+             "color": "$proto.color.heroText"
+            },
+            "stable_id": "home.hero.headline.line2"
+           },
+           {
+            "id": "home.hero.offer",
+            "component": "Frame",
+            "layout": {
+             "direction": "row",
+             "width": "hug",
+             "align": "center",
+             "gap": 7,
+             "margin": [
+              12,
+              0,
+              0,
+              0
+             ]
+            },
+            "children": [
+             {
+              "id": "home.hero.price",
+              "component": "Text",
+              "props": {
+               "text_path": "view.hero_price"
+              },
+              "style": {
+               "fontSize": "$proto.font.22",
+               "fontWeight": 800,
+               "lineHeight": 26,
+               "letterSpacing": -0.4,
+               "color": "$proto.color.heroPrice"
+              },
+              "stable_id": "home.hero.price"
+             },
+             {
+              "id": "home.hero.product",
+              "component": "Text",
+              "props": {
+               "text_path": "view.hero_product"
+              },
+              "style": {
+               "fontSize": "$proto.font.10",
+               "fontWeight": 400,
+               "lineHeight": 14,
+               "color": "$proto.color.heroMuted"
+              },
+              "stable_id": "home.hero.product"
+             }
+            ]
+           },
+           {
+            "id": "home.hero.tag.box",
+            "component": "Frame",
+            "layout": {
+             "direction": "row",
+             "width": "hug",
+             "padding": [
+              4,
+              8,
+              4,
+              8
+             ],
+             "margin": [
+              12,
+              0,
+              0,
+              0
+             ]
+            },
+            "children": [
+             {
+              "id": "home.hero.tag",
+              "component": "Text",
+              "props": {
+               "text_path": "view.hero_tag"
+              },
+              "style": {
+               "fontSize": "$proto.font.10",
+               "fontWeight": 400,
+               "lineHeight": 14,
+               "color": "$color.surface"
+              },
+              "stable_id": "home.hero.tag"
+             }
+            ],
+            "style": {
+             "backgroundColor": "$color.ink",
+             "borderRadius": "$proto.radius.6"
+            }
+           },
+           {
+            "id": "home.hero.art",
+            "component": "Decoration",
+            "layout": {
+             "width": 228,
+             "height": 194,
+             "position": "absolute",
+             "inset": {
+              "right": -20,
+              "bottom": -13
+             }
+            }
+           }
+          ],
+          "style": {
+           "backgroundColor": "$proto.color.heroBg",
+           "borderRadius": "$proto.radius.24"
+          }
+         },
+         {
+          "id": "home.modes",
+          "component": "Frame",
+          "layout": {
+           "direction": "grid",
+           "columns": 2,
+           "width": "fill",
+           "gap": 12,
+           "margin": [
+            14,
+            0,
+            0,
+            0
+           ]
+          },
+          "children": [
+           {
+            "id": "home.mode.pickup",
+            "component": "Frame",
+            "layout": {
+             "direction": "row",
+             "width": "fill",
+             "height": 88,
+             "align": "center",
+             "gap": 10,
+             "padding": [
+              16,
+              12,
+              16,
+              12
+             ]
+            },
+            "children": [
+             {
+              "id": "home.mode.pickup.icon",
+              "component": "Decoration",
+              "layout": {
+               "width": 42,
+               "height": 42
+              },
+              "style": {
+               "backgroundColor": "$color.brandSoft",
+               "borderRadius": "$proto.radius.14"
+              }
+             },
+             {
+              "id": "home.mode.pickup.copy",
+              "component": "Frame",
+              "layout": {
+               "direction": "column",
+               "width": "hug"
+              },
+              "children": [
+               {
+                "id": "home.mode.pickup.title",
+                "component": "Text",
+                "props": {
+                 "text_path": "view.mode_pickup_title"
+                },
+                "style": {
+                 "fontSize": "$proto.font.17",
+                 "fontWeight": 700,
+                 "lineHeight": 24,
+                 "color": "$color.text"
+                },
+                "stable_id": "home.mode.pickup.title"
+               },
+               {
+                "id": "home.mode.pickup.subtitle",
+                "component": "Text",
+                "props": {
+                 "text_path": "view.mode_pickup_subtitle"
+                },
+                "style": {
+                 "fontSize": "$proto.font.11",
+                 "fontWeight": 400,
+                 "lineHeight": 23,
+                 "color": "$color.muted"
+                },
+                "stable_id": "home.mode.pickup.subtitle"
+               }
+              ]
+             }
+            ],
+            "style": {
+             "backgroundColor": "$color.surface",
+             "borderColor": "$proto.color.cardBorder",
+             "borderWidth": 1,
+             "borderRadius": "$proto.radius.18"
+            },
+            "stable_id": "home.mode.pickup"
+           },
+           {
+            "id": "home.mode.delivery",
+            "component": "Frame",
+            "layout": {
+             "direction": "row",
+             "width": "fill",
+             "height": 88,
+             "align": "center",
+             "gap": 10,
+             "padding": [
+              16,
+              12,
+              16,
+              12
+             ]
+            },
+            "children": [
+             {
+              "id": "home.mode.delivery.icon",
+              "component": "Decoration",
+              "layout": {
+               "width": 42,
+               "height": 42
+              },
+              "style": {
+               "backgroundColor": "$color.brandSoft",
+               "borderRadius": "$proto.radius.14"
+              }
+             },
+             {
+              "id": "home.mode.delivery.copy",
+              "component": "Frame",
+              "layout": {
+               "direction": "column",
+               "width": "hug"
+              },
+              "children": [
+               {
+                "id": "home.mode.delivery.title",
+                "component": "Text",
+                "props": {
+                 "text_path": "view.mode_delivery_title"
+                },
+                "style": {
+                 "fontSize": "$proto.font.17",
+                 "fontWeight": 700,
+                 "lineHeight": 24,
+                 "color": "$color.text"
+                },
+                "stable_id": "home.mode.delivery.title"
+               },
+               {
+                "id": "home.mode.delivery.subtitle",
+                "component": "Text",
+                "props": {
+                 "text_path": "view.mode_delivery_subtitle"
+                },
+                "style": {
+                 "fontSize": "$proto.font.11",
+                 "fontWeight": 400,
+                 "lineHeight": 23,
+                 "color": "$color.muted"
+                },
+                "stable_id": "home.mode.delivery.subtitle"
+               }
+              ]
+             }
+            ],
+            "style": {
+             "backgroundColor": "$color.surface",
+             "borderColor": "$proto.color.cardBorder",
+             "borderWidth": 1,
+             "borderRadius": "$proto.radius.18"
+            },
+            "stable_id": "home.mode.delivery"
+           }
+          ]
+         },
+         {
+          "id": "member.points.open",
+          "component": "Frame",
+          "layout": {
+           "direction": "row",
+           "width": "fill",
+           "align": "center",
+           "justify": "between",
+           "padding": [
+            13,
+            15,
+            13,
+            15
+           ],
+           "margin": [
+            14,
+            0,
+            0,
+            0
+           ]
+          },
+          "children": [
+           {
+            "id": "home.member.copy",
+            "component": "Frame",
+            "layout": {
+             "direction": "row",
+             "width": "hug",
+             "height": 19.14,
+             "align": "center"
+            },
+            "children": [
+             {
+              "id": "home.member.title",
+              "component": "Text",
+              "props": {
+               "text_path": "view.member_title"
+              },
+              "style": {
+               "fontSize": "$font.small",
+               "fontWeight": 700,
+               "lineHeight": 16,
+               "color": "$proto.color.memberText"
+              },
+              "stable_id": "home.member.title"
+             },
+             {
+              "id": "home.member.subtitle",
+              "component": "Text",
+              "props": {
+               "text_path": "view.member_subtitle"
+              },
+              "style": {
+               "fontSize": "$proto.font.11",
+               "fontWeight": 400,
+               "lineHeight": 13,
+               "color": "$proto.color.memberMuted"
+              },
+              "stable_id": "home.member.subtitle"
+             }
+            ]
+           },
+           {
+            "id": "home.member.coupons",
+            "component": "Text",
+            "props": {
+             "text_path": "view.member_coupons"
+            },
+            "style": {
+             "fontSize": "$font.small",
+             "fontWeight": 400,
+             "lineHeight": 18,
+             "color": "$proto.color.memberText"
+            },
+            "stable_id": "home.member.coupons"
+           }
+          ],
+          "style": {
+           "backgroundColor": "$color.ink",
+           "borderRadius": "$proto.radius.14"
+          },
+          "stable_id": "member.points.open"
+         },
+         {
+          "id": "home.shelf.header",
+          "component": "Frame",
+          "layout": {
+           "direction": "row",
+           "width": "fill",
+           "height": 44,
+           "align": "center",
+           "justify": "between",
+           "margin": [
+            20,
+            0,
+            12,
+            0
+           ]
+          },
+          "children": [
+           {
+            "id": "home.shelf.title",
+            "component": "Text",
+            "props": {
+             "text_path": "view.shelf_title"
+            },
+            "style": {
+             "fontSize": "$proto.font.18",
+             "fontWeight": 700,
+             "lineHeight": 25,
+             "color": "$color.text"
+            },
+            "stable_id": "home.shelf.title"
+           },
+           {
+            "id": "home.start_order",
+            "component": "Button",
+            "stable_id": "home.start_order",
+            "layout": {
+             "width": "hug",
+             "height": 44,
+             "padding": [
+              8,
+              0,
+              8,
+              0
+             ]
+            },
+            "style": {
+             "fontSize": "$font.small",
+             "fontWeight": 400,
+             "lineHeight": 18,
+             "color": "$color.muted"
+            },
+            "props": {
+             "label_path": "view.start_order"
+            }
+           }
+          ]
+         },
+         {
+          "id": "home.shelf",
+          "component": "Frame",
+          "layout": {
+           "direction": "grid",
+           "columns": 2,
+           "width": "fill",
+           "gap": 12
+          },
+          "children": [
+           {
+            "id": "menu.product.combo-chicken-001.open",
+            "component": "Frame",
+            "layout": {
+             "direction": "column",
+             "width": "fill",
+             "padding": [
+              1,
+              6,
+              1,
+              6
+             ],
+             "overflow": "hidden"
+            },
+            "children": [
+             {
+              "id": "home.shelf.combo-chicken-001.art",
+              "component": "Decoration",
+              "layout": {
+               "width": "fill",
+               "height": 104
+              },
+              "style": {
+               "backgroundColor": "$proto.color.artBg"
+              }
+             },
+             {
+              "id": "home.shelf.combo-chicken-001.copy",
+              "component": "Frame",
+              "layout": {
+               "direction": "column",
+               "width": "fill",
+               "gap": 8,
+               "padding": [
+                10,
+                12,
+                10,
+                12
+               ]
+              },
+              "children": [
+               {
+                "id": "home.shelf.combo-chicken-001.name",
+                "component": "Text",
+                "props": {
+                 "text_path": "view.product_1_name"
+                },
+                "style": {
+                 "fontSize": "$font.small",
+                 "fontWeight": 700,
+                 "lineHeight": 18,
+                 "color": "$color.text"
+                },
+                "stable_id": "home.shelf.combo-chicken-001.name"
+               },
+               {
+                "id": "home.shelf.combo-chicken-001.row",
+                "component": "Frame",
+                "layout": {
+                 "direction": "row",
+                 "width": "fill",
+                 "align": "center",
+                 "justify": "between",
+                 "gap": 12
+                },
+                "children": [
+                 {
+                  "id": "home.shelf.combo-chicken-001.price",
+                  "component": "Text",
+                  "props": {
+                   "text_path": "view.product_1_price"
+                  },
+                  "style": {
+                   "fontSize": "$proto.font.18",
+                   "fontWeight": 800,
+                   "lineHeight": 21,
+                   "letterSpacing": -0.4,
+                   "color": "$color.brand"
+                  },
+                  "stable_id": "home.shelf.combo-chicken-001.price"
+                 },
+                 {
+                  "id": "home.shelf.combo-chicken-001.add",
+                  "component": "Text",
+                  "props": {
+                   "text_path": "view.product_1_add"
+                  },
+                  "style": {
+                   "fontSize": "$proto.font.14",
+                   "fontWeight": 400,
+                   "lineHeight": 20,
+                   "color": "$color.text"
+                  }
+                 }
+                ]
+               }
+              ]
+             }
+            ],
+            "style": {
+             "backgroundColor": "$color.surface",
+             "borderRadius": "$proto.radius.18"
+            },
+            "stable_id": "menu.product.combo-chicken-001.open"
+           },
+           {
+            "id": "menu.product.combo-beef-002.open",
+            "component": "Frame",
+            "layout": {
+             "direction": "column",
+             "width": "fill",
+             "padding": [
+              1,
+              6,
+              1,
+              6
+             ],
+             "overflow": "hidden"
+            },
+            "children": [
+             {
+              "id": "home.shelf.combo-beef-002.art",
+              "component": "Decoration",
+              "layout": {
+               "width": "fill",
+               "height": 104
+              },
+              "style": {
+               "backgroundColor": "$proto.color.artBg"
+              }
+             },
+             {
+              "id": "home.shelf.combo-beef-002.copy",
+              "component": "Frame",
+              "layout": {
+               "direction": "column",
+               "width": "fill",
+               "gap": 8,
+               "padding": [
+                10,
+                12,
+                10,
+                12
+               ]
+              },
+              "children": [
+               {
+                "id": "home.shelf.combo-beef-002.name",
+                "component": "Text",
+                "props": {
+                 "text_path": "view.product_2_name"
+                },
+                "style": {
+                 "fontSize": "$font.small",
+                 "fontWeight": 700,
+                 "lineHeight": 18,
+                 "color": "$color.text"
+                },
+                "stable_id": "home.shelf.combo-beef-002.name"
+               },
+               {
+                "id": "home.shelf.combo-beef-002.row",
+                "component": "Frame",
+                "layout": {
+                 "direction": "row",
+                 "width": "fill",
+                 "align": "center",
+                 "justify": "between",
+                 "gap": 12
+                },
+                "children": [
+                 {
+                  "id": "home.shelf.combo-beef-002.price",
+                  "component": "Text",
+                  "props": {
+                   "text_path": "view.product_2_price"
+                  },
+                  "style": {
+                   "fontSize": "$proto.font.18",
+                   "fontWeight": 800,
+                   "lineHeight": 21,
+                   "letterSpacing": -0.4,
+                   "color": "$color.brand"
+                  },
+                  "stable_id": "home.shelf.combo-beef-002.price"
+                 },
+                 {
+                  "id": "home.shelf.combo-beef-002.add",
+                  "component": "Text",
+                  "props": {
+                   "text_path": "view.product_2_add"
+                  },
+                  "style": {
+                   "fontSize": "$proto.font.14",
+                   "fontWeight": 400,
+                   "lineHeight": 20,
+                   "color": "$color.text"
+                  }
+                 }
+                ]
+               }
+              ]
+             }
+            ],
+            "style": {
+             "backgroundColor": "$color.surface",
+             "borderRadius": "$proto.radius.18"
+            },
+            "stable_id": "menu.product.combo-beef-002.open"
+           }
+          ]
+         },
+         {
+          "id": "home.ai.open",
+          "component": "Frame",
+          "layout": {
+           "direction": "row",
+           "width": "fill",
+           "height": 59,
+           "align": "center",
+           "justify": "between",
+           "gap": 12,
+           "padding": [
+            16,
+            16,
+            16,
+            16
+           ],
+           "margin": [
+            16,
+            0,
+            0,
+            0
+           ]
+          },
+          "children": [
+           {
+            "id": "home.ai.copy",
+            "component": "Frame",
+            "layout": {
+             "direction": "row",
+             "width": "hug",
+             "align": "center",
+             "gap": 4
+            },
+            "children": [
+             {
+              "id": "home.ai.icon",
+              "component": "Decoration",
+              "layout": {
+               "width": 18,
+               "height": 18
+              }
+             },
+             {
+              "id": "home.ai.prompt",
+              "component": "Text",
+              "props": {
+               "text_path": "view.ai_prompt"
+              },
+              "style": {
+               "fontSize": "$proto.font.14",
+               "fontWeight": 400,
+               "lineHeight": 27,
+               "color": "$color.text"
+              },
+              "stable_id": "home.ai.prompt"
+             }
+            ]
+           },
+           {
+            "id": "home.ai.chevron",
+            "component": "Text",
+            "props": {
+             "text_path": "view.ai_chevron"
+            },
+            "style": {
+             "fontSize": "$proto.font.14",
+             "fontWeight": 400,
+             "lineHeight": 20,
+             "color": "$color.text"
+            }
+           }
+          ],
+          "style": {
+           "backgroundColor": "$color.brandSoft",
+           "borderRadius": "$radius.card"
+          },
+          "stable_id": "home.ai.open"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "home.tabbar",
+      "component": "Frame",
+      "layout": {
+       "direction": "row",
+       "width": "fill",
+       "height": 59,
+       "padding": [
+        8,
+        16.89,
+        0,
+        16.89
+       ],
+       "justify": "between"
+      },
+      "children": [
+       {
+        "id": "nav.home",
+        "component": "Button",
+        "stable_id": "nav.home",
+        "layout": {
+         "width": 65,
+         "height": 50,
+         "padding": [
+          24,
+          0,
+          0,
+          0
+         ]
+        },
+        "style": {
+         "fontSize": "$proto.font.10",
+         "fontWeight": 700,
+         "lineHeight": 14,
+         "color": "$color.brand"
+        },
+        "props": {
+         "label_path": "view.nav_home"
+        }
+       },
+       {
+        "id": "nav.menu",
+        "component": "Button",
+        "stable_id": "nav.menu",
+        "layout": {
+         "width": 65,
+         "height": 50,
+         "padding": [
+          24,
+          0,
+          0,
+          0
+         ]
+        },
+        "style": {
+         "fontSize": "$proto.font.10",
+         "fontWeight": 400,
+         "lineHeight": 14,
+         "color": "$color.muted"
+        },
+        "props": {
+         "label_path": "view.nav_menu"
+        }
+       },
+       {
+        "id": "nav.coupons",
+        "component": "Button",
+        "stable_id": "nav.coupons",
+        "layout": {
+         "width": 65,
+         "height": 50,
+         "padding": [
+          24,
+          0,
+          0,
+          0
+         ]
+        },
+        "style": {
+         "fontSize": "$proto.font.10",
+         "fontWeight": 400,
+         "lineHeight": 14,
+         "color": "$color.muted"
+        },
+        "props": {
+         "label_path": "view.nav_coupons"
+        }
+       },
+       {
+        "id": "nav.orders",
+        "component": "Button",
+        "stable_id": "nav.orders",
+        "layout": {
+         "width": 65,
+         "height": 50,
+         "padding": [
+          24,
+          0,
+          0,
+          0
+         ]
+        },
+        "style": {
+         "fontSize": "$proto.font.10",
+         "fontWeight": 400,
+         "lineHeight": 14,
+         "color": "$color.muted"
+        },
+        "props": {
+         "label_path": "view.nav_orders"
+        }
+       },
+       {
+        "id": "nav.member",
+        "component": "Button",
+        "stable_id": "nav.member",
+        "layout": {
+         "width": 65,
+         "height": 50,
+         "padding": [
+          24,
+          0,
+          0,
+          0
+         ]
+        },
+        "style": {
+         "fontSize": "$proto.font.10",
+         "fontWeight": 400,
+         "lineHeight": 14,
+         "color": "$color.muted"
+        },
+        "props": {
+         "label_path": "view.nav_member"
+        }
+       }
+      ],
+      "style": {
+       "backgroundColor": "$color.surface",
+       "borderTopColor": "$color.border",
+       "borderTopWidth": 1
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "acceptance": [
+  {
+   "screen_id": "home",
+   "targets": [
+    {
+     "stable_id": "home.brand",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "home.store.select",
+     "properties": [
+      "resolved_style.backgroundColor"
+     ]
+    },
+    {
+     "stable_id": "home.store.name",
+     "properties": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontWeight"
+     ]
+    },
+    {
+     "stable_id": "home.store.distance",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "home.greeting",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "home.hero.headline.line1",
+     "properties": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize"
+     ]
+    },
+    {
+     "stable_id": "home.hero.headline.line2",
+     "properties": [
+      "text",
+      "resolved_style.color",
+      "resolved_style.fontSize"
+     ]
+    },
+    {
+     "stable_id": "home.hero.price",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "home.mode.pickup",
+     "properties": [
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+     ]
+    },
+    {
+     "stable_id": "home.mode.pickup.title",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "home.mode.delivery",
+     "properties": [
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+     ]
+    },
+    {
+     "stable_id": "home.mode.delivery.title",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "member.points.open",
+     "properties": [
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+     ]
+    },
+    {
+     "stable_id": "home.member.coupons",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "home.shelf.title",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "home.start_order",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "menu.product.combo-chicken-001.open",
+     "properties": [
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+     ]
+    },
+    {
+     "stable_id": "home.shelf.combo-chicken-001.name",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "home.shelf.combo-chicken-001.price",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "menu.product.combo-beef-002.open",
+     "properties": [
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+     ]
+    },
+    {
+     "stable_id": "home.shelf.combo-beef-002.name",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "home.shelf.combo-beef-002.price",
+     "properties": [
+      "text",
+      "resolved_style.color"
+     ]
+    },
+    {
+     "stable_id": "nav.home",
+     "properties": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+     ]
+    },
+    {
+     "stable_id": "nav.menu",
+     "properties": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+     ]
+    },
+    {
+     "stable_id": "nav.coupons",
+     "properties": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+     ]
+    },
+    {
+     "stable_id": "nav.orders",
+     "properties": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+     ]
+    },
+    {
+     "stable_id": "nav.member",
+     "properties": [
+      "text",
+      "resolved_style.color",
+      "frame.x",
+      "frame.y",
+      "frame.width",
+      "frame.height"
+     ]
+    },
+    {
+     "stable_id": "home.ai.open",
+     "properties": [
+      "resolved_style.backgroundColor",
+      "resolved_style.borderRadius"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -19,8 +19,8 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/home.default.v1.json",
-          "sha256": "91196dfb53a9f28352a4cf50653fe63c1b039055722e0c997103d74bb2d24688",
-          "design_package_sha256": "f07b1c5b4ba5a16f42b797b07b0a4ad6471134140dfc8aba447722d4f645dd1f",
+          "sha256": "7ec6620e74529b0371d700d4c51044b37893a52bf480fc17bab87432478df726",
+          "design_package_sha256": "c92c82180ec206672fb3d28609776dd24ab260609aa35303f68b412ff24f6494",
           "profile": {
             "path": "apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
             "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
@@ -492,8 +492,8 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/home.guest.v1.json",
-          "sha256": "c9b16fda720d4b5179f6e39ce7c26770adf27a171d755b03fe7d0af563030588",
-          "design_package_sha256": "59868973f0d751addf487aed4183e4c38c9b53d96158a0cda2655f427babeafd",
+          "sha256": "f72270c69401fb60cb592d5b350a755e3e9c7994af9609a8dbda15ca176772e1",
+          "design_package_sha256": "74183e05ef207a7d70a59bd6654da1fbac5b78e106da519613a1f8f30fbdafc0",
           "profile": {
             "path": "apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
             "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",
@@ -967,8 +967,8 @@
       "achievability": {
         "report": {
           "path": "admission/achievability/orders.empty.v1.json",
-          "sha256": "d83737846c291af3bd99a093bec45c699325d16998837970dbce5b0c25fb209f",
-          "design_package_sha256": "89cdd787b03a62ca74eadd7d71071f4312ddf29bb1451d21821b4bd2f0bc2d26",
+          "sha256": "bcf4812dbd3c4a4cbdc9752b545bfca86a906bc83e1415b8d3e996caf332a1f5",
+          "design_package_sha256": "3ae9ea83b3e552cdc3dc8acd3230868f748c2c78e78eabe3ee6f7d3f2bdef7d4",
           "profile": {
             "path": "apps/food_ordering_v2/target_stack/target-stack-profile.v1.json",
             "sha256": "f0c1ea16a9dbb3a4ec7e5a33f8bb9a1be21ac72474a850ebf0c5bcdded3ed280",

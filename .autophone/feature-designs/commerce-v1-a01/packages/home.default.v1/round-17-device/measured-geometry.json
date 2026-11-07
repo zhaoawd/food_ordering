@@ -1,0 +1,256 @@
+{
+  "schema_version": "prototype-measured-geometry/v1",
+  "renderer": "playwright/1.61.1;compositor=software/v1;background=reference-visible-uniform/v1;text=visual-line/v1",
+  "browser": "chromium/149.0.7827.55",
+  "frame_size": {
+    "width": 430,
+    "height": 932
+  },
+  "scale": 3,
+  "reference_sha256": "74bd0bc4339de98902e3590256488b57a8df6265d7e0b445a879c307c3a4ca68",
+  "elements": [
+    {
+      "stable_id": "home.brand",
+      "frame": {
+        "x": 20.0,
+        "y": 73.5,
+        "width": 54.3906,
+        "height": 30.0
+      }
+    },
+    {
+      "stable_id": "home.store.select",
+      "frame": {
+        "x": 20.0,
+        "y": 123.0,
+        "width": 201.4219,
+        "height": 22.0
+      }
+    },
+    {
+      "stable_id": "home.store.name",
+      "frame": {
+        "x": 55.0,
+        "y": 125.0,
+        "width": 52.0,
+        "height": 18.0
+      }
+    },
+    {
+      "stable_id": "home.store.distance",
+      "frame": {
+        "x": 119.0,
+        "y": 124.0,
+        "width": 67.4219,
+        "height": 20.0
+      }
+    },
+    {
+      "stable_id": "home.greeting",
+      "frame": {
+        "x": 20.0,
+        "y": 151.0,
+        "width": 390.0,
+        "height": 18.0
+      }
+    },
+    {
+      "stable_id": "home.hero.headline",
+      "frame": {
+        "x": 42.0,
+        "y": 232.0,
+        "width": 346.0,
+        "height": 75.0
+      }
+    },
+    {
+      "stable_id": "home.hero.price",
+      "frame": {
+        "x": 42.0,
+        "y": 319.0,
+        "width": 75.5313,
+        "height": 26.0
+      }
+    },
+    {
+      "stable_id": "home.mode.pickup",
+      "frame": {
+        "x": 20.0,
+        "y": 411.0,
+        "width": 189.0,
+        "height": 88.0
+      }
+    },
+    {
+      "stable_id": "home.mode.pickup.title",
+      "frame": {
+        "x": 85.0,
+        "y": 431.0,
+        "width": 77.0,
+        "height": 24.0
+      }
+    },
+    {
+      "stable_id": "home.mode.delivery",
+      "frame": {
+        "x": 221.0,
+        "y": 411.0,
+        "width": 189.0,
+        "height": 88.0
+      }
+    },
+    {
+      "stable_id": "home.mode.delivery.title",
+      "frame": {
+        "x": 286.0,
+        "y": 431.0,
+        "width": 77.0,
+        "height": 24.0
+      }
+    },
+    {
+      "stable_id": "member.points.open",
+      "frame": {
+        "x": 20.0,
+        "y": 513.0,
+        "width": 390.0,
+        "height": 45.0
+      }
+    },
+    {
+      "stable_id": "home.member.coupons",
+      "frame": {
+        "x": 348.0469,
+        "y": 526.5,
+        "width": 46.9531,
+        "height": 18.0
+      }
+    },
+    {
+      "stable_id": "home.shelf.title",
+      "frame": {
+        "x": 20.0,
+        "y": 587.5,
+        "width": 90.0,
+        "height": 25.0
+      }
+    },
+    {
+      "stable_id": "home.start_order",
+      "frame": {
+        "x": 348.7031,
+        "y": 578.0,
+        "width": 61.2969,
+        "height": 44.0
+      }
+    },
+    {
+      "stable_id": "menu.product.combo-chicken-001.open",
+      "frame": {
+        "x": 20.0,
+        "y": 634.0,
+        "width": 189.0,
+        "height": 173.0
+      }
+    },
+    {
+      "stable_id": "home.shelf.combo-chicken-001.name",
+      "frame": {
+        "x": 38.0,
+        "y": 750.0,
+        "width": 91.0,
+        "height": 16.0
+      }
+    },
+    {
+      "stable_id": "home.shelf.combo-chicken-001.price",
+      "frame": {
+        "x": 38.0,
+        "y": 775.0,
+        "width": 59.5,
+        "height": 21.0
+      }
+    },
+    {
+      "stable_id": "menu.product.combo-beef-002.open",
+      "frame": {
+        "x": 221.0,
+        "y": 634.0,
+        "width": 189.0,
+        "height": 173.0
+      }
+    },
+    {
+      "stable_id": "home.shelf.combo-beef-002.name",
+      "frame": {
+        "x": 239.0,
+        "y": 750.0,
+        "width": 91.0,
+        "height": 16.0
+      }
+    },
+    {
+      "stable_id": "home.shelf.combo-beef-002.price",
+      "frame": {
+        "x": 239.0,
+        "y": 775.0,
+        "width": 59.8906,
+        "height": 21.0
+      }
+    },
+    {
+      "stable_id": "nav.home",
+      "frame": {
+        "x": 16.8906,
+        "y": 845.0,
+        "width": 65.0,
+        "height": 50.0
+      }
+    },
+    {
+      "stable_id": "nav.menu",
+      "frame": {
+        "x": 99.6875,
+        "y": 845.0,
+        "width": 65.0,
+        "height": 50.0
+      }
+    },
+    {
+      "stable_id": "nav.coupons",
+      "frame": {
+        "x": 182.4844,
+        "y": 845.0,
+        "width": 65.0,
+        "height": 50.0
+      }
+    },
+    {
+      "stable_id": "nav.orders",
+      "frame": {
+        "x": 265.2969,
+        "y": 845.0,
+        "width": 65.0,
+        "height": 50.0
+      }
+    },
+    {
+      "stable_id": "nav.member",
+      "frame": {
+        "x": 348.0938,
+        "y": 845.0,
+        "width": 65.0,
+        "height": 50.0
+      }
+    },
+    {
+      "stable_id": "home.ai.open",
+      "frame": {
+        "x": 20.0,
+        "y": 823.0,
+        "width": 390.0,
+        "height": 59.0
+      }
+    }
+  ]
+}
