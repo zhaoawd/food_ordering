@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { colors } from '@/components/commerce/theme';
+import { recordBusinessEvent } from '@/verification/business-events';
 import { ObservedPressable } from '@/verification/observation';
 
 /** 底部导航固定为 首页｜点餐｜优惠｜订单｜我的（PRODUCT_DESIGN.md；批次定义 tab_bar）。 */
@@ -35,7 +36,11 @@ export default function TabBar() {
             accessibilityLabel={tab.label}
             accessibilityState={{ selected: active }}
             aria-selected={active}
-            onPress={() => { if (!active) router.navigate(tab.route as never); }}
+            onPress={() => {
+              if (active) return;
+              void recordBusinessEvent('tab_navigated', { tab: tab.stableId, route: tab.route });
+              router.navigate(tab.route as never);
+            }}
             style={styles.tab}
           >
             <Image source={icon} style={styles.icon} tintColor={active ? colors.brand : colors.muted} contentFit="contain" />

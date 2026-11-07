@@ -1,5 +1,6 @@
 import {Account, Avatars, Client, Databases, ID, Query, Storage} from "react-native-appwrite";
 import {CreateUserParams, GetMenuParams, SignInParams} from "@/type";
+import {recordBusinessEvent} from "@/verification/business-events";
 
 export const appwriteConfig = {
     endpoint: "https://verification.invalid/v1",
@@ -30,6 +31,8 @@ export const createUser = async ({ email, password, name }: CreateUserParams) =>
     try {
         const newAccount = await account.create(ID.unique(), email, password, name)
         if(!newAccount) throw Error;
+        // 账号一经创建即记业务事件（验证构建）；T001 读回确认游客浏览不会走到这里。
+        await recordBusinessEvent('account_created', { account_id: newAccount.$id });
 
         await signIn({ email, password });
 

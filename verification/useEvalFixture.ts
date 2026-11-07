@@ -3,6 +3,7 @@ import * as FileSystem from "expo-file-system";
 
 import registryJson from "./generated-registry.json";
 import { baselineFixture, type FoodOrderingEvalFixture } from "./fixture";
+import { beginBusinessEventLog, recordBusinessEvent } from "./business-events";
 import { beginEvalObservationSession } from "./observation";
 import { resolveEvalFixture } from "./resolve-eval-fixture.mjs";
 import { setTestCommandSession } from "./useTestCommandChannel";
@@ -62,6 +63,11 @@ export function useFoodOrderingEvalFixture(): EvalFixtureState {
         }
         if (resolved.commerceStateId) {
           commerceStore.getState().loadFixture(resolved.commerceStateId as CommerceStateId);
+          await beginBusinessEventLog(resolved.selectionNonce);
+          await recordBusinessEvent("fixture_applied", {
+            state_id: resolved.commerceStateId,
+            account_kind: commerceStore.getState().account.kind,
+          });
         }
         if (resolved.couponStateId) {
           couponStore.getState().loadFixture(resolved.couponStateId, resolved.selectionNonce);
