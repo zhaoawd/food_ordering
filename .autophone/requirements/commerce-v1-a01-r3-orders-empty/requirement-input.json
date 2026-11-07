@@ -1,0 +1,213 @@
+{
+  "app": "food_ordering_v2",
+  "baseline": {
+    "branch": "autophone/req-commerce-v1-a01-r2-home-guest",
+    "requirement_key": "commerce-v1-a01-r2-home-guest"
+  },
+  "branch": "autophone/req-commerce-v1-a01-r3-orders-empty",
+  "design_package": {
+    "adapter": "ai-prototype-dsl/v2",
+    "element_count": 12,
+    "frame_size": {
+      "height": 932,
+      "width": 430
+    },
+    "manifest_sha256": "3ae9ea83b3e552cdc3dc8acd3230868f748c2c78e78eabe3ee6f7d3f2bdef7d4",
+    "origin": {
+      "path": "test-results/commerce-v1-a01-r3/packages/orders.empty.v1",
+      "repo": "autophone"
+    },
+    "role": "design_source",
+    "root": "design",
+    "scale": 3,
+    "schema_version": "structured-design-package/v1",
+    "stable_ids": [
+      "nav.coupons",
+      "nav.home",
+      "nav.member",
+      "nav.menu",
+      "nav.orders",
+      "orders.empty.primary_action",
+      "orders.empty.title",
+      "orders.filter.active",
+      "orders.filter.after_sale",
+      "orders.filter.all",
+      "orders.filter.completed",
+      "orders.title"
+    ]
+  },
+  "expectation": {
+    "clauses": [],
+    "comparison_policy": {
+      "frame_tolerance_pt": 0.5,
+      "max_changed_pixel_ratio": 0.002,
+      "pixel_channel_tolerance": 0,
+      "pixel_scope": "expected_alpha"
+    },
+    "design_package_sha256": "3ae9ea83b3e552cdc3dc8acd3230868f748c2c78e78eabe3ee6f7d3f2bdef7d4",
+    "kind": "structured",
+    "noise_baseline": {
+      "path": "expectation/noise-baseline-v1.json",
+      "sha256": "80ca3d5bde425c1a17586c03cf64476178ae6191c80632adf577435567c695f3"
+    },
+    "property_channels": "sha256:21e0fac5cd4a0093d41a780c9ece36efae8b4b3b5cbc7d85bea3af586e350b80",
+    "reference": {
+      "path": "expectation/expected-full.png",
+      "sha256": "263fd81fa32b93cbfa07566eb4b8ec7185d5385f938bf1345cefacaefcf1b022"
+    },
+    "region_mappings": {
+      "screen": {
+        "coordinate_space": "screen_points",
+        "frame": {
+          "height": 932,
+          "width": 430,
+          "x": 0,
+          "y": 0
+        },
+        "scale": 3,
+        "stable_ids": [
+          "$screen"
+        ]
+      }
+    },
+    "regions": [
+      "screen"
+    ],
+    "required_property_policy": "production-v1",
+    "role": "executable_expectation",
+    "unverifiable_clauses": []
+  },
+  "files": [
+    {
+      "bytes": 1134,
+      "kind": "requirement_document",
+      "origin": "authored",
+      "path": "commerce-v1-a01-r3-orders-empty.md",
+      "purpose": "需求原文。页面上传的就是这个文件，建单时冻结成需求单的原始输入快照。",
+      "sha256": "78735ed235709e3ee40423a3a31333f83892c0f0e90ae197db4940191d95ef61"
+    },
+    {
+      "bytes": 8527,
+      "kind": "design_package_manifest",
+      "origin": "compiled",
+      "path": "design/design-package.json",
+      "purpose": "设计源包身份与清单：屏/状态、frame、scale、逐元素属性和比较策略。它用于设计追溯，不作为本轮机器可执行期望。",
+      "sha256": "3ae9ea83b3e552cdc3dc8acd3230868f748c2c78e78eabe3ee6f7d3f2bdef7d4"
+    },
+    {
+      "bytes": 2355,
+      "kind": "design_measured_geometry",
+      "origin": "compiled",
+      "path": "design/measured-geometry.json",
+      "purpose": "打包时测得的节点几何（`measured-geometry.json`）：设计锁定前的容器样式准入预检据此在参考图上定位元素边界。由打包器生成，不手工编辑。",
+      "sha256": "eb3e2a6894a78eb9e9777e0d31b12c393527b4423465fc6be7a91eb6b2caa943"
+    },
+    {
+      "bytes": 5559,
+      "kind": "design_compiled_scene",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/compiled-scene.json",
+      "purpose": "编译后的场景节点与测量值。stable_id → 属性期望的映射来源。",
+      "sha256": "0cf0b2f536f0f3f86d68d7a99b6359b168f9d00d109765562bf303542dbd4d15"
+    },
+    {
+      "bytes": 4937,
+      "kind": "design_compiled_prototype",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/index.html",
+      "purpose": "编译器生成的可执行原型 HTML。参考图由它渲染，不手工编辑。",
+      "sha256": "b8e7d0b6d7ae2e15a8f9f8ffec1828859020498620801d7d0c0f1b59c83a0047"
+    },
+    {
+      "bytes": 1877,
+      "kind": "design_renderer_spec",
+      "origin": "compiled",
+      "path": "design/prototype/compiled/renderer-spec.json",
+      "purpose": "渲染器输入参数。参考图能否复现取决于它。",
+      "sha256": "a5e8eb9380877d824f4381fdd1f7df3267ddb494945c2630a70142d70cc5302f"
+    },
+    {
+      "bytes": 970,
+      "kind": "design_prototype_spec",
+      "origin": "authored",
+      "path": "design/prototype/prototype-spec.json",
+      "purpose": "设计原始内容：草稿装配说明——viewport profile、safe area、系统 UI 策略与逐元素验收范围。",
+      "sha256": "125df4db65ca5c7314d9508ea753bf0927a4a86a50fa25b7d1309cc607db1a89"
+    },
+    {
+      "bytes": 345,
+      "kind": "design_screen_plan",
+      "origin": "authored",
+      "path": "design/prototype/screen-plan.json",
+      "purpose": "设计原始内容：页面目的、区块划分与页面流。不含设计节点。",
+      "sha256": "f32b10c0d4d9b11dc915d5ca683651212b0c03e947ef82e69c63e6d2d54f76f5"
+    },
+    {
+      "bytes": 949,
+      "kind": "design_state_fixture",
+      "origin": "authored",
+      "path": "design/prototype/state-fixture.json",
+      "purpose": "设计原始内容：Fixture Spec，业务状态的独立真源（选项、列表、文案样例）。",
+      "sha256": "b89c8bf2b296baab77bf6959cdf52c43f86a9b95986358a5f3b14613250896f6"
+    },
+    {
+      "bytes": 19450,
+      "kind": "design_ui_document",
+      "origin": "authored",
+      "path": "design/prototype/ui-document.json",
+      "purpose": "设计原始内容：UI DSL 节点树，设计的唯一真源。布局、Token 引用和 stable_id 都在这里。",
+      "sha256": "2e0895ee9b1d73cde79b28f62495c516771380aab63fad524464e1102b8a0992"
+    },
+    {
+      "bytes": 66383,
+      "kind": "design_reference_image",
+      "origin": "rendered",
+      "path": "design/reference.png",
+      "purpose": "设计参考图：由编译原型渲染，尺寸由设计包的 frame_size 与 scale 决定。声明 comparison_mask 时，它应用遮罩，评审使用遮罩前的 review-reference.png；未声明遮罩时，它也用于设计评审。本轮比较使用 expectation 声明的参考图。",
+      "sha256": "263fd81fa32b93cbfa07566eb4b8ec7185d5385f938bf1345cefacaefcf1b022"
+    },
+    {
+      "bytes": 62671,
+      "kind": "design_review_reference_image",
+      "origin": "rendered",
+      "path": "design/review-reference.png",
+      "purpose": "评审参考图：viewport scope 之后、遮罩之前的那一帧。遮罩覆盖率的分母只能从它复算。",
+      "sha256": "2f8377dee86e70efff2505ab3349af80bea8bee71aa0d268d478b4fc93757c7b"
+    },
+    {
+      "bytes": 66383,
+      "kind": "expectation_reference_image",
+      "origin": "rendered",
+      "path": "expectation/expected-full.png",
+      "purpose": "机器可执行期望的参考图。structured 类型必须与设计参考图逐字节一致；prd 类型使用已冻结的运行时参考图。",
+      "sha256": "263fd81fa32b93cbfa07566eb4b8ec7185d5385f938bf1345cefacaefcf1b022"
+    },
+    {
+      "bytes": 4655,
+      "kind": "expectation_noise_baseline",
+      "origin": "compiled",
+      "path": "expectation/noise-baseline-v1.json",
+      "purpose": "机器可执行期望的噪声基线。由同一干净构建的重复采样计算，限定允许的视觉残差。",
+      "sha256": "80ca3d5bde425c1a17586c03cf64476178ae6191c80632adf577435567c695f3"
+    }
+  ],
+  "packed_at": "2026-11-07T10:48:22Z",
+  "packed_by": "claude",
+  "requirement_document": {
+    "media_type": "text/markdown",
+    "path": "commerce-v1-a01-r3-orders-empty.md",
+    "sha256": "78735ed235709e3ee40423a3a31333f83892c0f0e90ae197db4940191d95ef61"
+  },
+  "requirement_key": "commerce-v1-a01-r3-orders-empty",
+  "round_role": "delivery",
+  "schema_version": "requirement-input-package/v1",
+  "screen_id": "orders",
+  "sequence": 3,
+  "state_id": "orders.empty.v1",
+  "summary": "新增订单 Tab 空态：“还没有订单”与“去点餐”主操作，订单入口不显示购物袋（T004）",
+  "title": "commerce-v1 A01 r3：订单页空态",
+  "upstream": {
+    "commit_sha": "881b8832f9fa7d4f8b60ea73f63a5d202db5bed5",
+    "source_url": "https://github.com/adrianhajdin/food_ordering"
+  }
+}
