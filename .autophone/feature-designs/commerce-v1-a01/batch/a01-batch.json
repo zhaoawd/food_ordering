@@ -185,7 +185,18 @@
           "#FFFFFF",
           "#EDE6DD"
         ],
-        "minimum_content_coverage_ratio": 0.85
+        "minimum_content_coverage_ratio": 0.85,
+        "exclude_unrendered_assets": {
+          "decision": "D11",
+          "nodes": [
+            "orders.header.back.icon",
+            "nav.home",
+            "nav.menu",
+            "nav.coupons",
+            "nav.orders",
+            "nav.member"
+          ]
+        }
       }
     },
     "source": "颜色与覆盖率取第 13 轮参考图实测：首页内缩 12px 覆盖 0.598，订单页 0.875；首页颜色与 BL-213 设备自证一致（autophone evidence/outputs/bl213-isolation-peer-20261106）"

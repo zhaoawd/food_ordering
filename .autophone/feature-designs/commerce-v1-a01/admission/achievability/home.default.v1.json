@@ -1,7 +1,7 @@
 {
  "schema_version": "design-batch-text-achievability/v1",
  "faces": {
-  "path": "calibration/home.default.v1/round-17-faces.json",
+  "path": "calibration/home.default.v1/round-18-faces.json",
   "sha256": "b6d86fa64e2b358f76ab623cd8174089f811c158e4e000a05bf83b4cc3565933",
   "design_package_sha256": "c92c82180ec206672fb3d28609776dd24ab260609aa35303f68b412ff24f6494"
  },

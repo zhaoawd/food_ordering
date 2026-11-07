@@ -111,9 +111,9 @@
         "T004"
       ],
       "design_package": {
-        "path": "packages/orders.empty.v1/round-17",
-        "design_package_sha256": "3ae9ea83b3e552cdc3dc8acd3230868f748c2c78e78eabe3ee6f7d3f2bdef7d4",
-        "reference_sha256": "263fd81fa32b93cbfa07566eb4b8ec7185d5385f938bf1345cefacaefcf1b022"
+        "path": "packages/orders.empty.v1/round-18",
+        "design_package_sha256": "382926d25d6b5cf41fee2c82a08180fa241774fea5ceedd65ae4d2d2d4e3639c",
+        "reference_sha256": "6acd2aab3b41d31a15e5568c5e40aec92faef0bc8c696553aaa2d3095d43374a"
       },
       "route": "dsl",
       "e3_clauses": 44,
@@ -481,6 +481,11 @@
       "item": "design_round_17",
       "date": "2026-11-07",
       "detail": "r1 验收时按 D10 与渲染器按视觉行读取文本（autophone PR #360）重做第 15–17 轮；三张需求单的设计包改为第 17 轮（参考图与第 14 轮逐字节相同）。首页两个状态 81 条 E3 条款（D10 把商品卡与 AI 入口的容器样式改为 frame），订单空态 44 条；r1 已按第 17 轮设备包重锁并验收（REQ-20261107-002，design 95543f7d）"
+    },
+    {
+      "item": "design_round_18",
+      "date": "2026-11-07",
+      "detail": "r3 起点轮变化像素 0.00228 > 0.002 几乎全部来自 DSL 参考图画不出的返回图标与底部导航图标；用户选 D11，订单页遮罩按同一次渲染测得的占位节点 frame 移除这些区域（autophone PR #370/#372），第 18 轮只改订单空态设计包（覆盖率 0.879），r3 按第 18 轮重锁并验收（REQ-20261107-004）"
     }
   ]
 }

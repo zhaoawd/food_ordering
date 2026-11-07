@@ -3,7 +3,7 @@
  "note": "derive.py 全部产物的 SHA-256。由批次定义数据化之前（4c39a70）的代码生成；相同 L0、L1 输入下重构后的产物必须与之逐字节一致。规则含义有意改变时才更新本文件，并在提交说明中写明原因。",
  "inputs": {
   "manifest_sha256": "ec6bed1c5fbae3eb4d7cca23dbb1a78c573906b08b52a062e93812f604c174ee",
-  "decisions_sha256": "d9c7a5a091bca6181eaaa25137a98163e64ce9940e998f88cf3b80ee72099374"
+  "decisions_sha256": "362856149662c38d660c010f82df96a7e2eefe295afced6e7bc54f64e5e0a498"
  },
  "generated_by": "4c39a70",
  "files": {
@@ -15,7 +15,7 @@
   "derived/bindings/home.guest.v1.json": "e169d21dc916bc215e304f12cc8056182e9937c5848c906138b821bc4320a12a",
   "derived/bindings/orders.empty.v1.json": "0d89e4d903bfe56a1a851d1b8aa20885274b42fd7a252d823eb7a81c14f76c57",
   "derived/input-checks.json": "3bc949b04bfc8ac1f60cf7ae89705623c2f0c6ec7d819c54236842e912397a4d",
-  "derived/provenance.json": "00b6f478cda500bf0bfa7cdde129af86e59affbfa3e2ba322f9cb5661a4cfccb",
+  "derived/provenance.json": "69d58e8d62e39f5127bbaff98bb889fb2274718a09e23c5997fdb1f6633f735a",
   "derived/relayout-r4.json": "fb7aff544a3d0b9bebfa739d819f2af9d0543d86d2e412ec280de531bc18e7d4",
   "derived/screen-plan.home.json": "0e58ab9d2ea3a82573c8b16c4db02b10eb7558a44607f3cd0799390502be1982",
   "derived/screen-plan.orders.json": "f32b10c0d4d9b11dc915d5ca683651212b0c03e947ef82e69c63e6d2d54f76f5",
@@ -29,7 +29,7 @@
   "drafts/home.guest.v1/screen-plan.json": "0e58ab9d2ea3a82573c8b16c4db02b10eb7558a44607f3cd0799390502be1982",
   "drafts/home.guest.v1/state-fixture.json": "cdbefb96013d626c5a897f0e6a699ab4901b6a427fd0aa3d82c29682a6fdc3ce",
   "drafts/home.guest.v1/ui-document.json": "d9f9fa2ae6c3b1be05a4a56676d36d19581d53a881d19b26e9f3df58f510c949",
-  "drafts/orders.empty.v1/prototype-spec.json": "125df4db65ca5c7314d9508ea753bf0927a4a86a50fa25b7d1309cc607db1a89",
+  "drafts/orders.empty.v1/prototype-spec.json": "f98da86b6c676308eec50a208ebc537d29778f3ed91c98d65468a49bcfb3e668",
   "drafts/orders.empty.v1/screen-plan.json": "f32b10c0d4d9b11dc915d5ca683651212b0c03e947ef82e69c63e6d2d54f76f5",
   "drafts/orders.empty.v1/state-fixture.json": "b89c8bf2b296baab77bf6959cdf52c43f86a9b95986358a5f3b14613250896f6",
   "drafts/orders.empty.v1/ui-document.json": "2e0895ee9b1d73cde79b28f62495c516771380aab63fad524464e1102b8a0992",
@@ -101,6 +101,15 @@
     "derived/provenance.json",
     "drafts-html/home.default.v1/prototype-spec.json",
     "drafts-html/home.guest.v1/prototype-spec.json"
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "decision": "D11",
+   "reason": "D11: orders DSL mask excludes the measured asset placeholder nodes",
+   "changed_files": [
+    "derived/provenance.json",
+    "drafts/orders.empty.v1/prototype-spec.json"
    ]
   }
  ]
