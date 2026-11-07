@@ -20,7 +20,7 @@
 
 ## 验收标准
 
-1. 设计锁定：设计包 `packages/home.guest.v1/round-14-device`，75 条 E3 条款；比较策略同 r1（D9 遮罩、容差 0、≤ 0.002、0.5 pt）。
+1. 设计锁定：设计包 `packages/home.guest.v1/round-17-device`，81 条 E3 条款（含 D10：商品卡与 AI 入口按 frame 断言）；比较策略同 r1（D9 遮罩、容差 0、≤ 0.002、0.5 pt）。
 2. T001：打开首页并进入点餐，点餐 Tab 选中、点餐页可达，业务事件读回无 `account_created`。
 
 ## 输入来源

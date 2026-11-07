@@ -2,7 +2,7 @@
   "schema_version": "commerce-v1-acceptance-contract/v1",
   "batch": "A01",
   "design_version": "commerce-v1-a01-430/r4",
-  "round": 14,
+  "round": 17,
   "decided": {
     "date": "2026-11-06",
     "by": "user",
@@ -28,12 +28,12 @@
         "T003"
       ],
       "design_package": {
-        "path": "packages/home.default.v1/round-14-device",
-        "design_package_sha256": "25d149dbcb3af437e5472fadb4463de1d4ba36e1efe21c47b47332f42784fffd",
+        "path": "packages/home.default.v1/round-17-device",
+        "design_package_sha256": "7661ae90e02db18e15805a3595f432fed756bc0b692c25e30808f9afaf029ae0",
         "reference_sha256": "74bd0bc4339de98902e3590256488b57a8df6265d7e0b445a879c307c3a4ca68"
       },
       "route": "html",
-      "e3_clauses": 75,
+      "e3_clauses": 81,
       "unverifiable": [
         {
           "stable_id": "home.hero.headline",
@@ -70,12 +70,12 @@
         "T001"
       ],
       "design_package": {
-        "path": "packages/home.guest.v1/round-14-device",
-        "design_package_sha256": "2aeb09b2f0eca571e7dd9632b09a31a6e95478d2cbf6f2bb71cbf7222f074f34",
+        "path": "packages/home.guest.v1/round-17-device",
+        "design_package_sha256": "c6e370b5fd89b0e7fed029fd240d3a2458a3e2774d2e9827a624514e1a02bfdf",
         "reference_sha256": "328aec16bd7c090f97e2a6e603fb39b06c4bfab1a94500522f5090c18192d9fb"
       },
       "route": "html",
-      "e3_clauses": 75,
+      "e3_clauses": 81,
       "unverifiable": [
         {
           "stable_id": "home.hero.headline",
@@ -111,8 +111,8 @@
         "T004"
       ],
       "design_package": {
-        "path": "packages/orders.empty.v1/round-14",
-        "design_package_sha256": "b8fa8a723465d0f13db885a2c4a87fb5b930d0af94954cfa2af7cedb610a900b",
+        "path": "packages/orders.empty.v1/round-17",
+        "design_package_sha256": "3ae9ea83b3e552cdc3dc8acd3230868f748c2c78e78eabe3ee6f7d3f2bdef7d4",
         "reference_sha256": "263fd81fa32b93cbfa07566eb4b8ec7185d5385f938bf1345cefacaefcf1b022"
       },
       "route": "dsl",
@@ -476,6 +476,11 @@
       "item": "noise_baseline",
       "date": "2026-11-07",
       "detail": "r0 基线轮构建在 isolation-peer 上每个状态 3 次采集，见 requirements[].noise_baseline"
+    },
+    {
+      "item": "design_round_17",
+      "date": "2026-11-07",
+      "detail": "r1 验收时按 D10 与渲染器按视觉行读取文本（autophone PR #360）重做第 15–17 轮；三张需求单的设计包改为第 17 轮（参考图与第 14 轮逐字节相同）。首页两个状态 81 条 E3 条款（D10 把商品卡与 AI 入口的容器样式改为 frame），订单空态 44 条；r1 已按第 17 轮设备包重锁并验收（REQ-20261107-002，design 95543f7d）"
     }
   ]
 }

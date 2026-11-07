@@ -21,7 +21,7 @@
 
 ## 验收标准
 
-1. 设计锁定：设计包 `packages/orders.empty.v1/round-14`（DSL 路线），44 条 E3 条款；像素只取 #FAF7F2、#FFFFFF、#EDE6DD 内部（D9），其余同 r1。
+1. 设计锁定：设计包 `packages/orders.empty.v1/round-17`（DSL 路线），44 条 E3 条款；像素只取 #FAF7F2、#FFFFFF、#EDE6DD 内部（D9），其余同 r1。
 2. T004：从首页点击订单入口，订单 Tab 选中，显示“还没有订单”与 `orders.empty.primary_action`，不出现“购物袋”。
 
 ## 输入来源
