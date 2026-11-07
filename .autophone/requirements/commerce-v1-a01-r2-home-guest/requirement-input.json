@@ -1,0 +1,204 @@
+{
+  "app": "food_ordering_v2",
+  "baseline": {
+    "branch": "autophone/req-commerce-v1-a01-r1-home-default",
+    "requirement_key": "commerce-v1-a01-r1-home-default"
+  },
+  "branch": "autophone/req-commerce-v1-a01-r2-home-guest",
+  "design_package": {
+    "adapter": "design-batch-html-adapter/v1",
+    "element_count": 27,
+    "frame_size": {
+      "height": 932,
+      "width": 430
+    },
+    "manifest_sha256": "c6e370b5fd89b0e7fed029fd240d3a2458a3e2774d2e9827a624514e1a02bfdf",
+    "origin": {
+      "path": "test-results/commerce-v1-a01-r2/packages/home.guest.v1",
+      "repo": "autophone"
+    },
+    "role": "design_source",
+    "root": "design",
+    "scale": 3,
+    "schema_version": "structured-design-package/v1",
+    "stable_ids": [
+      "home.ai.open",
+      "home.brand",
+      "home.greeting",
+      "home.hero.headline",
+      "home.hero.price",
+      "home.member.coupons",
+      "home.mode.delivery",
+      "home.mode.delivery.title",
+      "home.mode.pickup",
+      "home.mode.pickup.title",
+      "home.shelf.combo-beef-002.name",
+      "home.shelf.combo-beef-002.price",
+      "home.shelf.combo-chicken-001.name",
+      "home.shelf.combo-chicken-001.price",
+      "home.shelf.title",
+      "home.start_order",
+      "home.store.distance",
+      "home.store.name",
+      "home.store.select",
+      "member.points.open",
+      "menu.product.combo-beef-002.open",
+      "menu.product.combo-chicken-001.open",
+      "nav.coupons",
+      "nav.home",
+      "nav.member",
+      "nav.menu",
+      "nav.orders"
+    ]
+  },
+  "expectation": {
+    "clauses": [],
+    "comparison_policy": {
+      "frame_tolerance_pt": 0.5,
+      "max_changed_pixel_ratio": 0.002,
+      "pixel_channel_tolerance": 0,
+      "pixel_scope": "expected_alpha"
+    },
+    "design_package_sha256": "c6e370b5fd89b0e7fed029fd240d3a2458a3e2774d2e9827a624514e1a02bfdf",
+    "kind": "structured",
+    "noise_baseline": {
+      "path": "expectation/noise-baseline-v1.json",
+      "sha256": "20898b3354752095c3f939ae574edc0c372d0f8460a01aa9aeece7b56fccf281"
+    },
+    "property_channels": "sha256:21e0fac5cd4a0093d41a780c9ece36efae8b4b3b5cbc7d85bea3af586e350b80",
+    "reference": {
+      "path": "expectation/expected-full.png",
+      "sha256": "328aec16bd7c090f97e2a6e603fb39b06c4bfab1a94500522f5090c18192d9fb"
+    },
+    "region_mappings": {
+      "screen": {
+        "coordinate_space": "screen_points",
+        "frame": {
+          "height": 932,
+          "width": 430,
+          "x": 0,
+          "y": 0
+        },
+        "scale": 3,
+        "stable_ids": [
+          "$screen"
+        ]
+      }
+    },
+    "regions": [
+      "screen"
+    ],
+    "required_property_policy": "production-v1",
+    "role": "executable_expectation",
+    "unverifiable_clauses": []
+  },
+  "files": [
+    {
+      "bytes": 1178,
+      "kind": "requirement_document",
+      "origin": "authored",
+      "path": "commerce-v1-a01-r2-home-guest.md",
+      "purpose": "需求原文。页面上传的就是这个文件，建单时冻结成需求单的原始输入快照。",
+      "sha256": "eea25bbce555435ca99c0fe27b6ea4e449db26a13d6bf3e6f59fb99840b1cff8"
+    },
+    {
+      "bytes": 14559,
+      "kind": "design_package_manifest",
+      "origin": "compiled",
+      "path": "design/design-package.json",
+      "purpose": "设计源包身份与清单：屏/状态、frame、scale、逐元素属性和比较策略。它用于设计追溯，不作为本轮机器可执行期望。",
+      "sha256": "c6e370b5fd89b0e7fed029fd240d3a2458a3e2774d2e9827a624514e1a02bfdf"
+    },
+    {
+      "bytes": 4912,
+      "kind": "design_measured_geometry",
+      "origin": "compiled",
+      "path": "design/measured-geometry.json",
+      "purpose": "打包时测得的节点几何（`measured-geometry.json`）：设计锁定前的容器样式准入预检据此在参考图上定位元素边界。由打包器生成，不手工编辑。",
+      "sha256": "3be6476c5940a9ceb65c404a07c75e94a7b94861ce2b90fe94fd8d58209cf3a8"
+    },
+    {
+      "bytes": 533,
+      "kind": "design_adapter_provenance",
+      "origin": "compiled",
+      "path": "design/prototype/adapter-provenance.json",
+      "purpose": "HTML 路线的注入来源记录：原型、注入引擎与布局锚定值的哈希，以及由设计决定改写的文本。",
+      "sha256": "aa747b3a3448cd65ea389b3007ceca3d33d38b9fc25da6f88e4440ca8347fae5"
+    },
+    {
+      "bytes": 96106,
+      "kind": "design_html_prototype",
+      "origin": "compiled",
+      "path": "design/prototype/index.html",
+      "purpose": "HTML 路线的可执行原型：冻结的原型 HTML 加确定性注入（查询参数、外壳样式、布局锚定值与 stable_id 标注），参考图由它渲染。由设计批次派生生成，不手工编辑。",
+      "sha256": "6cd09144d30835cab78c94d04405b87806e98bf17fd9e89f7eefd363a8b5e573"
+    },
+    {
+      "bytes": 5236,
+      "kind": "design_prototype_spec",
+      "origin": "authored",
+      "path": "design/prototype/prototype-spec.json",
+      "purpose": "设计原始内容：草稿装配说明——viewport profile、safe area、系统 UI 策略与逐元素验收范围。",
+      "sha256": "a9ea6fbb0e8e9b26772f4f5b7e6c19a1390b8def01d620acd79b1d4d3d8caecf"
+    },
+    {
+      "bytes": 1748,
+      "kind": "design_state_fixture",
+      "origin": "authored",
+      "path": "design/prototype/state-fixture.json",
+      "purpose": "设计原始内容：Fixture Spec，业务状态的独立真源（选项、列表、文案样例）。",
+      "sha256": "b6f765c142de67c8d87a09899d53b595bb66521676402b4134fe5bfac67993fa"
+    },
+    {
+      "bytes": 281812,
+      "kind": "design_reference_image",
+      "origin": "rendered",
+      "path": "design/reference.png",
+      "purpose": "设计参考图：由编译原型渲染，尺寸由设计包的 frame_size 与 scale 决定。声明 comparison_mask 时，它应用遮罩，评审使用遮罩前的 review-reference.png；未声明遮罩时，它也用于设计评审。本轮比较使用 expectation 声明的参考图。",
+      "sha256": "328aec16bd7c090f97e2a6e603fb39b06c4bfab1a94500522f5090c18192d9fb"
+    },
+    {
+      "bytes": 268153,
+      "kind": "design_review_reference_image",
+      "origin": "rendered",
+      "path": "design/review-reference.png",
+      "purpose": "评审参考图：viewport scope 之后、遮罩之前的那一帧。遮罩覆盖率的分母只能从它复算。",
+      "sha256": "92f051d605b4d1aca352aad74e201c33ef8708902948799b4df14483fb8474b9"
+    },
+    {
+      "bytes": 281812,
+      "kind": "expectation_reference_image",
+      "origin": "rendered",
+      "path": "expectation/expected-full.png",
+      "purpose": "机器可执行期望的参考图。structured 类型必须与设计参考图逐字节一致；prd 类型使用已冻结的运行时参考图。",
+      "sha256": "328aec16bd7c090f97e2a6e603fb39b06c4bfab1a94500522f5090c18192d9fb"
+    },
+    {
+      "bytes": 4651,
+      "kind": "expectation_noise_baseline",
+      "origin": "compiled",
+      "path": "expectation/noise-baseline-v1.json",
+      "purpose": "机器可执行期望的噪声基线。由同一干净构建的重复采样计算，限定允许的视觉残差。",
+      "sha256": "20898b3354752095c3f939ae574edc0c372d0f8460a01aa9aeece7b56fccf281"
+    }
+  ],
+  "packed_at": "2026-11-07T09:53:06Z",
+  "packed_by": "claude",
+  "requirement_document": {
+    "media_type": "text/markdown",
+    "path": "commerce-v1-a01-r2-home-guest.md",
+    "sha256": "eea25bbce555435ca99c0fe27b6ea4e449db26a13d6bf3e6f59fb99840b1cff8"
+  },
+  "requirement_key": "commerce-v1-a01-r2-home-guest",
+  "round_role": "delivery",
+  "schema_version": "requirement-input-package/v1",
+  "screen_id": "home",
+  "sequence": 2,
+  "state_id": "home.guest.v1",
+  "summary": "在 r1 首页上实现游客态：会员条显示“登录 ›”，游客浏览与进入点餐不创建账号（T001）",
+  "title": "commerce-v1 A01 r2：首页游客态",
+  "upstream": {
+    "commit_sha": "881b8832f9fa7d4f8b60ea73f63a5d202db5bed5",
+    "source_url": "https://github.com/adrianhajdin/food_ordering"
+  }
+}
